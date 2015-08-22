@@ -1,0 +1,6 @@
+# GPU device
+/dev/mali        u:object_r:gpu_device:s0
+/dev/mtkfb_vsync u:object_r:gpu_device:s0
+
+# Wifi device
+/dev/wmtWifi       u:object_r:wmtWifi_device:s0

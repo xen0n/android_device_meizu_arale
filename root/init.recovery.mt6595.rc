@@ -1,0 +1,7 @@
+on post-fs-data
+  mkdir /storage/sdcard0 0700 root root
+  mkdir /storage/sdcard1 0700 root root
+
+  start adbd
+
+
