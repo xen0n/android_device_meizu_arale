@@ -9,6 +9,6 @@
 /dev/block/mmcblk0p3   /protect_f          ext4      noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc   wait,check
 /dev/block/mmcblk0p4   /protect_s          ext4      noatime,nosuid,nodev,noauto_da_alloc,commit=1,nodelalloc   wait,check
 
-/devices/mtk-msdc.0/11230000.MSDC0  auto      vfat      defaults        voldmanaged=sdcard0:emmc@intsd,noemulatedsd
-/devices/mtk-msdc.0/11240000.MSDC1  auto      vfat      defaults        voldmanaged=sdcard1:auto
-/devices/bus.1/11270000.USB3_XHCI   auto      vfat      defaults        voldmanaged=usbotg:auto
+/devices/platform/mtk-msdc.0/mmc_host                auto           vfat      defaults                                voldmanaged=sdcard0:emmc@intsd,noemulatedsd
+/devices/platform/mtk-msdc.1/mmc_host                auto           vfat      defaults                                voldmanaged=sdcard1:auto
+/devices/platform/xhci-hcd                           auto           vfat      defaults                                voldmanaged=usbotg:auto

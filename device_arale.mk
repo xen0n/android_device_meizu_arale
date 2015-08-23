@@ -68,7 +68,7 @@ PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/configs/thermal.off.conf:system/etc/.tp/thermal.off.conf \
      $(LOCAL_PATH)/configs/thermal.high.conf:system/etc/.tp/thermal.high.conf \
      $(LOCAL_PATH)/configs/thermal.low.conf:system/etc/.tp/thermal.low.conf \
-     $(LOCAL_PATH)/configs/thermal.mod.conf:system/etc/.tp/thermal.mid.conf
+     $(LOCAL_PATH)/configs/thermal.mid.conf:system/etc/.tp/thermal.mid.conf
 
 # Ramdisk
 PRODUCT_COPY_FILES += \

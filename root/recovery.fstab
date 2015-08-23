@@ -3,5 +3,5 @@
 /dev/block/mmcblk0p15	/cache		ext4	noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic wait,check
 /dev/block/mmcblk0p7		/boot		emmc	defaults defaults
 /dev/block/mmcblk0p8		/recovery	emmc	defaults defaults
-/dev/mmcblk1	/storage/sdcard1		vfat	defaults defaults
-/dev/mmcblk1p1	/storage/sdcard1		vfat	defaults defaults
+/dev/block/mmcblk1	/storage/sdcard1		vfat	defaults defaults
+/dev/block/mmcblk1p1	/storage/sdcard1		vfat	defaults defaults
