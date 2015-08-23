@@ -1,7 +1,10 @@
+on init
+  export PATH /sbin:/system/bin
+  export LD_LIBRARY_PATH .:/sbin
+
+
 on post-fs-data
   mkdir /storage/sdcard0 0700 root root
   mkdir /storage/sdcard1 0700 root root
 
   start adbd
-
-

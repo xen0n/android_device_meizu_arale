@@ -1,0 +1,12 @@
+# mount point	fstype    device		[device2]
+
+/boot			emmc	/dev/block/platform/mtk-msdc.0/by-name/boot		flags=display="Boot";backup=1
+/logo			emmc	/dev/block/platform/mtk-msdc.0/by-name/logo		flags=display="Logo";backup=1
+/nvram			emmc	/dev/block/platform/mtk-msdc.0/by-name/nvram	flags=display="Nvram";backup=1
+/recovery		emmc	/dev/block/platform/mtk-msdc.0/by-name/recovery	flags=display="Recovery";backup=1
+/lk				emmc	/dev/block/platform/mtk-msdc.0/by-name/lk		flags=display="U-Boot";backup=1;flashimg=1
+/system			ext4	/dev/block/platform/mtk-msdc.0/by-name/system	flags=display="System";backup=1;wipeingui
+/cache			ext4	/dev/block/platform/mtk-msdc.0/by-name/cache	flags=display="Cache";backup=1;wipeingui;wipeduringfactoryreset
+/data			ext4	/dev/block/platform/mtk-msdc.0/by-name/userdata	flags=display="Data";backup=1;wipeingui;wipeduringfactoryreset
+/external_sd	vfat	/dev/block/mmcblk1p1	/dev/block/mmcblk1		flags=display="External SD card";storage;wipeingui;removable;backup=0
+/usbotg			vfat	/dev/block/sda1			/dev/block/sda			flags=display="Usb-Otg";storage;wipeingui;removable;backup=0

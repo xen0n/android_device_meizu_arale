@@ -74,6 +74,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/root/enableswap.sh:root/enableswap.sh \
     $(LOCAL_PATH)/root/fstab.mt6595:root/fstab.mt6595 \
+    $(LOCAL_PATH)/root/twrp.fstab:recovery/root/etc/twrp.fstab \
     $(LOCAL_PATH)/root/init.mt6595.rc:root/init.mt6595.rc \
     $(LOCAL_PATH)/root/init.mt6595.usb.rc:root/init.mt6595.usb.rc \
     $(LOCAL_PATH)/root/init.recovery.mt6595.rc:root/init.recovery.mt6595.rc \

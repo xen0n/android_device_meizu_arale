@@ -104,24 +104,31 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_FOLDER)/bluetooth
 # CWM
 TARGET_RECOVERY_FSTAB := device/meizu/arale/root/recovery.fstab
 BOARD_HAS_NO_SELECT_BUTTON := true
-#TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
-#BOARD_USE_FRAMEBUFFER_ALPHA_CHANNEL := true
-#TARGET_DISABLE_TRIPLE_BUFFERING := false
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
+BOARD_USE_FRAMEBUFFER_ALPHA_CHANNEL := true
+TARGET_DISABLE_TRIPLE_BUFFERING := false
 #BOARD_CUSTOM_GRAPHICS := $(DEVICE_FOLDER)/recovery/graphics.cwmt.c
 
 # TWRP
+# disabled due to graphics problem... can't open fb
 #RECOVERY_VARIANT=twrp
-DEVICE_RESOLUTION := 1152x1920
+#DEVICE_RESOLUTION := 1152x1920
+DEVICE_RESOLUTION := 1080x1920
 TW_NO_USB_STORAGE := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_NO_REBOOT_BOOTLOADER := true
 TW_BRIGHTNESS_PATH := /sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness
 TW_MAX_BRIGHTNESS := 255
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
-TW_INTERNAL_STORAGE_PATH := "/emmc"
-TW_INTERNAL_STORAGE_MOUNT_POINT := "emmc"
-TW_EXTERNAL_STORAGE_PATH := "/sdcard"
-TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"
+#BOARD_CUSTOM_GRAPHICS := \
+#	../../../$(DEVICE_FOLDER)/recovery/graphics.c \
+#	../../../$(DEVICE_FOLDER)/recovery/graphics_adf.c \
+#	../../../$(DEVICE_FOLDER)/recovery/graphics_fbdev.c
+#TW_BOARD_CUSTOM_GRAPHICS := ../../../$(DEVICE_FOLDER)/recovery/graphics.twrp.c
+#TW_INTERNAL_STORAGE_PATH := "/emmc"
+#TW_INTERNAL_STORAGE_MOUNT_POINT := "emmc"
+#TW_EXTERNAL_STORAGE_PATH := "/sdcard"
+#TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"
 
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/virtual/android_usb/android0/f_mass_storage/lun%d/file"
 
