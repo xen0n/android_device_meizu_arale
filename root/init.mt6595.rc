@@ -9,6 +9,7 @@ import init.ssd.rc
 #import init.ssd_nomuser.rc
 #import init.fon.rc
 
+
 on init
 
     # BATTERY proc
@@ -86,9 +87,9 @@ on fs
 
 # mount different fs end
 
-on fs
+#on fs
 
-   mount iso9660 loop@/system/etc/iAmCdRom.iso /mnt/cd-rom ro
+#   mount iso9660 loop@/system/etc/iAmCdRom.iso /mnt/cd-rom ro
 
 on post-fs
 
@@ -553,8 +554,12 @@ on post-fs-data
     # Recycle stuffs
     exec /system/bin/rm -f /cache/.ipoh.img
 
-# End of adding by MTK drivers
-# -----------------------
+    # End of adding by MTK drivers
+    # -----------------------
+
+    # originally in init.project.rc
+    # init some more device nodes
+    start setup_proj_dev
 
 on boot
 
@@ -1348,3 +1353,13 @@ service sbchk /system/bin/sbchk
     group system
     oneshot
 
+
+# originally bulk of init.project.rc
+# this cannot be named setup_project_devices, because
+# system/core/init/init_parser.c:481 says strlen(name) can't be greater than 16
+service setup_proj_dev /system/bin/logwrapper /system/bin/sh /setup-post-fs-data.sh
+    user root
+    group root
+    class main
+    disabled
+    oneshot

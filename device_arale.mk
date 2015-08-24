@@ -90,6 +90,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/root/init.xlog.rc:root/init.xlog.rc \
     $(LOCAL_PATH)/root/ueventd.mt6595.rc:root/ueventd.mt6595.rc \
     $(LOCAL_PATH)/root/sbin/busybox:root/sbin/busybox \
+    $(LOCAL_PATH)/root/setup-post-fs-data.sh:root/setup-post-fs-data.sh \
     $(LOCAL_KERNEL):kernel
 
 # Permissions
@@ -132,3 +133,6 @@ PRODUCT_NAME := full_arale
 PRODUCT_DEVICE := arale
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+
+
+# vim:set ai et ts=4 sw=4 sts=4 fenc=utf-8:

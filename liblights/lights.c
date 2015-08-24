@@ -128,7 +128,7 @@ char const*const BLUE_DELAY_OFF_FILE
 
 /* LCD BACKLIGHT */
 char const*const LCD_FILE
-        = "/sys/class/leds/lcd-backlight/brightness";
+        = "/sys/class/backlight/lm3697_bled/brightness";
 
 /* KEYBOARD BACKLIGHT */
 char const*const KEYBOARD_FILE
@@ -136,7 +136,7 @@ char const*const KEYBOARD_FILE
 
 /* BUTTON BACKLIGHT */
 char const*const BUTTON_FILE
-        = "/sys/class/leds/button-backlight/brightness";
+        = "/sys/class/leds/mx-led/brightness";
 
 //ALPS0804285 add for delay
 int led_wait_delay(int ms) 

@@ -1,0 +1,2 @@
+# debug.hwc.compose_level, debug.hwc.bq_count
+allow surfaceflinger debug_prop:property_service set;

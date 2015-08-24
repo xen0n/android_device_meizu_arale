@@ -108,6 +108,7 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
 BOARD_USE_FRAMEBUFFER_ALPHA_CHANNEL := true
 TARGET_DISABLE_TRIPLE_BUFFERING := false
 #BOARD_CUSTOM_GRAPHICS := $(DEVICE_FOLDER)/recovery/graphics.cwmt.c
+RECOVERY_FONT := roboto_15x24.h
 
 # TWRP
 # disabled due to graphics problem... can't open fb
