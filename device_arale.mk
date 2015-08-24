@@ -18,6 +18,11 @@ endif
 PRODUCT_PACKAGES += \
     libxlog
 
+# be a chinese
+EXTENDED_FONT_FOOTPRINT := true
+PRODUCT_DEFAULT_LANGUAGE := zh
+PRODUCT_DEFAULT_REGION := CN
+
 # Lights
 PRODUCT_PACKAGES += \
     lights.mt6595
