@@ -37,15 +37,18 @@ chown system:system /proc/smb/ScreenComm
 chmod 0660 /proc/smb/ScreenComm
 
 # Create char device file for WMT, GPS, BT, FM, WIFI
-#    mknod /dev/stpwmt c 190 0;
-#    mknod /dev/stpgps c 191 0;
-#    mknod /dev/stpbt  c 192 0;
+# xen0n: stp stands for setup... oh what English is this
+# don't know why they're commented out in Flyme, at least the bluetooth one
+# seems to be required in proper bluetooth initialization...
+mknod /dev/stpwmt c 190 0
+mknod /dev/stpgps c 191 0
+mknod /dev/stpbt  c 192 0
 
-#    chmod 0660 /dev/stpwmt
-#    chown system:system /dev/stpwmt
+chmod 0660 /dev/stpwmt
+chown system:system /dev/stpwmt
 
-#    chmod 0660 /dev/wmtdetect
-#    chown system:system /dev/wmtdetect
+chmod 0660 /dev/wmtdetect
+chown system:system /dev/wmtdetect
 
 mknod /dev/wmtWifi c 153 0
 chmod 0660 /dev/wmtWifi
