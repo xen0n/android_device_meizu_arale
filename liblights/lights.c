@@ -385,6 +385,25 @@ rgb_to_brightness(struct light_state_t const* state)
 }
 
 static int
+to_mx4_brightness(const int brightness)
+{
+    // [0, 255] -> [0, 2047]
+    // we just add 1 to input for easy mapping
+    // (-inf, 0]   -> 0
+	// [1, 255]    -> [7, 2047]
+	// [256, +inf) -> 2047
+    if (brightness <= 0) {
+        return 0;
+    }
+
+    if (brightness >= 256) {
+        return 2047;
+    }
+
+    return ((brightness + 1) << 3) - 1;
+}
+
+static int
 set_light_backlight(struct light_device_t* dev,
         struct light_state_t const* state)
 {
@@ -392,7 +411,7 @@ set_light_backlight(struct light_device_t* dev,
     int brightness = rgb_to_brightness(state);
     pthread_mutex_lock(&g_lock);
     g_backlight = brightness;
-    err = write_int(LCD_FILE, brightness);
+    err = write_int(LCD_FILE, to_mx4_brightness(brightness));
     if (g_haveTrackballLight) {
         handle_trackball_light_locked(dev);
     }
