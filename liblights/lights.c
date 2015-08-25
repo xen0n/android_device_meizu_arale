@@ -404,6 +404,9 @@ to_mx4_brightness(const int brightness)
 }
 
 static int
+do_set_light_buttons(int on);
+
+static int
 set_light_backlight(struct light_device_t* dev,
         struct light_state_t const* state)
 {
@@ -415,7 +418,15 @@ set_light_backlight(struct light_device_t* dev,
     if (g_haveTrackballLight) {
         handle_trackball_light_locked(dev);
     }
+
     pthread_mutex_unlock(&g_lock);
+
+    // sync with buttons if buttons are on
+    if (g_buttons) {
+        // the parameters are effectively unused
+        do_set_light_buttons(1);
+    }
+
     return err;
 }
 
@@ -437,9 +448,17 @@ set_light_buttons(struct light_device_t* dev,
 {
     int err = 0;
     int on = is_lit(state);
+    return do_set_light_buttons(on);
+}
+
+static int
+do_set_light_buttons(int on)
+{
+    int err = 0;
     pthread_mutex_lock(&g_lock);
     g_buttons = on;
-    err = write_int(BUTTON_FILE, on?255:0);
+    // make button brightness adapt to current backlight brightness
+    err = write_int(BUTTON_FILE, on?g_backlight:0);
     pthread_mutex_unlock(&g_lock);
     return err;
 }
