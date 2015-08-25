@@ -141,25 +141,25 @@ char const*const BUTTON_FILE
 //ALPS0804285 add for delay
 int led_wait_delay(int ms) 
 {
-	struct timespec req = {.tv_sec = 0, .tv_nsec = ms*1000000};
-	struct timespec rem;
-	int ret = nanosleep(&req, &rem);
+    struct timespec req = {.tv_sec = 0, .tv_nsec = ms*1000000};
+    struct timespec rem;
+    int ret = nanosleep(&req, &rem);
 
-	while(ret)
-	{
-		if(errno == EINTR)
-		{
-			req.tv_sec  = rem.tv_sec;
-			req.tv_nsec = rem.tv_nsec;
-			ret = nanosleep(&req, &rem);
-		}
-		else
-		{
-			perror("nanosleep");
-			return errno;
-		}
-	}
-	return 0;
+    while(ret)
+    {
+        if(errno == EINTR)
+        {
+            req.tv_sec  = rem.tv_sec;
+            req.tv_nsec = rem.tv_nsec;
+            ret = nanosleep(&req, &rem);
+        }
+        else
+        {
+            perror("nanosleep");
+            return errno;
+        }
+    }
+    return 0;
 }
 
 /**
@@ -182,11 +182,11 @@ write_int(char const* path, int value)
     int fd;
 
 #ifdef LIGHTS_INFO_ON
-	ALOGD("write %d to %s", value, path);
+    ALOGD("write %d to %s", value, path);
 #endif
 
     fd = open(path, O_RDWR);
-	ALOGD("write_int open fd=%d\n", fd);
+    ALOGD("write_int open fd=%d\n", fd);
     if (fd >= 0) {
         char buffer[20];
         int bytes = sprintf(buffer, "%d\n", value);
@@ -204,7 +204,7 @@ write_str(char const* path, char *str)
     int fd;
 
 #ifdef LIGHTS_INFO_ON
-	ALOGD("write %s to %s", str, path);
+    ALOGD("write %s to %s", str, path);
 #endif
 
     fd = open(path, O_WRONLY);
@@ -228,132 +228,132 @@ is_lit(struct light_state_t const* state)
 static int
 blink_red(int level, int onMS, int offMS)
 {
-	static int preStatus = 0; // 0: off, 1: blink, 2: no blink
-	int nowStatus;
-	int i = 0;
+    static int preStatus = 0; // 0: off, 1: blink, 2: no blink
+    int nowStatus;
+    int i = 0;
 
-	if (level == 0)
-		nowStatus = 0;
-	else if (onMS && offMS)
-		nowStatus = 1;
-	else
-		nowStatus = 2;
+    if (level == 0)
+        nowStatus = 0;
+    else if (onMS && offMS)
+        nowStatus = 1;
+    else
+        nowStatus = 2;
 
-	if (preStatus == nowStatus)
-		return -1;
+    if (preStatus == nowStatus)
+        return -1;
 
 #ifdef LIGHTS_DBG_ON
-	ALOGD("blink_red, level=%d, onMS=%d, offMS=%d\n", level, onMS, offMS);
+    ALOGD("blink_red, level=%d, onMS=%d, offMS=%d\n", level, onMS, offMS);
 #endif
-	if (nowStatus == 0) {
-        	write_int(RED_LED_FILE, 0);
-	}
-	else if (nowStatus == 1) {
-//        	write_int(RED_LED_FILE, level); // default full brightness
-		write_str(RED_TRIGGER_FILE, "timer");
-		while (((access(RED_DELAY_OFF_FILE, F_OK) == -1) || (access(RED_DELAY_OFF_FILE, R_OK|W_OK) == -1)) && i<10) {
-			ALOGD("RED_DELAY_OFF_FILE doesn't exist or cannot write!!\n");
-			led_wait_delay(5);//sleep 5ms for wait kernel LED class create led delay_off/delay_on node of fs
-			i++;
-		}
-		write_int(RED_DELAY_OFF_FILE, offMS);
-		write_int(RED_DELAY_ON_FILE, onMS);
-	}
-	else {
-		write_str(RED_TRIGGER_FILE, "none");
-        	write_int(RED_LED_FILE, 255); // default full brightness
-	}
+    if (nowStatus == 0) {
+            write_int(RED_LED_FILE, 0);
+    }
+    else if (nowStatus == 1) {
+//          write_int(RED_LED_FILE, level); // default full brightness
+        write_str(RED_TRIGGER_FILE, "timer");
+        while (((access(RED_DELAY_OFF_FILE, F_OK) == -1) || (access(RED_DELAY_OFF_FILE, R_OK|W_OK) == -1)) && i<10) {
+            ALOGD("RED_DELAY_OFF_FILE doesn't exist or cannot write!!\n");
+            led_wait_delay(5);//sleep 5ms for wait kernel LED class create led delay_off/delay_on node of fs
+            i++;
+        }
+        write_int(RED_DELAY_OFF_FILE, offMS);
+        write_int(RED_DELAY_ON_FILE, onMS);
+    }
+    else {
+        write_str(RED_TRIGGER_FILE, "none");
+            write_int(RED_LED_FILE, 255); // default full brightness
+    }
 
-	preStatus = nowStatus;
+    preStatus = nowStatus;
 
-	return 0;
+    return 0;
 }
 
 static int
 blink_green(int level, int onMS, int offMS)
 {
-	static int preStatus = 0; // 0: off, 1: blink, 2: no blink
-	int nowStatus;
-	int i = 0;
+    static int preStatus = 0; // 0: off, 1: blink, 2: no blink
+    int nowStatus;
+    int i = 0;
 
-	if (level == 0)
-		nowStatus = 0;
-	else if (onMS && offMS)
-		nowStatus = 1;
-	else
-		nowStatus = 2;
+    if (level == 0)
+        nowStatus = 0;
+    else if (onMS && offMS)
+        nowStatus = 1;
+    else
+        nowStatus = 2;
 
-	if (preStatus == nowStatus)
-		return -1;
+    if (preStatus == nowStatus)
+        return -1;
 
 #ifdef LIGHTS_DBG_ON
-	ALOGD("blink_green, level=%d, onMS=%d, offMS=%d\n", level, onMS, offMS);
+    ALOGD("blink_green, level=%d, onMS=%d, offMS=%d\n", level, onMS, offMS);
 #endif
-	if (nowStatus == 0) {
-        	write_int(GREEN_LED_FILE, 0);
-	}
-	else if (nowStatus == 1) {
-//        	write_int(GREEN_LED_FILE, level); // default full brightness
-		write_str(GREEN_TRIGGER_FILE, "timer");
-		while (((access(GREEN_DELAY_OFF_FILE, F_OK) == -1) || (access(GREEN_DELAY_OFF_FILE, R_OK|W_OK) == -1)) && i<10) {
-			ALOGD("GREEN_DELAY_OFF_FILE doesn't exist or cannot write!!\n");
-			led_wait_delay(5);//sleep 5ms for wait kernel LED class create led delay_off/delay_on node of fs
-			i++;
-		}
-		write_int(GREEN_DELAY_OFF_FILE, offMS);
-		write_int(GREEN_DELAY_ON_FILE, onMS);
-	}
-	else {
-		write_str(GREEN_TRIGGER_FILE, "none");
-        	write_int(GREEN_LED_FILE, 255); // default full brightness
-	}
+    if (nowStatus == 0) {
+            write_int(GREEN_LED_FILE, 0);
+    }
+    else if (nowStatus == 1) {
+//          write_int(GREEN_LED_FILE, level); // default full brightness
+        write_str(GREEN_TRIGGER_FILE, "timer");
+        while (((access(GREEN_DELAY_OFF_FILE, F_OK) == -1) || (access(GREEN_DELAY_OFF_FILE, R_OK|W_OK) == -1)) && i<10) {
+            ALOGD("GREEN_DELAY_OFF_FILE doesn't exist or cannot write!!\n");
+            led_wait_delay(5);//sleep 5ms for wait kernel LED class create led delay_off/delay_on node of fs
+            i++;
+        }
+        write_int(GREEN_DELAY_OFF_FILE, offMS);
+        write_int(GREEN_DELAY_ON_FILE, onMS);
+    }
+    else {
+        write_str(GREEN_TRIGGER_FILE, "none");
+            write_int(GREEN_LED_FILE, 255); // default full brightness
+    }
 
-	preStatus = nowStatus;
+    preStatus = nowStatus;
 
-	return 0;
+    return 0;
 }
 
 static int
 blink_blue(int level, int onMS, int offMS)
 {
-	static int preStatus = 0; // 0: off, 1: blink, 2: no blink
-	int nowStatus;
-	int i = 0;
+    static int preStatus = 0; // 0: off, 1: blink, 2: no blink
+    int nowStatus;
+    int i = 0;
 
-	if (level == 0)
-		nowStatus = 0;
-	else if (onMS && offMS)
-		nowStatus = 1;
-	else
-		nowStatus = 2;
+    if (level == 0)
+        nowStatus = 0;
+    else if (onMS && offMS)
+        nowStatus = 1;
+    else
+        nowStatus = 2;
 
-	if (preStatus == nowStatus)
-		return -1;
+    if (preStatus == nowStatus)
+        return -1;
 
 #ifdef LIGHTS_DBG_ON
-	ALOGD("blink_blue, level=%d, onMS=%d, offMS=%d\n", level, onMS, offMS);
+    ALOGD("blink_blue, level=%d, onMS=%d, offMS=%d\n", level, onMS, offMS);
 #endif
-	if (nowStatus == 0) {
-        	write_int(BLUE_LED_FILE, 0);
-	}
-	else if (nowStatus == 1) {
-//        	write_int(BLUE_LED_FILE, level); // default full brightness
-		write_str(BLUE_TRIGGER_FILE, "timer");
-		while (((access(BLUE_DELAY_OFF_FILE, F_OK) == -1) || (access(BLUE_DELAY_OFF_FILE, R_OK|W_OK) == -1)) && i<10) {
-			ALOGD("BLUE_DELAY_OFF_FILE doesn't exist or cannot write!!\n");
-			i++;
-		}
-		write_int(BLUE_DELAY_OFF_FILE, offMS);
-		write_int(BLUE_DELAY_ON_FILE, onMS);
-	}
-	else {
-		write_str(BLUE_TRIGGER_FILE, "none");
-        	write_int(BLUE_LED_FILE, 255); // default full brightness
-	}
+    if (nowStatus == 0) {
+            write_int(BLUE_LED_FILE, 0);
+    }
+    else if (nowStatus == 1) {
+//          write_int(BLUE_LED_FILE, level); // default full brightness
+        write_str(BLUE_TRIGGER_FILE, "timer");
+        while (((access(BLUE_DELAY_OFF_FILE, F_OK) == -1) || (access(BLUE_DELAY_OFF_FILE, R_OK|W_OK) == -1)) && i<10) {
+            ALOGD("BLUE_DELAY_OFF_FILE doesn't exist or cannot write!!\n");
+            i++;
+        }
+        write_int(BLUE_DELAY_OFF_FILE, offMS);
+        write_int(BLUE_DELAY_ON_FILE, onMS);
+    }
+    else {
+        write_str(BLUE_TRIGGER_FILE, "none");
+            write_int(BLUE_LED_FILE, 255); // default full brightness
+    }
 
-	preStatus = nowStatus;
+    preStatus = nowStatus;
 
-	return 0;
+    return 0;
 }
 
 static int
@@ -390,8 +390,8 @@ to_mx4_brightness(const int brightness)
     // [0, 255] -> [1024, 2047]
     // we just add 1 to input for easy mapping
     // (-inf, 0]   -> 0
-	// [1, 255]    -> [1031, 2047]
-	// [256, +inf) -> 2047
+    // [1, 255]    -> [1031, 2047]
+    // [256, +inf) -> 2047
     if (brightness <= 0) {
         return 0;
     }
@@ -493,11 +493,11 @@ set_speaker_light_locked(struct light_device_t* dev,
 
     alpha = (colorRGB >> 24) & 0xFF;
     if (alpha) {
-    	red = (colorRGB >> 16) & 0xFF;
-    	green = (colorRGB >> 8) & 0xFF;
-    	blue = colorRGB & 0xFF;
+        red = (colorRGB >> 16) & 0xFF;
+        green = (colorRGB >> 8) & 0xFF;
+        blue = colorRGB & 0xFF;
     } else { // alpha = 0 means turn the LED off
-    	red = green = blue = 0;
+        red = green = blue = 0;
     }
 
     if (red) {
@@ -530,7 +530,7 @@ handle_speaker_battery_locked(struct light_device_t* dev)
     if (is_lit(&g_battery)) {
         set_speaker_light_locked(dev, &g_battery);
     } else {
-    	set_speaker_light_locked(dev, &g_battery); /*Turkey workaround: notification and Low battery case, IPO bootup, NLED cannot blink*/
+        set_speaker_light_locked(dev, &g_battery); /*Turkey workaround: notification and Low battery case, IPO bootup, NLED cannot blink*/
         set_speaker_light_locked(dev, &g_notification);
     }
 }
