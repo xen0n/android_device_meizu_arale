@@ -186,7 +186,9 @@ write_int(char const* path, int value)
 #endif
 
     fd = open(path, O_RDWR);
+#ifdef LIGHTS_DBG_ON
     ALOGD("write_int open fd=%d\n", fd);
+#endif
     if (fd >= 0) {
         char buffer[20];
         int bytes = sprintf(buffer, "%d\n", value);
