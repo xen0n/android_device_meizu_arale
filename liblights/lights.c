@@ -70,7 +70,7 @@
 
 #include <hardware/lights.h>
 
-#define LIGHTS_DBG_ON
+// #define LIGHTS_DBG_ON
 /******************************************************************************/
 
 static pthread_once_t g_init = PTHREAD_ONCE_INIT;
