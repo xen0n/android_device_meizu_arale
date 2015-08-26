@@ -23,7 +23,8 @@ LOCAL_CFLAGS := \
 	-D__MUXD_FLOWCONTROL__ \
 
 
-LOCAL_CFLAGS += -DMTK_GEMINI
+# MX4 does not have gemini support according to stock build.prop
+# LOCAL_CFLAGS += -DMTK_GEMINI
 
 ifeq ($(MTK_DT_SUPPORT),yes)
     LOCAL_CFLAGS += -DMTK_DT_SUPPORT
