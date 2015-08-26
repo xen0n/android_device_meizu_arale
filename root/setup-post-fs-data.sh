@@ -93,9 +93,15 @@ chown gps:gps /sys/class/gpsdrv/gps/status
 #    chmod 0660 /dev/stpgps
 
 # WiFi
-mkdir /data/misc/wifi 0770 wifi wifi
-mkdir /data/misc/wifi/sockets 0770 wifi wifi
-mkdir /data/misc/wpa_supplicant 0770 wifi wifi
+mkdir -p /data/misc/wifi
+chmod 0770 /data/misc/wifi
+chown wifi:wifi /data/misc/wifi
+mkdir -p /data/misc/wifi/sockets
+chmod 0770 /data/misc/wifi/sockets
+chown wifi:wifi /data/misc/wifi/sockets
+mkdir -p /data/misc/wpa_supplicant
+chmod 0770 /data/misc/wpa_supplicant
+chown wifi:wifi /data/misc/wpa_supplicant
 chown wifi:wifi /data/misc/wifi
 
 # ANT
