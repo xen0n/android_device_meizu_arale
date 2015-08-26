@@ -2857,9 +2857,9 @@ static int close_devices()
 		pthread_mutex_unlock(&ua_rsp_for_disc_lock);
 	}
 	serial.state = MUX_STATE_OFF;
-	/* Note by LS: If it stops the rild process by property_set("ctl.stop","ril-daemon"), it should also set rild_started as 0 */
+	/* Note by LS: If it stops the rild process by property_set("ctl.stop","ril-daemon-mtk"), it should also set rild_started as 0 */
 #if 0
-	property_set("ctl.stop", "ril-daemon");
+	property_set("ctl.stop", "ril-daemon-mtk");
 	rild_started = 0;
 #endif
 	return 0;
@@ -2904,7 +2904,7 @@ static int shutdown_devices(int shutdown_type)
 
 	serial.state = MUX_STATE_OFF;
 #if 0
-	property_set("ctl.stop", "ril-daemon");
+	property_set("ctl.stop", "ril-daemon-mtk");
 	rild_started = 0;
 #endif
 	return 0;
@@ -3018,8 +3018,8 @@ int watchdog(Serial *serial)
 			property_set("ctl.start", "ril-daemon-md2");
 			LOGMUX(LOG_ERR, "ril-daemon-md2 started!");
 #else
-            property_set("ctl.start", "ril-daemon");
-			LOGMUX(LOG_ERR, "ril-daemon started!");
+            property_set("ctl.start", "ril-daemon-mtk");
+			LOGMUX(LOG_ERR, "ril-daemon-mtk started!");
 #endif
             prctl(PR_SET_KEEPCAPS, 1, 0, 0, 0);
             setuid(AID_RADIO);			
