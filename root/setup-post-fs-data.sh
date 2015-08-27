@@ -79,18 +79,19 @@ chmod 0660 /sys/class/flashlightdrv/kd_camera_flashlight/flash1
 chown media:system /sys/class/flashlightdrv/kd_camera_flashlight/flash1
 chmod 0660 /sys/class/flashlightdrv/kd_camera_flashlight/flash2
 chown media:system /sys/class/flashlightdrv/kd_camera_flashlight/flash2
+
 # BT
-#    chmod 0660 /dev/stpbt
-#    chown bluetooth:radio /dev/stpbt
+chmod 0660 /dev/stpbt
+chown bluetooth:radio /dev/stpbt
 
 # GPS
-#    chown gps:gps /dev/stpgps
+chown gps:gps /dev/stpgps
 chown gps:gps /sys/class/gpsdrv/gps/pwrctl
 chown gps:gps /sys/class/gpsdrv/gps/suspend
 chown gps:gps /sys/class/gpsdrv/gps/state
 chown gps:gps /sys/class/gpsdrv/gps/pwrsave
 chown gps:gps /sys/class/gpsdrv/gps/status
-#    chmod 0660 /dev/stpgps
+chmod 0660 /dev/stpgps
 
 # WiFi
 mkdir -p /data/misc/wifi
@@ -106,7 +107,7 @@ chown wifi:wifi /data/misc/wifi
 
 # ANT
 chmod 0660 /dev/stpant
-chown ant:radio /dev/stpant
+chown system:system /dev/stpant
 
 #Disable for one Single loader
 # Load WiFi Driver
