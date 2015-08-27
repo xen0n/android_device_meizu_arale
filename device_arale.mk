@@ -54,8 +54,9 @@ PRODUCT_PACKAGES += \
     libbt-vendor
 
 # GSM
-PRODUCT_PACKAGES += \
-    gsm0710muxd
+# use blob as the stock behavior seems to be different from available source code
+#PRODUCT_PACKAGES += \
+#    gsm0710muxd
 
 # GPS
 PRODUCT_COPY_FILES += \
