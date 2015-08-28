@@ -49,7 +49,7 @@ on init
 #    chown system system /sys/class/meizu/accdet_calibration/state
 
 on charger
-    mount ext4 /dev/block/mmcblk0p14 /system ro wait
+    mount ext4 /dev/block/platform/mtk-msdc.0/by-name/system /system ro wait
     start kpoc_charger
     start servicemanager
 
@@ -67,23 +67,23 @@ on charger
 on fs
     write /proc/bootprof "INIT:Mount_START"
     mount_all /fstab.mt6595
-    exec /system/bin/tune2fs -O has_journal -u 10010 -r 4096 /dev/block/mmcblk0p16
+    exec /system/bin/tune2fs -O has_journal -u 10010 -r 4096 /dev/block/platform/mtk-msdc.0/by-name/userdata
 
 # change partition permissions
-    #exec /system/bin/chmod 0660 /dev/disk/by-partlabel/proinfo
-    #exec /system/bin/chown root:system /dev/disk/by-partlabel/proinfo
-    exec /system/bin/chmod 0660 /dev/block/mmcblk0p2
-    exec /system/bin/chown root:system /dev/block/mmcblk0p2
-    #exec /system/bin/chmod 0660 /dev/disk/by-partlabel/para
-    #exec /system/bin/chown root:system /dev/disk/by-partlabel/para
-    exec /system/bin/chmod 0660 /dev/block/mmcblk0p7
-    exec /system/bin/chown root:system /dev/block/mmcblk0p7
-    exec /system/bin/chmod 0660 /dev/block/mmcblk0p8
-    exec /system/bin/chown root:system /dev/block/mmcblk0p8
-    exec /system/bin/chmod 0660 /dev/block/mmcblk0p9
-    exec /system/bin/chown root:system /dev/block/mmcblk0p9
-    exec /system/bin/chmod 0660 /dev/block/mmcblk0p5
-    exec /system/bin/chown root:system /dev/block/mmcblk0p5
+    exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/by-name/proinfo
+    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/proinfo
+    exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/by-name/nvram
+    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/nvram
+    exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/by-name/para
+    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/para
+    exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/by-name/boot
+    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/boot
+    exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/by-name/recovery
+    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/recovery
+    exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/by-name/secro
+    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/secro
+    exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/by-name/seccfg
+    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/seccfg
     write /proc/bootprof "INIT:Mount_END"
 
 # mount different fs end
