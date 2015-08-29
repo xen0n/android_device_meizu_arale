@@ -58,6 +58,10 @@ PRODUCT_PACKAGES += \
 #PRODUCT_PACKAGES += \
 #    gsm0710muxd
 
+# Telecom
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml \
+
 # GPS
 PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/configs/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
