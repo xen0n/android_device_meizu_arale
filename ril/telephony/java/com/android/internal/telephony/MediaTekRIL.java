@@ -487,10 +487,10 @@ public class MediaTekRIL extends RIL implements CommandsInterface {
         String strings[] = (String [])responseStrings(p);
         ArrayList<OperatorInfo> ret;
 
-        if (strings.length % 5 != 0) {
+        if (strings.length % 4 != 0) {
             throw new RuntimeException(
                 "RIL_REQUEST_QUERY_AVAILABLE_NETWORKS: invalid response. Got "
-                + strings.length + " strings, expected multible of 5");
+                + strings.length + " strings, expected multiples of 4");
         }
 
         String lacStr = SystemProperties.get("gsm.cops.lac");
@@ -505,9 +505,9 @@ public class MediaTekRIL extends RIL implements CommandsInterface {
 
         SystemProperties.set("gsm.cops.lac","");
 
-        ret = new ArrayList<OperatorInfo>(strings.length / 5);
+        ret = new ArrayList<OperatorInfo>(strings.length / 4);
 
-        for (int i = 0 ; i < strings.length ; i += 5) {
+        for (int i = 0 ; i < strings.length ; i += 4) {
             if((strings[i+0] != null) && (strings[i+0].startsWith("uCs2") == true)) {
                 riljLog("responseOperatorInfos handling UCS2 format name");
 
@@ -549,6 +549,9 @@ public class MediaTekRIL extends RIL implements CommandsInterface {
                 strings[i+1] = temp;
             }
 
+            // NOTE: We don't have the 5th element in MTK, and I don't know about
+            // the cases that make this processing necessary. Disable for now.
+            /*
             // 1, 2 = 2G
             // > 2 = 3G
             String property_name = "gsm.baseband.capability";
@@ -562,6 +565,7 @@ public class MediaTekRIL extends RIL implements CommandsInterface {
                 strings[i+0] = strings[i+0].concat(" " + strings[i+4]);
                 strings[i+1] = strings[i+1].concat(" " + strings[i+4]);
             }
+            */
 
             ret.add(
                 new OperatorInfo(
