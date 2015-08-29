@@ -542,9 +542,9 @@ public class MediaTekRIL extends RIL implements CommandsInterface {
             }
 
             if (strings[i] != null && (strings[i].equals("") || strings[i].equals(strings[i+2]))) {
-		Operators init = new Operators ();
-		String temp = init.unOptimizedOperatorReplace(strings[i+2]);
-		riljLog("lookup RIL responseOperatorInfos() " + strings[i+2] + " gave " + temp);
+                Operators init = new Operators ();
+                String temp = init.unOptimizedOperatorReplace(strings[i+2]);
+                riljLog("lookup RIL responseOperatorInfos() " + strings[i+2] + " gave " + temp);
                 strings[i] = temp;
                 strings[i+1] = temp;
             }
@@ -1298,7 +1298,7 @@ public class MediaTekRIL extends RIL implements CommandsInterface {
         switch(response) {
             case RIL_UNSOL_NEIGHBORING_CELL_INFO: ret = responseStrings(p); break;
             case RIL_UNSOL_NETWORK_INFO: ret = responseStrings(p); break;
-            // case RIL_UNSOL_RESPONSE_PS_NETWORK_STATE_CHANGED: ret =  responseVoid(p); break;
+            case RIL_UNSOL_RESPONSE_PS_NETWORK_STATE_CHANGED: ret =  responseVoid(p); break;
             case RIL_UNSOL_INVALID_SIM:  ret = responseStrings(p); break;
             case RIL_UNSOL_RESPONSE_ACMT: ret = responseInts(p); break;
             case RIL_UNSOL_IMEI_LOCK: ret = responseVoid(p); break;
@@ -1315,7 +1315,7 @@ public class MediaTekRIL extends RIL implements CommandsInterface {
             /* M: call control part start */
             case RIL_UNSOL_CALL_FORWARDING: ret = responseInts(p); break;
             case RIL_UNSOL_CRSS_NOTIFICATION: ret = responseCrssNotification(p); break;
-            // case RIL_UNSOL_INCOMING_CALL_INDICATION: ret = responseStrings(p); break;
+            case RIL_UNSOL_INCOMING_CALL_INDICATION: ret = responseStrings(p); break;
             case RIL_UNSOL_CIPHER_INDICATION: ret = responseStrings(p); break;
             case RIL_UNSOL_CNAP: ret = responseStrings(p); break;
             case RIL_UNSOL_SPEECH_CODEC_INFO: ret =  responseInts(p); break;
@@ -1323,12 +1323,12 @@ public class MediaTekRIL extends RIL implements CommandsInterface {
             //MTK-START multiple application support
             case RIL_UNSOL_APPLICATION_SESSION_ID_CHANGED: ret = responseInts(p); break;
             //MTK-END multiple application support
-            // case RIL_UNSOL_SIM_MISSING: ret = responseInts(p); break;
+            case RIL_UNSOL_SIM_MISSING: ret = responseInts(p); break;
             case RIL_UNSOL_SIM_RECOVERY: ret = responseInts(p); break;
             case RIL_UNSOL_VIRTUAL_SIM_ON: ret = responseInts(p); break;
             case RIL_UNSOL_VIRTUAL_SIM_OFF: ret = responseInts(p); break;
-            // case RIL_UNSOL_SIM_PLUG_OUT: ret = responseVoid(p); break;
-            // case RIL_UNSOL_SIM_PLUG_IN: ret = responseVoid(p); break;
+            case RIL_UNSOL_SIM_PLUG_OUT: ret = responseVoid(p); break;
+            case RIL_UNSOL_SIM_PLUG_IN: ret = responseVoid(p); break;
             case RIL_UNSOL_SIM_COMMON_SLOT_NO_CHANGED: ret = responseVoid(p); break;
             case RIL_UNSOL_DATA_ALLOWED: ret = responseVoid(p); break;
             case RIL_UNSOL_PHB_READY_NOTIFICATION: ret = responseInts(p); break;
@@ -1401,14 +1401,19 @@ public class MediaTekRIL extends RIL implements CommandsInterface {
 
         switch (response) {
             case RIL_UNSOL_PHB_READY_NOTIFICATION:
-                Rlog.e(RILJ_LOG_TAG, "RIL_UNSOL_PHB_READY_NOTIFICATION: stub!");
                 if (RILJ_LOGD) unsljLogRet(response, ret);
+                Rlog.e(RILJ_LOG_TAG, "RIL_UNSOL_PHB_READY_NOTIFICATION: stub!");
                 /*
                 if (mPhbReadyRegistrants != null) {
                     mPhbReadyRegistrants.notifyRegistrants(
                                         new AsyncResult(null, ret, null));
                 }
                 */
+                break;
+
+            case RIL_UNSOL_RESPONSE_PLMN_CHANGED:
+                if (RILJ_LOGD) unsljLogRet(response, ret);
+                Rlog.e(RILJ_LOG_TAG, "RIL_UNSOL_RESPONSE_PLMN_CHANGED: stub!");
                 break;
 
             /*
@@ -1438,6 +1443,7 @@ public class MediaTekRIL extends RIL implements CommandsInterface {
                 break;
 
             case RIL_UNSOL_SMS_READY_NOTIFICATION:
+                Rlog.e(RILJ_LOG_TAG, "RIL_UNSOL_SMS_READY_NOTIFICATION: stub!");
                 /*if (mGsmSmsRegistrant != null) {
                     mGsmSmsRegistrant
                         .notifyRegistrant();
@@ -1449,7 +1455,7 @@ public class MediaTekRIL extends RIL implements CommandsInterface {
         }
 
         if (rewindAndReplace) {
-            Rlog.w(RILJ_LOG_TAG, "Rewriting MTK unsolicited response to " + newResponseCode);
+            Rlog.w(RILJ_LOG_TAG, "Rewriting MTK unsolicited response " + response + " to " + newResponseCode);
 
             // Rewrite
             p.setDataPosition(dataPosition);
@@ -1764,22 +1770,28 @@ public class MediaTekRIL extends RIL implements CommandsInterface {
             }
         }
 
-        if((response[0] != null) && (response[0].startsWith("uCs2") == true))
-        {
-            riljLog("responseOperator handling UCS2 format name");
-            try{
-                response[0] = new String(hexStringToBytes(response[0].substring(4)),"UTF-16");
-            }catch(UnsupportedEncodingException ex){
-                riljLog("responseOperatorInfos UnsupportedEncodingException");
+        for (int i = 0; i < response.length; i++) {
+            if((response[i] != null) && (response[i].startsWith("uCs2") == true))
+            {
+                riljLog("responseOperator handling UCS2 format name: response[" + i + "]");
+                try{
+                    response[i] = new String(hexStringToBytes(response[i].substring(4)),"UTF-16");
+                }catch(UnsupportedEncodingException ex){
+                    riljLog("responseOperatorInfos UnsupportedEncodingException");
+                }
             }
         }
 
-        if (response[0] != null && (response[0].equals("") || response[0].equals(response[2]))) {
-	    Operators init = new Operators ();
-	    String temp = init.unOptimizedOperatorReplace(response[2]);
-	    riljLog("lookup RIL responseOperator() " + response[2] + " gave " + temp + " was " + response[0] + "/" + response[1] + " before.");
-	    response[0] = temp;
-	    response[1] = temp;
+        // NOTE: the original code seemingly has some nontrivial SpnOverride
+        // modifications, so I'm not going to port that.
+        if (response.length > 2 && response[2] != null) {
+            if (response[0] != null && (response[0].equals("") || response[0].equals(response[2]))) {
+	        Operators init = new Operators ();
+	        String temp = init.unOptimizedOperatorReplace(response[2]);
+	        riljLog("lookup RIL responseOperator() " + response[2] + " gave " + temp + " was " + response[0] + "/" + response[1] + " before.");
+	        response[0] = temp;
+	        response[1] = temp;
+            }
         }
 
         return response;
