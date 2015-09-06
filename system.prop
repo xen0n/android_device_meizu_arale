@@ -66,7 +66,6 @@ ril.first.md=1
 ril.flightmode.poweroffMD=0
 ril.telephony.mode=0
 ril.radiooff.poweroffMD=0
-ril.active.md=0
 
 ro.telephony.sim.count=1
 ro.telephony.ril_class=MediaTekRIL
@@ -110,20 +109,25 @@ ro.kernel.zio=38,108,105,16
 #ro.kernel.qemu=1
 #ro.kernel.qemu.gles=0
 #ro.boot.selinux=disable
-
-
 #
-# ADDITIONAL_BUILD_PROPERTIES
-#
-ro.mediatek.chip_ver=S01
-ro.mediatek.platform=MT6595
-ro.mtk_benchmark_boost_tp=1
-ro.mtk_cam_lomo_support=1
 ro.btstack=blueangel
 ro.sf.hwrotation=0
 drm.service.enabled=true
 fmradio.driver.enable=0
 
+
+#
+# MTK bits
+#
+ro.mediatek.chip_ver=S01
+ro.mediatek.version.release=ALPS.L0.MP5.V1_MEIZU6595.LWT.L_P2
+ro.mediatek.version.branch=L0.MP5
+ro.mediatek.version.sdk=4
+ro.mediatek.platform=MT6595
+ro.mediatek.project.path=device/meizu/meizu6595_lwt_l
+ro.operator.optr=CUST
+ro.mtk_benchmark_boost_tp=1
+ro.mtk_cam_lomo_support=1
 ro.mtk_wapi_support=1
 ro.mtk_bt_support=1
 ro.mtk_wappush_support=1
