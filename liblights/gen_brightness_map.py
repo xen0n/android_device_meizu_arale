@@ -13,11 +13,11 @@ OUTPUT_FILENAME = 'brightness_map_generated.h'
 NUM_PER_ROW = 8
 NUM_ROWS = 256 / NUM_PER_ROW
 
-# E_INV = math.e ** -1
+E_INV = math.e ** -1
 
 
-# def _log_curve(x):
-#     return ((math.log(E_INV + (math.e - E_INV) * x / 256.0)) + 1) / 2.0
+def _log_curve(x):
+    return ((math.log(E_INV + (math.e - E_INV) * x / 255.0)) + 1) / 2.0
 
 
 def _exp_curve(x, k=1.0):
@@ -25,7 +25,7 @@ def _exp_curve(x, k=1.0):
 
 
 def brightness_fn(x):
-    return min(int(_exp_curve(x) * 1280 + 768), 2047)
+    return min(int(_log_curve(x) * 1280 + 768), 2047)
 
 
 def output_header(fp):
@@ -41,7 +41,7 @@ def _do_output_row(fp, fn, num_per_row, idx):
     row_x_start = num_per_row * idx
     row_x_end = row_x_start + num_per_row
 
-    row_y = [fn(x) for x in six.moves.range(row_x_start, row_x_end + 1)]
+    row_y = [fn(x) for x in six.moves.range(row_x_start, row_x_end)]
     row_values = ', '.join('%4d' % y for y in row_y)
     row_str = '    %s,  /* %d - %d */\n' % (row_values, row_x_start, row_x_end - 1, )
 
