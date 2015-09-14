@@ -41,7 +41,7 @@ def _do_output_row(fp, fn, num_per_row, idx):
     row_x_start = num_per_row * idx
     row_x_end = row_x_start + num_per_row
 
-    row_y = [fn(x) for x in six.moves.range(row_x_start, row_x_end + 1)]
+    row_y = [fn(x) for x in six.moves.range(row_x_start, row_x_end)]
     row_values = ', '.join('%4d' % y for y in row_y)
     row_str = '    %s,  /* %d - %d */\n' % (row_values, row_x_start, row_x_end - 1, )
 
