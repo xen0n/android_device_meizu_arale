@@ -70,6 +70,8 @@
 
 #include <hardware/lights.h>
 
+#include "brightness_map_generated.h"
+
 // #define LIGHTS_DBG_ON
 /******************************************************************************/
 
@@ -389,11 +391,6 @@ rgb_to_brightness(struct light_state_t const* state)
 static int
 to_mx4_brightness(const int brightness)
 {
-    // [0, 255] -> [1024, 2047]
-    // we just add 1 to input for easy mapping
-    // (-inf, 0]   -> 0
-    // [1, 255]    -> [1031, 2047]
-    // [256, +inf) -> 2047
     if (brightness <= 0) {
         return 0;
     }
@@ -402,7 +399,7 @@ to_mx4_brightness(const int brightness)
         return 2047;
     }
 
-    return ((brightness + 1) << 2) + 1023;
+    return BRIGHTNESS_MAP[brightness];
 }
 
 static int
