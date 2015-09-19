@@ -13,19 +13,11 @@ OUTPUT_FILENAME = 'brightness_map_generated.h'
 NUM_PER_ROW = 8
 NUM_ROWS = 256 / NUM_PER_ROW
 
-E_INV = math.e ** -1
-
-
-def _log_curve(x):
-    return ((math.log(E_INV + (math.e - E_INV) * x / 255.0)) + 1) / 2.0
-
-
-def _exp_curve(x, k=1.0):
-    return (math.exp(x / 256.0 * k) - 1) / (math.e ** k - 1)
-
 
 def brightness_fn(x):
-    return min(int(_log_curve(x) * 1280 + 768), 2047)
+    # stock Flyme: 480 - 2040
+    # modified: 480 - 2048 (clipped)
+    return min(int(6.4 * x + 416), 2047)
 
 
 def output_header(fp):
