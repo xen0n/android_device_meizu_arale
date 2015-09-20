@@ -1,6 +1,8 @@
 # inherit from the proprietary version
 -include vendor/meizu/arale/BoardConfigVendor.mk
 
+DEVICE_FOLDER_COMMON := device/meizu/arale
+
 # Platform
 TARGET_BOARD_PLATFORM := mt6595
 TARGET_NO_BOOTLOADER := true
@@ -37,8 +39,8 @@ BOARD_MKBOOTIMG_ARGS := \
 	--tags_offset 0x0e000000 \
 	--board 32
 
-TARGET_PREBUILT_KERNEL := $(DEVICE_FOLDER)/prebuilt/kernel
-BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_FOLDER)/boot.mk
+TARGET_PREBUILT_KERNEL := $(DEVICE_FOLDER_COMMON)/prebuilt/kernel
+BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_FOLDER_COMMON)/boot.mk
 #BOARD_MKBOOTIMG_ARGS := --board 1419997733
 #BOARD_CUSTOM_BOOTIMG := true
 
@@ -51,7 +53,7 @@ TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 TARGET_CPU_MEMCPY_OPT_DISABLE := true
 
 # EGL
-BOARD_EGL_CFG := device/meizu/arale/configs/egl.cfg
+BOARD_EGL_CFG := $(DEVICE_FOLDER_COMMON)/configs/egl.cfg
 USE_OPENGL_RENDERER := true
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
 
@@ -86,10 +88,10 @@ WIFI_DRIVER_FW_PATH_P2P:=P2P
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_MTK := true
 BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_FOLDER)/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_FOLDER_COMMON)/bluetooth
 
 # CWM
-TARGET_RECOVERY_FSTAB := device/meizu/arale/root/recovery.fstab
+TARGET_RECOVERY_FSTAB := $(DEVICE_FOLDER_COMMON)/root/recovery.fstab
 BOARD_HAS_NO_SELECT_BUTTON := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
 BOARD_USE_FRAMEBUFFER_ALPHA_CHANNEL := true
@@ -121,7 +123,7 @@ TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/virtual/android_usb/android0/f_mass_storage/lun%d/file"
 
 BOARD_SEPOLICY_DIRS := \
-       device/meizu/arale/sepolicy
+       $(DEVICE_FOLDER_COMMON)/sepolicy
 
 BOARD_SEPOLICY_UNION := \
        device.te \
