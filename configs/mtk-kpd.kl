@@ -9,13 +9,13 @@ key 8     7
 key 9     8
 key 10    9
 key 11    0
-key 158   BACK
+#key 158   BACK
 key 230   SOFT_RIGHT
 key 60    SOFT_RIGHT
-key 107   ENDCALL           
-key 62    ENDCALL           
+key 107   ENDCALL           WAKE
+key 62    ENDCALL           WAKE
 key 229   MENU
-key 139   MENU
+#key 139   MENU
 key 59    MENU
 key 127   SYM
 key 217   SEARCH
@@ -26,13 +26,13 @@ key 61    CALL
 key 232   DPAD_CENTER
 key 108   DPAD_DOWN
 key 103   DPAD_UP
-key 102   HOME
+#key 102   HOME              WAKE
 key 105   DPAD_LEFT
 key 106   DPAD_RIGHT
-key 115   VOLUME_UP         
-key 114   VOLUME_DOWN       
-key 113   MUTE              
-key 116   POWER             
+key 115   VOLUME_UP         WAKE_DROPPED
+key 114   VOLUME_DOWN       WAKE_DROPPED
+key 113   MUTE              WAKE_DROPPED
+key 116   POWER             WAKE
 key 212   CAMERA
 key 211   FOCUS
 
@@ -88,9 +88,9 @@ key 12    MINUS
 key 13    EQUALS
 key 215   AT
 
-key 164   MEDIA_PLAY_PAUSE    
-key 128   MEDIA_STOP          
-key 163   MEDIA_NEXT          
-key 165   MEDIA_PREVIOUS      
-key 168   MEDIA_REWIND        
-key 159   MEDIA_FAST_FORWARD  
+key 164   MEDIA_PLAY_PAUSE    WAKE
+key 128   MEDIA_STOP          WAKE
+key 163   MEDIA_NEXT          WAKE
+key 165   MEDIA_PREVIOUS      WAKE
+key 168   MEDIA_REWIND        WAKE
+key 159   MEDIA_FAST_FORWARD  WAKE
