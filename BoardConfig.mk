@@ -3,9 +3,6 @@
 
 DEVICE_FOLDER := device/meizu/arale
 
-# GPS
-TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_FOLDER)/include
-
 # Platform
 TARGET_BOARD_PLATFORM := mt6595
 TARGET_NO_BOOTLOADER := true
