@@ -22,6 +22,9 @@ PRODUCT_PACKAGES += \
 EXTENDED_FONT_FOOTPRINT := true
 PRODUCT_LOCALES := zh_CN zh_HK zh_TW
 
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    persist.sys.timezone=Asia/Shanghai
+
 # Lights
 PRODUCT_PACKAGES += \
     lights.mt6595
