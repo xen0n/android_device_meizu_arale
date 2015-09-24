@@ -62,6 +62,7 @@ PRODUCT_COPY_FILES += \
 # Telecom
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml \
+    $(LOCAL_PATH)/configs/ecc_list.xml:system/etc/ecc_list.xml \
 
 # GPS
 PRODUCT_COPY_FILES += \
