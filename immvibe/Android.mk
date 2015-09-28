@@ -3,7 +3,7 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 LOCAL_MODULE                  := libimmvibeclient
 LOCAL_MODULE_TAGS             := optional
-LOCAL_SRC_FILES               := client.c
+LOCAL_SRC_FILES               := client.c api.c
 LOCAL_EXPORT_C_INCLUDES       := $(LOCAL_PATH)/include
 LOCAL_C_INCLUDES              := $(LOCAL_EXPORT_C_INCLUDES)
 include $(BUILD_SHARED_LIBRARY)

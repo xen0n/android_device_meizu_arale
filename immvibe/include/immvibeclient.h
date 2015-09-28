@@ -37,10 +37,8 @@ int immvibe_get_num_actuators(struct immvibe_handle *fd);
 int immvibe_get_debug_level(struct immvibe_handle *fd);
 int immvibe_set_amp_enabled(struct immvibe_handle *fd, int enable);
 
-#if 0  // TODO
+/* high level interface */
 uint8_t immvibe_api_get_strength_userspace(void);
 int immvibe_api_set_strength_userspace(uint8_t strength);
-int immvibe_api_play(void);
-#endif
 
 #endif
