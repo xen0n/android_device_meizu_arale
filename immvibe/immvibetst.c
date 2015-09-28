@@ -18,7 +18,7 @@ static void usage(const char *progname)
 
 int main(int argc, char *argv[])
 {
-	struct immvibe_handle *fd;
+	struct immvibe_handle *fd = NULL;
 	int ret = 0;
 
 	if (argc == 1 || argc > 3) {

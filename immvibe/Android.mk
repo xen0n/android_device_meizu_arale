@@ -12,5 +12,9 @@ include $(CLEAR_VARS)
 LOCAL_MODULE                  := immvibetst
 LOCAL_MODULE_TAGS             := optional
 LOCAL_SRC_FILES               := immvibetst.c
+
+# hack to suppress build errors when building for the first time (?)
+LOCAL_C_INCLUDES              := $(LOCAL_PATH)/include
+
 LOCAL_SHARED_LIBRARIES        := libimmvibeclient
 include $(BUILD_EXECUTABLE)
