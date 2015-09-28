@@ -4,27 +4,27 @@
 #include "immvibeclient.h"
 
 
-#define STRENGTH_STORE_PATH "/data/.libimmvibeclient_strength"
-#define DEFAULT_STRENGTH    96  /* 75% of 127 */
+#define FORCE_STORE_PATH "/data/.libimmvibeclient_force"
+#define DEFAULT_FORCE    96  /* 75% of 127 */
 
 
-uint8_t immvibe_api_get_strength_userspace(void)
+uint8_t immvibe_api_get_force_userspace(void)
 {
 	FILE *fp = NULL;
 	unsigned int result;
 	int ret;
 
-	fp = fopen(STRENGTH_STORE_PATH, "r");
+	fp = fopen(FORCE_STORE_PATH, "r");
 	if (!fp) {
 		/* TODO: log */
 		/* return the default value */
-		return DEFAULT_STRENGTH;
+		return DEFAULT_FORCE;
 	}
 
 	ret = fscanf(fp, "%u\n", &result);
 	if (ret == EOF || ret < 1) {
 		/* TODO: log */
-		result = DEFAULT_STRENGTH;
+		result = DEFAULT_FORCE;
 	}
 
 	fclose(fp);
@@ -32,12 +32,12 @@ uint8_t immvibe_api_get_strength_userspace(void)
 }
 
 
-int immvibe_api_set_strength_userspace(uint8_t strength)
+int immvibe_api_set_force_userspace(uint8_t force)
 {
 	FILE *fp = NULL;
 	int ret;
 
-	fp = fopen(STRENGTH_STORE_PATH, "w");
+	fp = fopen(FORCE_STORE_PATH, "w");
 	if (!fp) {
 		int errsv = errno;
 
@@ -45,7 +45,7 @@ int immvibe_api_set_strength_userspace(uint8_t strength)
 		return errsv;
 	}
 
-	ret = (int) fprintf(fp, "%u\n", strength);
+	ret = (int) fprintf(fp, "%u\n", force);
 
 	fclose(fp);
 	return ret;

@@ -66,13 +66,13 @@ void immvibe_close(struct immvibe_handle *fd)
 }
 
 
-int immvibe_play(struct immvibe_handle *fd, uint8_t strength)
+int immvibe_play(struct immvibe_handle *fd, uint8_t force)
 {
 	int ret = 0;
 
 	unsigned char buf[4];
 	buf[0] = buf[1] = buf[2] = 0;
-	buf[3] = (unsigned char) strength;
+	buf[3] = (unsigned char) force;
 
 	if (!write(fd->fd, &buf, sizeof(buf))) {
 		// fprintf(stderr, "do_play: write failed\n");

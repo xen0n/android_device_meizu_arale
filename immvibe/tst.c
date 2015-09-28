@@ -7,7 +7,7 @@
 
 static void usage(const char *progname)
 {
-	fprintf(stderr, "usage: %s p <strength>  -- strength 0 to 255\n", progname);
+	fprintf(stderr, "usage: %s p <force>     -- force 0 to 255\n", progname);
 	fprintf(stderr, "       %s s             -- stop vibration\n", progname);
 	fprintf(stderr, "       %s A             -- enable amp\n", progname);
 	fprintf(stderr, "       %s a             -- disable amp\n", progname);
@@ -37,12 +37,12 @@ int main(int argc, char *argv[])
 			goto bail_usage;
 		}
 
-		int strength = atoi(argv[2]);
-		if (strength < 0 || strength > 255) {
+		int force = atoi(argv[2]);
+		if (force < 0 || force > 255) {
 			goto bail_usage;
 		}
 
-		ret = immvibe_play(fd, strength);
+		ret = immvibe_play(fd, force);
 	} else if (!strcmp(argv[1], "s")) {
 		if (argc != 2) {
 			goto bail_usage;

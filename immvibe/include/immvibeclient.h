@@ -31,14 +31,14 @@ struct immvibe_handle;
 struct immvibe_handle *immvibe_open(int *out_status);
 void immvibe_close(struct immvibe_handle *fd);
 
-int immvibe_play(struct immvibe_handle *fd, uint8_t strength);
+int immvibe_play(struct immvibe_handle *fd, uint8_t force);
 int immvibe_stop_kernel_timer(struct immvibe_handle *fd);
 int immvibe_get_num_actuators(struct immvibe_handle *fd);
 int immvibe_get_debug_level(struct immvibe_handle *fd);
 int immvibe_set_amp_enabled(struct immvibe_handle *fd, int enable);
 
 /* high level interface */
-uint8_t immvibe_api_get_strength_userspace(void);
-int immvibe_api_set_strength_userspace(uint8_t strength);
+uint8_t immvibe_api_get_force_userspace(void);
+int immvibe_api_set_force_userspace(uint8_t force);
 
 #endif
