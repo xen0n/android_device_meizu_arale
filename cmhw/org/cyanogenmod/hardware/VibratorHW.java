@@ -16,6 +16,8 @@
 
 package org.cyanogenmod.hardware;
 
+import org.cyanogenmod.hardware.util.FileUtils;
+
 /* 
  * Vibrator intensity adjustment
  *
@@ -34,28 +36,41 @@ package org.cyanogenmod.hardware;
 /* This would be just "Vibrator", but it conflicts with android.os.Vibrator */
 public class VibratorHW {
 
+    // Keep this synced to immvibe impl
+    private static final String INTENSITY_FILE = "/data/.libimmvibeclient_force";
+
     public static boolean isSupported() {
         return true;
     }
 
     public static boolean setIntensity(int intensity)  {
-        return true;
+        return FileUtils.writeLine(INTENSITY_FILE, Integer.toString(intensity));
     }
 
     public static int getMaxIntensity()  {
-        return 96;
+        return 127;
     }
 
     public static int getMinIntensity()  {
-        return 96;
+        return 3;
     }
 
     public static int getWarningThreshold()  {
-        return 96;
+        // actually this is rather arbitrary
+        return 115;
     }
 
     public static int getCurIntensity()  {
-        return 96;
+        final String result = FileUtils.readOneLine(INTENSITY_FILE);
+        if (result == null) {
+            return 96;
+        }
+
+        try {
+            return Integer.parseInt(result.trim());
+        } catch (final NumberFormatException ignored) {
+            return 96;
+        }
     }
 
     public static int getDefaultIntensity()  {
