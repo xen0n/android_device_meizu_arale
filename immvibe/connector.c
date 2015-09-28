@@ -28,7 +28,7 @@ int immvibe_conn_open(void)
 		return -errsv;
 	}
 
-	ALOGD("connecting immvibe daemon");
+	ALOGV("connecting immvibe daemon");
 
 	remote.sun_family = AF_UNIX;
 	strcpy(remote.sun_path, IMMVIBED_SOCK_PATH);
@@ -40,7 +40,7 @@ int immvibe_conn_open(void)
 		return -errsv;
 	}
 
-	ALOGD("immvibe daemon connected");
+	ALOGV("immvibe daemon connected");
 	return fd;
 }
 
