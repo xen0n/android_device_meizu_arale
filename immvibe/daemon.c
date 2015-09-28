@@ -25,6 +25,7 @@
 #define MAXEVENTS 64
 
 #define MSG_VIBRATE 1
+#define MSG_STOP    2
 
 
 static struct immvibe_handle *fd;
@@ -56,6 +57,13 @@ static void *worker_thread_proc(void *arg)
 				break;
 			}
 
+			case MSG_STOP: {
+				ALOGD("worker: stop()");
+				immvibe_play(fd, 0);
+
+				break;
+			}
+
 			default: {
 				ALOGW("worker: unknown work, should never happen");
 			}
@@ -81,6 +89,12 @@ static void process_buf(const char *buf, int count __attribute__((unused)))
 
 			ALOGD("process_buf: vibrate(duration=%d)", duration);
 			thread_queue_add(&work_queue, (void *)duration, MSG_VIBRATE);
+			break;
+		}
+
+		case '-': {
+			ALOGD("process_buf: stop()");
+			thread_queue_add(&work_queue, NULL, MSG_STOP);
 			break;
 		}
 

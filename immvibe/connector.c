@@ -72,3 +72,9 @@ int immvibe_conn_vibrate(int fd, int duration)
 	len = snprintf(buf, sizeof(buf), "+%d$", duration);
 	return send_internal(fd, buf, len);
 }
+
+
+int immvibe_conn_stop(int fd)
+{
+	return send_internal(fd, "-0$", 3);
+}
