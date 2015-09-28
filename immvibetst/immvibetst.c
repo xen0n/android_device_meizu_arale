@@ -67,18 +67,18 @@ static int do_play(int strength)
 		goto bail;
 	}
 
-	char buf[4];
+	unsigned char buf[4];
 	buf[0] = buf[1] = buf[2] = 0;
-	buf[3] = (char) strength;
+	buf[3] = (unsigned char) strength;
 
-	while(1) {
+	// while(1) {
 		if (!write(fd, &buf, sizeof(buf))) {
 			fprintf(stderr, "do_play: write failed\n");
 
 			ret = 11;
 			goto bail;
 		}
-	}
+	// }
 
 bail:
 	if (fd >= 0) {
