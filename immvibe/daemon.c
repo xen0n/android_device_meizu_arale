@@ -170,6 +170,37 @@ bail:
 }
 
 
+static int process_client(int fd)
+{
+	int done = 0;
+	size_t total_size = 0;
+	char buf[512];
+
+	while (1) {
+		ssize_t count;
+
+		count = read(fd, buf, sizeof(buf));
+		if (count < 0) {
+			if (errno != EAGAIN) {
+				ALOGW("read errno=%d", errno);
+				done = 1;
+			}
+			return done;
+		} else if (count == 0) {
+			done = 1;
+			return done;
+		}
+
+		total_size += count;
+		if (total_size >= 3) {
+			process_buf(buf, total_size);
+			done = 1;
+			return done;
+		}
+	}
+}
+
+
 int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)))
 {
 	int ret;
@@ -266,6 +297,13 @@ int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)))
 						break;
 					}
 
+					/*
+					 * there may be very early data filled in, if not processed
+					 * immediately the data is highly likely to be lost on next
+					 * loop.
+					 */
+					process_client(infd);
+
 					event.data.fd = infd;
 					event.events = EPOLLIN | EPOLLET;
 					ret = epoll_ctl (efd, EPOLL_CTL_ADD, infd, &event);
@@ -278,33 +316,7 @@ int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)))
 				continue;
 			}
 
-			int done = 0;
-			size_t total_size = 0;
-			char buf[512];
-			while (1) {
-				ssize_t count;
-
-				count = read(events[i].data.fd, buf, sizeof(buf));
-				if (count < 0) {
-					if (errno != EAGAIN) {
-						ALOGW("read errno=%d", errno);
-						done = 1;
-					}
-					break;
-				} else if (count == 0) {
-					done = 1;
-					break;
-				}
-
-				total_size += count;
-				if (total_size >= 3) {
-					process_buf(buf, total_size);
-					done = 1;
-					break;
-				}
-			}
-
-			if (done) {
+			if (process_client(events[i].data.fd)) {
 				ALOGD("Closed connection on fd %d", events[i].data.fd);
 				close(events[i].data.fd);
 			}
