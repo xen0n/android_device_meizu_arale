@@ -25,6 +25,10 @@ PRODUCT_LOCALES := zh_CN zh_HK zh_TW
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.timezone=Asia/Shanghai
 
+# init
+PRODUCT_PACKAGES += \
+    proj-dev-setup
+
 # hack to fix asec on emulated sdcard
 PRODUCT_PACKAGES += \
     asec_helper
@@ -109,7 +113,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/root/init.xlog.rc:root/init.xlog.rc \
     $(LOCAL_PATH)/root/ueventd.mt6595.rc:root/ueventd.mt6595.rc \
     $(LOCAL_PATH)/root/sbin/busybox:root/sbin/busybox \
-    $(LOCAL_PATH)/root/setup-post-fs-data.sh:root/setup-post-fs-data.sh \
     $(LOCAL_KERNEL):kernel
 
 # Permissions

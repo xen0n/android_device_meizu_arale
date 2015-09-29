@@ -6,10 +6,10 @@ on init
     mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
     mkdir /storage/usbotg 0700 root root
 
-# on post-fs-data  -- moved to setup-post-fs-data.sh invocation in init.mt6595.rc
+# on post-fs-data  -- moved to proj-dev-setup invocation in init.mt6595.rc
 
 # Encrypt phone function
-    setprop vold.post_fs_data_done 1
+#    setprop vold.post_fs_data_done 1
 
 #on init
     # Refer to http://source.android.com/devices/tech/storage/index.html

@@ -560,7 +560,7 @@ on post-fs-data
 
     # originally in init.project.rc
     # init some more device nodes
-    start setup_proj_dev
+    start proj-dev-setup
 
 on boot
 
@@ -1364,7 +1364,7 @@ service sbchk /system/bin/sbchk
 # originally bulk of init.project.rc
 # this cannot be named setup_project_devices, because
 # system/core/init/init_parser.c:481 says strlen(name) can't be greater than 16
-service setup_proj_dev /system/bin/logwrapper /system/bin/sh /setup-post-fs-data.sh
+service proj-dev-setup /system/bin/proj-dev-setup
     user root
     group root
     class main
