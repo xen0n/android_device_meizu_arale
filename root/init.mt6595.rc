@@ -1093,57 +1093,59 @@ service ipod /system/bin/ipod
     group root
     disabled
 
-service extmdlogger /system/bin/extmdlogger
-    class main
-    user shell
-    group shell system radio sdcard_rw inet sdcard_r media_rw
+# disable mtk logging
+#service extmdlogger /system/bin/extmdlogger
+#    class main
+#    user shell
+#    group shell system radio sdcard_rw inet sdcard_r media_rw
 
 service GoogleOtaAgent /system/bin/GoogleOtaBinder
     class main
     user system
     group system
 
-service mdlogger /system/bin/mdlogger
-    class main
-    user shell
-    group shell system radio sdcard_rw inet sdcard_r media_rw
-    disabled
-    oneshot
-
-service dualmdlogger /system/bin/dualmdlogger
-    class main
-    user shell
-    group shell system radio sdcard_rw inet sdcard_r media_rw
-    disabled
-    oneshot
-
-service emdlogger1 /system/bin/emdlogger1
-    class main
-    user shell
-    group system shell radio sdcard_rw inet sdcard_r media_rw
-    disabled
-    oneshot
-
-service emdlogger2 /system/bin/emdlogger2
-    class main
-    user shell
-    group system shell radio sdcard_rw inet sdcard_r media_rw
-    disabled
-    oneshot
-
-service emdlogger5 /system/bin/emdlogger5
-    class main
-    user shell
-    group system shell radio sdcard_rw inet sdcard_r media_rw
-    disabled
-    oneshot
-
-service emdlogger6 /system/bin/emdlogger6
-    class main
-    user shell
-    group system shell radio sdcard_rw inet sdcard_r media_rw
-    disabled
-    oneshot
+# disable mtk logging
+#service mdlogger /system/bin/mdlogger
+#    class main
+#    user shell
+#    group shell system radio sdcard_rw inet sdcard_r media_rw
+#    disabled
+#    oneshot
+#
+#service dualmdlogger /system/bin/dualmdlogger
+#    class main
+#    user shell
+#    group shell system radio sdcard_rw inet sdcard_r media_rw
+#    disabled
+#    oneshot
+#
+#service emdlogger1 /system/bin/emdlogger1
+#    class main
+#    user shell
+#    group system shell radio sdcard_rw inet sdcard_r media_rw
+#    disabled
+#    oneshot
+#
+#service emdlogger2 /system/bin/emdlogger2
+#    class main
+#    user shell
+#    group system shell radio sdcard_rw inet sdcard_r media_rw
+#    disabled
+#    oneshot
+#
+#service emdlogger5 /system/bin/emdlogger5
+#    class main
+#    user shell
+#    group system shell radio sdcard_rw inet sdcard_r media_rw
+#    disabled
+#    oneshot
+#
+#service emdlogger6 /system/bin/emdlogger6
+#    class main
+#    user shell
+#    group system shell radio sdcard_rw inet sdcard_r media_rw
+#    disabled
+#    oneshot
 
 #
 #sensor service (begin)
@@ -1257,26 +1259,27 @@ service mpud6050 /system/bin/mpud6050
 #sensor service (end)
 #
 
+# this is "engineer mode server", we don't need it
 #
 #emsvr service (start)
 #
-on property:ro.build.type=eng
-    start emsvr
-
-on property:ro.build.type=user
-    start emsvr_user
-
-on property:ro.build.type=userdebug
-    start emsvr_user
-
-service emsvr_user /system/bin/em_svr
-    disabled
-    user system
-    group system radio diag
-
-service emsvr /system/bin/em_svr
-    disabled
-    user root
+#on property:ro.build.type=eng
+#    start emsvr
+#
+#on property:ro.build.type=user
+#    start emsvr_user
+#
+#on property:ro.build.type=userdebug
+#    start emsvr_user
+#
+#service emsvr_user /system/bin/em_svr
+#    disabled
+#    user system
+#    group system radio diag
+#
+#service emsvr /system/bin/em_svr
+#    disabled
+#    user root
 
 #
 #emsvr service (end)
@@ -1297,10 +1300,12 @@ service thermal_manager /system/bin/thermal_manager
     user root
     oneshot
 
-service thermal /system/bin/thermal
-    class main
-    user system
-    group system
+# this repeatedly crashes due to incompatible libnetutils or something,
+# disable for now.
+#service thermal /system/bin/thermal
+#    class main
+#    user system
+#    group system
 
 service thermald /system/bin/thermald
     class main
