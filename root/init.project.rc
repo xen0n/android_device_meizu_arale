@@ -109,7 +109,17 @@ on init
     mkdir /dev/pipes 0771 system system
     export VIBE_PIPE_PATH /dev/pipes
 
-# TouchSense Player Service
+# TouchSense Player Service -- now minimally working without blob!
+service openimmvibed /system/bin/openimmvibed
+    class main
+    #user root
+    #group root
+    user system
+    group system
+    oneshot
+
+# but we still want to coexist with the original blob, in case some apps
+# with bundled ImmVibeJ wants to talk with the vibrator directly.
 service immvibed /system/bin/immvibed -p 99 -u 1000
     class main
     user root
