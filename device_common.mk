@@ -25,6 +25,10 @@ PRODUCT_LOCALES := zh_CN zh_HK zh_TW
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.timezone=Asia/Shanghai
 
+# hack to fix asec on emulated sdcard
+PRODUCT_PACKAGES += \
+    asec_helper
+
 # Lights
 PRODUCT_PACKAGES += \
     lights.mt6595
