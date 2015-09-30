@@ -123,8 +123,11 @@ chmod("/sys/class/meizu/lm3697_bled/brightness", 0664);
 chown("/sys/class/meizu/lm3697_bled/brightness", AID_SYSTEM, AID_RADIO);
 
 // leds
-chown("/sys/class/leds/mx-led/brightness", AID_SYSTEM, AID_SYSTEM);
-chown("/sys/class/leds/mx-led/blink", AID_SYSTEM, AID_SYSTEM);
+// moved to ueventd.mt6595.rc; COMPATIBILITY WITH FLYME BOOT.IMG IS LOST!
+// chown("/sys/class/leds/mx-led/brightness", AID_SYSTEM, AID_SYSTEM);
+// chown("/sys/class/leds/mx-led/blink", AID_SYSTEM, AID_SYSTEM);
+// chown("/sys/class/leds/mx-led/trigger", AID_SYSTEM, AID_SYSTEM);
+
 // TP
 chown("/sys/devices/mx_tsp/gesture_control", AID_ROOT, AID_SYSTEM);
 
