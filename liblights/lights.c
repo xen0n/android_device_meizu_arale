@@ -89,44 +89,11 @@ static int g_attention = 0;
 char const*const TRACKBALL_FILE
         = "/sys/class/leds/jogball-backlight/brightness";
 
-/* RED LED */
-char const*const RED_LED_FILE
-        = "/sys/class/leds/red/brightness";
-
-char const*const RED_TRIGGER_FILE
-        = "/sys/class/leds/red/trigger";
-
-char const*const RED_DELAY_ON_FILE
-        = "/sys/class/leds/red/delay_on";
-
-char const*const RED_DELAY_OFF_FILE
-        = "/sys/class/leds/red/delay_off";
-
-/* GREEN LED */
-char const*const GREEN_LED_FILE
-        = "/sys/class/leds/green/brightness";
-
-char const*const GREEN_TRIGGER_FILE
-        = "/sys/class/leds/green/trigger";
-
-char const*const GREEN_DELAY_ON_FILE
-        = "/sys/class/leds/green/delay_on";
-
-char const*const GREEN_DELAY_OFF_FILE
-        = "/sys/class/leds/green/delay_off";
-
-/* BLUE LED */
-char const*const BLUE_LED_FILE
-        = "/sys/class/leds/blue/brightness";
-
-char const*const BLUE_TRIGGER_FILE
-        = "/sys/class/leds/blue/trigger";
-
-char const*const BLUE_DELAY_ON_FILE
-        = "/sys/class/leds/blue/delay_on";
-
-char const*const BLUE_DELAY_OFF_FILE
-        = "/sys/class/leds/blue/delay_off";
+/* MX LED */
+char const*const MX_LED_FILE       = "/sys/class/leds/mx-led/brightness";
+char const*const MX_TRIGGER_FILE   = "/sys/class/leds/mx-led/trigger";
+char const*const MX_DELAY_ON_FILE  = "/sys/class/leds/mx-led/delay_on";
+char const*const MX_DELAY_OFF_FILE = "/sys/class/leds/mx-led/delay_off";
 
 /* LCD BACKLIGHT */
 char const*const LCD_FILE
@@ -230,7 +197,7 @@ is_lit(struct light_state_t const* state)
 }
 
 static int
-blink_red(int level, int onMS, int offMS)
+blink_mx_led(int level, int onMS, int offMS)
 {
     static int preStatus = 0; // 0: off, 1: blink, 2: no blink
     int nowStatus;
@@ -247,112 +214,28 @@ blink_red(int level, int onMS, int offMS)
         return -1;
 
 #ifdef LIGHTS_DBG_ON
-    ALOGD("blink_red, level=%d, onMS=%d, offMS=%d\n", level, onMS, offMS);
+    ALOGD("blink_mx_led, level=%d, onMS=%d, offMS=%d\n", level, onMS, offMS);
 #endif
     if (nowStatus == 0) {
-            write_int(RED_LED_FILE, 0);
+        write_str(MX_TRIGGER_FILE, "none");
+        write_int(MX_LED_FILE, 0);
     }
     else if (nowStatus == 1) {
-//          write_int(RED_LED_FILE, level); // default full brightness
-        write_str(RED_TRIGGER_FILE, "timer");
-        while (((access(RED_DELAY_OFF_FILE, F_OK) == -1) || (access(RED_DELAY_OFF_FILE, R_OK|W_OK) == -1)) && i<10) {
-            ALOGD("RED_DELAY_OFF_FILE doesn't exist or cannot write!!\n");
+//          write_int(MX_LED_FILE, level); // default full brightness
+        write_str(MX_TRIGGER_FILE, "timer");
+        while (((access(MX_DELAY_OFF_FILE, W_OK) == -1) || (access(MX_DELAY_OFF_FILE, W_OK) == -1)) && i<10) {
+            ALOGD("waiting for delay timer files; retries=%d", i);
             led_wait_delay(5);//sleep 5ms for wait kernel LED class create led delay_off/delay_on node of fs
             i++;
         }
-        write_int(RED_DELAY_OFF_FILE, offMS);
-        write_int(RED_DELAY_ON_FILE, onMS);
+        write_int(MX_DELAY_OFF_FILE, offMS);
+        write_int(MX_DELAY_ON_FILE, onMS);
     }
     else {
-        write_str(RED_TRIGGER_FILE, "none");
-            write_int(RED_LED_FILE, 255); // default full brightness
-    }
+        write_str(MX_TRIGGER_FILE, "none");
 
-    preStatus = nowStatus;
-
-    return 0;
-}
-
-static int
-blink_green(int level, int onMS, int offMS)
-{
-    static int preStatus = 0; // 0: off, 1: blink, 2: no blink
-    int nowStatus;
-    int i = 0;
-
-    if (level == 0)
-        nowStatus = 0;
-    else if (onMS && offMS)
-        nowStatus = 1;
-    else
-        nowStatus = 2;
-
-    if (preStatus == nowStatus)
-        return -1;
-
-#ifdef LIGHTS_DBG_ON
-    ALOGD("blink_green, level=%d, onMS=%d, offMS=%d\n", level, onMS, offMS);
-#endif
-    if (nowStatus == 0) {
-            write_int(GREEN_LED_FILE, 0);
-    }
-    else if (nowStatus == 1) {
-//          write_int(GREEN_LED_FILE, level); // default full brightness
-        write_str(GREEN_TRIGGER_FILE, "timer");
-        while (((access(GREEN_DELAY_OFF_FILE, F_OK) == -1) || (access(GREEN_DELAY_OFF_FILE, R_OK|W_OK) == -1)) && i<10) {
-            ALOGD("GREEN_DELAY_OFF_FILE doesn't exist or cannot write!!\n");
-            led_wait_delay(5);//sleep 5ms for wait kernel LED class create led delay_off/delay_on node of fs
-            i++;
-        }
-        write_int(GREEN_DELAY_OFF_FILE, offMS);
-        write_int(GREEN_DELAY_ON_FILE, onMS);
-    }
-    else {
-        write_str(GREEN_TRIGGER_FILE, "none");
-            write_int(GREEN_LED_FILE, 255); // default full brightness
-    }
-
-    preStatus = nowStatus;
-
-    return 0;
-}
-
-static int
-blink_blue(int level, int onMS, int offMS)
-{
-    static int preStatus = 0; // 0: off, 1: blink, 2: no blink
-    int nowStatus;
-    int i = 0;
-
-    if (level == 0)
-        nowStatus = 0;
-    else if (onMS && offMS)
-        nowStatus = 1;
-    else
-        nowStatus = 2;
-
-    if (preStatus == nowStatus)
-        return -1;
-
-#ifdef LIGHTS_DBG_ON
-    ALOGD("blink_blue, level=%d, onMS=%d, offMS=%d\n", level, onMS, offMS);
-#endif
-    if (nowStatus == 0) {
-            write_int(BLUE_LED_FILE, 0);
-    }
-    else if (nowStatus == 1) {
-//          write_int(BLUE_LED_FILE, level); // default full brightness
-        write_str(BLUE_TRIGGER_FILE, "timer");
-        while (((access(BLUE_DELAY_OFF_FILE, F_OK) == -1) || (access(BLUE_DELAY_OFF_FILE, R_OK|W_OK) == -1)) && i<10) {
-            ALOGD("BLUE_DELAY_OFF_FILE doesn't exist or cannot write!!\n");
-            i++;
-        }
-        write_int(BLUE_DELAY_OFF_FILE, offMS);
-        write_int(BLUE_DELAY_ON_FILE, onMS);
-    }
-    else {
-        write_str(BLUE_TRIGGER_FILE, "none");
-            write_int(BLUE_LED_FILE, 255); // default full brightness
+        // TODO: more appropriate brightness selection
+        write_int(MX_LED_FILE, 255); // default full brightness
     }
 
     preStatus = nowStatus;
@@ -457,6 +340,7 @@ do_set_light_buttons(int on)
     pthread_mutex_lock(&g_lock);
     g_buttons = on;
     // make button brightness adapt to current backlight brightness
+    write_str(MX_TRIGGER_FILE, "none");
     err = write_int(BUTTON_FILE, on?g_backlight:0);
     pthread_mutex_unlock(&g_lock);
     return err;
@@ -499,25 +383,11 @@ set_speaker_light_locked(struct light_device_t* dev,
         red = green = blue = 0;
     }
 
-    if (red) {
-        blink_green(0, 0, 0);
-        blink_blue(0, 0, 0);
-        blink_red(red, onMS, offMS);
-    }
-    else if (green) {
-        blink_red(0, 0, 0);
-        blink_blue(0, 0, 0);
-        blink_green(green, onMS, offMS);
-    }
-    else if (blue) {
-        blink_red(0, 0, 0);
-        blink_green(0, 0, 0);
-        blink_blue(blue, onMS, offMS);
+    if (red || green || blue) {
+        blink_mx_led(255, onMS, offMS);
     }
     else {
-        blink_red(0, 0, 0);
-        blink_green(0, 0, 0);
-        blink_blue(0, 0, 0);
+        blink_mx_led(0, 0, 0);
     }
 
     return 0;
@@ -618,7 +488,9 @@ static int open_lights(const struct hw_module_t* module, char const* name,
         set_light = set_light_buttons;
     }
     else if (0 == strcmp(LIGHT_ID_BATTERY, name)) {
-        set_light = set_light_battery;
+        // don't light up while charging
+        // set_light = set_light_battery;
+        return -ENODEV;
     }
     else if (0 == strcmp(LIGHT_ID_NOTIFICATIONS, name)) {
         set_light = set_light_notifications;
