@@ -181,12 +181,11 @@ subsystem adf
 /sys/devices/virtual/usb_composite/*   enable      0664  root   system
 /sys/devices/system/cpu/cpu*   cpufreq/scaling_max_freq   0664  system system
 /sys/devices/system/cpu/cpu*   cpufreq/scaling_min_freq   0664  system system
-/sys/devices/platform/leds-mt65xx/leds/green   delay_on      0664  system   system
-/sys/devices/platform/leds-mt65xx/leds/green   delay_off      0664  system   system
-/sys/devices/platform/leds-mt65xx/leds/red   delay_on      0664  system   system
-/sys/devices/platform/leds-mt65xx/leds/red   delay_off      0664  system   system
-/sys/devices/platform/leds-mt65xx/leds/blue   delay_on      0664  system   system
-/sys/devices/platform/leds-mt65xx/leds/blue   delay_off      0664  system   system
+/sys/devices/platform/leds-mt65xx/leds/mx-led   blink         0664  system   system
+/sys/devices/platform/leds-mt65xx/leds/mx-led   brightness    0664  system   system
+/sys/devices/platform/leds-mt65xx/leds/mx-led   delay_on      0664  system   system
+/sys/devices/platform/leds-mt65xx/leds/mx-led   delay_off     0664  system   system
+/sys/devices/platform/leds-mt65xx/leds/mx-led   trigger       0664  system   system
 
 #NFC device
 /dev/msr3110              0666   root       root
