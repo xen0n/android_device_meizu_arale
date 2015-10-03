@@ -41,6 +41,9 @@ service.wcn.driver.ready=no
 mediatek.wlan.chip=MT6630
 mediatek.wlan.module.postfix=_mt6630
 
+ro.mtk_wlan_support=1
+ro.mtk_tetheringipv6_support=1
+
 
 # Audio
 ro.camera.sound.forced=0
@@ -74,6 +77,7 @@ ro.gemini.smart_sim_switch=false
 ro.sim_refresh_reset_by_modem=1
 ro.sim_me_lock_mode=0
 ro.mtk_enable_md1=1
+ro.mtk_fd_support=1
 ro.mtk_sim_hot_swap=1
 ro.mtk_world_phone=1
 ro.mtk_lte_support=1
@@ -105,9 +109,6 @@ sys.ipo.pwrdncap=2
 # begin unrefined build properties
 #ro.zygote.preload.enable=0
 
-# temporary enables NAV bar (soft keys)
-#qemu.hw.mainkeys=1
-
 ro.kernel.zio=38,108,105,16
 #ro.kernel.qemu=1
 #ro.kernel.qemu.gles=0
@@ -135,13 +136,11 @@ ro.mtk_bt_support=1
 ro.mtk_wappush_support=1
 ro.mtk_agps_app=1
 ro.mtk_matv_analog_support=1
-ro.mtk_wlan_support=1
 ro.mtk_gps_support=1
 ro.mtk_search_db_support=1
 ro.mtk_dialer_search_support=1
 ro.mtk_dhcpv6c_wifi=1
 ro.have_aacencode_feature=1
-ro.mtk_fd_support=1
 ro.mtk_oma_drm_support=1
 ro.mtk_cta_drm_support=1
 ro.mtk_widevine_drm_support=1
@@ -153,7 +152,6 @@ ro.mtk_wmv_playback_support=1
 ro.mtk_send_rr_support=1
 ro.mtk_default_data_off=1
 ro.mtk_emmc_support=1
-ro.mtk_tetheringipv6_support=1
 ro.mtk_phone_number_geo=1
 ro.mtk_shared_sdcard=1
 ro.mtk_aal_support=1
