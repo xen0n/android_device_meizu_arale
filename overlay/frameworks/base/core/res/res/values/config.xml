@@ -173,4 +173,7 @@
         <item>255</item>
         <item>255</item>
 	</integer-array>
+
+    <!-- MX devices normally don't light up their buttons while operating -->
+    <integer name="config_buttonBrightnessSettingDefault">0</integer>
 </resources>
