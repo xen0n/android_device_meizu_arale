@@ -131,10 +131,3 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/virtual/android_usb/android0/f_
 
 BOARD_SEPOLICY_DIRS := \
        $(DEVICE_FOLDER_COMMON)/sepolicy
-
-BOARD_SEPOLICY_UNION := \
-       device.te \
-       app.te \
-       system.te \
-       netd.te \
-       file_contexts
