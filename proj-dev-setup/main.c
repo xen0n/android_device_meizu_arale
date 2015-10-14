@@ -483,6 +483,9 @@ int main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
 	chmod("/sys/power/power_mode", 0660);
 	// @}
 
+	// workaround: calibrate proximity sensor on boot
+	s_echo("/sys/class/meizu/ps/ps_calibration", "1", 1);
+
 	// Encrypt phone function
 	property_set("vold.post_fs_data_done", "1");
 
