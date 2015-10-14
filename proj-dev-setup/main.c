@@ -1,6 +1,7 @@
 #define LOG_TAG "proj_dev_setup"
 
 #include <fcntl.h>
+#include <string.h>
 #include <unistd.h>
 
 #include <sys/types.h>
@@ -52,6 +53,33 @@ static void s_mkdirp(const char *pathname)
 		}
 		pathpiece = strtok(NULL, "/");
 	}
+}
+
+
+static void s_echo(const char *pathname, const void *buf, size_t len)
+{
+	int fd;
+	int remaining;
+	int ret;
+
+	fd = open(pathname, O_WRONLY);
+	if (fd < 0) {
+		ALOGE("echo: failed to open file %s: %s", pathname, strerror(errno));
+		return;
+	}
+
+	remaining = len;
+	while (remaining) {
+		ret = write(fd, buf, remaining);
+		if (ret < 0) {
+			ALOGE("echo: write failed: %s", strerror(errno));
+			goto bail;
+		}
+		remaining -= ret;
+	}
+
+bail:
+	close(fd);
 }
 
 
