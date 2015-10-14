@@ -16,7 +16,7 @@
         <MediaCodec name="OMX.MTK.AUDIO.DECODER.ADPCM.MS" type="audio/x-adpcm-ms" />
         <MediaCodec name="OMX.MTK.AUDIO.DECODER.ADPCM.DVI" type="audio/x-adpcm-dvi-ima" />
         <MediaCodec name="OMX.MTK.AUDIO.DECODER.GSM" type="audio/gsm" />
-        <!--MediaCodec name="OMX.MTK.AUDIO.DECODER.RAW" type="audio/raw" /-->
+        <MediaCodec name="OMX.MTK.AUDIO.DECODER.RAW" type="audio/raw" />
         <MediaCodec name="OMX.MTK.AUDIO.DECODER.G711.ALAW" type="audio/g711-alaw" >
             <Quirk name="decoder-lies-about-number-of-channels" />
         </MediaCodec>
