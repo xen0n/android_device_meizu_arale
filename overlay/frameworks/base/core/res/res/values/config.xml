@@ -177,6 +177,14 @@
     <!-- MX devices normally don't light up their buttons while operating -->
 	<integer name="config_buttonBrightnessSettingDefault">0</integer>
 
+    <!-- True if button brightness should be configurable even if default
+         value is set to 0 -->
+	<bool name="config_buttonBrightnessForceConfigurable">true</bool>
+
+    <!-- Overridden brightness value of enabled state if button brightness is
+         forced to be configurable -->
+    <integer name="config_buttonBrightnessOverriddenEnabledValue">255</integer>
+
     <!-- Default value for proximity check on screen wake
          NOTE ! - Enable for devices that have a fast response proximity sensor (ideally < 300ms)
     -->
