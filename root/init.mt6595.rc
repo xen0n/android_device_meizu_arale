@@ -11,6 +11,12 @@ import init.modem.rc
 #import init.fon.rc
 
 
+on early-boot
+    # damn this is so easily overlooked
+    mount debugfs debugfs /sys/kernel/debug
+    chmod 0755 /sys/kernel/debug
+
+
 on init
 
     # BATTERY proc
