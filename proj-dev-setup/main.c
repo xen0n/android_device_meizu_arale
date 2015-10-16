@@ -217,9 +217,6 @@ int main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
 	// chown("/sys/class/leds/mx-led/blink", AID_SYSTEM, AID_SYSTEM);
 	// chown("/sys/class/leds/mx-led/trigger", AID_SYSTEM, AID_SYSTEM);
 
-	// TP
-	chown("/sys/devices/mx_tsp/gesture_control", AID_ROOT, AID_SYSTEM);
-
 	// Permissions for power saving mode
 	chown("/sys/power/power_mode", AID_SYSTEM, AID_SYSTEM);
 
@@ -472,6 +469,9 @@ int main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
 	chown("/sys/devices/mx_tsp/hall_mode", AID_SYSTEM, AID_SYSTEM);
 	chown("/sys/devices/mx_tsp/gesture_control", AID_SYSTEM, AID_SYSTEM);
 	chown("/sys/devices/mx_tsp/gesture_data", AID_SYSTEM, AID_SYSTEM);
+
+	// gesture too, for easy manipulation from Java
+	chown("/sys/devices/mx_tsp/gesture_hex", AID_SYSTEM, AID_SYSTEM);
 
 	// /dev/ttyMT1 for ext_mdinit
 	chmod("/dev/ttyMT1", 0660);
