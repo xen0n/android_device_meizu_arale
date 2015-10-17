@@ -27,7 +27,7 @@ import org.cyanogenmod.hardware.util.FileUtils;
  */
 public class TapToWake {
 
-    private static String CONTROL_PATH = "/sys/devices/mx_tsp/gesture_control";
+    private static String CONTROL_PATH = "/sys/devices/mx_tsp/gesture_hex";
 
     // XXX: use a backup-able store instead of this!
     private static String STORE_PROP = "persist.cmhw.mz_taptowake";
