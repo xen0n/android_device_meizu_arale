@@ -160,6 +160,20 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/compat/install-recovery.sh:system/bin/install-recovery.sh \
 
+# Prebuilt Xposed
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/xposed/system/xposed.prop:system/xposed.prop \
+    $(LOCAL_PATH)/xposed/system/bin/app_process32_xposed:system/bin/app_process32 \
+    $(LOCAL_PATH)/xposed/system/bin/dex2oat:system/bin/dex2oat \
+    $(LOCAL_PATH)/xposed/system/bin/oatdump:system/bin/oatdump \
+    $(LOCAL_PATH)/xposed/system/bin/patchoat:system/bin/patchoat \
+    $(LOCAL_PATH)/xposed/system/framework/XposedBridge.jar:system/framework/XposedBridge.jar \
+    $(LOCAL_PATH)/xposed/system/lib/libart-compiler.so:system/lib/libart-compiler.so \
+    $(LOCAL_PATH)/xposed/system/lib/libart-disassembler.so:system/lib/libart-disassembler.so \
+    $(LOCAL_PATH)/xposed/system/lib/libart.so:system/lib/libart.so \
+    $(LOCAL_PATH)/xposed/system/lib/libsigchain.so:system/lib/libsigchain.so \
+    $(LOCAL_PATH)/xposed/system/lib/libxposed_art.so:system/lib/libxposed_art.so \
+
 
 $(call inherit-product, build/target/product/full.mk)
 
