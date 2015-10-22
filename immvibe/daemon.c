@@ -48,7 +48,7 @@ static void *worker_thread_proc(void *arg)
 			case MSG_VIBRATE: {
 				int duration = (int)msg.data;
 				uint8_t force = immvibe_api_get_force_userspace();
-				ALOGD("worker: vibrate(duration=%d, force=%d)", duration, force);
+				ALOGV("worker: vibrate(duration=%d, force=%d)", duration, force);
 
 				immvibe_play(fd, force);
 				usleep(duration * 1000);  // XXX: too lazy to nanosleep and handle EINTR
@@ -58,7 +58,7 @@ static void *worker_thread_proc(void *arg)
 			}
 
 			case MSG_STOP: {
-				ALOGD("worker: stop()");
+				ALOGV("worker: stop()");
 				immvibe_play(fd, 0);
 
 				break;
@@ -87,13 +87,13 @@ static void process_buf(const char *buf, int count __attribute__((unused)))
 				return;
 			}
 
-			ALOGD("process_buf: vibrate(duration=%d)", duration);
+			ALOGV("process_buf: vibrate(duration=%d)", duration);
 			thread_queue_add(&work_queue, (void *)duration, MSG_VIBRATE);
 			break;
 		}
 
 		case '-': {
-			ALOGD("process_buf: stop()");
+			ALOGV("process_buf: stop()");
 			thread_queue_add(&work_queue, NULL, MSG_STOP);
 			break;
 		}
@@ -264,7 +264,7 @@ int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)))
 		n = epoll_wait (efd, events, MAXEVENTS, -1);
 		for (i = 0; i < n; i++) {
 			if (events[i].events & EPOLLHUP) {
-				ALOGD("fd=%d dropped connection", events[i].data.fd);
+				ALOGV("fd=%d dropped connection", events[i].data.fd);
 				close(events[i].data.fd);
 				continue;
 			}
@@ -317,7 +317,7 @@ int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)))
 			}
 
 			if (process_client(events[i].data.fd)) {
-				ALOGD("Closed connection on fd %d", events[i].data.fd);
+				ALOGV("Closed connection on fd %d", events[i].data.fd);
 				close(events[i].data.fd);
 			}
 		}
