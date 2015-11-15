@@ -828,10 +828,11 @@ service pq /system/bin/pq
     group system graphics
     oneshot
 
-service aal /system/bin/aal
-    class main
-    user system
-    group system graphics
+# Y U NO DOCS
+#service aal /system/bin/aal
+#    class main
+#    user system
+#    group system graphics
 
 # FOTA upgrade
 service rbfota /system/bin/fota1
