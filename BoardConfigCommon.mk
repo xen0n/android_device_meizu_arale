@@ -129,5 +129,5 @@ TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
 
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/virtual/android_usb/android0/f_mass_storage/lun%d/file"
 
-BOARD_SEPOLICY_DIRS := \
-       $(DEVICE_FOLDER_COMMON)/sepolicy
+#BOARD_SEPOLICY_DIRS := \
+#       $(DEVICE_FOLDER_COMMON)/sepolicy

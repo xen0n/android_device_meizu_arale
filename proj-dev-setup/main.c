@@ -1,5 +1,6 @@
 #define LOG_TAG "proj_dev_setup"
 
+#include <errno.h>
 #include <fcntl.h>
 #include <unistd.h>
 
