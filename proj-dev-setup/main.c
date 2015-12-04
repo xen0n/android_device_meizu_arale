@@ -2,6 +2,7 @@
 
 #include <errno.h>
 #include <fcntl.h>
+#include <string.h>
 #include <unistd.h>
 
 #include <sys/types.h>
@@ -53,6 +54,33 @@ static void s_mkdirp(const char *pathname)
 		}
 		pathpiece = strtok(NULL, "/");
 	}
+}
+
+
+static void s_echo(const char *pathname, const void *buf, size_t len)
+{
+	int fd;
+	int remaining;
+	int ret;
+
+	fd = open(pathname, O_WRONLY);
+	if (fd < 0) {
+		ALOGE("echo: failed to open file %s: %s", pathname, strerror(errno));
+		return;
+	}
+
+	remaining = len;
+	while (remaining) {
+		ret = write(fd, buf, remaining);
+		if (ret < 0) {
+			ALOGE("echo: write failed: %s", strerror(errno));
+			goto bail;
+		}
+		remaining -= ret;
+	}
+
+bail:
+	close(fd);
 }
 
 
@@ -189,9 +217,6 @@ int main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
 	// chown("/sys/class/leds/mx-led/brightness", AID_SYSTEM, AID_SYSTEM);
 	// chown("/sys/class/leds/mx-led/blink", AID_SYSTEM, AID_SYSTEM);
 	// chown("/sys/class/leds/mx-led/trigger", AID_SYSTEM, AID_SYSTEM);
-
-	// TP
-	chown("/sys/devices/mx_tsp/gesture_control", AID_ROOT, AID_SYSTEM);
 
 	// Permissions for power saving mode
 	chown("/sys/power/power_mode", AID_SYSTEM, AID_SYSTEM);
@@ -446,6 +471,9 @@ int main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
 	chown("/sys/devices/mx_tsp/gesture_control", AID_SYSTEM, AID_SYSTEM);
 	chown("/sys/devices/mx_tsp/gesture_data", AID_SYSTEM, AID_SYSTEM);
 
+	// gesture too, for easy manipulation from Java
+	chown("/sys/devices/mx_tsp/gesture_hex", AID_SYSTEM, AID_SYSTEM);
+
 	// /dev/ttyMT1 for ext_mdinit
 	chmod("/dev/ttyMT1", 0660);
 	chown("/dev/ttyMT1", AID_SYSTEM, AID_SYSTEM);
@@ -455,6 +483,9 @@ int main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
 	chown("/sys/power/power_mode", AID_SYSTEM, AID_SYSTEM);
 	chmod("/sys/power/power_mode", 0660);
 	// @}
+
+	// workaround: calibrate proximity sensor on boot
+	s_echo("/sys/class/meizu/ps/ps_calibration", "1", 1);
 
 	// Encrypt phone function
 	property_set("vold.post_fs_data_done", "1");

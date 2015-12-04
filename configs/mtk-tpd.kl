@@ -1,3 +1,6 @@
 key 102 HOME VIRTUAL
 key 139 MENU VIRTUAL
 key 158 BACK VIRTUAL
+
+# originally GESTURE, replaced for a minimalistic "tap to wake" impl
+key 195 POWER WAKE
