@@ -9,12 +9,12 @@ on post-fs-data
     write /proc/bootprof "post-fs-data: on modem start"
 
     # Modem related device nodes
-    mkdir /data/nvram/md  0770 root nvram
+    mkdir /data/nvram/md  0770 root system
 
     chown radio radio /sys/kernel/ccci/boot
 
 #SeLinux
-    mkdir /data/ccci_cfg 0700 system radio
+    mkdir /data/ccci_cfg 0770 system radio
     restorecon /data/ccci_cfg
     restorecon_recursive /protect_f
     restorecon_recursive /protect_s
@@ -56,6 +56,7 @@ service ril-daemon-mtk /system/bin/mtkrild
     user root
     group radio cache inet misc audio sdcard_r sdcard_rw log system
     disabled
+    oneshot
 
 service ril-daemon-md2 /system/bin/mtkrildmd2
     class core
@@ -70,6 +71,7 @@ service ril-daemon-md2 /system/bin/mtkrildmd2
     user root
     group radio cache inet misc audio sdcard_r sdcard_rw log system
     disabled
+    oneshot
 
 service md_minilog_util /system/bin/md_minilog_util
     user radio
@@ -131,6 +133,7 @@ on property:ril.muxreport=1
 #  Modem related services (End)
 #
 
+#Add by hp.chen for 
 #
 #   Telephony Early Read service
 #

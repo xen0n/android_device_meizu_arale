@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <EccTable>
-    <!--
+    <!-- 
         The attribute definition for tag EccEntry:
         - Ecc: the emergnecy number
         - Category: the service category
@@ -9,8 +9,6 @@
             - 1: ecc always
             - 2: MMI will show ecc but send to nw as normal call
     -->
-    <!--FLYME:lixuan@Feature modify for flyme emergercy {@ -->
-    <!--
     <EccEntry Ecc="112" Category="0" Condition="1" />
     <EccEntry Ecc="911" Category="0" Condition="1" />
     <EccEntry Ecc="000" Category="0" Condition="0" />
@@ -19,18 +17,4 @@
     <EccEntry Ecc="118" Category="0" Condition="0" />
     <EccEntry Ecc="119" Category="0" Condition="0" />
     <EccEntry Ecc="999" Category="0" Condition="0" />
-    -->
-    <!--international emergency number-->
-    <EccEntry Ecc="112" Category="0" Condition="1" />
-    <EccEntry Ecc="911" Category="0" Condition="1" />
-    <EccEntry Ecc="000" Category="0" Condition="1" />
-    <EccEntry Ecc="08" Category="0" Condition="1" />
-    <EccEntry Ecc="118" Category="0" Condition="1" />
-    <EccEntry Ecc="999" Category="0" Condition="1" />
-    <!--Chinese emergency number-->
-    <EccEntry Ecc="110" Category="0" Condition="2" />
-    <EccEntry Ecc="119" Category="0" Condition="2" />
-    <EccEntry Ecc="120" Category="0" Condition="2" />
-    <EccEntry Ecc="122" Category="0" Condition="2" />
-    <!--@}-->
 </EccTable>

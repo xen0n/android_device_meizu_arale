@@ -54,13 +54,6 @@ service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/
     class late_start
     disabled
 
-## FLYME_BEGIN
-# FUNCTION:protect files. writed by chenwenjun
-#service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated  .@meizu_protbox@ 1000
-#    class late_start
-#    socket sdcard stream 0660 media_rw system 
-## FLYME_END 2015.05.12
-
 #
 # Connectivity related services (Begin)
 #
@@ -79,26 +72,6 @@ service 66xx_launcher /system/bin/6620_launcher -m 4 -p /system/etc/firmware/
 
 #
 # Connectivity related services (End)
-#
-
-#
-# External MD service
-#
-service ext_mdinit /system/bin/ext_mdinit  /dev/ttyMT1
-    user system
-    group  radio system shell
-    class core
-    oneshot
-
-#  Modem related services (Begin)
-#
-service pppd_gprs /system/bin/pppd_dt /dev/ttyACM0 debug noauth refuse-eap usepeerdns nodetach
-    user root
-    group radio cache inet misc
-    disabled
-    oneshot
-#
-#  Modem related services (End)
 #
 
 #FLYME:fanjun@SHELL.HapticFeedback.Feature {@
