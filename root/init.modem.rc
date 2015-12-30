@@ -49,8 +49,8 @@ service ril-daemon-mtk /system/bin/mtkrild
     socket rild-ims stream 660 root radio
     socket rild-debug stream 660 radio system
     socket rild-oem stream 660 radio system
-    socket rild-mtk-ut stream 660 radio net_bt
-    socket rild-mtk-ut-2 stream 660 radio net_bt
+    #socket rild-mtk-ut stream 660 radio net_bt
+    #socket rild-mtk-ut-2 stream 660 radio net_bt
     socket rild-mtk-modem stream 660 radio system
     socket rild-atci stream 660 root radio
     user root
@@ -63,8 +63,8 @@ service ril-daemon-md2 /system/bin/mtkrildmd2
     socket rild2-md2 stream 660 root radio
     socket rild-debug-md2 stream 660 radio system
     socket rild-oem-md2 stream 660 radio system
-    socket rild-mtk-ut-md2 stream 660 radio net_bt
-    socket rild-mtk-ut-2-md2 stream 660 radio net_bt
+    #socket rild-mtk-ut-md2 stream 660 radio net_bt
+    #socket rild-mtk-ut-2-md2 stream 660 radio net_bt
     socket rild-mtk-modem-md2 stream 660 radio system
     socket rild-atci-md2 stream 660 root radio
     user root
