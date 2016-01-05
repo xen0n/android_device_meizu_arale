@@ -352,8 +352,8 @@ on property:sys.usb.config=charging
     stop adbd
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor ${sys.usb.vid}
-    write /sys/class/android_usb/android0/idProduct F006
-    write /sys/class/android_usb/android0/functions charging
+    write /sys/class/android_usb/android0/idProduct 2008
+    write /sys/class/android_usb/android0/functions mtp
     write /sys/class/android_usb/android0/enable 1
     setprop sys.usb.state ${sys.usb.config}
 
