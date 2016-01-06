@@ -515,6 +515,7 @@
 <spnOverride numeric="40539" spn="TATA DOCOMO"/>
 <spnOverride numeric="40537" spn="TATA DOCOMO"/>
 <spnOverride numeric="405031" spn="TATA DOCOMO"/>
+<spnOverride numeric="405042" spn="TATA TELE"/>
 <spnOverride numeric="405816" spn="IN UNITECH"/>
 <spnOverride numeric="405817" spn="IN UNITECH"/>
 <spnOverride numeric="405818" spn="IN UNITECH"/>
@@ -556,6 +557,7 @@
 <spnOverride numeric="405838" spn="VIDEOCON"/>
 <spnOverride numeric="405836" spn="VIDEOCON"/>
 <spnOverride numeric="405835" spn="VIDEOCON"/>
+<spnOverride numeric="405932" spn="VIDEOCON"/>
 <spnOverride numeric="40566" spn="Vodafone IN"/>
 <spnOverride numeric="40567" spn="Vodafone IN"/>
 <spnOverride numeric="405751" spn="Vodafone IN"/>
@@ -667,6 +669,7 @@
 <spnOverride numeric="45417" spn="SmarTone HK"/>
 <spnOverride numeric="45504" spn="CTM"/>
 <spnOverride numeric="45501" spn="CTM"/>
+<spnOverride numeric="45502" spn="CT Macao"/>
 <spnOverride numeric="45503" spn="3 Macau"/>
 <spnOverride numeric="45500" spn="SmarTone MAC"/>
 <spnOverride numeric="45601" spn="Cellcard"/>
@@ -690,6 +693,7 @@
 <spnOverride numeric="46668" spn="ACeS"/>"/>
 <spnOverride numeric="46692" spn="Chunghwa Telecom"/>
 <spnOverride numeric="46601" spn="Far EasTone"/>
+<spnOverride numeric="46605" spn="APT"/>
 <spnOverride numeric="46688" spn="KGT-Online"/>
 <spnOverride numeric="46693" spn="TWN MOBITAI"/>
 <spnOverride numeric="46697" spn="TW Mobile"/>
