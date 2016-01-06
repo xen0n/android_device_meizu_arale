@@ -77,13 +77,14 @@ Only the three quirks included above are recognized at this point:
 -->
 
 <MediaCodecs>
+
+    <Include href="media_codecs_ffmpeg.xml" />
+
     <Decoders>
-        <!--
         <MediaCodec name="OMX.MTK.AUDIO.DECODER.MP3" type="audio/mpeg" >
             <Quirk name="decoder-lies-about-number-of-channels" />
             <Quirk name="supports-multiple-frames-per-input-buffer" />
         </MediaCodec>
-        -->
         <MediaCodec name="OMX.google.opus.decoder" type="audio/opus">
   			    <Limit name="channel-count" max="8" /> 
   			    <Limit name="sample-rate" ranges="8000-96000" /> 
@@ -92,14 +93,14 @@ Only the three quirks included above are recognized at this point:
         <MediaCodec name="OMX.MTK.AUDIO.DECODER.ADPCM.MS" type="audio/x-adpcm-ms" />
         <MediaCodec name="OMX.MTK.AUDIO.DECODER.ADPCM.DVI" type="audio/x-adpcm-dvi-ima" />
         <MediaCodec name="OMX.MTK.AUDIO.DECODER.GSM" type="audio/gsm" />
-        <!-- <MediaCodec name="OMX.MTK.AUDIO.DECODER.RAW" type="audio/raw" /> -->
+        <MediaCodec name="OMX.MTK.AUDIO.DECODER.RAW" type="audio/raw" />
         <MediaCodec name="OMX.MTK.AUDIO.DECODER.G711.ALAW" type="audio/g711-alaw" >
             <Quirk name="decoder-lies-about-number-of-channels" />
         </MediaCodec>
         <MediaCodec name="OMX.MTK.AUDIO.DECODER.G711.MLAW" type="audio/g711-mlaw" >
             <Quirk name="decoder-lies-about-number-of-channels" />
         </MediaCodec>
-        <MediaCodec name="OMX.MTK.AUDIO.DECODER.FLAC" type="audio/flac" />
+        <!-- <MediaCodec name="OMX.MTK.AUDIO.DECODER.FLAC" type="audio/flac" /> -->
         <MediaCodec name="OMX.MTK.AUDIO.DECODER.WMA" type="audio/x-ms-wma" />
         <MediaCodec name="OMX.MTK.AUDIO.DECODER.WMAPRO" type="audio/x-ms-wmapro" />
         <!--<MediaCodec name="OMX.MTK.AUDIO.DECODER.APE" type="audio/ape" >
@@ -108,23 +109,22 @@ Only the three quirks included above are recognized at this point:
         </MediaCodec>
         <MediaCodec name="OMX.MTK.AUDIO.DECODER.ALAC" type="audio/alac" />-->
 
-        <MediaCodec name="OMX.google.amrnb.decoder" type="audio/3gpp" />
-        <MediaCodec name="OMX.google.amrwb.decoder" type="audio/amr-wb" />
-        <MediaCodec name="OMX.google.aac.decoder" type="audio/mp4a-latm" />
-        <MediaCodec name="OMX.google.vorbis.decoder" type="audio/vorbis" />
-
-        <!-- DOLBY_UDC -->
-        <MediaCodec name="OMX.dolby.ac3.decoder" >
-            <Type name="audio/ac3" />
-            <Quirk name="needs-flush-before-disable" />
-            <Quirk name="requires-flush-complete-emulation" />
+        <MediaCodec name="OMX.google.amrnb.decoder" type="audio/3gpp">
+            <Limit name="channel-count" max="1" />
+            <Limit name="sample-rate" ranges="8000" />
+            <Limit name="bitrate" range="4750-12200" />
         </MediaCodec>
-        <MediaCodec name="OMX.dolby.ec3.decoder" >
-            <Type name="audio/eac3" />
-            <Quirk name="needs-flush-before-disable" />
-            <Quirk name="requires-flush-complete-emulation" />
+        <MediaCodec name="OMX.google.amrwb.decoder" type="audio/amr-wb">
+            <Limit name="channel-count" max="1" />
+            <Limit name="sample-rate" ranges="16000" />
+            <Limit name="bitrate" range="6600-23850" />
         </MediaCodec>
-        <!-- DOLBY_UDC END -->
+        <!-- <MediaCodec name="OMX.google.aac.decoder" type="audio/mp4a-latm" /> -->
+        <MediaCodec name="OMX.google.vorbis.decoder" type="audio/vorbis">
+            <Limit name="channel-count" max="8" />
+            <Limit name="sample-rate" ranges="8000-96000" />
+            <Limit name="bitrate" range="32000-500000" />
+        </MediaCodec>
 
         <MediaCodec name="OMX.MTK.VIDEO.DECODER.MPEG2" >
             <Type  name="video/mpeg2" />
@@ -213,6 +213,7 @@ Only the three quirks included above are recognized at this point:
             <Quirk name="requires-allocate-on-output-ports" />
         </MediaCodec>
 
+        <!--
         <MediaCodec name="OMX.google.vp8.decoder" type="video/x-vnd.on2.vp8">
             <Limit name="size" min="2x2" max="1920x1088" />
             <Limit name="alignment" value="2x2" />
@@ -223,7 +224,7 @@ Only the three quirks included above are recognized at this point:
         </MediaCodec>
 
         <MediaCodec name="OMX.google.h264.decoder" type="video/avc">
-            <!-- profiles and levels:  ProfileBaseline : Level51 -->
+
             <Limit name="size" min="2x2" max="1920x1088" />
             <Limit name="alignment" value="2x2" />
             <Limit name="block-size" value="16x16" />
@@ -231,7 +232,7 @@ Only the three quirks included above are recognized at this point:
             <Limit name="bitrate" range="1-40000000" />
             <Feature name="adaptive-playback" />
         </MediaCodec>
-
+        -->
     </Decoders>
 
     <Encoders>
@@ -267,10 +268,31 @@ Only the three quirks included above are recognized at this point:
         <MediaCodec name="OMX.MTK.AUDIO.ENCODER.VORBIS" type="audio/vorbis" />
         <MediaCodec name="OMX.MTK.AUDIO.ENCODER.ADPCM.MS" type="audio/x-adpcm-ms" />
         <MediaCodec name="OMX.MTK.AUDIO.ENCODER.ADPCM.DVI" type="audio/x-adpcm-dvi-ima" />
-        <MediaCodec name="OMX.google.aac.encoder" type="audio/mp4a-latm" />
-        <MediaCodec name="OMX.google.amrnb.encoder" type="audio/3gpp" />
-        <MediaCodec name="OMX.google.amrwb.encoder" type="audio/amr-wb" />
-        <MediaCodec name="OMX.google.flac.encoder" type="audio/flac" />
+        <MediaCodec name="OMX.google.aac.encoder" type="audio/mp4a-latm">
+            <Limit name="channel-count" max="6" />
+            <Limit name="sample-rate" ranges="8000,11025,12000,16000,22050,24000,32000,44100,48000" />
+            <!-- also may support 64000, 88200  and 96000 Hz -->
+            <Limit name="bitrate" range="8000-960000" />
+        </MediaCodec>
+        <MediaCodec name="OMX.google.amrnb.encoder" type="audio/3gpp">
+            <Limit name="channel-count" max="1" />
+            <Limit name="sample-rate" ranges="8000" />
+            <Limit name="bitrate" range="4750-12200" />
+            <Feature name="bitrate-modes" value="CBR" />
+        </MediaCodec>
+        <MediaCodec name="OMX.google.amrwb.encoder" type="audio/amr-wb">
+            <Limit name="channel-count" max="1" />
+            <Limit name="sample-rate" ranges="16000" />
+            <Limit name="bitrate" range="6600-23850" />
+            <Feature name="bitrate-modes" value="CBR" />
+        </MediaCodec>
+        <MediaCodec name="OMX.google.flac.encoder" type="audio/flac">
+            <Limit name="channel-count" max="2" />
+            <Limit name="sample-rate" ranges="1-655350" />
+            <Limit name="bitrate" range="1-21000000" />
+            <Limit name="complexity" range="0-8"  default="5" />
+            <Feature name="bitrate-modes" value="CQ" />
+        </MediaCodec>
         <MediaCodec name="OMX.google.vp8.encoder" type="video/x-vnd.on2.vp8">
             <!-- profiles and levels:  ProfileMain : Level_Version0-3 -->
             <Limit name="size" min="2x2" max="1920x1080" />
