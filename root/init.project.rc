@@ -99,3 +99,10 @@ service immvibed /system/bin/immvibed -p 99 -u 1000
     group root
     oneshot
 #@}
+
+# Proximity sensor calibration as a Service!
+service ps_calibrate /system/bin/meizupshelper c
+    class main
+    user root
+    group root
+    oneshot

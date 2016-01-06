@@ -56,6 +56,7 @@ static void s_mkdirp(const char *pathname)
 }
 
 
+#if 0
 static void s_echo(const char *pathname, const void *buf, size_t len)
 {
 	int fd;
@@ -81,6 +82,7 @@ static void s_echo(const char *pathname, const void *buf, size_t len)
 bail:
 	close(fd);
 }
+#endif
 
 
 int main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
@@ -484,7 +486,8 @@ int main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
 	// @}
 
 	// workaround: calibrate proximity sensor on boot
-	s_echo("/sys/class/meizu/ps/ps_calibration", "1", 1);
+	// now unneeded as the function is now exposed as an init service
+	// s_echo("/sys/class/meizu/ps/ps_calibration", "1", 1);
 
 	// Encrypt phone function
 	property_set("vold.post_fs_data_done", "1");
