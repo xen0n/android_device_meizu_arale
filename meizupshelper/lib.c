@@ -32,6 +32,7 @@ int32_t meizu_psh_run_calibration(void)
 		ret = 0;
 	}
 
+	ALOGI("%s: done", __func__);
 	close(fd);
 	return ret;
 }
