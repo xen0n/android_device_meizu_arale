@@ -8822,29 +8822,28 @@
       protocol="IPV4V6"
   />
 
-  <apn carrier="CTWAP" 
-      mcc="460" 
-      mnc="11" 
+  <apn carrier="CTLTE"
+      mcc="460"
+      mnc="11"
+      apn="ctlte"
+      authtype="3"
+      type="default,dun,supl"
+      ppp="#777"
+      protocol="IPV4V6"
+  />
+
+  <apn carrier="CTWAP"
+      mcc="460"
+      mnc="11"
       apn="ctwap"
       authtype="3"
-      user="ctwap@mycdma.cn" 
-      password="vnet.mobi" 
-      proxy="10.0.0.200" 
-      port="80" 
-      mmsproxy="10.0.0.200" 
-      mmsport="80" 
-      mmsc="http://mmsc.vnet.mobi" 
-      type="default,supl,mms,hipri" 
-  /> 
-
-  <apn carrier="CTNET" 
-      mcc="460" 
-      mnc="11" 
-      apn="ctnet" 
-      authtype="3"
-      user="ctnet@mycdma.cn" 
+      user="ctwap@mycdma.cn"
       password="vnet.mobi"
-      type="default,dun" 
+      mmsproxy="10.0.0.200"
+      mmsport="80"
+      mmsc="http://mmsc.vnet.mobi"
+      type="mms"
+      ppp="#777"
   />
 
   <apn carrier="CTWAP" 

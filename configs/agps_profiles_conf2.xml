@@ -17,8 +17,11 @@
         available value: true (default), false
 
     ===== load SLP profile automatically based on PLMN =====
+    mcc (optional):
+		auto configure the supl_profile if the current MCC on DUT are the same as mcc parameter you specified and auto_profile_enable is enabled
+
     mcc_mnc (optional):
-        auto configure the supl_profile if the current MCC and MNC on DUT are the same as mcc_mnc paramter you specified
+        auto configure the supl_profile if the current MCC and MNC on DUT are the same as mcc_mnc paramter you specified and auto_profile_enable is enabled
 
     supl_version (optional):
         auto configure supl_version if above mcc_mnc condition is met
@@ -205,6 +208,17 @@
       supl_version="2"
       tls_version="1"
       sha_version="0"
+  />
+
+  <!-- Test 3 -->
+  <supl_profile name="Test 3"
+      addr="127.0.0.1"
+      port="7276"
+      tls="false"
+      mcc="998"
+      supl_version="1"
+      tls_version="2"
+      sha_version="1"
   />
 
   <!-- cdma_profile
@@ -409,6 +423,17 @@
         enable/disable the AGPS certification installation from SDCard
         available value: true (default), false
 
+    auto_profile_enable:
+        enable/disable the auto profile configuration based on current mcc or mcc_mnc specified in cur_supl_profile or supl_profile
+        available value: true (default), false
+
+    ut2:
+        customize the SUPL UT2 timer
+        available value: 1~60, default value is 11 (OMA spec)
+
+	ut3:
+        customize the SUPL UT3 timer
+        available value: 1~60, default value is 10 (OMA spec)
   -->
   <up_setting
     ca_enable="false"
@@ -429,10 +454,13 @@
     qop_loc_age="0"
     qop_delay="0"
     udp_port_enable="false"
-    dedicated_apn_enable="true"
+    dedicated_apn_enable="false"
     preferred_2g3g_cell_age="300"
     lpp_enable="true"
     cert_from_sdcard="true"
+    auto_profile_enable="true"
+    ut2="11"
+    ut3="10"
   />
 
 </mtk_agps_profiles>
