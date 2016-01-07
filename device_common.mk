@@ -33,6 +33,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     asec_helper
 
+# workaround proximity sensor sometimes losing calibration after making a call
+PRODUCT_PACKAGES += \
+    meizupshelper
+
 # Lights
 PRODUCT_PACKAGES += \
     lights.mt6595
