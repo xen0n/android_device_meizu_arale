@@ -162,10 +162,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     Torch
 
-# Flyme boot.img compatibility
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/compat/install-recovery.sh:system/bin/install-recovery.sh \
-
 
 $(call inherit-product, build/target/product/full.mk)
 
