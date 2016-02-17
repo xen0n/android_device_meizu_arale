@@ -2320,7 +2320,29 @@
       mmsport="9201"
       type="mms"
   />
-  
+
+  <apn carrier="MOTIV inet"
+      mcc="250"
+      mnc="35"
+      apn="inet.ycc.ru"
+      type="default"
+      user="motiv"
+      password="motiv"
+  />
+
+  <apn carrier="MOTIV mms"
+      mcc="250"
+      mnc="35"
+      apn="mms.ycc.ru"
+      proxy="172.16.2.10"
+      port="8080"
+      mmsproxy="172.16.2.10"
+      mmsport="8080"
+      type="mms"
+      user="motiv"
+      password="motiv"
+  />
+
   <apn carrier="МТС-интернет"
       mcc="250"
       mnc="39"
