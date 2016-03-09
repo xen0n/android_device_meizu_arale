@@ -6,6 +6,7 @@ import init.xlog.rc
 import init.aee.rc
 import init.ssd.rc
 import init.modem.rc
+import init.volte.rc
 #import init.no_ssd.rc
 #import init.ssd_nomuser.rc
 #import init.fon.rc
