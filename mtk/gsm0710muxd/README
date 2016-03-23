@@ -1,0 +1,18 @@
+WHAT IT DOES?
+=============
+gsm0710muxd is a native process to communicate with vendor modem and RILD. It provides multi-channels for different requests.
+RILD sends request to specific channel according to their type.
+
+HOW IT WAS BUILT?
+==================
+Only needs two files under the folder : 
+1. gsm0710muxd.c
+2. gsm0710muxd.h
+
+They are source released.
+
+HOW TO USE IT?
+==============
+CCCI will be responsible for starting gsm0710muxd process.
+
+All the source code of this folder were written by MediaTek co..

@@ -74,6 +74,8 @@ BOARD_HARDWARE_CLASS := $(DEVICE_FOLDER_COMMON)/cmhw
 # RIL
 # moved to forked frameworks_opt_telephony repo
 #BOARD_RIL_CLASS := ../../../$(DEVICE_FOLDER)/ril/
+MTK_DT_SUPPORT := no
+MTK_VT3G324M_SUPPORT := no
 MTK_SHARE_MODEM_CURRENT := 1
 MTK_SHARE_MODEM_SUPPORT := 2
 MTK_IPV6_SUPPORT := yes
