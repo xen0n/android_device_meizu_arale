@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+MTK ril library 
+
+HOW IT WAS BUILT?
+==================
+It needs mtk-ril-prop-md1 and mtk-ril-prop-md2(for DSDA case).
+This module is source code released.
+
+HOW TO USE IT?
+==============
+MTK-RILD will use this library to communicate with modem.
+
+All the source code of this folder were written by MediaTek co..

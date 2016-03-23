@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+via rild process
+
+HOW IT WAS BUILT?
+==================
+All source/dependency modules of this module are already put in
+'vendor/mediatek/libs' folder.
+
+HOW TO USE IT?
+==============
+RILD is an executable process and  and it's started at system booting up while parsing init.via.rc.
+
+All the source code of this folder were written by MediaTek and VIA telecom.

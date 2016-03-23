@@ -1,0 +1,13 @@
+This module is the sub-module of MAL
+
+
+WHAT IT DOES?
+=============
+Transfer the MAL event into the Parcel format
+Send the RIL request to RILD , and receive the RIL Response
+Receive the RIL Unsolicited request
+Receive the Modem AT URC
+
+HOW IT WAS BUILT?
+==================
+This module is binary released.

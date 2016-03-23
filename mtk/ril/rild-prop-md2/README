@@ -1,0 +1,20 @@
+This directory contains MTK RIL protect mechansim, which can restart the modem and ril while underlayer is abnormal
+
+WHAT IT DOES?
+=============
+It provides the protect mechanism for MTK RIL.
+
+HOW IT WAS BUILT?
+==================
+
+The rild-prop-md1.a binary was built entirely from source files written by Mediatek.
+
+
+HOW TO USE IT?
+==============
+
+Files in this directory is used to
+generate a static library 'rild-prop-md1.a'.
+
+The shared library 'rild-prop-md1.a' is used by the bin file 'mtkrild'
+

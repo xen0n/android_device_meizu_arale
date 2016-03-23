@@ -1,0 +1,21 @@
+This directory contains MTK RIL request queue mechanism, which can central control requests from RILJ
+
+
+WHAT IT DOES?
+=============
+It provides MTK RIL request queue mechanism.
+
+HOW IT WAS BUILT?
+==================
+
+The librilmtk-prop-md1.a binary was built entirely from source files written by Mediatek.
+
+
+HOW TO USE IT?
+==============
+
+Files in this directory is used to
+generate a static library 'librilmtk-prop-md1.a'.
+
+The shared library 'librilmtk-prop-md1.a' is used by librilmtk.so
+

@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+MTK rild process
+
+HOW IT WAS BUILT?
+==================
+It needs rild-prop-md1 and rild-prop-md2(for DSDA case).
+This module is source code released.
+
+HOW TO USE IT?
+==============
+MTK-RILD is an executable process and is started by gsm0710muxd process.
+
+All the source code of this folder were written by MediaTek co..

@@ -1,0 +1,21 @@
+This directory contains RIL part of MTK telephony modules, which connect with modem
+
+
+WHAT IT DOES?
+=============
+It handles RIL request and send the modem at command and receive response or indicator from the modem.
+
+HOW IT WAS BUILT?
+==================
+
+The mtk-ril-prop-md1.a binary was built entirely from source files written by Mediatek.
+
+
+HOW TO USE IT?
+==============
+
+Files in this directory is used to
+generate a static library 'mtk-ril-prop-md1.a'.
+
+The shared library 'mtk-ril-prop-md1.a' is used by mtk-ril.so
+
