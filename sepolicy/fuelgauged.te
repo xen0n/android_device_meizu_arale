@@ -1,0 +1,48 @@
+# ==============================================
+# Policy File of /system/bin/fuelgauged Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+type fuelgauged ,domain;
+type fuelgauged_exec , exec_type, file_type;
+
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+init_daemon_domain(fuelgauged)
+#permissive fuelgauged;
+#unconfined_domain(fuelgauged)
+#write_klog(fuelgauged)
+
+# Data : WK14.43
+# Operation : Migration
+# Purpose : Fuel Gauge daemon for access driver node
+allow fuelgauged input_device:dir { search open read write };
+allow fuelgauged input_device:file { open read };
+allow fuelgauged mtk-adc-cali_device:chr_file { open ioctl read write };
+
+#add by xiaoqin
+allow fuelgauged kmsg_device:chr_file { open write };
+allow fuelgauged fuelgauged:netlink_kobject_uevent_socket { write create bind read};
+allow fuelgauged fuelgauged:netlink_socket { create bind write read};
+#add by xiaoqin
+
+allow fuelgauged input_device:dir { search open read write };
+allow fuelgauged input_device:file { open read };
+#allow fuelgauged fuelgauged_access_file1:file { open read write };
+#allow fuelgauged fuelgauged_access_file2:file { open read write};
+# Operate data partation directly, need modify later,e.g. use "data/misc/sensor".
+#allow fuelgauged system_data_file:dir { write add_name create setattr };
+#allow fuelgauged system_data_file:file { open write read create setattr};

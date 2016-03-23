@@ -1,0 +1,13 @@
+#####################################
+# create_pty(domain)
+# Allow domain to create and use a pty, isolated from any other domain ptys.
+define(`create_pty', `
+# Each domain gets a unique devpts type.
+type $1_devpts, fs_type;
+# Label the pty with the unique type when created.
+type_transition $1 devpts:chr_file $1_devpts;
+# Allow use of the pty after creation.
+allow $1 $1_devpts:chr_file { open getattr read write ioctl };
+# Note: devpts:dir search and ptmx_device:chr_file rw_file_perms
+# allowed to everyone via domain.te.
+')

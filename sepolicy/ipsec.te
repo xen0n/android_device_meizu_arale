@@ -1,0 +1,82 @@
+# ==============================================
+# Policy File of /system/bin/ipsec Executable File 
+
+# ==============================================
+# Type Declaration
+# ==============================================
+type starter_exec , exec_type, file_type;
+type charon_exec , exec_type, file_type;
+type ipsec_exec , exec_type, file_type;
+type stroke_exec , exec_type, file_type;
+type ipsec ,domain;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date: WK14.52
+# Operation : Feature developing for ePDG
+
+# Purpose :  access xfrm 
+allow ipsec proc_net:file write;
+
+# Purpose :  set property for ip address with epdg_wod
+allow ipsec mtk_wod_prop:property_service set;
+allow ipsec property_socket:sock_file write;
+
+# Purpose :  send command to epdg_wod
+allow ipsec wod_ipsec_socket:sock_file write;
+
+# Purpose :  create socket for IKEv2 protocol
+allow ipsec node:udp_socket node_bind;
+allow ipsec port:tcp_socket name_connect;
+allow ipsec port:udp_socket name_bind;
+
+# Purpose :  Query DNS address
+allow ipsec netd:unix_stream_socket connectto;
+allow ipsec dnsproxyd_socket:sock_file write;
+
+# Purpose :   access property socket 
+allow ipsec init:unix_stream_socket connectto;
+
+# Purpose :  access socket of wod and property
+allow ipsec epdg_wod:unix_stream_socket { read write connectto };
+
+# Purpose :  output to /dev/null
+allow ipsec epdg_wod:fd use;
+
+# Purpose :  starter invoke charon
+allow ipsec charon_exec:file execute_no_trans;
+
+# Purpose :  charon set fwmark 
+allow ipsec fwmarkd_socket:sock_file write;
+
+# Purpose :  kernel ip/route operations
+allow ipsec self:capability { net_admin net_bind_service dac_override kill };
+
+# Purpose :  send/receive packet to/from peer
+allow ipsec self:tcp_socket { write getattr connect read getopt create };
+allow ipsec self:udp_socket { write bind create read setopt };
+
+# Purpose :  kernel ip/route operations
+allow ipsec self:netlink_route_socket { write nlmsg_write read bind create nlmsg_read };
+allow ipsec self:netlink_xfrm_socket { write bind create read nlmsg_write nlmsg_read };
+
+# Purpose :  charon/starter PID file
+allow ipsec vpn_data_file:dir { write remove_name add_name search };
+allow ipsec vpn_data_file:file { write create open getattr setattr read unlink };
+allow ipsec vpn_data_file:sock_file { write create unlink setattr };
+
+# Purpose :  charon read certs
+allow ipsec custom_file:dir { read open search };
+allow ipsec custom_file:file { read getattr open };
+
+# Purpose :  read strongswan config file for IKEv2 Tunnel
+allow ipsec wod_apn_conf_file:dir { write read open search remove_name add_name create};
+allow ipsec wod_apn_conf_file:file { write read ioctl open getattr };
+allow ipsec wod_ipsec_conf_file:file { write read ioctl open getattr create append unlink };
+allow ipsec wod_ipsec_conf_file:dir { write read open search remove_name add_name };
+
+# Purpose : set alarm for DPD
+allow ipsec self:capability2 wake_alarm;
+

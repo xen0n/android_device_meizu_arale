@@ -1,0 +1,14 @@
+# ==============================================
+# Policy File of /system/bin/emmc_rw_debug Executable File
+
+# ==============================================
+# Type Declaration
+# ==============================================
+type emmc_rw_debug, domain;
+type emmc_rw_debug_exec, exec_type, file_type;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+#permissive emmc_rw_debug;
+init_daemon_domain(emmc_rw_debug)

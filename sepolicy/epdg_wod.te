@@ -1,0 +1,71 @@
+# ==============================================
+# Policy File of /system/bin/epdg_wod Executable File 
+
+# ==============================================
+# Type Declaration
+# ==============================================
+type epdg_wod_exec , exec_type, file_type;
+type epdg_wod ,domain;
+
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+init_daemon_domain(epdg_wod)
+
+domain_auto_trans(epdg_wod, starter_exec, ipsec)
+domain_auto_trans(epdg_wod, charon_exec, ipsec)
+domain_auto_trans(epdg_wod, starter_exec, ipsec)
+domain_auto_trans(epdg_wod, stroke_exec, ipsec)
+
+# Date: WK14.52
+# Operation : Feature for ePDG
+# Purpose :  handle tunnel interface
+allow epdg_wod system_file:file { read getattr open execute execute_no_trans };
+allow epdg_wod self:tun_socket { relabelfrom relabelto create };
+allow epdg_wod tun_device:chr_file { read write ioctl open getattr };
+allow epdg_wod self:netlink_route_socket { setopt nlmsg_write read bind create nlmsg_read write getattr };
+allow epdg_wod self:capability { net_admin dac_override kill };
+
+# Purpose :  update ipsec deamon
+allow epdg_wod ipsec_exec:file { read getattr open execute execute_no_trans };
+
+# Purpose : send signal to process (ipsec/charon)
+allow epdg_wod ipsec:process signal;
+
+# Purpose :  set property for debug messages
+allow epdg_wod init:unix_stream_socket connectto;
+allow epdg_wod mtk_wod_prop:property_service set;
+allow epdg_wod property_socket:sock_file write;
+allow epdg_wod persist_wod_prop:property_service set;
+
+# Purpose :  Query ePDG IP address
+allow epdg_wod dnsproxyd_socket:sock_file write;
+allow epdg_wod netd:unix_stream_socket connectto;
+
+# Purpose :  removal old charon/starter PID file
+allow epdg_wod vpn_data_file:dir { search write remove_name read open };
+allow epdg_wod vpn_data_file:file { read getattr open unlink };
+
+# Purpose :  create strongswan config file for IKEv2 Tunnel
+allow epdg_wod wod_apn_conf_file:dir { write read open add_name remove_name search };
+allow epdg_wod wod_apn_conf_file:file { write create unlink open getattr };
+allow epdg_wod wod_ipsec_conf_file:file { write create unlink open getattr };
+allow epdg_wod wod_ipsec_conf_file:dir { write read open add_name remove_name search };
+
+# tear_xfrm_policy
+allow epdg_wod self:netlink_xfrm_socket { write getattr setopt nlmsg_write read bind create };
+
+# Purpose : check tun device is ready
+allow epdg_wod self:udp_socket { create ioctl };
+allow epdg_wod self:capability sys_module;
+
+# Purpose : create symbolic link for /dev/tun
+allow epdg_wod shell_exec:file { read execute open execute_no_trans };
+allow epdg_wod device:dir { write add_name };
+allow epdg_wod device:lnk_file create;
+
+# Purpose: Kill Process
+allow epdg_wod system_server:process { signal signull };
+allow epdg_wod kernel:process signal;
+

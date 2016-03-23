@@ -1,0 +1,48 @@
+# ==============================================
+# Policy File of /system/bin/hotknot_native_service Executable File
+
+# ==============================================
+# Type Declaration
+# ==============================================
+type hotknot_native_exec, exec_type, file_type;
+type hotknot_native, domain;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+init_daemon_domain(hotknot_native)
+
+# Date : 2015/9/8
+# Operation : New
+# Purpose : Add for HotKnot 3.5 native service
+binder_service(hotknot_native)
+binder_use(hotknot_native)
+binder_call({domain -init}, hotknot_native)
+
+# Purpose : To allow register hotknot_native_service in servicemanager.
+allow hotknot_native hotknot_native_service:service_manager { add find };
+
+# Purpose : To allow binder call to system server and system app.
+allow hotknot_native system_server:binder call;
+allow hotknot_native system_app:binder call;
+
+# Purpose : To allow access device drivers.
+allow hotknot_native hotknot_device:chr_file { read write ioctl open };
+allow hotknot_native devmap_device:chr_file { read ioctl open };
+allow hotknot_native graphics_device:chr_file { read write ioctl open };
+allow hotknot_native graphics_device:dir search;
+
+# Date : 2015/9/22
+# Operation : New
+# Purpose : To allow read/write system properties and read/write file
+#           for hotknot service preferences.
+allow hotknot_native hotknot_prop:property_service set;
+allow hotknot_native init:unix_stream_socket connectto;
+allow hotknot_native property_socket:sock_file { write read };
+allow hotknot_native system_app_data_file:dir { write search add_name };
+allow hotknot_native system_app_data_file:file { read write open getattr create };
+# Date : 2015/9/23
+# Operation : New
+# Purpose : To allow read wifi mac address from nvram.
+allow hotknot_native nvdata_file:dir search;
+allow hotknot_native nvdata_file:file { read getattr open };

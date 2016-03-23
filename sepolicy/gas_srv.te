@@ -1,0 +1,49 @@
+# =============================================================================
+# Policy File of /system/bin/gas_srv Executable File
+
+# =============================================================================
+# Type Declaration
+# =============================================================================
+type gas_srv_exec, exec_type, file_type;
+type gas_srv, domain;
+
+# =============================================================================
+# MTK Policy Rule
+# =============================================================================
+# Date : WK15.34
+# Operation : Migration
+# Purpose : Start gas_srv. gas_srv is a daemon to receive scene knowledge from
+#       providers, to determinate if current system running with the
+#       "Game mode".
+#
+
+init_daemon_domain(gas_srv)
+
+# Cliaming binder service
+binder_use(gas_srv)
+binder_service(gas_srv)
+binder_call(gas_srv, system_server)
+allow gas_srv           gas_srv_service:service_manager     add;
+
+allow gas_srv           property_socket:sock_file           write;
+allow gas_srv           init:unix_stream_socket             connectto;
+
+allow gas_srv           debugfs:file                        {getattr read write ioctl open};
+
+# For /proc/[pid]/cmdline accessing
+typeattribute           gas_srv                             mlstrustedsubject;
+allow gas_srv           proc:dir                            {search getattr};
+allow gas_srv           proc:file                           read;
+allow gas_srv           shell:dir                           search;
+allow gas_srv           platform_app:dir                    search;
+allow gas_srv           platform_app:file                   {open read getattr};
+allow gas_srv           untrusted_app:dir                   search;
+allow gas_srv           untrusted_app:file                  {open read getattr};
+allow gas_srv           mediaserver:dir                     search;
+allow gas_srv           mediaserver:file                    {open read getattr};
+
+# Binder interaction
+allow gas_srv           mtk_perf_service:service_manager    find;
+allow surfaceflinger    gas_srv_service:service_manager     find;
+allow untrusted_app     gas_srv_service:service_manager     find;
+allow platform_app      gas_srv_service:service_manager     find;

@@ -1,0 +1,36 @@
+# ==============================================
+# Policy File of /system/bin/sbchk Executable File 
+
+# ==============================================
+# Type Declaration
+# ==============================================
+type sbchk, domain;
+type sbchk_exec, exec_type, file_type;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+init_daemon_domain(sbchk)
+
+# Date WK14.46
+# Operation : Migration
+# Purpose : for security driver access
+allow sbchk misc_sd_device:chr_file { read open };
+allow sbchk seccfg_block_device:blk_file rw_file_perms;
+allow sbchk secro_block_device:blk_file rw_file_perms;
+allow sbchk preloader_block_device:blk_file rw_file_perms;
+allow sbchk mmcblk0_block_device:blk_file rw_file_perms;
+allow sbchk preloader_device:chr_file { read open };
+#allow sbchk recovery_block_device:blk_file rw_file_perms;
+allow sbchk sec_device:chr_file { read ioctl open };
+allow sbchk seccfg_device:chr_file rw_file_perms;
+allow sbchk sec_ro_device:chr_file { open read };
+allow sbchk block_device:dir search;
+
+# Date WK15.13
+# Operation : Migration
+# Purpose : for nand partition access
+allow sbchk mtd_device:chr_file rw_file_perms;
+allow sbchk mtd_device:dir search;
+
+

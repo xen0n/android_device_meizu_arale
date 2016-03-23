@@ -1,0 +1,96 @@
+# ==============================================
+# Policy File of /system/binnetdiag Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type netdiag_exec , exec_type, file_type;
+type netdiag ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+#permissive netdiag;
+init_daemon_domain(netdiag)
+#unconfined_domain(netdiag)
+
+
+# Date : WK14.31
+# Operation : Migration 
+# Purpose : for L early bring-up
+allow netdiag shell_exec:file execute_no_trans;
+allow netdiag sdcard_internal:dir { write search read create open add_name };
+allow netdiag sdcard_internal:file { write create open getattr };
+allow netdiag self:packet_socket { write ioctl setopt read getopt create };
+allow netdiag fuse:dir { remove_name write search read remove_name open add_name create};
+allow netdiag fuse:file { rename write getattr read create open unlink};
+
+allow netdiag init:unix_stream_socket connectto;
+allow netdiag property_socket:sock_file write;
+allow netdiag self:capability { setuid net_raw setgid };
+allow netdiag shell_exec:file { read execute open };
+#allow netdiag tmpfs:lnk_file read;
+allow netdiag domain:dir search;
+allow netdiag domain:file { read open };
+#/proc/3523/net/xt_qtaguid/ctrl & /proc
+allow netdiag qtaguid_proc:file { read getattr open };
+
+allow netdiag self:capability net_admin;
+allow netdiag self:udp_socket create;
+allow netdiag system_file:file execute_no_trans;
+#/system/bin/aee
+#allow netdiag aee_exec:file { read getattr open execute execute_no_trans };
+
+#ping
+allow netdiag dnsproxyd_socket:sock_file write;
+allow netdiag fwmarkd_socket:sock_file write;
+allow netdiag netd:unix_stream_socket connectto;
+
+#ip
+allow netdiag self:netlink_route_socket { write getattr setopt read bind create nlmsg_read };
+
+allow netdiag net_data_file:file { read getattr open };
+allow netdiag net_data_file:dir search;
+allow netdiag self:rawip_socket { getopt create };
+allow netdiag self:udp_socket ioctl;
+
+#for network log property
+allow netdiag debug_netlog_prop:property_service set;
+allow netdiag persist_mtklog_prop:property_service set;
+allow netdiag debug_mtklog_prop:property_service set;
+
+
+# Date : WK15.29
+# Operation : Migration
+# Purpose : for device bring up, not to block early migration
+allow netdiag tmpfs:lnk_file read;
+#allow netdiag storage_file:dir search;
+allow netdiag storage_file:lnk_file read;
+allow netdiag mnt_user_file:dir search;
+allow netdiag mnt_user_file:lnk_file read;
+allow netdiag fuse:file create_file_perms;
+allow netdiag platform_app:dir search;
+allow netdiag servicemanager:binder call;
+allow netdiag untrusted_app:dir search;
+
+# Date : WK15.35
+# Operation : Migration
+# Purpose : for M migration SQC
+typeattribute netdiag mlstrustedsubject;
+allow netdiag connectivity_service:service_manager find;
+allow netdiag netstats_service:service_manager find;
+allow netdiag self:udp_socket connect;
+allow netdiag system_server:binder call;
+allow system_server netdiag:fd use;
+binder_use(netdiag)

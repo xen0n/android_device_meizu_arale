@@ -1,0 +1,14 @@
+# ==============================================
+# Policy File of /system/bin/mvg_app Executable File
+
+# ==============================================
+# Type Declaration
+# ==============================================
+type mvg_app, domain;
+type mvg_app_exec, exec_type, file_type;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+#permissive mvg_app;
+init_daemon_domain(mvg_app)

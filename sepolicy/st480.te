@@ -1,0 +1,36 @@
+# ==============================================
+# Policy File of /system/binakmd09911 Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type st480_exec , exec_type, file_type;
+type st480 ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+init_daemon_domain(st480)
+#unconfined_domain(st480)
+# Purpose : M-sensor daemon for access driver node
+allow st480 msensor_device:chr_file { open ioctl read write };
+allow st480 gsensor_device:chr_file { open ioctl read write };
+allow st480 input_device:dir { search open read write };
+allow st480 input_device:file { open read };
+allow st480 input_device:chr_file { open ioctl read write };
+# Operate data partation directly, need modify later,e.g. use "data/misc/sensor".
+allow st480 system_data_file:dir { write add_name create setattr };
+#allow st480 system_data_file:file { open write read create setattr};
+allow st480 system_data_file:dir remove_name;
+

@@ -1,0 +1,43 @@
+# ==============================================
+# Policy File of /system/binresmon Executable File
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type resmon_exec , exec_type, file_type;
+type resmon ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+userdebug_or_eng(`
+  permissive resmon;
+  init_daemon_domain(resmon)
+
+  # Date : 2014/09/10
+  # Operation : Migration
+  # Purpose : allow Binder IPC for dumpsys windows display
+  binder_use(resmon)
+
+  # Date : 2014/10/20
+  # Operation : Migration
+  # Purpose : allow resmon to execute shell commands
+  allow resmon fuse:dir { write search add_name };
+  allow resmon fuse:file { read write create open };
+  allow resmon shell_exec:file execute_no_trans;
+  allow resmon system_file:file execute_no_trans;
+  allow resmon zygote_exec:file execute_no_trans;
+
+  allow untrusted_app resmon:fd use;
+
+')

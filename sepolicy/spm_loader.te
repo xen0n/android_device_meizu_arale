@@ -1,0 +1,27 @@
+# ==============================================
+# Policy File of /system/bin/spm_loader Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type spm_loader_exec , exec_type, file_type;
+type spm_loader ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# date: 2015/6/18 wk1525
+# purpose: load spm firmware
+# ==============================================
+allow spm_loader self:capability { dac_read_search dac_override };
+allow spm_loader spm_device:chr_file { read open };
+init_daemon_domain(spm_loader)

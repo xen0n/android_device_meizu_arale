@@ -1,0 +1,26 @@
+# ==============================================
+# Policy File of /system/bin/wifi2agps Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+type wifi2agps_exec , exec_type, file_type;
+type wifi2agps ,domain;
+
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+#permissive wifi2agps;
+init_daemon_domain(wifi2agps)
+
+# Date : WK14.34
+# Operation : Migration 
+# Purpose : for mtk debug mechanism
+allow wifi2agps agpsd_data_file:sock_file write;
+allow wifi2agps mtk_agpsd:unix_dgram_socket sendto;
+allow wifi2agps self:netlink_socket {write getattr setopt read bind create};
+allow wifi2agps self:udp_socket { create ioctl };
+allow wifi2agps agpsd_data_file:dir search;

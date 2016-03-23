@@ -1,0 +1,24 @@
+# usbdongled - usb auto select daemon
+type usbdongled, domain;
+type usbdongled_exec, exec_type, file_type;
+init_daemon_domain(usbdongled)
+net_domain(usbdongled)
+
+allow usbdongled self:capability { net_admin net_raw dac_override kill };
+
+# Allow ril-3gddaemon to create and use netlink sockets.
+allow usbdongled self:netlink_socket create_socket_perms;
+allow usbdongled self:netlink_kobject_uevent_socket create_socket_perms;
+allow usbdongled self:netlink_nflog_socket create_socket_perms;
+allow usbdongled netdomain:{tcp_socket udp_socket rawip_socket dccp_socket tun_socket} {read write getattr setattr getopt setopt};
+allow usbdongled netdomain:fd use;
+
+# property service
+allow usbdongled radio_prop:property_service set;
+allow usbdongled ctl_ril3gd_prop:property_service set;
+
+
+allow usbdongled system_file:file x_file_perms;
+allow usbdongled shell_exec:file rx_file_perms;
+
+unix_socket_connect(usbdongled, property, init)

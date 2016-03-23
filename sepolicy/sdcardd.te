@@ -1,0 +1,45 @@
+# ==============================================
+# MTK Policy Rule
+# ============
+
+# Date : WK14.37
+# Operation : Migration 
+# Purpose : for sdcard daemon to access lk_env
+allow sdcardd proc_lk_env:file { read write ioctl open };
+allow sdcardd misc_device:chr_file { read write open };
+#allow sdcardd platformblk_device:blk_file rw_file_perms;
+allow sdcardd para_block_device:blk_file rw_file_perms;
+allow sdcardd block_device:dir search;
+#allow sdcardd platformblk_device:dir search;
+
+# Date : WK14.47
+# Purpose : create symbolic link from /mnt/shell/emulated to /storage/emulated
+allow sdcardd tmpfs:dir {write add_name mounton};
+allow sdcardd tmpfs:lnk_file create;
+allow sdcardd tmpfs:filesystem unmount;
+
+# Date : WK14.48
+# Purpose : invoke vdc for handle_users
+allow sdcardd devpts:chr_file { read write getattr open ioctl };
+allow sdcardd vdc_exec:file { read execute open execute_no_trans };
+allow sdcardd vold:unix_stream_socket connectto;
+allow sdcardd vold_socket:sock_file write;
+
+
+# Date : WK14.48
+# Purpose : unknown
+allow sdcardd platform_app:fd use;
+allow sdcardd untrusted_app:fd use;
+
+# Date : WK15.02
+# Purpose : ashared memory
+allow sdcardd platform_app_tmpfs:file write;
+
+# Date : WK15.15
+# Purpose : access mmcblk0_block_device
+allow sdcardd mmcblk0_block_device:blk_file { read write open };
+
+# Date : WK15.38
+# Operation : Migration
+# Purpose : for M migration SQC
+typeattribute sdcardd mlstrustedsubject;

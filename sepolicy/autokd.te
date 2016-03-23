@@ -1,0 +1,51 @@
+# ==============================================
+# Policy File of /system/bin/autokd Executable File 
+
+# ==============================================
+# Type Declaration
+# ==============================================
+type autokd, domain;
+type autokd_exec, exec_type, file_type;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# Date : WK14.43
+# Operation : Migration 
+# Purpose : Start autokd
+init_daemon_domain(autokd)
+file_type_auto_trans(autokd, system_data_file, autokd_data_file)
+
+#allow init autokd_exec:file execute_no_trans;
+allow init self:tcp_socket create;
+
+# Date : WK14.43
+# Operation : Migration 
+# Purpose : Interact with kernel to perform autok
+allow autokd debugfs:file read;
+allow autokd init:unix_stream_socket connectto;
+allow autokd property_socket:sock_file write;
+allow autokd self:netlink_kobject_uevent_socket { read bind create setopt };
+allow autokd self:tcp_socket create;
+allow autokd shell_exec:file { read execute open execute_no_trans };
+
+# Date : WK14.43
+# Operation : Migration 
+# Purpose : Read/Write autok result in data paritition
+# To do: Consider to move files into a sub-directory in /data, said, /data/autokd
+allow autokd sysfs:file write;
+allow autokd system_data_file:dir { read write open add_name remove_name };
+allow autokd autokd_data_file:file { write create open append };
+allow autokd system_file:file execute_no_trans;
+allow autokd block_device:dir search;
+allow autokd nvram_data_file:dir {search read write getattr add_name remove_name };
+allow autokd nvram_data_file:file { read write getattr create open };
+allow autokd nvram_device:dir search;
+allow autokd nvram_device:blk_file { open read write };
+allow autokd mmcblk0_block_device:blk_file { open read write };
+allow autokd nvdata_device:dir search;
+allow autokd nvdata_device:blk_file { open read write };
+allow autokd userdata_block_device:blk_file { open read write };
+allow autokd nvdata_file:dir {search read write getattr add_name remove_name };
+allow autokd nvdata_file:file { read write getattr create open setattr };
+

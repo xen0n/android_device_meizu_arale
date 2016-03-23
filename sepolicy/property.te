@@ -1,0 +1,176 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+type mtk_default_prop, property_type;
+
+# Date: W14.32
+# Operation: Migration
+# Purpose: don't allow to use default_prop
+neverallow { domain -init } default_prop:property_service set;
+neverallow { domain -init -system_server -recovery } ctl_default_prop:property_service set;
+
+#=============allow ccci_mdinit to start gsm0710muxd==============
+type ctl_gsm0710muxd_prop, property_type;
+type ctl_gsm0710muxd-s_prop, property_type;
+type ctl_gsm0710muxd-d_prop, property_type;
+type ctl_gsm0710muxdmd2_prop, property_type;
+#=============allow ccci_mdinit to ctl. mdlogger==============
+type ctl_mdlogger_prop, property_type;
+type ctl_emdlogger1_prop, property_type;
+type ctl_emdlogger2_prop, property_type;
+type ctl_emdlogger3_prop, property_type;
+type ctl_dualmdlogger_prop, property_type;
+#=============allow eemcs_mdinit to start mdlogger==========
+type ctl_eemcs_fmdl_prop, property_type;
+#type ctl_emdlogger5_prop, property_type;
+#=============allow viarild to start property==============
+type ctl_viarild_prop, property_type;
+#=============allow mtkrild to set persist.ril property==============
+type persist_ril_prop, property_type;
+#=============allow terserver to set terservice property==============
+type terservice_prop, property_type;
+#=============allow gsm0710muxd to set mux property==============
+type gsm0710muxd_prop, property_type;
+
+#=============allow netlog running==============
+type debug_mtklog_prop, property_type;
+type persist_mtklog_prop, property_type;
+type debug_netlog_prop, property_type;
+#=============allow system_server to set media.wfd.*==============
+type media_wfd_prop, property_type;
+
+#=============allow netd to set mtk_wifi.*=========================
+type mtk_wifi_prop, property_type;
+
+#=============allow mdlogger==============
+type debug_mdlogger_prop, property_type;
+
+#=============allow AEE==============
+type persist_mtk_aee_prop, property_type;
+type persist_aee_prop, property_type;
+type debug_mtk_aee_prop, property_type;
+
+#=============allow aee_dumpstate==============
+type debug_bq_dump_prop, property_type;
+
+#=============allow ccci_mdinit to stop rild==============
+type ctl_ril-daemon-mtk_prop, property_type;
+type ctl_ril-daemon-s_prop, property_type;
+type ctl_ril-daemon-d_prop, property_type;
+type ctl_ril-daemon-md2_prop, property_type;
+
+#=============allow ccci_mdinit to start ccci_fsd==============
+type ctl_ccci_fsd_prop, property_type;
+type ctl_ccci2_fsd_prop, property_type;
+type ctl_ccci3_fsd_prop, property_type;
+
+#=============allow ccci_mdinit to start ccci_rpcd==============
+type ctl_ccci_rpcd_prop, property_type;
+type ctl_ccci2_rpcd_prop, property_type;
+
+#=============allow ccci_mdinit to set ril_active_md_prop==============
+type ril_active_md_prop, property_type;
+
+#=============allow ccci_mdinit to stop rild==============
+type ril_mux_report_case_prop, property_type;
+type ril_cdma_report_prop, property_type;
+
+#=============allow ccci_mdinit to mtk_md_prop==============
+type mtk_md_prop, property_type;
+
+#=============allow mtkrild to start muxreport==============
+type ctl_muxreport-daemon_prop, property_type;
+
+#=============allow ppp to set pppoe.ppp0==============
+type pppoe_ppp0_prop, property_type;
+
+#=============allow rild to start pppd_via==============
+type ctl_pppd_via_prop, property_type;
+
+#=============allow mediatek_prop ==============
+type mediatek_prop, property_type;
+
+#=============allow bootanim==============
+type bootani_prop, property_type;
+
+#=============allow mnld_prop==============
+type mnld_prop, property_type;
+
+#=============allow audiohal==============
+type audiohal_prop, property_type;
+
+#=============allow contrl ril3gd===========
+type ctl_ril3gd_prop, property_type;
+
+#=============allow contrl zpppd_gprs===========
+type ctl_zpppdgprs_prop, property_type;
+
+#=============allow DM==============
+type persist_dm_prop, property_type;
+type ctl_rbfota_prop, property_type;
+
+#=============allow ipod==============
+type ipod_prop, property_type;
+type ctl_ipod_prop, property_type;
+type ctl_ipo_swap_prop, property_type;
+
+#=============allow wmt==============
+type wmt_prop, property_type;
+
+#=============allow atcid==============
+type ctl_atcid-daemon-u_prop, property_type;
+type ctl_atci_service_prop, property_type;
+type persist_service_atci_prop, property_type;
+#============= permission_check ==============
+type persist_md_prop, property_type;
+
+#=============allow sensor==============
+type ctl_msensord_prop, property_type;
+type ctl_akmd8963_prop, property_type;
+type ctl_s62xd_prop, property_type;
+type ctl_akmd09911_prop, property_type;
+type ctl_qmc6983d_prop, property_type;
+type ctl_akmd09912_prop, property_type;
+type ctl_bmm050d_prop, property_type;
+type ctl_bmm056d_prop, property_type;
+type ctl_geomagneticd_prop, property_type;
+type ctl_orientationd_prop, property_type;
+type ctl_emcsmdlogger_prop, property_type;
+type ctl_eemcs_fsd_prop, property_type;
+type ctl_istd8303_prop, property_type;
+type ctl_st480_prop, property_type;
+#=============allow statusd==============
+type net_cdma_mdmstat, property_type;
+type cdma_prop, property_type;
+
+#=============allow saveLocale==============
+type save_locale_prop, property_type;
+
+#=============allow bt==============
+type bt_prop, property_type;
+type persist_bt_prop, property_type;
+
+#=============allow ccci_mdinit EVDO ==============
+type mtk_tele_prop, property_type;
+
+#=============allow pppd ==============
+type pppd_gprs_prop, property_type;
+
+#=============allow wifi offload deamon  ==============
+type mtk_wod_prop, property_type;
+type persist_wod_prop, property_type;
+
+#=============allow program binary deamon  ==============
+type program_binary_prop, property_type;
+
+#=============allow radio to set mtk_volte_enable property==============
+type mtk_volte_prop, property_type;
+
+#=============allow mtkmal to start volte==============
+type ctl_volte_imcb_prop, property_type;
+type ctl_volte_stack_prop, property_type;
+type ctl_volte_ua_prop, property_type;
+type volte_prop, property_type;
+
+#=============allow hotknot deamon  ==============
+type hotknot_prop, property_type;

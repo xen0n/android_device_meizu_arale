@@ -1,0 +1,34 @@
+# ==============================================
+# Policy File of /system/binccci_fsd Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type ccci_rpcd_exec, exec_type, file_type;
+type ccci_rpcd, domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+#permissive ccci_rpcd;
+init_daemon_domain(ccci_rpcd)
+#unconfined_domain(ccci_rpcd)
+
+wakelock_use(ccci_rpcd)
+#============= ccci_rpcd ==============
+allow ccci_rpcd ccci_device:chr_file rw_file_perms;
+allow ccci_rpcd block_device:dir search;
+allow ccci_rpcd misc2_block_device:blk_file { open read write };
+allow ccci_rpcd mmcblk0_block_device:blk_file { open read write };
+allow ccci_rpcd misc2_device:chr_file { open read write };

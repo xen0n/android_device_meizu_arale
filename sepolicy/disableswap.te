@@ -1,0 +1,37 @@
+# ==============================================
+# Policy File of disableswap.sh
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type disableswap_exec , exec_type, file_type;
+type disableswap ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : WK15.17
+# Operation : Migration
+# Purpose : Swap off action (Started by init)
+init_daemon_domain(disableswap)
+
+# Date : WK15.17
+# Operation : Migration
+# Purpose : Swap off action
+allow disableswap block_device:dir search;
+allow disableswap self:capability sys_admin;
+allow disableswap shell_exec:file { entrypoint read };
+allow disableswap sysfs:file write;
+allow disableswap system_file:file execute_no_trans;
+allow disableswap enableswap_data_file:file { open write read };
+allow disableswap system_data_file:dir { write };

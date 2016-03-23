@@ -1,0 +1,103 @@
+# ==============================================
+# Policy File of /system/binccci_mdinit Executable File
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type ccci_mdinit_exec , exec_type, file_type;
+type ccci_mdinit ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+#permissive ccci_mdinit;
+init_daemon_domain(ccci_mdinit)
+#unconfined_domain(ccci_mdinit)
+wakelock_use(ccci_mdinit)
+#=============allow ccci_mdinit to start gsm0710muxd==============
+allow ccci_mdinit ctl_gsm0710muxd_prop:property_service set;
+#=============allow ccci_mdinit to start emcsmdlogger==============
+allow ccci_mdinit ctl_mdlogger_prop:property_service set;
+#=============allow ccci_mdinit to start c2krild==============
+allow ccci_mdinit ctl_viarild_prop:property_service set;
+
+unix_socket_connect(ccci_mdinit, property, init)
+#allow ccci_mdinit ctl_mdlogger_prop:property_service set;
+allow ccci_mdinit { ctl_mdlogger_prop ctl_emdlogger1_prop ctl_emdlogger2_prop ctl_emdlogger3_prop ctl_dualmdlogger_prop }:property_service set;
+
+#allow ccci_mdinit ctl_gsm0710muxd_prop:property_service set;
+allow ccci_mdinit { ctl_gsm0710muxd_prop ctl_gsm0710muxd-s_prop ctl_gsm0710muxd-d_prop ctl_gsm0710muxdmd2_prop}:property_service set;
+
+#allow ccci_mdinit ctl_ril-daemon-mtk_prop:property_service set;
+allow ccci_mdinit { ctl_rildaemon_prop ctl_ril-daemon-mtk_prop ctl_ril-daemon-s_prop ctl_ril-daemon-d_prop ctl_ril-daemon-md2_prop }:property_service set;
+
+allow ccci_mdinit ril_active_md_prop:property_service set;
+allow ccci_mdinit mtk_md_prop:property_service set;
+allow ccci_mdinit radio_prop:property_service set;
+allow ccci_mdinit net_cdma_mdmstat:property_service set;
+
+allow ccci_mdinit { ctl_ccci_fsd_prop ctl_ccci2_fsd_prop ctl_ccci3_fsd_prop }:property_service set;
+allow ccci_mdinit { ctl_ccci_rpcd_prop ctl_ccci2_rpcd_prop }:property_service set;
+
+allow ccci_mdinit ccci_device:chr_file rw_file_perms;
+allow ccci_mdinit ccci_monitor_device:chr_file rw_file_perms;
+
+# TODO: Do not allow write access to all of /sys
+allow ccci_mdinit sysfs:file write;
+
+allow ccci_mdinit nvram_data_file:dir rw_dir_perms;
+allow ccci_mdinit nvram_data_file:file create_file_perms;
+allow ccci_mdinit nvram_data_file:lnk_file read;
+allow ccci_mdinit nvdata_file:dir rw_dir_perms;
+allow ccci_mdinit nvdata_file:file create_file_perms;
+allow ccci_mdinit nvram_device:chr_file rw_file_perms;
+
+allow ccci_mdinit protect_f_data_file:dir rw_dir_perms;
+allow ccci_mdinit protect_f_data_file:file create_file_perms;
+
+allow ccci_mdinit protect_s_data_file:dir rw_dir_perms;
+allow ccci_mdinit protect_s_data_file:file create_file_perms;
+allow ccci_mdinit nvram_device:blk_file { read write open };
+allow ccci_mdinit nvdata_device:blk_file { read write open };
+allow ccci_mdinit mmcblk0_block_device:blk_file { read write open };
+
+allow ccci_mdinit ril_mux_report_case_prop:property_service set;
+
+allow ccci_mdinit mdlog_data_file:dir search;
+allow ccci_mdinit mdlog_data_file:file { read open };
+
+allow ccci_mdinit ccci_cfg_file:dir create_dir_perms;
+allow ccci_mdinit ccci_cfg_file:file create_file_perms;
+allow ccci_mdinit block_device:dir search;
+allow ccci_mdinit preloader_block_device:blk_file r_file_perms;
+allow ccci_mdinit secro_block_device:blk_file r_file_perms;
+
+allow ccci_mdinit preloader_device:chr_file rw_file_perms;
+allow ccci_mdinit misc_sd_device:chr_file { read open };
+allow ccci_mdinit sec_ro_device:chr_file { read open };
+
+allow ccci_mdinit custom_file:dir { search };
+allow ccci_mdinit custom_file:file { open read getattr };
+allow ccci_mdinit mtk_tele_prop:property_service set;
+
+# Date WK15.13
+# Operation : Migration
+# Purpose : for nand partition access
+allow ccci_mdinit mtd_device:dir search;
+allow ccci_mdinit mtd_device:chr_file { read write open };
+
+# Date : WK15.30
+# Operation : Migration
+# Purpose : for device bring up, not to block early migration/sanity
+allow ccci_mdinit proc_lk_env:file rw_file_perms;

@@ -1,0 +1,25 @@
+# ==============================================
+# Policy File of /system/binorientationd Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type orientationd_exec , exec_type, file_type;
+type orientationd ,domain;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+#permissive orientationd;
+init_daemon_domain(orientationd)
+#unconfined_domain(orientationd)
+
+# Date : WK14.43
+# Operation : Migration
+# Purpose : access sensor data and do calibration
+allow orientationd gsensor_device:chr_file { read ioctl open };
+allow orientationd input_device:chr_file { read write ioctl open };
+allow orientationd input_device:dir { read search open };

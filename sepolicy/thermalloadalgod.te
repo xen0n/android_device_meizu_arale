@@ -1,0 +1,46 @@
+# ==============================================
+# Policy File of /system/bin/thermalloadalgod_exec Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+type thermalloadalgod ,domain;
+type thermalloadalgod_exec , exec_type, file_type;
+
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+ 
+#permissive thermalloadalgod;
+init_daemon_domain(thermalloadalgod)
+file_type_auto_trans(thermal_manager, system_data_file, thermal_manager_data_file)
+#unconfined_domain(thermalloadalgod)
+#write_klog(thermalloadalgod)
+
+# Data : WK14.43
+# Operation : Migration 
+# Purpose : Fuel Gauge daemon for access driver node
+allow thermalloadalgod input_device:dir { search open read write };
+allow thermalloadalgod input_device:file { open read };
+
+ 
+
+allow thermalloadalgod thermalloadalgod:netlink_kobject_uevent_socket { write create bind read};
+allow thermalloadalgod thermalloadalgod:netlink_socket { create bind write read};
+
+allow thermalloadalgod input_device:dir { search open read write };
+allow thermalloadalgod input_device:file { open read };
+
+allow thermalloadalgod thermal_manager_data_file:dir { write add_name create setattr };
+allow thermalloadalgod thermal_manager_data_file:file { open write read create setattr};
+allow thermalloadalgod kmsg_device:chr_file write;

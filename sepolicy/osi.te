@@ -1,0 +1,21 @@
+type osi_exec, exec_type, file_type;
+type osi, domain;
+
+init_daemon_domain(osi)
+net_domain(osi)
+
+allow osi fuse:dir { write search create add_name };
+allow osi fuse:file { read write create open getattr };
+allow osi init:unix_stream_socket connectto;
+allow osi mtkrild:unix_stream_socket connectto;
+allow osi property_socket:sock_file write;
+allow osi radio:unix_stream_socket connectto;
+allow osi rild_atci_socket:sock_file write;
+allow osi self:capability { net_admin net_raw net_bind_service dac_override };
+allow osi self:capability2 block_suspend;
+allow osi self:netlink_route_socket nlmsg_write;
+allow osi self:packet_socket { bind create ioctl getopt };
+allow osi shell_exec:file { read execute open execute_no_trans };
+allow osi system_file:file execute_no_trans;
+#allow osi tmpfs:lnk_file read;
+

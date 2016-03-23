@@ -1,0 +1,39 @@
+# ==============================================
+# Policy File of /system/binqmc6983d Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type qmc6983d_exec , exec_type, file_type;
+type qmc6983d ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+#permissive qmc6983d;
+init_daemon_domain(qmc6983d)
+#unconfined_domain(qmc6983d)
+# Purpose : M-sensor daemon for access driver node
+allow qmc6983d msensor_device:chr_file { open ioctl read write };
+allow qmc6983d gsensor_device:chr_file { open ioctl read write };
+allow qmc6983d input_device:dir { search open read write };
+allow qmc6983d input_device:file { open read };
+allow qmc6983d akmd8963_access_file1:file { open read write };
+allow qmc6983d akmd8963_access_file2:file { open read write};
+# Operate data partation directly, need modify later,e.g. use "data/misc/sensor".
+# for msensor daemon access "data/misc".
+file_type_auto_trans(qmc6983d, system_data_file, msensor_data_file)
+allow qmc6983d system_data_file:dir { create setattr };
+allow qmc6983d msensor_data_file:file { open write read create setattr};
+

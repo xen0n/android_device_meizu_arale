@@ -1,0 +1,58 @@
+# ==============================================
+# Policy File of enableswap.sh
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type enableswap_exec , exec_type, file_type;
+type enableswap ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : WK14.34
+# Operation : Migration
+# Purpose : Add new swap areas (Started by init)
+init_daemon_domain(enableswap)
+
+# Date : WK15.28
+# Operation : Migration
+# Purpose : Label files with enableswap_data_file when they are created
+#           by enableswap in directories labeled system_data_file.
+file_type_auto_trans(enableswap, system_data_file, enableswap_data_file)
+
+# Date : WK14.34
+# Operation : Migration
+# Purpose : Add new swap areas
+allow enableswap block_device:dir search;
+allow enableswap self:capability sys_admin;
+allow enableswap shell_exec:file { entrypoint read };
+allow enableswap sysfs:file write;
+allow enableswap tiny_mkswap_exec:file { read getattr open execute execute_no_trans };
+allow enableswap tiny_swapon_exec:file { read getattr open execute execute_no_trans };
+allow enableswap zram0_device:blk_file { read write getattr open ioctl };
+
+# Date : WK14.46
+# Operation : Migration
+# Purpose : Allow more operations on swap areas
+allow enableswap proc:file write;
+allow enableswap system_file:file execute_no_trans;
+allow enableswap enableswap_data_file:file { create open write };
+allow enableswap system_data_file:dir { write add_name };
+allow enableswap self:capability dac_override;
+
+# Date : WK15.30
+# Operation : Migration
+# Purpose : Allow more operations on init_tmpfs
+allow enableswap init_tmpfs:file { open write };

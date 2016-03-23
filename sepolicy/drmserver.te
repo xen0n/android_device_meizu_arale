@@ -1,0 +1,119 @@
+# ==============================================
+# MTK Policy Rule
+# ============
+
+#Add by rui.hu
+
+# Date : WK14.30
+# Operation : DRM UT 
+# Purpose : To pass DRM UT
+
+allow drmserver nvram_agent_binder:binder call;
+allow drmserver platform_app:dir search;
+allow drmserver platform_app:file { read getattr open };
+allow drmserver property_socket:sock_file write;
+allow drmserver radio_data_file:file { read getattr open };
+allow drmserver sdcard_internal:file open;
+#allow drmserver tmpfs:lnk_file read;
+
+#Add by rui.hu
+# Date : WK14.36
+# Operation : DRM UT 
+# Purpose : Make drmserver and binder read /proc/pid/cmdline to get process name
+#system app to drmserver
+allow drmserver system_app:dir search;
+allow drmserver system_app:file { read open getattr };
+#Mediaserver to drmserver
+allow drmserver mediaserver:dir search;
+allow drmserver mediaserver:file { read open getattr };
+
+#Add by rui.hu
+# Date : WK14.36.5
+# Operation : DRM UT 
+# Purpose : Make widevine mediacodec mode work
+allow drmserver untrusted_app:dir search;
+allow drmserver untrusted_app:file { read open getattr };
+
+#Add by rui.hu
+# Date : WK14.40.1
+# Operation : DRM SQC - play OMA DRM audio file failed
+# Purpose : Make OMA DRM audio file can be played
+allow drmserver radio_data_file:dir search;
+
+#Add by rui.hu
+# Date : WK14.44.2
+# Operation : DRM SQC - view image failed
+# Purpose : To fix ALPS01790300
+allow drmserver surfaceflinger:fd use;
+
+#Add by rui.hu
+# Date : WK14.44.3
+# Operation : MTBF test fail
+# Purpose : To fix ALPS01793801
+allow drmserver mediaserver:fifo_file read;
+
+#Add by rui.hu
+# Date : WK14.46.4
+# Operation : DRM SQC - view image failed
+# Purpose : To fix ALPS01822176
+allow drmserver mediaserver:fifo_file write;
+
+# Date : WK14.52
+# Operation : WVL1 IT
+# Purpose : SVP module operates secmem driver and SVP module operate tee
+allow drmserver mobicore:unix_stream_socket connectto;
+allow drmserver mobicore_data_file:file { read getattr open lock};
+allow drmserver mobicore_data_file:dir search;
+allow drmserver mobicore_user_device:chr_file { read write ioctl open };
+allow drmserver persist_data_file:file { read getattr open };
+allow drmserver persist_data_file:dir search;
+allow drmserver proc_secmem:file { read write ioctl open };
+
+# Date : WK15.07
+# Operation : DRM SQC
+# Purpose : For gmo project, low memory kill
+allow drmserver platform_app_tmpfs:file write;
+
+# Date : WK15.15
+# Operation : GMS APP SQC
+# Purpose : Let Drive app can work
+allow drmserver app_data_file:dir search;
+allow drmserver app_data_file:file open;
+
+# Date : WK15.30
+# Operation : Migration
+# Purpose : for device bring up, not to block early migration/sanity
+allow drmserver system_app:process getattr;
+
+# Date : WK15.34
+# Operation : Play Ready IT
+# Purpose : Allow access to link file; Such as play ready will request
+#           drmserver to access /mnt/sdcard/xxx, which links to /sdcard/xxx.
+allow drmserver mnt_user_file:dir search;
+allow drmserver mnt_user_file:lnk_file read;
+allow drmserver storage_file:lnk_file read;
+
+# Add by : Jackie
+# Date : WK15.34
+# Operation : Migration
+# Purpose : Allow drmserver to access some system_server opreration on M
+#           and allow drmserver access file stored in sdcard
+use_drmservice(system_server)
+allow drmserver system_server:file getattr;
+allow system_server drmserver:drmservice openDecryptSession;
+allow drmserver nvram_agent_service:service_manager find;
+
+
+# Date : WK15.35
+# Operation : Migration
+# Purpose : Allow reador path="/data/data/com.mediatek.voicecommand/training
+# /unlock/passwordfile/0.dat"
+allow drmserver system_app_data_file:file read;
+
+# Add by : Jackie
+# Date : WK15.35
+# Operation : Migration
+# Purpose : allow drmserver access file stored in sdcard like
+#           /mnt/media_rw/
+allow drmserver vfat:file open;
+allow drmserver mnt_media_rw_file:dir search;

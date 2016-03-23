@@ -1,0 +1,17 @@
+# ==============================================
+# Policy File of /system/bin/mmc_ffu Executable File 
+
+# ==============================================
+# Type Declaration
+# ==============================================
+type mmc_ffu, domain;
+type mmc_ffu_exec, exec_type, file_type;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+init_daemon_domain(mmc_ffu)
+#allow init mmc_ffu_exec:file execute_no_trans;
+allow mmc_ffu block_device:dir search;
+allow mmc_ffu misc_sd_device:chr_file { read ioctl open };
+allow mmc_ffu mmcblk0_block_device:blk_file { read write ioctl open };

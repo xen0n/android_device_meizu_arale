@@ -1,0 +1,41 @@
+# ==============================================
+# Policy File of /system/binakmd8963 Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type akmd8963_exec , exec_type, file_type;
+type akmd8963 ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+#permissive akmd8963;
+init_daemon_domain(akmd8963)
+#unconfined_domain(akmd8963)
+# Data : WK14.43
+# Operation : Migration
+# Purpose : M-sensor daemon for access driver node
+allow akmd8963 msensor_device:chr_file { open ioctl read write };
+allow akmd8963 gsensor_device:chr_file { open ioctl read write };
+allow akmd8963 input_device:dir { search open read write };
+allow akmd8963 input_device:file { open read };
+allow akmd8963 akmd8963_access_file1:file { open read write };
+allow akmd8963 akmd8963_access_file2:file { open read write};
+# Operate data partation directly, need modify later,e.g. use "data/misc/sensor".
+# for msensor daemon access "data/misc".
+file_type_auto_trans(akmd8963, system_data_file, msensor_data_file)
+allow akmd8963 system_data_file:dir { create setattr };
+allow akmd8963 msensor_data_file:file { open write read create setattr};
+

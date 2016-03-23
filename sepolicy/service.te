@@ -1,0 +1,32 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+type nvram_agent_service,     		service_manager_type;
+type dm_agent_binder_service, 		service_manager_type;
+type terservice_service,     		service_manager_type;
+type ota_agent_service,      		service_manager_type;
+type aal_service,             		service_manager_type;
+type pq_service,             		service_manager_type;
+type guiext-server_service,      	service_manager_type;
+type mtk_codec_service_service,  	service_manager_type;
+type ppl_agent_service,      		service_manager_type;
+type vtservice_service,             service_manager_type;
+type mtk_hotknot_service,           service_manager_type;
+type hotknot_native_service,        service_manager_type;
+type mtk_mwblacklist_service, service_manager_type;
+
+# mtk service manager type
+type mtk_mobile_service, app_api_service, system_server_service, service_manager_type;
+type mtk_perf_service, app_api_service, system_server_service, service_manager_type;
+type mtk_recovery_service, app_api_service, system_server_service, service_manager_type;
+type mtk_hdmi_service, app_api_service, system_server_service, service_manager_type;
+type mtk_msg_monitor_service, app_api_service, system_server_service, service_manager_type;
+type mtk_anrmanager_service, app_api_service, system_server_service, service_manager_type;
+type mtk_epgd_service, app_api_service, system_server_service, service_manager_type;
+type mtk_rns_service, app_api_service, system_server_service, service_manager_type;
+type gas_srv_service, service_manager_type;
+type mtk_multiwindow_service, app_api_service, system_server_service, service_manager_type;
+# Vanzo:yucheng on: Tue, 27 Jan 2015 23:31:00 +0800
+# added for nvram backup
+type nvram_backup_service,     service_manager_type;
+# End of Vanzo: yucheng

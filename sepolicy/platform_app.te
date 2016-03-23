@@ -1,0 +1,266 @@
+# ==============================================
+# MTK Policy Rule 
+# ==============================================
+
+typeattribute platform_app mlstrustedsubject;
+
+#permissive platform_app;
+
+# Date : 2014/07/22
+# Operation : Migration
+# Purpose : mtk_agpsd establishes the local socket as agpsd for all A-GPS 
+#           application to do something with mtk_agpsd
+unix_socket_connect(platform_app, agpsd, mtk_agpsd);
+
+# Date : 2014/08/21
+# Operation : Migration
+# Purpose : FMRadio enable driver access permission for fmradio hardware device
+# Package: com.mediatek.fmradio
+allow platform_app fm_device:chr_file rw_file_perms;
+
+# Date: 2014/08/22
+# Operation: Migration
+# Purpose: enable drawing picture/texture in OpenGl environment for gallery3d
+# Package: com.android.gallery3d
+#allow platform_app init:binder transfer;
+# add debugfs policy for MMProfile
+allow platform_app debugfs:file { read ioctl };
+
+# Date: 2014/09/05
+# Operation: FullUT
+# Purpose: [SystemUI] [Bind to guiext-server for updating view][path:hardware/gui_ext/]
+# Package: com.android.systemui
+allow platform_app guiext-server:binder { transfer call };
+
+# Date : 2014/09/11
+# Operation : Migration
+# Purpose : MTKLogger need setup local socket with netdiag 
+# Package: com.mediatek.mtklogger
+allow platform_app netdiag_socket:sock_file write;
+
+# Date : 2014/09/11
+# Operation : Migration
+# Purpose : MTKLogger need setup local socket with netdiag 
+# Package: com.mediatek.mtklogger
+allow platform_app netdiag:unix_stream_socket connectto;
+
+# Date : 2014/09/11
+# Operation : Migration
+# Purpose : MTKLogger need setup local socket with mobile_log_d 
+# Package: com.mediatek.mtklogger
+allow platform_app mobile_log_d:unix_stream_socket connectto;
+
+# Date : 2014/09/11
+# Operation : Migration
+# Purpose : MTKLogger need setup local socket with mdlogger 
+# Package: com.mediatek.mtklogger
+allow platform_app mdlogger:unix_stream_socket connectto;
+
+# Date : 2014/09/18
+# Operation : Migration
+# Purpose : MTKLogger need setup local socket with emdlogger 
+# Package: com.mediatek.mtklogger
+allow platform_app emdlogger:unix_stream_socket connectto;
+
+
+# Date : 2014/09/23
+# Operation : Migration
+# Purpose : camera process need to read cpu temperature from /proc/mtktz/mtktscpu path
+# Package: com.android.gallery3d
+allow platform_app proc_mtktz:dir search;
+allow platform_app proc_mtktz:file read;
+
+# Date : 2014/09/26
+# Operation : Migration
+# Purpose : camera app need to r/w camera_isp_device file for lomo effect
+# Package: com.android.gallery3d
+allow platform_app camera_isp_device:chr_file rw_file_perms;
+
+# Date : 2014/10/17
+# Operation : Migration
+# Purpose :Make MTKLogger or VIASaber apk can Access TTYSDIO_device
+# Package: com.mediatek.mtklogger
+allow platform_app ttySDIO_device:chr_file rw_file_perms;
+
+# Date : 2014/10/21
+# Operation : SQC 
+# Purpose : [ALPS01772746] Permission denied for backup App data
+# Package: com.mediatek.backuprestore
+unix_socket_connect(platform_app, backuprestore, br_app_data_service);
+# Date : 2014/10/23
+# Operation : Migration
+# Purpose : stress suspend resume test
+# Package: Suspend Resume
+allow platform_app mtk_kpd_device:chr_file rw_file_perms;
+
+# Date : 2014/10/27
+# Operation : SQC 
+# Purpose : [ALPS01785313] Permission denied for dump hprof
+# Package: com.android.gallery3d
+allow platform_app anr_data_file:file rw_file_perms;
+
+# Date : 2014/10/28
+# Operation : hs_xiangxu
+# Purpose : [ALPS01782971]Settings need read&write to system_app_data_file
+# Package: com.android.settings
+allow platform_app system_app_data_file:file {read write};
+
+# Date : 2014/10/28
+# Operation : Migration
+# Purpose : [VoiceWakeup][allow VoiceCommand to do something with vow device]
+# Package: com.mediatek.voicecommand
+allow platform_app vow_device:chr_file rw_file_perms;
+
+# Date : 2014/11/12
+# Operation : Migration
+# Purpose : MTKLogger need copy db from data folder
+# Package: com.mediatek.mtklogger
+allow platform_app aee_exp_data_file:file r_file_perms;
+allow platform_app aee_exp_data_file:dir r_dir_perms;
+
+# Date : WK14.46
+# Operation : Migration
+# Purpose : for MTK Emulator HW GPU
+allow platform_app qemu_pipe_device:chr_file rw_file_perms;
+
+# Date : 2014/11/14
+# Operation: SQC
+# Purpose: [ALPS01824827][SystemUI] [RenderThread][open device file failed]
+# Package: com.android.systemui
+allow platform_app proc_secmem:file r_file_perms;
+
+# Date : 2014/11/14
+# Operation : Migration
+# Purpose : MTKLogger need update md config file in data for mode changed
+# Package: com.mediatek.mtklogger
+allow platform_app mdlog_data_file:file rw_file_perms;
+allow platform_app mdlog_data_file:dir rw_dir_perms;
+
+# Date : 2014/11/17
+# Operation : Migration
+# Purpose : Gallery needs to access video codec to encode motion track video
+# Package: com.android.gallery3d
+allow platform_app Vcodec_device:chr_file { read write ioctl open };
+
+# Date : 2014/11/17
+# Operation : Migration
+# Purpose : AALTool to access /dev/als_ps for light sensor calibration
+# Package: com.mediatek.aaltool
+allow platform_app als_ps_device:chr_file { read open ioctl };
+
+# Date : 2014/11/19
+# Operation : Migration
+# Purpose : FileManager can access attribute of file execute
+# Package: com.mediatek.filemanager
+allow platform_app fuse:file execute;
+
+# Date : 2014/11/21
+# Operation : Migration
+# Purpose : Gallery needs to search radio data when send mms
+# Package: com.android.gallery3d
+allow platform_app radio_data_file:dir search;
+
+# Date : 2014/12/07
+# Operation : Migration
+# Purpose : MTKLogger need setup local socket with cmddumper 
+# Package: com.mediatek.mtklogger
+allow platform_app init:unix_stream_socket connectto;
+allow platform_app cmddumper:unix_stream_socket connectto;
+
+# Date : 2014/12/30
+# Operation : TUI Migration
+# Purpose : TUI service need to access tui device driver 
+# Package: com.trustonic.tuiservice.TuiService
+allow platform_app mobicore_tui_device:chr_file { read open ioctl };
+
+# Date : 2015/01/13
+# Operation : New feature for GPS Log
+# Purpose : MTKLogger need setup local socket with mnld 
+# Package: com.mediatek.mtklogger
+allow platform_app mnld:unix_stream_socket connectto;
+
+# Date : 2015/03/24
+# Operation : New feature for AppManager Install
+# Purpose : AppManager Install need pm access permission 
+# Package: com.mediatek.wearable
+allow platform_app system_app_data_file:dir search;
+
+# Date : W1537
+# Operation: M0 Migration
+# Purpose : Allow untrusted_app to find HotKnot
+# Package : com.mediatek.hotknot.service
+allow platform_app mtk_hotknot_service:service_manager find;
+
+# Date : WK15.29
+# Operation : Migration
+# Purpose : for device bring up, not to block early migration
+# grant permission for mtk logger to mobile_log_d/mdlogger
+unix_socket_connect(platform_app, netdiag, netdiag)
+allow platform_app mobile_log_d:unix_stream_socket connectto;
+allow platform_app mdlogger:unix_stream_socket connectto;
+allow platform_app aee_exp_data_file:dir r_dir_perms;
+allow platform_app fuse:file create_file_perms;
+allow platform_app fuse:dir create_dir_perms;
+# require process owner to review.
+allow platform_app dm_agent_binder_service:service_manager find;
+allow platform_app guiext-server_service:service_manager find;
+allow platform_app program_binary_service:service_manager find;
+allow platform_app system_app_service:service_manager find;
+
+# Date: 2015/08/19
+# Operation: Migration
+# Purpose: enable accessing cache dir and executing renderscript lib for gallery3d
+# Package: com.android.gallery3d
+allow platform_app app_data_file:file execute;
+
+# Date : 2015/08/17
+# Operation : Migration
+# Purpose : Allow ppl agent app to find ppl agent servive
+# Package: com.android.systemui
+allow platform_app ppl_agent_service:service_manager find;
+
+# Date : 2015/08/20
+# Operation : Migration
+# Purpose : Allow mota app to find ota agent servive
+# Package: com.android.systemupdate
+allow platform_app ota_agent_service:service_manager find;
+
+# Date : 2015/09/06
+# Operation : SQC
+# Purpose : [NFC][can not get nfc service]
+# Package: com.android.gallery3d
+allow platform_app nfc_service:service_manager find;
+
+# Date : 2015/09/12
+# Operation : SQC
+# Purpose : allow settings get file of ntfs device
+# Package: com.android.settings
+allow platform_app fuseblk:dir { read open write search add_name remove_name rmdir };
+
+# Date : 2015/09/19
+# Operation : Migration
+# Purpose : allow platform_app to find pq_service
+allow platform_app pq_service:service_manager { find };
+
+# Date : 2015/09/21
+# Operation : CMCC_AutoTest
+# Purpose : gallery needs to search mediaserver when browsing videos
+# Package: com.android.gallery3d
+allow platform_app mediaserver:dir search;
+
+# Date : 2015/10/12
+# Operation : CMCC_AutoTest
+# Purpose : allow platform_app to access debugfs
+# Package: memtrack
+allow platform_app debugfs:file getattr;
+
+# Date : 2015/10/15
+# Operation : jg_jinchuanqin
+# Purpose :[ALPS02350168]allow Settings get file of ntfs device
+# Package: com.android.settings
+allow platform_app fuseblk:file { read open write create getattr unlink};
+# Date : 2015/10/27
+# Operation : Feature Developing
+# Purpose : allow platform_app to find mw_blacklist
+# Package: com.mediatek.multiwindow.service
+allow platform_app mtk_mwblacklist_service:service_manager find;

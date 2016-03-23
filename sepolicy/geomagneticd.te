@@ -1,0 +1,27 @@
+# ==============================================
+# Policy File of /system/bingeomagneticd Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type geomagneticd_exec , exec_type, file_type;
+type geomagneticd ,domain;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+init_daemon_domain(geomagneticd)
+#unconfined_domain(geomagneticd)
+
+# Date : WK14.43
+# Operation : Migration
+# Purpose : access sensor data and do calibration
+allow geomagneticd input_device:chr_file { read ioctl open };
+allow geomagneticd input_device:dir { read search open };
+allow geomagneticd sysfs:file write;
+file_type_auto_trans(geomagneticd, system_data_file, msensor_data_file)
+allow geomagneticd system_data_file:dir { write remove_name add_name };
+allow geomagneticd msensor_data_file:file { rename write setattr create unlink open };

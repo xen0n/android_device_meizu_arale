@@ -1,0 +1,32 @@
+# ==============================================
+# Policy File of /system/binipod Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type ipo_swap_exec , exec_type, file_type;
+type ipo_swap ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+#permissive ipo_swap;
+init_daemon_domain(ipo_swap)
+
+allow ipo_swap block_device:dir search;
+allow ipo_swap mtd_device:blk_file { write open };
+allow ipo_swap mtd_device:chr_file { read write ioctl open };
+allow ipo_swap shell_exec:file { read execute open execute_no_trans };
+allow ipo_swap system_file:file execute_no_trans;
+

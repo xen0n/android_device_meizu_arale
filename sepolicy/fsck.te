@@ -1,0 +1,12 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : WK15.29
+# Operation : Migration
+# Purpose : file system check for protect1/protect2/nvdata block devices.
+allow fsck protect1_block_device:blk_file rw_file_perms;
+allow fsck protect2_block_device:blk_file rw_file_perms;
+allow fsck nvdata_device:blk_file rw_file_perms;
+allow fsck persist_block_device:blk_file { read write getattr };
+

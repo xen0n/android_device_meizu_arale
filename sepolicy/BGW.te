@@ -1,0 +1,23 @@
+# ==============================================
+# Policy File of /system/xbin/BGW Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type BGW_exec , exec_type, file_type;
+type BGW ,domain;
+
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# permissive BGW;
+init_daemon_domain(BGW)
+
+#============= BGW ==============
+allow BGW ccci_device:chr_file { read write open };
+allow BGW self:netlink_socket { read bind create write };
+allow BGW stpwmt_device:chr_file { read write open };

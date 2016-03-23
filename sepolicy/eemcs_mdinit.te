@@ -1,0 +1,75 @@
+# ==============================================
+# Policy File of /system/bineemcs_mdinit Executable File
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type eemcs_mdinit_exec , exec_type, file_type;
+type eemcs_mdinit ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+init_daemon_domain(eemcs_mdinit)
+#unconfined_domain(eemcs_mdinit)
+
+#============= eemcs_mdinit ==============
+unix_socket_connect(eemcs_mdinit, property, init)
+
+allow eemcs_mdinit { ctl_gsm0710muxd_prop ctl_gsm0710muxd-s_prop ctl_gsm0710muxd-d_prop }:property_service set;
+allow eemcs_mdinit { ctl_rildaemon_prop ctl_ril-daemon-s_prop ctl_ril-daemon-d_prop ctl_ril-daemon-mtk_prop }:property_service set;
+allow eemcs_mdinit { ctl_emcsmdlogger_prop ctl_eemcs_fmdl_prop }:property_service set;
+
+allow eemcs_mdinit ril_mux_report_case_prop:property_service set;
+allow eemcs_mdinit ril_active_md_prop:property_service set;
+allow eemcs_mdinit ctl_eemcs_fsd_prop:property_service set;
+
+# TODO: Do not allow write access to all of /sys
+allow eemcs_mdinit sysfs:file write;
+
+allow eemcs_mdinit nvram_data_file:dir rw_dir_perms;
+allow eemcs_mdinit nvram_data_file:file create_file_perms;
+allow eemcs_mdinit nvram_data_file:lnk_file read;
+allow eemcs_mdinit nvdata_file:dir rw_dir_perms;
+allow eemcs_mdinit nvdata_file:file create_file_perms;
+allow eemcs_mdinit nvram_device:chr_file { read write open };
+
+allow eemcs_mdinit protect_f_data_file:dir rw_dir_perms;
+allow eemcs_mdinit protect_f_data_file:file create_file_perms;
+
+allow eemcs_mdinit protect_s_data_file:dir rw_dir_perms;
+allow eemcs_mdinit protect_s_data_file:file create_file_perms;
+
+allow eemcs_mdinit nvram_device:blk_file { read write open };
+allow eemcs_mdinit nvdata_device:blk_file { read write open };
+allow eemcs_mdinit mmcblk0_block_device:blk_file { read write open };
+
+allow eemcs_mdinit mdlog_data_file:dir search;
+allow eemcs_mdinit mdlog_data_file:file { read open };
+
+allow eemcs_mdinit system_data_file:dir { write create add_name };
+#allow eemcs_mdinit system_data_file:file { write create open };
+
+allow eemcs_mdinit eemcs_device:chr_file { read write ioctl open };
+
+allow eemcs_mdinit init:unix_stream_socket connectto;
+allow eemcs_mdinit property_socket:sock_file write;
+
+allow eemcs_mdinit ttyMT_device:chr_file { read write ioctl open };
+
+allow eemcs_mdinit system_prop:property_service set;
+
+allow eemcs_mdinit block_device:dir search;
+allow eemcs_mdinit ccci_cfg_file:dir create_dir_perms;
+allow eemcs_mdinit ccci_cfg_file:file create_file_perms;

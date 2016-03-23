@@ -1,0 +1,52 @@
+# ==============================================
+# Policy File of /system/binthermal_manager Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type thermal_manager_exec , exec_type, file_type;
+type thermal_manager ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+#permissive thermal_manager;
+
+init_daemon_domain(thermal_manager)
+#file_type_auto_trans(thermal_manager, system_data_file, thermal_manager_data_file)
+
+
+
+allow thermal_manager proc_mtkcooler:dir search;
+allow thermal_manager proc_mtktz:dir search;
+allow thermal_manager proc_thermal:dir search;
+allow thermal_manager proc_mtkcooler:file { read getattr open write };
+allow thermal_manager proc_mtktz:file { read getattr open write };
+allow thermal_manager proc_thermal:file { read getattr open write };
+allow thermal_manager system_data_file:dir write;
+allow thermal_manager system_data_file:dir add_name;
+allow thermal_manager self:capability dac_override;
+allow thermal_manager self:capability chown;
+allow thermal_manager self:capability fowner;
+allow thermal_manager self:capability fsetid;
+
+# Date : WK15.30
+# Operation : Migration
+# Purpose : Use file_type_auto_trans to specify label to avoid violated(never allow)
+
+
+#allow thermal_manager thermal_manager_data_file:file { create write open setattr };
+#allow thermal_manager thermal_manager_data_file:file { write lock };
+allow thermal_manager thermal_manager_data_file:file { create open read write setattr lock};
+allow thermal_manager thermal_manager_data_file:dir { search getattr open read write setattr add_name };
+

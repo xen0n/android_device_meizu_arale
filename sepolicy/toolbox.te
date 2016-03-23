@@ -1,0 +1,10 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+
+# Date : WK15.29
+# Operation : Migration
+# Purpose : for device bring up, not to block early migration
+allow toolbox self:capability { dac_read_search sys_admin dac_override };
+

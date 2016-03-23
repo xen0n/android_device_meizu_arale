@@ -1,0 +1,32 @@
+# ==============================================
+# Policy File of /system/binxlog Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type xlog_exec , exec_type, file_type;
+type xlog ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+#permissive xlog;
+init_daemon_domain(xlog)
+#unconfined_domain(xlog)
+allow xlog self:capability { fowner chown fsetid dac_override };
+allow xlog property_socket:sock_file write;
+#data/misc/xlog
+allow xlog system_data_file:dir { relabelfrom create_dir_perms  };
+allow xlog xlog_data_file:dir { relabelto create_dir_perms   };
+allow xlog xlog_data_file:file { write create read open setattr };;

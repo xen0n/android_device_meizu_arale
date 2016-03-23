@@ -1,0 +1,52 @@
+# ril-3gddaemon - radio interface layer daemon
+type ril-3gddaemon, domain;
+type ril-3gddaemon_exec, exec_type, file_type;
+init_daemon_domain(ril-3gddaemon)
+net_domain(ril-3gddaemon)
+
+allow ril-3gddaemon self:netlink_route_socket nlmsg_write;
+allow ril-3gddaemon kernel:system module_request;
+unix_socket_connect(ril-3gddaemon, property, init)
+allow ril-3gddaemon self:capability { setuid setgid net_admin net_raw dac_override sys_module };
+allow ril-3gddaemon alarm_device:chr_file rw_file_perms;
+allow ril-3gddaemon cgroup:dir create_dir_perms;
+allow ril-3gddaemon radio_device:chr_file rw_file_perms;
+allow ril-3gddaemon radio_device:blk_file r_file_perms;
+allow ril-3gddaemon mtd_device:dir search;
+allow ril-3gddaemon efs_file:dir create_dir_perms;
+allow ril-3gddaemon efs_file:file create_file_perms;
+allow ril-3gddaemon shell_exec:file rx_file_perms;
+allow ril-3gddaemon radio_data_file:dir rw_dir_perms;
+allow ril-3gddaemon radio_data_file:file create_file_perms;
+allow ril-3gddaemon sdcard_type:dir r_dir_perms;
+allow ril-3gddaemon system_data_file:dir r_dir_perms;
+allow ril-3gddaemon system_data_file:file r_file_perms;
+allow ril-3gddaemon system_file:file x_file_perms;
+
+# property service
+allow ril-3gddaemon radio_prop:property_service set;
+allow ril-3gddaemon net_radio_prop:property_service set;
+allow ril-3gddaemon system_radio_prop:property_service set;
+allow ril-3gddaemon system_prop:property_service set;
+auditallow ril-3gddaemon net_radio_prop:property_service set;
+auditallow ril-3gddaemon system_radio_prop:property_service set;
+allow ril-3gddaemon pppoe_ppp0_prop:property_service set;
+allow ril-3gddaemon ctl_zpppdgprs_prop:property_service set;
+
+
+# Read/Write to uart driver (for 3gdongle)
+allow ril-3gddaemon tty_device:chr_file rw_file_perms;
+
+# Allow ril-3gddaemon to create and use netlink sockets.
+allow ril-3gddaemon self:netlink_socket create_socket_perms;
+allow ril-3gddaemon self:netlink_kobject_uevent_socket create_socket_perms;
+
+allow ril-3gddaemon init:dir { getattr open read search };
+allow ril-3gddaemon ppp_exec:file { read open getattr execute execute_no_trans };
+allow ril-3gddaemon ppp_device:chr_file { read write open ioctl };
+allow ril-3gddaemon device:dir { read open write};
+
+# Access to wake locks
+wakelock_use(ril-3gddaemon)
+
+allow ril-3gddaemon self:socket create_socket_perms;

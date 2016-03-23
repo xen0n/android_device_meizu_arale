@@ -1,0 +1,57 @@
+# ==============================================
+# Policy File of /system/bin/ppl_agent Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type ppl_agent_exec , exec_type, file_type;
+type ppl_agent ,domain;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+init_daemon_domain(ppl_agent)
+
+# Date : 2014/09/11
+# Operation : Migration
+# Purpose : [Privacy protection lock][allow com.mediatek.ppl binder IPC to ppl_agent service]
+# Package name : com.mediatek.ppl 
+binder_use(ppl_agent)
+binder_service(ppl_agent)
+
+# Date : 2014/10/16
+# Operation : QC
+# Purpose : [Privacy protection lock][ppl_agent call FileOp_BackupToBinRegionForDM to do nvram backup]
+# Package name : com.mediatek.ppl 
+allow ppl_agent nvram_device:blk_file rw_file_perms;
+allow ppl_agent mmcblk0_block_device:blk_file rw_file_perms;
+
+# Date : 2014/10/24
+# Operation : Migration
+# Purpose : [Privacy protection lock][ppl_agent call FileOp_BackupToBinRegionForDM to do nvram backup]
+# Package name : com.mediatek.ppl 
+allow ppl_agent block_device:dir search;
+
+# Data : 2014/10/24
+# Operation : Migration
+# Purpose : [Privacy protection lock][ppl_agent need access nvram data file for backup restore function]
+# Package name : com.mediatek.ppl 
+allow ppl_agent nvram_data_file:dir create_dir_perms;
+allow ppl_agent nvram_data_file:file create_file_perms;
+allow ppl_agent nvram_data_file:lnk_file read;
+allow ppl_agent nvdata_file:dir create_dir_perms;
+allow ppl_agent nvdata_file:file create_file_perms;
+
+# Data : 2014/10/24
+# Operation : Migration
+# Purpose : [Privacy protection lock][Allow ServiceManager add this service]
+# Package name : ServiceManager 
+allow ppl_agent ppl_agent_service:service_manager add;
+# Data : 2014/10/31
+# Operation : QC
+# Purpose : [Privacy protection lock][ppl_agent need access nvram data file for backup restore function on MT6582]
+# Package name : ServiceManager 
+allow ppl_agent nvram_device:chr_file { read write ioctl open };

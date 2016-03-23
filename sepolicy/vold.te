@@ -1,0 +1,142 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : WK14.37
+# Operation : Migration 
+# Purpose : Access 'OMADM_USB' nvram
+allow vold nvram_data_file:file { read getattr open write create setattr};
+allow vold nvram_data_file:lnk_file read;
+allow vold nvram_data_file:dir { read open write add_name create getattr setattr search};
+allow vold nvdata_file:file { read getattr open write create setattr};
+allow vold nvdata_file:dir { read ioctl open write add_name create getattr setattr search};
+allow vold nvram_device:chr_file { read write open };
+#allow vold platformblk_device:blk_file { read write open };
+#allow vold platformblk_device:dir search;
+allow vold nvram_device:blk_file rw_file_perms;
+allow vold userdata_block_device:blk_file create_file_perms;
+allow vold para_block_device:blk_file rw_file_perms;
+allow vold misc2_block_device:blk_file rw_file_perms;
+allow vold mmcblk0_block_device:blk_file rw_file_perms;
+#allow vold recovery_block_device:blk_file rw_file_perms;
+allow vold proc:file write;
+
+# Date : WK14.37
+# Operation : Migration 
+# Purpose : re-init ExternalSD
+allow vold misc_sd_device:chr_file { read ioctl open };
+
+
+# Date : WK14.38
+# Operation : Migration 
+# Purpose : encrypt phone
+allow vold kernel:system module_request;
+allow vold misc_device:chr_file { write open };
+#allow vold platformblk_device:blk_file { ioctl getattr };
+allow vold zram0_device:blk_file getattr;
+
+# Date : WK14.38
+# Operation : Migration 
+# Purpose : symbolic link for /data/ext_sdcard_tool
+allow vold system_data_file:lnk_file { create unlink };
+
+# Date : WK14.40
+# Operation : Migration 
+# Purpose : multi partition
+allow vold sdcardd_exec:file { read open execute execute_no_trans };
+allow vold self:capability { sys_resource setgid setuid };
+allow vold install_data_file:file { read open };
+allow vold fuse_device:chr_file { read write open };
+allow vold system_data_file:file open;
+
+# Date : WK14.40
+# Operation : Migration 
+# Purpose : ptrace process
+allow vold mediaserver:process ptrace;
+
+# Date : WK14.43
+# Purpose : grant permission to /protect_f and /protect_s for the command, fstrim dotrim
+allow vold protect_f_data_file:dir { read getattr open ioctl };
+allow vold protect_s_data_file:dir { read getattr open ioctl };
+allow vold persist_data_file:dir { read getattr open ioctl };
+
+# Date : WK14.44
+# Operation : Migration 
+allow vold proc_lk_env:file { read write open ioctl};
+allow vold media_rw_data_file:dir { read open };
+
+# Date : WK14.46
+# Operation : allow sdcard create tmpfs link file
+allow vold tmpfs:lnk_file {create unlink};
+
+# Date : WK14.46
+# Operation : copy the logs in /data(tmpfs) to real userdata partition
+allow vold logtemp_data_file:dir { read open getattr search};
+allow vold logtemp_data_file:file { read getattr open };
+allow vold logmisc_data_file:dir { read open getattr search};
+allow vold logmisc_data_file:file { read getattr open };
+allow vold mdlog_data_file:dir { read open getattr search};
+allow vold mdlog_data_file:file { read getattr open };
+allow vold aee_exp_data_file:dir { read open getattr search};
+allow vold aee_exp_data_file:file { read getattr open };
+allow vold data_tmpfs_log_file:dir { setattr getattr read create write rmdir relabelto remove_name open add_name search};
+allow vold data_tmpfs_log_file:file { write setattr getattr relabelto create unlink open read};
+# mount crypto block device to /data/tmp_mnt/data_tmpfs_log and restorecon
+allow vold system_data_file:dir { relabelfrom relabelto setattr };
+#allow vold system_data_file:file { relabelfrom relabelto};
+
+# Date : WK14.49
+# Purpose : ptrace process
+allow vold platform_app:process ptrace;
+allow vold mobile_log_d:process ptrace;
+
+# Date : WK14.50
+# Purpose : read/write sys env
+allow vold misc_device:chr_file read;
+
+# Date : WK15.02
+# Purpose : fsck_msdos
+allow vold platform_app:fd use;
+
+#install APK move to SD
+allow vold block_device:file create;
+
+#Date : WK15.11
+allow vold mtd_device:dir search;
+allow vold mtd_device:chr_file { read write open };
+
+#fat on nand
+allow vold fon_image_data_file:dir search;
+allow vold fon_image_data_file:file { read write };
+allow vold fon_image_data_file:file open;
+#CTS testMountAndUnmountObbNormal & testMountAndUnmountTwoObbs - fail
+allow vold fon_image_data_file:file getattr;
+
+#rawfs
+allow vold rawfs:dir { read ioctl open };
+
+#for not GPT project NvramAccessForOMADM--> FileOp_BackupToBinRegionForDM -->NVM_GetDeviceInfo
+allow vold nvram_device:chr_file ioctl;
+
+# Date : WK15.30
+# Operation : Migration
+# Purpose : unmount simulated cd-rom for pc side when it's not in use
+allow vold iso9660:filesystem unmount;
+
+# Date : WK15.30
+# Operation : Migration
+# Purpose : resize userdata partition
+allow vold resize_exec:file rx_file_perms;
+
+# Date : WK15.30
+# Operation : Migration
+# Purpose : for device bring up, not to block early migration/sanity
+allow vold proc_mtkcooler:dir r_dir_perms;
+allow vold proc_mtktz:dir r_dir_perms;
+
+allow vold block_device:blk_file { read write ioctl open getattr };
+
+# Date : WK15.37
+# Operation : Migration
+# Purpose : for ntfs device mount
+allow vold mmcblk1p1_block_device:blk_file { open read write lock ioctl getattr};

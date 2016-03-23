@@ -1,0 +1,18 @@
+# ==============================================
+# Policy File of /system/bin/pvrsrvctl Executable File 
+
+# ==============================================
+# Type Declaration
+# ==============================================
+type pvrsrvctl, domain;
+type pvrsrvctl_exec, exec_type, file_type;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+init_daemon_domain(pvrsrvctl)
+
+allow pvrsrvctl self:capability sys_admin;
+allow pvrsrvctl gpu_device:chr_file rw_file_perms;
+allow pvrsrvctl self:capability sys_module;
+

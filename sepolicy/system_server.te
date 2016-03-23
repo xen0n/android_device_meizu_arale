@@ -1,0 +1,265 @@
+# ==============================================
+# MTK Policy Rule
+# ============
+
+# Date : WK15.02
+# Operation : 120Hz Feature SQC
+# Purpose : for 120Hz Smart Switch
+allow system_server mtk_rrc_device:chr_file { read write ioctl open };
+
+
+# Date : WK14.31
+# Operation : Migration
+# Purpose : for bring up
+allow system_server hwmsensor_device:chr_file { read ioctl open };
+allow system_server m_batch_misc_device:chr_file { read ioctl open };
+allow system_server proc:file write;
+allow system_server touch_device:chr_file { read ioctl open };
+
+# Date : WK14.32
+# Operation : Migration
+# Purpose : for wifi p2p functionality
+allow system_server dhcp_data_file:dir { read write remove_name search getattr };
+allow system_server dhcp_data_file:file { read open unlink getattr };
+
+# Date : WK14.33
+# Operation : Migration
+# Purpose : for wifi functionality
+allow system_server wpa_wlan0_socket:sock_file write;
+allow system_server hostapd:unix_dgram_socket sendto;
+allow hostapd system_server:unix_dgram_socket sendto;
+
+# Date : WK14.34
+# Operation : Migration
+# Purpose : for WFD functionality
+allow system_server media_wfd_prop:property_service set;
+
+# Date : WK14.34
+# Operation : Migration
+# Purpose : for idling on homescreen
+allow system_server dontpanic_data_file:dir search;
+allow system_server mnld:unix_dgram_socket sendto;
+
+# Date : WK14.34
+# Operation : Migration
+# Purpose : for debug
+allow system_server debuggerd:fd use;
+allow system_server mnld_data_file:sock_file create_file_perms;
+allow system_server mnld_data_file:sock_file rw_file_perms;
+allow system_server mnld_data_file:dir create_file_perms;
+allow system_server mnld_data_file:dir rw_dir_perms;
+allow system_server gps_data_file:file create_file_perms;
+allow system_server gps_data_file:dir rw_dir_perms;
+
+# Date : WK14.37
+# Operation : Migration
+# Purpose : for idling on homescreen
+allow system_server guiext-server:binder { transfer call };
+allow system_server touch_device:chr_file write;
+
+# Date : WK14.37
+# Operation : Migration
+# Purpose : for relabeling files in /data/anr/ created at bootup
+allow system_server anr_data_file:file relabelto;
+
+# Date : WK14.38
+# Operation : Migration
+# Purpose : for debug
+allow system_server debuggerd:binder call;
+allow system_server resmon:fd use;
+allow system_server resmon:fifo_file write;
+
+# Date : WK14.39
+# Operation : Migration
+# Purpose : for operate HDMI device
+allow system_server graphics_device:chr_file { read ioctl open };
+
+# Date : WK14.40
+# Operation : Migration
+# Purpose : for operate ANT device driver
+allow system_server stpant_device:chr_file { read open write ioctl};
+
+# Date: WK14.40
+# Operation : Migration
+# Purpose : for ACTION_PREBOOT_IPO intent in ipo boot
+binder_call(system_server, ipod)
+
+# Date: wk14.40
+# Operation : SQC
+# Purpose : [ALPS01756200] wwop boot up fail
+allow system_server custom_file:dir { read search open getattr};
+allow system_server custom_file:file { read open getattr};
+
+# Date: WK14.41
+# Operation : Migration
+# Purpose : boost thread to RT
+allow system_server surfaceflinger:process { setsched getsched };
+
+# Date: WK14.41
+# Operation : Migration
+# Purpose : [ALPS01760531] for bring up after auto-merge
+allow system_server zygote:binder impersonate;
+
+# Date: WK14.41
+# Operation : Migration
+# Purpose : for system_server operate /dev/RT_Monitor when enable hang detect
+allow system_server RT_Monitor_device:chr_file { read ioctl open };
+
+# Date: WK14.42
+# Operation : Migration
+# Purpose : for system_server to start bootanim
+allow system_server ctl_bootanim_prop:property_service set;
+
+
+# Date : WK14.42
+# Operation : SQC
+# Purpose :  ALPS01763317
+# After connected to DHCPv6 enabled 6to4 IPv6 AP,
+#the ipv6 related values of getprop command are wrong
+#============= system_server ==============
+allow system_server proc_net:file write;
+allow system_server wide_dhcpv6_data_file:dir search;
+allow system_server wide_dhcpv6_data_file:file { read getattr open };
+
+# Date: WK14.41
+# Operation : Migration
+# Purpose : allow system_server to start ipod
+allow system_server ctl_ipod_prop:property_service set;
+
+# Date: WK14.43
+# Operation : Migration
+# Purpose : access to atcid from system server for GPS AT Command.
+allow system_server atci_service:unix_dgram_socket sendto;
+allow system_server atci_service:dir write;
+allow system_server atci_service:dir add_name;
+
+# Date: WK14.43
+# Operation : Migration
+# Purpose : for bring up
+allow system_server anr_data_file:dir relabelfrom;
+allow system_server sf_rtt_file:dir relabelto;
+
+# Date: WK14.43
+# Operation : Migration
+# Purpose : for dumpsys
+allow system_server aee_dumpsys_data_file:file write;
+allow system_server aee_exp_data_file:file write;
+
+# Date: WK14.44
+# Operation : Migration
+# Purpose : for debug
+allow system_server sf_rtt_file:dir r_dir_perms;
+
+# Date: WK14.44
+# Operation : Migration
+# Purpose : for mtk gps epos library useage
+allow system_server devmap_device:chr_file r_file_perms;
+
+allow system_server irtx_device:chr_file { read write ioctl open };
+
+# Date : WK14.46
+# Operation : Migration
+# Purpose : for MTK Emulator HW GPU
+allow system_server qemu_pipe_device:chr_file rw_file_perms;
+
+# Date: WK14.46
+# Operation : Migration
+# Purpose : for sensorhubservice
+allow system_server shf_device:chr_file rw_file_perms;
+
+# Vanzo:yinjun on: Tue, 31 Mar 2015 19:46:11 +0800
+# add remoteir
+allow system_server remote_ctrl_dev_device:chr_file { read write ioctl open };
+# End of Vanzo: yinjun
+# Date: W14.46
+# Operation : Migration
+# Purpose : for GpsLocationProvider.java to check ESUPL status
+allow system_server agpsd_data_file:dir search;
+
+# Date: WK14.46
+# Operation : Migration
+# Purpose : for saveLocale to set SystemProperties
+allow system_server save_locale_prop:property_service set;
+
+# Date: WK14.47
+# Operation : Sanity
+# Purpose : for /system/app/mcRegistry and /proc/secmem (TEE enable)
+allow system_server mobicore_data_file:dir r_dir_perms;
+allow system_server proc_secmem:file { rw_file_perms };
+
+# Date: WK14.47
+# Operation : Sanity
+# Purpose : for avoid SELinux warning after dex2oat execv failed
+allow system_server dex2oat_exec:file r_file_perms;
+
+# Date: WK14.47
+# Operation : Sanity
+# Purpose : for searching directories in sdcard by VoldConnector
+# allow system_server fuse:dir r_dir_perms;
+
+# Date: WK14.47
+# Operation : CTS
+# Purpose : for executing recovery.dex
+allow system_server system_data_file:file execute;
+
+# Date: WK14.47
+# Operation : MTBF
+# Purpose : for debug
+allow system_server sf_rtt_file:file r_file_perms;
+
+# Date: WK14.47
+# Operation : MTBF
+# Purpose : for native process backtrace dump
+allow system_server exec_type:file r_file_perms;
+
+# Date: WK14.47
+# Operation : SQC
+# Purpose : for debug
+allow system_server aee_core_data_file:dir r_dir_perms;
+
+# Date: WK14.48
+# Operation : SQC
+# Purpose : for accessing exm0 tmpfs device
+#allow system_server exm0_device:chr_file { read write open };
+
+# Date: WK14.48
+# Operation : SQC
+# Purpose : for querying zygote socket
+allow system_server zygote:unix_stream_socket { getopt getattr };
+
+# Date: WK14.52
+# Operation : Feature developing
+# Purpose : Communicate with native daemon (epdg_wod)
+unix_socket_connect(system_server, wod_action, epdg_wod)
+unix_socket_connect(system_server, wod_sim, epdg_wod)
+
+
+# Date : WK15.30
+# Operation : Migration
+# Purpose : for device bring up, not to block early migration/sanity
+allow system_server aal_service:service_manager find;
+allow system_server dm_agent_binder_service:service_manager find;
+allow system_server guiext-server_service:service_manager find;
+
+# Date : WK15.31
+# Operation : M Migration
+# Purpose : For WiFi sanity test
+allow system_server wmtWifi_device:chr_file { write open };
+
+# Date : WK15.37
+# Operation : Feature developing
+# Purpose : For DHCPv6 renew procedure,
+#           system service needs to notify native dhcp6c process
+allow system_server dhcp6c:process signal;
+
+# Add by : Seraph
+# Date : WK15.38
+# Operation : Bug fix
+# Purpose : Allow P2P framework to read MAC via nvram_agent_service
+allow system_server nvram_agent_service:service_manager find;
+
+# Date : 2015/10/27
+# Operation : Feature Developing
+# Purpose : allow system_server to find mw_blacklist
+# Package: com.mediatek.multiwindow.service
+allow system_server mtk_mwblacklist_service:service_manager find;

@@ -1,0 +1,70 @@
+# ==============================================
+# Policy File of /system/bin nvram_backup_binder Executable File
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type nvram_backup_binder_exec , exec_type, file_type;
+type nvram_backup_binder ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# permissive nvram_backup_binder;
+init_daemon_domain(nvram_backup_binder)
+
+
+# Date : WK14.35
+# Operation : access nvram by binder
+# Purpose : ensure nvram user can access nvram file normally.
+binder_use(nvram_backup_binder)
+binder_service(nvram_backup_binder)
+
+# Date : WK14.35
+# Operation : access nvram by binder
+# Purpose : ensure nvram user can access nvram file normally.
+allow nvram_backup_binder nvram_backup_service:service_manager add;
+
+
+# Date : WK14.43
+# Operation : 2rd Selinux Migration
+# Purpose : the role of nvram_backup_binder is same with nvram_daemon except property_set & exect permission
+allow nvram_backup_binder mmcblk_device:blk_file rw_file_perms;
+#allow nvram_backup_binder platformblk_device:blk_file rw_file_perms;
+allow nvram_backup_binder nvram_data_file:dir create_dir_perms;
+allow nvram_backup_binder nvram_data_file:file create_file_perms;
+allow nvram_backup_binder nvram_data_file:lnk_file read;
+allow nvram_backup_binder nvdata_file:dir create_dir_perms;
+allow nvram_backup_binder nvdata_file:file create_file_perms;
+
+allow nvram_backup_binder system_file:file execute_no_trans;
+
+allow nvram_backup_binder als_ps_device:chr_file { read ioctl open };
+allow nvram_backup_binder mtk-adc-cali_device:chr_file { read write ioctl open };
+allow nvram_backup_binder gsensor_device:chr_file { read ioctl open };
+allow nvram_backup_binder gyroscope_device:chr_file { read ioctl open };
+allow nvram_backup_binder init:unix_stream_socket connectto;
+#allow nvram_backup_binder platformblk_device:dir search;
+allow nvram_backup_binder property_socket:sock_file write;
+allow nvram_backup_binder sysfs:file write;
+#allow nvram_backup_binder system_data_file:file { write open setattr create};
+allow nvram_backup_binder self:capability { fowner chown dac_override fsetid };
+allow nvram_backup_binder system_data_file:dir {create write add_name};
+
+# Purpose: for backup
+allow nvram_backup_binder nvram_device:chr_file {read write open ioctl};
+allow nvram_backup_binder pro_info_device:chr_file {read write open ioctl};
+allow nvram_backup_binder block_device:dir search;
+
+allow nvram_backup_binder app_data_file:file write;

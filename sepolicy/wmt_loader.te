@@ -1,0 +1,34 @@
+# ==============================================
+# Policy File of /system/binwmt_loader Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type wmt_loader_exec , exec_type, file_type;
+type wmt_loader ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+allow wmt_loader wmt_prop:property_service set;
+allow wmt_loader init:unix_stream_socket connectto;
+allow wmt_loader proc:file setattr;
+allow wmt_loader property_socket:sock_file write;
+allow wmt_loader self:capability { chown dac_override };
+allow wmt_loader wmtdetect_device:chr_file { read write ioctl open };
+allow wmt_loader stpwmt_device:chr_file { read write ioctl open };
+allow wmt_loader devpts:chr_file { read write getattr ioctl };
+allow wmt_loader device:dir { write remove_name };
+allow wmt_loader device:file unlink;
+init_daemon_domain(wmt_loader)

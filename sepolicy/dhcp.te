@@ -1,0 +1,32 @@
+# ==============================================
+# MTK Policy Rule
+# ============
+
+# Date :WK14.34
+# Operation : Migration
+# Purpose: for connecting Wifi
+allow dhcp devpts:chr_file { read write ioctl };
+
+
+
+# Date :WK14.41
+# Operation : [Auto Sanity][L.AOSP.EARLY.DEV.BSP][k2v1]
+# Purpose: ALPS01757300 
+#============= dhcp ==============
+allow dhcp kernel:system module_request;
+
+
+# Date :WK14.44
+# Operation : [Rose][82L TK][FTester]
+# Purpose: ALPS01798575 
+#============= netd ==============
+allow dhcp platform_app:fd use;
+allow dhcp platform_app_tmpfs:file write;
+
+#============= dhcp ==============
+allow dhcp init:fifo_file { read write };
+allow dhcp init:unix_stream_socket { read write };
+
+
+#============= dhcp ==============
+allow dhcp untrusted_app:fd use;

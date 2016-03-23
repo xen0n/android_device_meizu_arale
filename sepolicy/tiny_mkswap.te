@@ -1,0 +1,29 @@
+# ==============================================
+# Policy File of /system/bin/tiny_mkswap Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type tiny_mkswap_exec , exec_type, file_type;
+type tiny_mkswap ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : WK14.34
+# Operation : Migration
+# Purpose : Add new swap areas
+init_daemon_domain(tiny_mkswap)
+allow tiny_mkswap zram0_device:blk_file { getattr read write open ioctl };
+allow tiny_mkswap enableswap:fd use;

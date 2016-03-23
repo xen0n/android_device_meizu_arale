@@ -1,0 +1,35 @@
+# ==============================================
+# Policy File of /system/binicusbd Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type icusbd_exec , exec_type, file_type;
+type icusbd ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+
+init_daemon_domain(icusbd)
+
+allow icusbd vdc_exec:file execute_no_trans;
+allow icusbd icusb_device:chr_file rw_file_perms;
+allow icusbd ccci_device:chr_file { read write ioctl open };
+allow icusbd proc_icusb:file { read write open };
+allow icusbd proc_icusb:dir search; 
+allow icusbd self:capability dac_override;
+allow icusbd self:netlink_socket create_socket_perms;
+allow icusbd usb_device:chr_file { read write ioctl open };
+allow icusbd usb_device:dir { read open search};

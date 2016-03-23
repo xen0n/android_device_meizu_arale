@@ -1,0 +1,44 @@
+# ==============================================
+# Policy File of /system/bineemcs_fsd Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type eemcs_fsd_exec, exec_type, file_type;
+type eemcs_fsd, domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+#permissive eemcs_fsd;
+init_daemon_domain(eemcs_fsd)
+#unconfined_domain(eemcs_fsd)
+
+wakelock_use(eemcs_fsd)
+
+#============= eemcs_fsd ==============
+allow eemcs_fsd nvram_data_file:dir create_dir_perms;
+allow eemcs_fsd nvram_data_file:file create_file_perms;
+allow eemcs_fsd nvram_data_file:lnk_file read;
+allow eemcs_fsd nvdata_file:dir create_dir_perms;
+allow eemcs_fsd nvdata_file:file create_file_perms;
+allow eemcs_fsd eemcs_device:chr_file rw_file_perms;
+
+allow eemcs_fsd protect_f_data_file:dir create_dir_perms;
+allow eemcs_fsd protect_f_data_file:file create_file_perms;
+
+allow eemcs_fsd protect_s_data_file:dir create_dir_perms;
+allow eemcs_fsd protect_s_data_file:file create_file_perms;
+allow eemcs_fsd ccci_cfg_file:dir create_dir_perms;
+allow eemcs_fsd ccci_cfg_file:file create_file_perms;

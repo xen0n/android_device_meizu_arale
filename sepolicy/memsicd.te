@@ -1,0 +1,16 @@
+# ==============================================
+# Policy File of /system/binmemsicd Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type memsicd_exec , exec_type, file_type;
+type memsicd ,domain;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+init_daemon_domain(memsicd)

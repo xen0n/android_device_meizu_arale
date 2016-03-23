@@ -1,0 +1,13 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+type slpd_exec, exec_type, file_type;
+type slpd, domain;
+
+init_daemon_domain(slpd)
+
+net_domain(slpd)
+#allow slpd su:unix_dgram_socket sendto;
+allow slpd mtk_agpsd:unix_dgram_socket sendto;
+# allow slpd flpd:unix_dgram_socket sendto;

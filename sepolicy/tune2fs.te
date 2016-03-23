@@ -1,0 +1,20 @@
+# ==============================================
+# Policy File of /system/bin/tune2fs Executable File
+
+# ==============================================
+# Type Declaration
+# ==============================================
+type tune2fs, domain;
+type tune2fs_exec, exec_type, file_type;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : WK15.30
+# Operation : Migration
+# Purpose : tune /data.
+init_daemon_domain(tune2fs)
+
+allow tune2fs userdata_block_device:blk_file rw_file_perms;
+allow tune2fs block_device:dir search;

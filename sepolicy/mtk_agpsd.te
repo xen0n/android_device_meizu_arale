@@ -1,0 +1,44 @@
+# ==============================================
+# Policy File of /system/binmtk_agpsd Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type mtk_agpsd_exec , exec_type, file_type;
+type mtk_agpsd ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+init_daemon_domain(mtk_agpsd)
+
+# Date : WK14.31
+# Operation : Migration 
+# Purpose : for L bring-up
+net_domain(mtk_agpsd)
+allow mtk_agpsd mnld:unix_dgram_socket sendto;
+allow mtk_agpsd agps_device:chr_file rw_file_perms;
+allow mtk_agpsd agpsd_data_file:dir create_dir_perms;
+allow mtk_agpsd agpsd_data_file:file create_file_perms;
+allow mtk_agpsd agpsd_data_file:sock_file create_file_perms;
+allow mtk_agpsd fuse:dir create_dir_perms;
+allow mtk_agpsd fuse:file create_file_perms;
+allow mtk_agpsd ttySDIO_device:chr_file create_file_perms;
+allow mtk_agpsd eemcs_device:chr_file rw_file_perms;
+allow mtk_agpsd tmpfs:lnk_file create_file_perms;
+allow mtk_agpsd ccci_device:chr_file create_file_perms;
+allow mtk_agpsd storage_file:lnk_file create_file_perms;
+allow mtk_agpsd mnt_user_file:dir create_dir_perms;
+allow mtk_agpsd mnt_user_file:lnk_file create_file_perms;
+allow mtk_agpsd slpd:unix_dgram_socket sendto;

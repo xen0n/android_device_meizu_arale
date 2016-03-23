@@ -1,0 +1,45 @@
+# ==============================================
+# Policy File of /system/binvtservice Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type vtservice_exec , exec_type, file_type;
+type vtservice ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+init_daemon_domain(vtservice)
+binder_use(vtservice)
+binder_call(vtservice, mediaserver)
+binder_service(vtservice)
+
+# Date : WK15.33
+# Purpose : Add vtservice to support video telephony functionality 
+#           3G VT/ViLTE both use this service which will also communication with IMCB/Rild
+allow vtservice vtservice_service:service_manager add;
+unix_socket_connect(vtservice, volte_imsvt1, volte_imcb)
+unix_socket_connect(vtservice, rild_oem, mtkrild)
+allow vtservice mtkrild:unix_stream_socket connectto;
+allow vtservice fuse:dir search;
+allow vtservice fuse:file { read write open };
+allow vtservice radio_service:service_manager find;
+allow vtservice mediaserver_service:service_manager find;
+allow vtservice power_service:service_manager find;
+# Date : 2015/08/13
+# Purpose : for access ccci device
+allow vtservice ccci_device:chr_file { read write open ioctl };
+allow vtservice sysfs:file write;
+allow vtservice untrusted_app:binder call;

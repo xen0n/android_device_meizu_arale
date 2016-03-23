@@ -1,0 +1,56 @@
+# ==============================================
+# MTK Policy Rule
+# ============
+
+# Date : WK14.31
+# Operation : Migration
+# Purpose : transit from kernel to aee_core_forwarder domain when executing aee_core_forwarder
+domain_auto_trans(kernel, aee_core_forwarder_exec, aee_core_forwarder)
+
+# Date : WK14.38
+# Operation : Migration
+# Purpose : run guitar_update for touch F/W upgrade.
+allow kernel fuse:dir search;
+
+# Date : WK14.39
+# Operation : Migration
+# Purpose : ums driver can access blk_file
+allow kernel block_device:blk_file { read write };
+allow kernel loop_device:blk_file { read };
+allow kernel vold_device:blk_file { read write };
+
+# Date : WK14.43
+# Operation : Migration
+# Purpose :  Access to TC1 partition for reading MAC
+allow kernel nvram_device:blk_file { open read write };
+
+# Date : WK15.29
+# Operation : Migration
+# Purpose : grant necessary access permission for mtk_wmtd
+allow kernel nvdata_file:dir search;
+allow kernel nvdata_file:file r_file_perms;
+allow kernel wifi_data_file:dir search;
+allow kernel self:capability { dac_read_search dac_override };
+
+# Date : WK15.33
+# Operation : Migration
+# Purpose : grant nvram_data_file and storage_file access permission for mtk_wmtd
+allow kernel nvram_data_file:dir search;
+allow kernel nvram_data_file:file r_file_perms;
+allow kernel storage_file:lnk_file read;
+
+# Date : WK15.35
+# Operation : Migration
+# Purpose : grant fon_image_data_file read permission for loop device
+allow kernel fon_image_data_file:file read;
+
+# Date : WK15.38
+# Operation : Migration
+# Purpose : grant nvram_data_file lnk_file read permission for mtk_wmtd
+allow kernel nvram_data_file:lnk_file read;
+
+# Date : WK15.38
+# Operation : Migration
+# Purpose : grant proc_thermal for dir search
+allow kernel proc_thermal:dir search;
+

@@ -1,0 +1,7 @@
+# ==============================================
+# MTK Policy Rule
+# ============
+allow uncrypt misc_device:chr_file *;
+allow uncrypt system_data_file:file { open read };
+allow uncrypt userdata_block_device:blk_file w_file_perms;
+#allow uncrypt recovery_block_device:blk_file w_file_perms;

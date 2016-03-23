@@ -1,0 +1,166 @@
+# ==============================================
+# Policy File of /system/binfactory Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type factory_exec , exec_type, file_type;
+type factory ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+#permissive factory;
+init_daemon_domain(factory)
+file_type_auto_trans(factory, system_data_file, factory_data_file)
+#unconfined_domain(factory)
+
+#============= factory ==============
+allow factory FM50AF_device:chr_file { read write ioctl open };
+allow factory AD5820AF_device:chr_file { read write ioctl open };
+allow factory DW9714AF_device:chr_file { read write ioctl open };
+allow factory DW9714A_device:chr_file { read write ioctl open };
+allow factory LC898122AF_device:chr_file { read write ioctl open };
+allow factory LC898212AF_device:chr_file { read write ioctl open };
+allow factory BU6429AF_device:chr_file { read write ioctl open };
+allow factory DW9718AF_device:chr_file { read write ioctl open };
+allow factory BU64745GWZAF_device:chr_file { read write ioctl open };
+allow factory MAINAF_device:chr_file { read write ioctl open };
+allow factory MAIN2AF_device:chr_file { read write ioctl open };
+allow factory SUBAF_device:chr_file { read write ioctl open };
+allow factory MTK_SMI_device:chr_file { read ioctl open };
+allow factory accdet_device:chr_file { read ioctl open };
+allow factory als_ps_device:chr_file { read ioctl open };
+allow factory ashmem_device:chr_file execute;
+allow factory audio_device:chr_file { read write ioctl open };
+allow factory camera_isp_device:chr_file { read write ioctl open };
+allow factory camera_pipemgr_device:chr_file { read ioctl open };
+allow factory camera_sysram_device:chr_file { read ioctl open };
+allow factory ccci_device:chr_file { read write ioctl open };
+allow factory MT_pmic_cali_device:chr_file { read ioctl open };
+allow factory barometer_device:chr_file { read ioctl open };
+allow factory humidity_device:chr_file { read ioctl open };
+allow factory mtk_kpd_device:chr_file { read ioctl open };
+allow factory ebc_device:chr_file { read write open };
+allow factory fm_device:chr_file { read write ioctl open };
+allow factory fuse:dir { read search open };
+allow factory gps_device:chr_file { read write open };
+allow factory graphics_device:chr_file { read write ioctl open };
+allow factory gsensor_device:chr_file { read ioctl open };
+allow factory gsm0710muxd_device:chr_file { read write ioctl open };
+allow factory gyroscope_device:chr_file { read ioctl open };
+allow factory init:unix_stream_socket connectto;
+allow factory input_device:chr_file { read ioctl open };
+allow factory input_device:dir { read open };
+allow factory kd_camera_flashlight_device:chr_file { read write ioctl open };
+allow factory kd_camera_hw_device:chr_file { read write ioctl open };
+allow factory kernel:system module_request;
+allow factory misc_sd_device:chr_file { read ioctl open };
+allow factory mnld_device:chr_file { read write ioctl open };
+allow factory mnld_exec:file { read execute open execute_no_trans };
+allow factory msensor_device:chr_file { read ioctl open };
+allow factory mt6605_device:chr_file { read write ioctl open getattr };
+allow factory node:tcp_socket node_bind;
+allow factory nvram_data_file:dir { write read open add_name getattr setattr};
+allow factory nvram_data_file:file { write getattr setattr read create open };
+allow factory nvram_device:chr_file { read write ioctl open };
+allow factory nvram_device:blk_file { read write open ioctl};
+allow factory userdata_block_device:blk_file rw_file_perms;
+allow factory mmcblk0_block_device:blk_file rw_file_perms;
+allow factory mmcblk1_block_device:blk_file rw_file_perms;
+allow factory mmcblk1p1_block_device:blk_file rw_file_perms;
+allow factory nvdata_device:blk_file rw_file_perms;
+allow factory self:capability sys_boot;
+#allow factory platformblk_device:dir search;
+allow factory port:tcp_socket { name_bind name_connect };
+allow factory property_socket:sock_file write;
+allow factory rtc_device:chr_file { read write ioctl open };
+allow factory self:capability { sys_module ipc_lock sys_nice dac_override net_raw fsetid net_admin sys_time };
+allow factory self:netlink_route_socket { bind create };
+allow factory self:process execmem;
+allow factory self:tcp_socket { setopt read bind create accept write connect listen };
+allow factory self:udp_socket { create ioctl };
+allow factory stpbt_device:chr_file { read write open };
+allow factory sysfs:file write;
+allow factory sysfs_wake_lock:file { read write open };
+allow factory system_data_file:dir { write remove_name add_name };
+#allow factory system_data_file:file { write create unlink open };
+allow factory system_data_file:sock_file { write create unlink setattr };
+allow factory system_file:file execute_no_trans;
+#allow factory tmpfs:lnk_file read;
+allow factory ttyGS_device:chr_file { read write open };
+allow factory wmtWifi_device:chr_file { write open };
+allow factory nvram_data_file:dir { create_dir_perms };
+allow factory nvram_data_file:file { create_file_perms };
+allow factory nvram_data_file:lnk_file read;
+allow factory nvdata_file:dir { create_dir_perms };
+allow factory nvdata_file:file { create_file_perms };
+allow factory self:capability { sys_nice sys_time };
+allow factory system_data_file:dir { write add_name };
+allow factory rootfs:dir mounton;
+allow factory vfat:dir { read open search mounton };
+allow factory vfat:filesystem { mount unmount };
+allow factory block_device:dir search;
+allow factory graphics_device:dir search;
+allow factory input_device:dir search;
+allow factory self:capability sys_admin;
+allow factory self:capability sys_boot;
+allow factory labeledfs:filesystem unmount;
+allow factory nvram_device:blk_file { getattr ioctl };
+allow factory shell_exec:file execute;
+allow factory MT_pmic_adc_cali_device:chr_file { read write ioctl open};
+allow factory audio_device:dir search;
+allow factory nvram_data_file:dir search;
+allow factory audiohal_prop:property_service set;
+allow factory pmic_ftm_device:chr_file { read write ioctl open};
+allow factory powerctl_prop:property_service set;
+allow factory ttyGS_device:chr_file { read write open ioctl};
+allow factory ttyMT_device:chr_file { read write open ioctl};
+allow factory irtx_device:chr_file { read write ioctl open };
+allow factory devpts:chr_file { read write getattr ioctl };
+allow factory vfat:dir search;
+allow factory hrm_device:chr_file { read ioctl open };
+
+# Date: WK14.47
+# Operation : Migration
+# Purpose : CCCI
+allow factory eemcs_device:chr_file { read write ioctl open };
+
+# Purpose : SDIO
+allow factory ttySDIO_device:chr_file { read write ioctl open };
+
+# Date: WK15.01
+# Purpose : OTG Mount
+allow factory fuse:dir mounton;
+# Date: WK15.07
+# Purpose : use c2k flight mode;
+allow factory vmodem_device:chr_file { read write ioctl open };
+
+# Date: WK15.13
+# Purpose: for nand project
+allow factory mtd_device:dir search;
+allow factory mtd_device:chr_file { read write ioctl open };
+allow factory mtd_device:chr_file rw_file_perms;
+allow factory self:capability sys_resource;
+allow factory pro_info_device:chr_file { read write ioctl open};
+
+#Date: WK15.31
+#Purpose: define factory_data_file instead of system_data_file
+# because system_data_file is sensitive partition from M
+allow factory self:capability2 block_suspend;
+allow factory storage_file:dir { write create add_name search mounton };
+allow factory factory_data_file:file { write create unlink open };
+allow factory shell_exec:file { read open };
+allow resize block_device:dir search;
+

@@ -1,0 +1,39 @@
+# ==============================================
+# Policy File of /system/bin/mpud6050 Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type mpud6050_exec , exec_type, file_type;
+type mpud6050 ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+#permissive mpud6050;
+init_daemon_domain(mpud6050)
+#unconfined_domain(mpud6050)
+
+
+# Data : WK14.43
+# Operation : Migration
+# Purpose : Gyroscope daemon for access driver node
+allow mpud6050 gyroscope_device:chr_file { open ioctl read write};
+
+allow mpud6050 gyroscope_mpud6050_chipinfo:file { open read };
+allow mpud6050 gyroscope_mpud6050_status:file { open read };
+allow mpud6050 gyroscope_mpud6050_use:dir { open read search};
+allow mpud6050 gyroscope_mpud6050_use:file { open read };
+allow mpud6050 gyroscope_mpud6050_file:dir { open read search};
+allow mpud6050 gyroscope_mpud6050_file:file { open read write};

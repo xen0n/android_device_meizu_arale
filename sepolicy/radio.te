@@ -1,0 +1,186 @@
+# ==============================================
+# MTK Policy Rule
+# ============
+
+allow radio custom_file:dir getattr;
+#violate never allow rule
+#allow radio device:chr_file { read write ioctl open getattr };
+allow radio dm_agent_binder:binder call;
+allow radio rild2_socket:sock_file write;
+allow radio rild3_socket:sock_file write;
+allow radio rild4_socket:sock_file write;
+allow radio rild_via_socket:sock_file write;
+allow radio rild_md2_socket:sock_file write;
+allow radio rild_mal_socket:sock_file write;
+allow radio rild_mal_at_socket:sock_file write;
+allow radio rild_mal_md2_socket:sock_file write;
+allow radio rild_mal_at_md2_socket:sock_file write;
+allow radio sdcard_internal:dir { write create add_name };
+allow radio sdcard_internal:file { read write getattr open create };
+##violate never allow rule
+#allow radio sysfs:file write;
+##violate never allow rule
+#allow radio system_data_file:file append;
+allow radio zygote:unix_stream_socket { getopt getattr };
+
+# Date : WK14.36
+# Operation : Migration
+# Purpose : for mtkrild and viarild
+allow radio mtkrild:unix_stream_socket connectto;
+allow radio mtkrildmd2:unix_stream_socket connectto;
+allow radio statusd:unix_stream_socket connectto;
+
+# Date : WK14.38 2014/09/16
+# Operation : Migration
+# Purpose : for engineermode
+allow radio mediatek_prop:property_service set;
+allow radio em_svr:unix_stream_socket connectto;
+allow radio mt_otg_test_device:chr_file { read write ioctl open };
+allow radio mtgpio_device:chr_file { read ioctl open };
+allow radio stpbt_device:chr_file { read write open };
+allow radio stpant_device:chr_file { read write open };
+allow radio bt_int_adp_socket:sock_file write;
+allow radio guiext-server:binder { transfer call };
+allow radio persist_ril_prop:property_service set;
+allow radio mt6605_device:chr_file { read write ioctl open getattr };
+allow radio nfc_socket:dir { write add_name remove_name search };
+allow radio nfc_socket:sock_file { create write unlink setattr };
+allow radio system_prop:property_service set;
+
+# Date: wk14.40
+# Operation : SQC 
+# Purpose : [ALPS01756200] wwop boot up fail
+allow radio custom_file:dir { search getattr open read };
+allow radio custom_file:file { read open getattr};
+
+# C2K System Property
+allow radio cdma_prop:property_service set;
+
+# Date : 2014/10/13
+# Operation : IT
+# Purpose : mtk_agpsd establishes the local socket as agpsd for all A-GPS 
+# application to do something with mtk_agpsd
+unix_socket_connect(radio, agpsd, mtk_agpsd)
+
+# Date : 2014/10/14
+# Operation : IT
+# Purpose : for IMSA connect to volte_imsa1 provided by imcb process
+unix_socket_connect(radio, volte_imsa1, volte_imcb)
+
+# Date : 2014/10/16
+# Operation : IT
+# Purpose : for TTLIA apk connect to rild_atci by mtkrild process
+allow radio rild_atci_socket:sock_file write;
+
+# Date : 2014/10/17
+# Operation : IT
+# Purpose : Talks to ril-3gddaemon via the rild-dongle socket.
+unix_socket_connect(radio, rild-dongle, ril-3gddaemon)
+
+# Date : 2014/10/20
+# Operation : IT
+# Purpose : enable ATCId in engineer mode.
+allow radio ctl_atcid-daemon-u_prop:property_service set;
+allow radio ctl_atci_service_prop:property_service set;
+allow radio persist_service_atci_prop:property_service set;
+
+# Date : 2014/11/05
+# Operation : IT
+# Purpose : for IMS_RILA connect to rild_ims provided by mtkrild process
+unix_socket_connect(radio, rild_ims, mtkrild)
+
+# Purpose : allow to access kpd driver file
+allow radio sysfs_keypad_file:dir { open write };
+allow radio sysfs_keypad_file:file { open write };
+
+# Date : 2014/12/13
+# Operation : IT
+# Purpose : for bluetooth relayer mode
+allow radio block_device:dir search;
+allow radio ttyGS_device:chr_file { open read write ioctl };
+
+# Date : 2014/12/26
+# Operation : IT
+# Purpose : for engineermode sensor can work normal
+allow radio als_ps_device:chr_file { read open ioctl };
+
+# Date : 2015/01/20
+# Operation : IT
+# Purpose : for engineermode Usb PHY Tuning
+allow radio debugfs:file { read getattr };
+
+# Date : 2015/01/21
+# Operation : IT
+# Purpose : C2K rild
+allow radio rild_atci_md2_socket:sock_file write;
+allow radio rild_atci_c2k_socket:sock_file write;
+
+# Date : WK15.05 2015/01/26
+# Operation : IT
+# Purpose : for engineermode camera
+allow radio debug_prop:property_service set;
+
+
+# Date : WK15.30
+# Operation : Migration
+# Purpose : for device bring up, not to block early migration/sanity
+allow radio dm_agent_binder_service:service_manager find;
+allow radio ppl_agent_service:service_manager find;
+
+# Date : WK15.33 2015/08/13
+# Operation : IT
+# Purpose : for setting volte enable property
+allow radio mtk_volte_prop:property_service set;
+
+# Date : W15.32 2015/08/05
+# Operation : IT
+# Purpose : for VSIM adaptor connect to rild_atci by mtkrild process
+unix_socket_connect(radio, rild_vsim, mtkrild)
+unix_socket_connect(radio, rild_vsim_md2, mtkrild)
+
+# Date : 2015/04/11
+# Operation : VT development
+# Purpose : Add vtservice to support video telephony functionality 
+#           3G VT/ViLTE both use this service which will also communication with IMCB/Rild
+allow radio vtservice:binder call;
+allow radio vtservice:binder transfer;
+allow radio vtservice_service:service_manager find;
+allow vtservice self:capability dac_override;
+allow vtservice soc_vt_svc_socket:sock_file write;
+allow vtservice soc_vt_tcv_socket:sock_file write;
+allow vtservice rild_oem_socket:sock_file write;
+allow vtservice platform_app:binder call;
+allow vtservice system_server:binder call;
+allow vtservice fuse:dir write;
+allow vtservice fuse:dir add_name;
+allow vtservice fuse:dir create;
+allow vtservice fuse:file create;
+allow vtservice fuse:file getattr;
+allow vtservice surfaceflinger:fd use;
+allow vtservice tmpfs:lnk_file read;
+allow vtservice radio:binder call;
+
+# Date : 2015/08/17
+# Operation : VoLTE sanity
+# Purpose : Add permission for IMSA connect to IMSM
+allow radio rild_imsm_socket:sock_file write;
+allow radio mtkmal:unix_stream_socket connectto;
+allow radio mal_mfi_socket:sock_file write;
+
+
+# Date : WK15.34 2015/08/21
+# Operation : IT
+# Purpose : for engineermode WFD IOT property
+allow radio media_wfd_prop:property_service set;
+allow radio surfaceflinger:fifo_file { read write };
+
+# Date : 2015/09/14
+# Operation : IT
+# Purpose : [NFC][NFC Service]
+# Purpose : Engineering mode need to get NFC Service
+allow radio nfc_service:service_manager find;
+
+# Date: 2015/9/23
+# Operation: Program binary service
+# Purpose : Add permission for program binary service find from ServiceManager.
+allow radio program_binary_service:service_manager find;

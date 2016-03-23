@@ -1,0 +1,50 @@
+# ==============================================
+# MTK Policy Rule
+# ============
+
+
+# Date : WK14.31
+# Operation : Migration 
+# Purpose : for L early bring up
+allow bootanim self:netlink_socket { read bind create write};
+allow bootanim proc_secmem:file { read open};
+
+# Date : WK14.32
+# Operation : Migration 
+# Purpose : for playing boot tone
+allow bootanim mediaserver:binder call;
+allow bootanim mediaserver:binder transfer;
+
+# Date : WK14.36
+# Operation : Migration 
+# Purpose : for ui
+allow bootanim guiext-server:binder call;
+allow bootanim guiext-server:binder transfer;
+
+# Date : WK14.37
+# Operation : Migration 
+# Purpose : for op
+allow bootanim terservice:binder call;
+allow bootanim property_socket:sock_file write;
+allow bootanim init:unix_stream_socket connectto;
+allow bootanim custom_file:dir search;
+allow bootanim custom_file:file open;
+allow bootanim custom_file:file read;
+allow bootanim bootani_prop:property_service set;
+
+# Date : WK14.43
+# Operation : Migration 
+# Purpose : for policy migration
+allow bootanim debug_prop:property_service set;
+
+# Date : WK14.46
+# Operation : Migration
+# Purpose : for MTK Emulator HW GPU
+allow bootanim qemu_pipe_device:chr_file rw_file_perms;
+
+# Date : WK15.30
+# Operation : Migration
+# Purpose : for device bring up, not to block early migration/sanity
+allow bootanim mediaserver_service:service_manager find;
+
+allow bootanim terservice_service:service_manager find;

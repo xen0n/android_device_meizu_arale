@@ -1,0 +1,50 @@
+# ==============================================
+# Policy File of /system/bin/volte_stack Executable File 
+
+# ==============================================
+# Type Declaration
+# ==============================================
+type volte_stack, domain;
+type volte_stack_exec, exec_type, file_type;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+#permissive volte_stack;
+init_daemon_domain(volte_stack)
+file_type_auto_trans(volte_stack, system_data_file, ims_ipsec_data_file)
+
+# Date : WK14.42
+# Operation : Migration 
+# Purpose : for VoLTE L early bring up and first call
+allow volte_stack netd:unix_stream_socket connectto;
+allow volte_stack shell_exec:file { read execute open execute_no_trans };
+allow volte_stack socket_device:sock_file write;
+allow volte_stack self:key_socket { write read create setopt };
+allow volte_stack self:capability net_admin;
+allow volte_stack self:capability { setuid setgid };
+allow volte_stack self:tcp_socket { bind create setopt listen };
+allow volte_stack self:udp_socket { write bind read setopt };
+allow volte_stack self:udp_socket create;
+allow volte_stack self:tcp_socket shutdown;
+allow volte_stack self:udp_socket shutdown;
+allow volte_stack node:tcp_socket node_bind;
+allow volte_stack node:udp_socket node_bind;
+allow volte_stack port:tcp_socket name_bind;
+allow volte_stack port:udp_socket name_bind;
+allow volte_stack fwmarkd_socket:sock_file write;
+allow volte_stack system_data_file:dir { write remove_name add_name };
+allow volte_stack ims_ipsec_data_file:file { rename write ioctl create unlink open append };
+allow volte_stack system_file:file execute_no_trans;
+
+# Date : 2015/01/07
+# Operation : Migration 
+# Purpose : for VoLTE L Pre-FT test, Pre-FT error show we need add tcp rule
+allow volte_stack self:tcp_socket accept;
+allow volte_stack self:tcp_socket read;
+allow volte_stack self:tcp_socket write;
+allow volte_stack self:tcp_socket getattr;
+allow volte_stack self:tcp_socket connect;
+allow volte_stack port:tcp_socket name_connect;
+
+allow volte_stack volte_stack_socket:sock_file write;

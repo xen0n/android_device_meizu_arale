@@ -1,0 +1,59 @@
+# ==============================================
+# MTK Policy Rule
+# ============
+
+# Date : WK14.48
+# Operation : OperaMaxSystem
+# Purpose : for MTK_OPERAMAX_SUPPORT
+
+type tunman, domain;
+type tunman_exec, exec_type, file_type;
+
+type tunman_socket, file_type, mlstrustedobject;
+
+type tunman_prop, property_type;
+
+init_daemon_domain(tunman)
+net_domain(tunman)
+
+# Allows connections to /dev/socket/tunman
+unix_socket_connect(netdomain, tunman, tunman)
+
+# Allows us to set 'tunman.protocol' property
+unix_socket_connect(tunman, property, init) 
+allow tunman tunman_prop:property_service set;
+
+# Allows us to talk to netd
+unix_socket_connect(tunman, netd, netd)
+
+# Multiple instance detection (fs lock)
+allow tunman shell_data_file:dir { search write add_name};
+allow tunman shell_data_file:file { create open read write lock };
+
+#allow tunman system_data_file:dir { search write add_name};
+#allow tunman system_data_file:file { create open read write lock};
+allow tunman system_data_file:file { open read };
+
+# TUN management
+allow tunman self:capability { net_admin net_raw dac_override };
+allow tunman tun_device:chr_file rw_file_perms;
+allow tunman self:tun_socket create_socket_perms;
+
+# Allows Max to use the fd received from Tunman
+allow appdomain tunman:fd use;
+
+# Needed for protect() implementation
+allow tunman appdomain:fd use;
+allow tunman appdomain:{ tcp_socket udp_socket } { read write };
+
+# Needed for socket re-tagging
+allow tunman qtaguid_proc:file { open write };
+
+#
+#allow tunman socket_device:dir { search write add_name remove_name};
+#allow tunman socket_device:sock_file { create open read write lock unlink};
+#allow untrusted_app socket_device:sock_file { read write };
+
+allow tunman tunman_socket:dir { search write add_name remove_name};
+allow tunman tunman_socket:sock_file { create open read write lock unlink};
+allow untrusted_app tunman_socket:sock_file { read write };

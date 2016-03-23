@@ -1,0 +1,28 @@
+# ===============================================
+# Policy File of /system/bin/istd8303 Executable File
+
+
+# ===============================================
+# Type Declaration
+# ===============================================
+
+type istd8303_exec , exec_type, file_type;
+type istd8303 ,domain;
+
+# ===============================================
+# MTK Policy Rule
+# ===============================================
+
+init_daemon_domain(istd8303)
+# Data : WK14.43
+# Operation : Migration
+# Purpose : M-sensor daemon for access driver node
+allow istd8303 msensor_device:chr_file { open ioctl read write };
+allow istd8303 gsensor_device:chr_file { open ioctl read write };
+allow istd8303 input_device:dir { search open read write };
+allow istd8303 input_device:file { open read };
+allow istd8303 istd8303_access_file1:file { open read write };
+allow istd8303 istd8303_access_file2:file { open read write };
+# Operate data partation directly, need modify later, e.g. use "data/misc/istd_set.txt".
+allow istd8303 system_data_file:dir { write add_name create setattr };
+#allow istd8303 system_data_file:file { open write read create setattr };

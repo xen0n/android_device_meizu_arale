@@ -1,0 +1,54 @@
+# ==============================================
+# Policy File of /system/bin/bmm056d Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type bmm056d_exec , exec_type, file_type;
+type bmm056d ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+#permissive bmm056d;
+init_daemon_domain(bmm056d)
+#unconfined_domain(bmm056d)
+
+# Data : WK14.48
+# Operation : Migration
+# Purpose : M-sensor daemon for access driver node
+
+allow bmm056d msensor_device:chr_file { open read write ioctl };
+allow bmm056d gsensor_device:chr_file { open read write ioctl };
+allow bmm056d input_device:dir { search open read write };
+allow bmm056d input_device:file { open read write ioctl };
+allow bmm056d sensor_data_file:dir {search open read write create getattr setattr };
+allow bmm056d sensor_data_file:file { open read write create append unlink ioctl getattr setattr };
+allow bmm056d system_sensor_data_file:dir { search open read create };
+allow bmm056d system_sensor_data_file:file { open read create write };
+allow bmm056d bmm050_sensor_log_file:file { open create read write };
+allow bmm056d sysfs:file write;
+allow bmm056d sysfs_gsensor_file:dir { search open read create };
+allow bmm056d sysfs_gsensor_file:file { open read create write };
+allow bmm056d sysfs_gsensor_file:lnk_file read;
+allow bmm056d sysfs_msensor_file:dir { search open read create };
+allow bmm056d sysfs_msensor_file:file { open read create write };
+allow bmm056d sysfs_msensor_file:lnk_file read;
+# Operate data partation directly, need modify later,e.g. use "data/misc/sensor".
+# for msensor daemon access "data/misc".
+file_type_auto_trans(bmm056d, system_data_file, msensor_data_file)
+allow bmm056d system_data_file:dir { create setattr };
+allow bmm056d msensor_data_file:file { open write read create setattr};
+allow bmm056d shell_data_file:dir { search };
+allow bmm056d shell_data_file:file { open read write create append unlink ioctl getattr setattr };

@@ -1,0 +1,23 @@
+# ==============================================
+# Policy File of /system/bin/fota1 Executable File 
+
+# ==============================================
+# Type Declaration
+# ==============================================
+type fota1, domain;
+type fota1_exec, exec_type, file_type;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+init_daemon_domain(fota1)
+
+# Date : WK14.46
+# Operation : Migration 
+# Purpose : For recovery and tee1 upgrade
+allow fota1 cache_file:file append;
+allow fota1 misc_device:chr_file { write open };
+#allow fota1 platformblk_device:blk_file { read write open };
+allow fota1 block_device:dir search;
+allow fota1 recovery_device:chr_file { read write open };

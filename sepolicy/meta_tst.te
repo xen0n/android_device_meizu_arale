@@ -1,0 +1,180 @@
+# ==============================================
+# Policy File of /system/bin/meta_tst Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type meta_tst_exec , exec_type, file_type;
+type meta_tst ,domain;
+
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+init_daemon_domain(meta_tst)
+
+# Date : WK14.42
+# Operation : L Migration
+# Purpose : for meta mode driver module operation
+#============= meta_tst ==============
+allow meta_tst audio_device:chr_file { read write ioctl open };
+allow meta_tst audio_device:dir search;
+allow meta_tst nvram_data_file:dir search;
+allow meta_tst audiohal_prop:property_service set;
+allow meta_tst ccci_device:chr_file { read write ioctl open };
+allow meta_tst fm_device:chr_file { read write ioctl open };
+allow meta_tst graphics_device:chr_file { read write ioctl open };
+allow meta_tst graphics_device:dir search;
+allow meta_tst mdlog_device:chr_file { read write open };
+allow meta_tst nvram_data_file:dir { write read open add_name remove_name search create getattr setattr };
+allow meta_tst nvram_data_file:file { setattr read create write getattr unlink open append };
+allow meta_tst nvram_data_file:lnk_file read;
+allow meta_tst nvdata_file:dir { write read open add_name remove_name search create getattr setattr };
+allow meta_tst nvdata_file:file { setattr read create write getattr unlink open append };
+allow meta_tst nvram_device:chr_file { read write open ioctl };
+allow meta_tst nvram_device:blk_file { read write open };
+allow meta_tst mmcblk0_block_device:blk_file { getattr ioctl read write open };
+allow meta_tst userdata_block_device:blk_file rw_file_perms;
+allow meta_tst cache_block_device:blk_file rw_file_perms;
+allow meta_tst nvdata_device:blk_file { read write open };
+allow meta_tst port:tcp_socket { name_connect name_bind };
+allow meta_tst rootfs:file entrypoint;
+allow meta_tst rtc_device:chr_file { read ioctl open };
+allow meta_tst self:capability { net_raw chown fsetid sys_nice net_admin fowner dac_override sys_admin };
+allow meta_tst self:tcp_socket { create connect setopt bind };
+allow meta_tst self:udp_socket { create ioctl };
+allow meta_tst stpbt_device:chr_file { read write open };
+allow meta_tst sysfs:file write;
+allow meta_tst system_data_file:dir { write remove_name add_name };
+#allow meta_tst system_data_file:file { write create unlink open };
+allow meta_tst system_data_file:sock_file unlink;
+allow meta_tst ttyGS_device:chr_file { read write ioctl open };
+allow meta_tst wmtWifi_device:chr_file { write open };
+allow meta_tst FM50AF_device:chr_file { read write ioctl open };
+allow meta_tst AD5820AF_device:chr_file { read write ioctl open };
+allow meta_tst DW9714AF_device:chr_file { read write ioctl open };
+allow meta_tst DW9714A_device:chr_file { read write ioctl open };
+allow meta_tst LC898122AF_device:chr_file { read write ioctl open };
+allow meta_tst LC898212AF_device:chr_file { read write ioctl open };
+allow meta_tst BU6429AF_device:chr_file { read write ioctl open };
+allow meta_tst DW9718AF_device:chr_file { read write ioctl open };
+allow meta_tst BU64745GWZAF_device:chr_file { read write ioctl open };
+allow meta_tst MAINAF_device:chr_file { read write ioctl open };
+allow meta_tst MAIN2AF_device:chr_file { read write ioctl open };
+allow meta_tst SUBAF_device:chr_file { read write ioctl open };
+allow meta_tst als_ps_device:chr_file { read ioctl open };
+allow meta_tst camera_isp_device:chr_file { read write ioctl open };
+allow meta_tst camera_sysram_device:chr_file { read ioctl open };
+allow meta_tst gsensor_device:chr_file { read ioctl open };
+allow meta_tst kd_camera_flashlight_device:chr_file { read write ioctl open };
+allow meta_tst kd_camera_hw_device:chr_file { read write ioctl open };
+allow meta_tst msensor_device:chr_file { read ioctl open };
+allow meta_tst mt6605_device:chr_file { read write open ioctl getattr };
+allow meta_tst self:capability { sys_boot ipc_lock };
+allow meta_tst sysfs_wake_lock:file { read write open };
+allow meta_tst system_data_file:sock_file { write create setattr };
+allow meta_tst system_file:file execute_no_trans;
+allow meta_tst MT_pmic_adc_cali_device:chr_file { read write ioctl open };
+allow meta_tst block_device:dir search;
+allow meta_tst gyroscope_device:chr_file { read ioctl open };
+allow meta_tst mnld_exec:file { execute read open };
+allow meta_tst ttyMT_device:chr_file { read write ioctl open };
+allow meta_tst mnld_exec:file execute_no_trans;
+allow meta_tst mnld_device:chr_file { open read write ioctl };
+allow meta_tst property_socket:sock_file write;
+allow meta_tst vold_socket:sock_file write;
+allow meta_tst init:unix_stream_socket connectto;
+allow meta_tst vold:unix_stream_socket connectto;
+allow meta_tst gps_device:chr_file { read write open };
+allow meta_tst mnld_prop:property_service set;
+allow meta_tst agpsd_data_file:dir search;
+allow meta_tst self:tcp_socket { bind setopt listen accept read write };
+allow meta_tst agpsd_data_file:sock_file write;
+allow meta_tst node:tcp_socket node_bind;
+allow meta_tst powerctl_prop:property_service set;
+allow meta_tst labeledfs:filesystem unmount;
+allow meta_tst nvram_device:blk_file { getattr ioctl };
+allow meta_tst nvdata_device:blk_file { getattr ioctl };
+allow meta_tst mmcblk1_block_device:blk_file rw_file_perms;
+allow meta_tst shell_exec:file execute;
+
+# Date: WK14.45
+# Operation : Migration
+# Purpose : HDCP
+allow meta_tst mobicore:unix_stream_socket connectto;
+allow meta_tst mobicore_data_file:dir search;
+allow meta_tst mobicore_data_file:file { getattr read open lock};
+allow meta_tst mobicore_user_device:chr_file { read write open ioctl};
+allow meta_tst persist_data_file:dir { create setattr write add_name search};
+allow meta_tst persist_data_file:file { read write create open getattr setattr};
+allow meta_tst gps_data_file:file create_file_perms;
+allow meta_tst gps_data_file:dir rw_dir_perms;
+
+# Date: WK14.46
+# Operation : Migration
+# Purpose : Camera
+allow meta_tst devmap_device:chr_file { open read write ioctl };
+allow meta_tst camera_pipemgr_device:chr_file { open read write ioctl };
+allow meta_tst MTK_SMI_device:chr_file { open read write ioctl };
+#allow meta_tst tmpfs:lnk_file read;
+
+# Date: WK14.47
+# Operation : Migration
+# Purpose : CCCI
+allow meta_tst eemcs_device:chr_file { read write ioctl open };
+
+#Date WK14.49
+#Operation : Migration
+#Purpose : DRM key installation
+allow meta_tst mobicore_data_file:file getattr;
+allow meta_tst shell_exec:file { read open execute_no_trans };
+allow meta_tst system_data_file:dir create;
+#allow meta_tst system_data_file:file { setattr append };
+allow meta_tst key_install_data_file:dir { search write remove_name add_name };
+allow meta_tst key_install_data_file:file { read write create open setattr append getattr unlink };
+
+# Date: WK14.51
+# Purpose : set/get cryptfs cfg in sys env
+allow meta_tst misc_device:chr_file { read write open };
+allow meta_tst proc_lk_env:file { read write ioctl open };
+
+# Date: WK14.51
+# Purpose : CCCI
+allow meta_tst emd_device:chr_file { read write ioctl open };
+allow meta_tst ttyACM_device:chr_file { read write ioctl open };
+
+# Purpose : FT_EMMC_OP_FORMAT_TCARD
+allow meta_tst block_device:blk_file getattr;
+allow meta_tst system_block_device:blk_file getattr;
+allow meta_tst fuse_device:chr_file getattr;
+allow meta_tst shell_exec:file { read open };
+
+# Date: WK15.52
+# Purpose : NVRAM related LID
+allow meta_tst pro_info_device:chr_file { open read write ioctl };
+# Data: WK15.07
+# Purpose : SDIO
+allow meta_tst ttySDIO_device:chr_file { read write ioctl open };
+
+# Date: WK15.14
+# Purpose : CCT linker fail
+allow meta_tst self:process execmem;
+
+# Date: WK15.13
+# Purpose: for nand project
+allow meta_tst mtd_device:dir search;
+allow meta_tst mtd_device:chr_file { read write open };
+
+# Date: WK15.38
+# Purpose: M Migration for CCT linker fail
+allow meta_tst fuse:dir { write search create add_name };
+allow meta_tst fuse:file { read write create open getattr };
+allow meta_tst mnt_user_file:dir search;
+allow meta_tst mnt_user_file:lnk_file read;
+allow meta_tst storage_file:lnk_file read;
+allow meta_tst fuse:file read;
+
+

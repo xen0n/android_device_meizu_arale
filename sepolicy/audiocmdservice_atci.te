@@ -1,0 +1,59 @@
+# ==============================================
+# Policy File of /system/binaudiocmdservice_atci Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type audiocmdservice_atci_exec , exec_type, file_type;
+type audiocmdservice_atci ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+allow audiocmdservice_atci mediaserver:binder call;
+allow audiocmdservice_atci mediaserver:chr_file { read write ioctl open create setattr append };
+allow audiocmdservice_atci mediaserver:dir { write add_name search };
+allow audiocmdservice_atci nvram_device:blk_file { read write open };
+allow audiocmdservice_atci mmcblk0_block_device:blk_file { read write };
+
+allow audiocmdservice_atci fuse:file { create read write open };
+allow audiocmdservice_atci fuse:dir { search write add_name };
+
+#allow audiocmdservice_atci tmpfs:lnk_file read;
+allow audiocmdservice_atci block_device:dir { write search };
+allow audiocmdservice_atci nvram_data_file:dir { add_name write search };
+allow audiocmdservice_atci nvdata_file:dir { add_name write search };
+allow audiocmdservice_atci nvram_device:chr_file { open read write };
+allow audiocmdservice_atci nvram_data_file:file { write getattr setattr read create open };
+allow audiocmdservice_atci nvram_data_file:lnk_file read;
+allow audiocmdservice_atci nvdata_file:file { write getattr setattr read create open };
+allow audiocmdservice_atci self:capability { dac_override };
+allow audiocmdservice_atci mediaserver_service:service_manager find;
+
+allow audiocmdservice_atci mnt_user_file:dir {write read search};
+allow audiocmdservice_atci mnt_user_file:lnk_file {read write};
+
+allow audiocmdservice_atci storage_file:lnk_file {read write};
+allow audiocmdservice_atci self:capability { setuid ipc_lock };
+allow audiocmdservice_atci self:capability sys_nice;
+allow audiocmdservice_atci self:capability { net_admin dac_override };
+allow audiocmdservice_atci self:capability { fowner chown dac_override fsetid };
+# ==============================================
+# Data: 2014/09/24
+# Operation: Migration
+# Purpose: allow Binder IPC for audio tuning tool 
+# ==============================================
+binder_use(audiocmdservice_atci)
+binder_call(audiocmdservice_atci, mediaserver)
+
+init_daemon_domain(audiocmdservice_atci)

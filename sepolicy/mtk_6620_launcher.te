@@ -1,0 +1,29 @@
+# ==============================================
+# Policy File of /system/binmtk_6620_launcher Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type mtk_6620_launcher_exec , exec_type, file_type;
+type mtk_6620_launcher ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+allow mtk_6620_launcher wmt_prop:property_service set;
+allow mtk_6620_launcher init:unix_stream_socket connectto;
+allow mtk_6620_launcher property_socket:sock_file write;
+allow mtk_6620_launcher stpwmt_device:chr_file { read write ioctl open };
+allow mtk_6620_launcher devpts:chr_file { read write };
+init_daemon_domain(mtk_6620_launcher)

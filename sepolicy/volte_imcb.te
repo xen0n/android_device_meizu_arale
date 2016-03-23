@@ -1,0 +1,37 @@
+# ==============================================
+# Policy File of /system/bin/volte_imcb Executable File 
+
+# ==============================================
+# Type Declaration
+# ==============================================
+type volte_imcb, domain;
+type volte_imcb_exec, exec_type, file_type;
+type volte_imsa1_socket, file_type;
+type volte_imsvt1_socket, file_type;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+#permissive volte_imcb;
+init_daemon_domain(volte_imcb)
+
+# Date : WK14.42
+# Operation : Migration 
+# Purpose : for VoLTE L early bring up and first call
+allow volte_imcb ccci_device:chr_file { read write open };
+allow volte_imcb node:tcp_socket node_bind;
+allow volte_imcb port:tcp_socket name_bind;
+allow volte_imcb self:tcp_socket { bind create setopt accept listen };
+allow volte_imcb socket_device:sock_file write;
+allow volte_imcb volte_ua:unix_stream_socket connectto;
+allow volte_imcb fwmarkd_socket:sock_file write;
+allow volte_imcb self:tcp_socket { read getattr };
+allow volte_imcb netd:unix_stream_socket connectto;
+allow volte_imcb self:tcp_socket write;
+
+# Date : 2015/8/5
+# Operation : M Migration 
+# Purpose : For imcb connect to ua by local socket
+unix_socket_connect(volte_imcb, volte_ua, volte_ua)
+
+allow volte_imcb volte_imcb_socket:sock_file write;

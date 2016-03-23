@@ -1,0 +1,45 @@
+# ==============================================
+# Policy File of /system/binaal Executable File 
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type aal_exec , exec_type, file_type;
+type aal ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# permissive aal;
+init_daemon_domain(aal)
+# unconfined_domain(aal)
+
+# Date : 2014/09/09 (or WK14.37)
+# Operation : Migration
+# Purpose : allow Binder IPC
+binder_use(aal)
+binder_call(aal, binderservicedomain)
+binder_service(aal)
+
+# Date : WK14.41
+# Operation : Migration
+# Purpose : All enforing mode
+allow aal aal_als_device:chr_file { read open ioctl };
+allow aal graphics_device:chr_file { read open ioctl };
+allow aal graphics_device:dir search;
+allow aal aal_service:service_manager add;
+
+# Date : WK15.37
+# Operation : Migration
+# Purpose : Allow permission check
+allow aal permission_service:service_manager { find };

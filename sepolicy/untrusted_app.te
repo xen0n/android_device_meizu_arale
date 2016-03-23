@@ -1,0 +1,66 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+#permissive untrusted_app;
+
+# Date : 2014/09/04
+# Stage: BaseUT
+# Purpose :[Launcher2][View update graphics]
+# Package Name: com.android.launcher2
+allow untrusted_app guiext-server:binder { transfer call };
+
+# Date : 2014/10/27
+# Operation : SQC 
+# Purpose : [ALPS01785313] Permission denied for dump hprof
+# Package: com.android.gallery3d
+allow untrusted_app anr_data_file:file rw_file_perms;
+
+# Date : 2014/09/09
+# Operation : Development LCA Feature "Move OAT to SD Card"
+# Purpose : for LCA ROM Size Slim
+#allow untrusted_app dalvikcache_data_file:lnk_file read;
+
+# Date : WK14.46
+# Operation : Migration
+# Purpose : for MTK Emulator HW GPU
+allow untrusted_app qemu_pipe_device:chr_file rw_file_perms;
+
+# CTS issue
+allow untrusted_app proc_lk_env:file getattr;
+allow untrusted_app proc_sysrq:file getattr;
+allow untrusted_app fuse:file execute;
+allow untrusted_app protect_f_data_file:dir getattr;
+allow untrusted_app protect_s_data_file:dir getattr;
+
+# Date : W1452
+# Operation : WVL1 Modular DRM IT
+# Purpose : Allow svp client alloc sec mem
+allow untrusted_app proc_secmem:file { read ioctl open };
+
+# Date : W1537
+# Operation: M0 Migration
+# Purpose : Allow untrusted_app to find HotKnot
+# Package : com.mediatek.hotknot.service
+allow untrusted_app mtk_hotknot_service:service_manager find;
+
+#elephantstress tools for thermal
+allow untrusted_app proc_mtktz:dir search;
+allow untrusted_app proc_mtktz:file read;
+allow untrusted_app proc_mtktz:file open;
+allow untrusted_app proc_mtktz:file getattr;
+
+#3G VT vtservice
+allow untrusted_app vtservice:dir search;
+allow untrusted_app vtservice:file { read getattr open };
+
+# Date : WK15.39
+# Operation : Migration
+# Purpose : allow untrusted_app to find pq_service
+allow untrusted_app pq_service:service_manager { find };
+
+# Date : 2015/10/27
+# Operation : Feature Developing
+# Purpose : allow untrusted_app to find mw_blacklist
+# Package: com.mediatek.multiwindow.service
+allow untrusted_app mtk_mwblacklist_service:service_manager find;

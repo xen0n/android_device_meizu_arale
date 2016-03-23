@@ -1,0 +1,31 @@
+# ==============================================
+# Policy File of /system/bin/volte_ua Executable File 
+
+# ==============================================
+# Type Declaration
+# ==============================================
+type volte_ua, domain;
+type volte_ua_exec, exec_type, file_type;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+#permissive volte_ua;
+init_daemon_domain(volte_ua)
+
+# Date : WK14.42
+# Operation : Migration 
+# Purpose : for VoLTE L early bring up and first call
+allow volte_ua socket_device:sock_file write;
+allow volte_ua volte_stack:unix_stream_socket connectto;
+allow volte_ua wfca:unix_stream_socket connectto;
+allow volte_ua node:udp_socket node_bind;
+allow volte_ua self:udp_socket { bind create };
+allow volte_ua self:udp_socket read;
+
+# Date : 2015/8/5
+# Operation : M Migration 
+# Purpose : For ua connect to stack by local socke
+unix_socket_connect(volte_ua, volte_stack, volte_stack)
+
+allow volte_ua volte_ua_socket:sock_file write;

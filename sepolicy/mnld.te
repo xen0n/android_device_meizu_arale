@@ -1,0 +1,67 @@
+type mnld, domain;
+type mnld_exec, exec_type, file_type;
+
+# STOPSHIP: Permissive is not allowed. CTS violation!
+init_daemon_domain(mnld)
+
+net_domain(mnld)
+allow mnld agpsd_data_file:dir create_dir_perms;
+allow mnld agpsd_data_file:sock_file create_file_perms;
+allow mnld mtk_agpsd:unix_dgram_socket sendto;
+allow mnld sysfs:file rw_file_perms;
+allow mnld sysfs_wake_lock:file rw_file_perms;
+allow mnld nvram_data_file:dir create_dir_perms;
+allow mnld nvram_data_file:file create_file_perms;
+allow mnld nvram_data_file:lnk_file read;
+allow mnld nvdata_file:dir create_dir_perms;
+allow mnld nvdata_file:file create_file_perms;
+allow mnld mnld_data_file:dir rw_dir_perms;
+allow mnld mnld_data_file:sock_file create_file_perms;
+allow mnld mnld_device:chr_file rw_file_perms;
+allow mnld gps_device:chr_file rw_file_perms;
+allow mnld init:unix_stream_socket connectto;
+allow mnld property_socket:sock_file rw_file_perms;
+allow mnld system_data_file:dir rw_dir_perms;
+allow mnld system_data_file:dir create_dir_perms;
+allow mnld system_data_file:file { open read};
+file_type_auto_trans(mnld,system_data_file,mnld_data_file);
+allow mnld mnld_data_file:file rw_file_perms;
+allow mnld mnld_data_file:file create_file_perms;
+allow mnld mnld_data_file:file open;
+#allow mnld system_data_file:file rw_file_perms;
+#allow mnld system_data_file:file create_file_perms;
+allow mnld system_server:unix_dgram_socket sendto;
+allow mnld system_data_file:sock_file create_file_perms;
+allow mnld nvram_device:blk_file rw_file_perms;
+allow mnld mmcblk0_block_device:blk_file rw_file_perms;
+allow mnld block_device:dir search;
+allow mnld nvram_device:chr_file{read write};
+allow mnld mnld_prop:property_service set;
+allow mnld nvram_device:chr_file open;
+allow mnld init:udp_socket { read write };
+allow mnld mdlog_device:chr_file { read write };
+allow mnld self:capability { fsetid dac_override };
+allow mnld stpbt_device:chr_file { read write };
+allow mnld ttyGS_device:chr_file { read write };
+allow mnld fuse:dir search;
+allow mnld fuse:dir write;
+allow mnld fuse:dir add_name;
+allow mnld fuse:file create;
+allow mnld fuse:file rw_file_perms;
+allow mnld fuse:file create_file_perms;
+allow mnld nvram_device:chr_file ioctl;
+allow mnld fuse:dir { read remove_name create open };
+allow mnld tmpfs:lnk_file { read create open };
+allow mnld mtd_device:dir search;
+allow mnld platform_app:unix_stream_socket connectto;
+allow mnld system_app:unix_stream_socket connectto;
+allow mnld apk_data_file:dir { write add_name };
+allow mnld apk_data_file:file { write create };
+allow mnld gps_data_file:dir rw_dir_perms;
+allow mnld gps_data_file:file create_file_perms;
+
+# Date : WK15.30
+# Operation : Migration
+# Purpose : for device bring up, not to block early migration/sanity
+allow mnld proc_lk_env:file rw_file_perms;
+

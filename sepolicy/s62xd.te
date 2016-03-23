@@ -1,0 +1,27 @@
+# ==============================================
+# Policy File of /system/bins62xd Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type s62xd_exec , exec_type, file_type;
+type s62xd ,domain;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+init_daemon_domain(s62xd)
+
+# Purpose : M-sensor daemon for access driver node
+allow s62xd msensor_device:chr_file { open ioctl read write };
+allow s62xd gsensor_device:chr_file { open ioctl read write };
+#allow s62xd input_device:dir { search open read write };
+#allow s62xd input_device:file { open read };
+#allow s62xd s62xd_access_file1:file { open read write };
+#allow s62xd s62xd_access_file2:file { open read write};
+# Operate data partation directly, need modify later,e.g. use "data/misc/sensor".
+#allow s62xd system_data_file:dir { write add_name create setattr };
+#allow s62xd system_data_file:file { open write read create setattr};

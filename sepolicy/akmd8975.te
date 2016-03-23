@@ -1,0 +1,17 @@
+# ==============================================
+# Policy File of /system/binakmd8975 Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type akmd8975_exec , exec_type, file_type;
+type akmd8975 ,domain;
+
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+init_daemon_domain(akmd8975)

@@ -1,0 +1,35 @@
+# ==============================================
+# Policy File of /system/bin/dmlog Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type dmlog_exec , exec_type, file_type;
+type dmlog ,domain;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+#permissive dmlog;
+init_daemon_domain(dmlog)
+
+# Date : 2014/09/23
+# Operation : Migration 
+# Purpose : for mtk debug mechanism
+allow dmlog aed_device:chr_file read;
+allow dmlog debuggerd:fd use;
+allow dmlog debuggerd:unix_stream_socket { read write };
+allow dmlog expdb_device:chr_file { read write };
+allow dmlog fuse:file { write getattr };
+allow dmlog sysfs:file write;
+allow dmlog aee_exp_data_file:file write;
+allow dmlog expdb_block_device:blk_file { read write };
+allow dmlog mmcblk0_block_device:blk_file { read write };
+
+# Date : 2015/07/11
+# Operation : Migration
+# Purpose : for mtk debug mechanism
+allow dmlog aee_exp_data_file:file getattr;

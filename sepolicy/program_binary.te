@@ -1,0 +1,51 @@
+# ==============================================
+# Policy File of /system/bin/program_binary_service Executable File
+
+# ==============================================
+# Type Declaration
+# ==============================================
+type program_binary, domain;
+type program_binary_exec, exec_type, file_type;
+type program_binary_service, service_manager_type;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+init_daemon_domain(program_binary)
+
+# Date : 2015/1/6
+# Operation : New
+# Purpose : Cache program binaries for HWUI usage
+binder_service(program_binary)
+binder_use(program_binary)
+binder_call({domain -init}, program_binary)
+
+# Date : 2015/1/6
+# Operation : New
+# Purpose : To manipulate GPU
+allow program_binary gpu_device:chr_file { open read write ioctl };
+allow program_binary gpu_device:chr_file getattr;
+
+# Date : 2015/1/6
+# Operation : New
+# Purpose : To be a service
+allow program_binary program_binary_service:service_manager add;
+
+# Date : 2015/1/6
+# Operation : New
+# Purpose : To allow binder call to system server.
+allow program_binary system_server:binder call;
+
+# Date : 2015/3/19
+# Operation : New
+# Purpose : To allow write system property.
+allow program_binary program_binary_prop:property_service set;
+allow program_binary property_socket:sock_file write;
+allow program_binary init:unix_stream_socket connectto;
+
+# Date : 2015/7/23
+# Operation : New
+# Purpose : To allow applications use find operation for service_manager. [M]
+allow platform_app program_binary_service:service_manager find;
+allow untrusted_app program_binary_service:service_manager find;
+allow system_server program_binary_service:service_manager find;

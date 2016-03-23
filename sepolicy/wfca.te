@@ -1,0 +1,40 @@
+# ==============================================
+# Policy File of /system/bin/wfca Executable File 
+
+# ==============================================
+# Type Declaration
+# ==============================================
+type wfca, domain;
+type wfca_exec, exec_type, file_type;
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+# permissive wfca;
+init_daemon_domain(wfca)
+
+# Date : WK14.42
+# Operation : Migration 
+# Purpose : for WFCA send RTP/RTCP
+allow wfca netd:unix_stream_socket connectto;
+allow wfca socket_device:sock_file {create write unlink};
+allow wfca socket_device:dir {write remove_name add_name};
+allow wfca self:capability { setuid setgid };
+allow wfca self:udp_socket { create write bind read setopt ioctl getattr shutdown };
+allow wfca node:udp_socket node_bind;
+allow wfca port:udp_socket name_bind;
+allow wfca fwmarkd_socket:sock_file write;
+allow wfca system_file:file execute_no_trans;
+
+# Date : 2015/03/27
+# Operation : Migration
+# Purpose : for access ccci device
+allow wfca ccci_device:chr_file { read write open ioctl };
+
+# Date : 2015/06/25
+# Purpose : for UA socket pass
+allow wfca volte_ua:fd use;
+allow wfca volte_ua:udp_socket {read write setopt getattr getopt shutdown};
+
+# Purpose : for WakeUpLock
+allow wfca sysfs_wake_lock:file { read write open }; 

@@ -1,0 +1,24 @@
+# zpppd_gprs - pppd process for ZTE 3gdongle ppp dail
+type zpppd_gprs, domain;
+type zpppd_gprs_exec, exec_type, file_type;
+init_daemon_domain(zpppd_gprs)
+net_domain(zpppd_gprs)
+
+allow zpppd_gprs self:capability { setuid setgid net_admin net_raw dac_override sys_module };
+
+# property service
+allow zpppd_gprs radio_prop:property_service set;
+allow zpppd_gprs net_radio_prop:property_service set;
+allow zpppd_gprs system_radio_prop:property_service set;
+allow zpppd_gprs system_prop:property_service set;
+allow zpppd_gprs pppoe_ppp0_prop:property_service set;
+allow zpppd_gprs ctl_zpppdgprs_prop:property_service set;
+
+# device and file allow
+allow zpppd_gprs tty_device:chr_file rw_file_perms;
+allow zpppd_gprs ppp_exec:file { read open getattr execute execute_no_trans };
+allow zpppd_gprs ppp_device:chr_file { read write open ioctl };
+allow zpppd_gprs system_file:file x_file_perms;
+allow zpppd_gprs shell_exec:file rx_file_perms;
+
+unix_socket_connect(zpppd_gprs, property, init)

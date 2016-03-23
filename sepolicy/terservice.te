@@ -1,0 +1,42 @@
+# ==============================================
+# Policy File of /system/binterservice Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type terservice_exec , exec_type, file_type;
+type terservice ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+init_daemon_domain(terservice)
+
+# Date : 2014/09/18 (WK14.38)
+# Operation : Migration
+# Purpose : allow register terservice service in servicemanager.
+allow terservice terservice_service:service_manager add;
+
+# property service
+unix_socket_connect(terservice, property, init)
+allow terservice terservice_prop:property_service set;
+
+# ccci ioctl
+allow terservice ccci_device:chr_file { read write ioctl open };
+
+# ipc call
+binder_use(terservice) 
+binder_service(terservice) 
+
+

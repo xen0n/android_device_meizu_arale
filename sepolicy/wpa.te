@@ -1,0 +1,14 @@
+# ==============================================
+# MTK Policy Rule
+# ============
+
+allow wpa rild_oem_socket:sock_file write;
+allow wpa rild_oem_md2_socket:sock_file write;
+allow wpa mtkrild:unix_stream_socket connectto;
+# if low memory occured, and system try to free more memory, wpa_suppliant may meet a violation like:
+# avc:  denied  { use } for  pid=4063 comm="wpa_supplicant" 
+# path=2F6465762F6173686D656D2F4469736361726461626C654D656D6F72794173686D656D416C6C6F6361746F72202864656C6574656429 
+# dev="tmpfs" ino=46425 scontext=u:r:wpa:s0 tcontext=u:r:platform_app:s0 tclass=fd permissive=0
+# this is a issue caused by low memory, so we should add this rule below
+allow wpa platform_app:fd use;
+allow wpa platform_app_tmpfs:file write;
