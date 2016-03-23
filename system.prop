@@ -93,6 +93,11 @@ persist.gemini.sim_num=1
 
 bgw.current3gband=0
 
+# VoLTE
+ro.mtk_ims_support=1
+ro.mtk_volte_support=1
+persist.dbg.volte_avail_ovr=1
+
 
 # USB
 ro.sys.usb.storage.type=mtp
