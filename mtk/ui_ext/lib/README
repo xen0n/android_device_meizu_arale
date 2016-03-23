@@ -1,0 +1,31 @@
+This directory contains some utilities functions
+
+WHAT IT DOES?
+=============
+
+The library implements some utilties function for debugging
+
+
+HOW IT WAS BUILT?
+==================
+
+It needs the following libs from AOSP:
+1.  libpng.so
+2.  libutils.so
+3.  libui.so
+4.  libcutils.so
+5.  libhardware.so
+
+and the following libs from MediaTek:
+4.  libgralloc_extra.so
+
+All source/dependency modules of this module are already put in
+'vendor/mediatek/proprietary/hardware/ui_ext/lib' folder.
+
+
+HOW TO USE IT?
+==============
+
+just link the libui_ext.so
+
+All the source code of this library were written by MediaTek co..
