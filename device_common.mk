@@ -86,6 +86,8 @@ PRODUCT_PACKAGES += \
     gsm0710muxdmd2 \
     mtkrild \
     mtkrildmd2 \
+    mtk-ril \
+    mtk-rilmd2 \
     libmal \
     libmal_datamngr \
     libmal_epdga \
