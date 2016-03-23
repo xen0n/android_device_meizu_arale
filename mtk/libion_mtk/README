@@ -1,0 +1,21 @@
+Library of ION driver, for user space interface added by MTK.
+
+WHAT IT DOES?
+=============
+libion_mtk.so provide user space API added by MTK.
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+1.  libion.so
+2.  liblog.so
+
+HOW TO USE IT?
+==============
+libion_mtk.so provide user space API added by MTK.
+all api interfaces are at vendor/mediatek/proprietary/external/include/libion_mtk/ion.h
+
+[Build Method]
+mmm vendor/mediatek/proprietary/external/libion_mtk/
+
+All the source code of this library were written by MediaTek co..
