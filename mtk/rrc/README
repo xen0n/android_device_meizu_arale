@@ -1,0 +1,24 @@
+This directory contains RRC HAL interface, which defines the interface of
+Refresh Rate Controller and is used to build a RRC shared library.
+
+This library is pre-built by MediaTek internal.
+
+WHAT IT DOES?
+=============
+librrc.so provides api for notify multimedia scenarios.
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+1.  liblog.so
+2.  libutils.so
+3.  libcutils.so
+
+All source/dependency modules of this module are already put in
+'vendor/mediatek/libs' folder.
+
+HOW TO USE IT?
+==============
+Provide api for user notify the active scenarios to decide proper display refresh rate.
+
+All the source code of this library were written by MediaTek co..

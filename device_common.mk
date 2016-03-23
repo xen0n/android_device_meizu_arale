@@ -37,6 +37,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     meizupshelper
 
+# Display
+PRODUCT_PACKAGES += \
+    librrc
+
 # Lights
 PRODUCT_PACKAGES += \
     lights.mt6595
