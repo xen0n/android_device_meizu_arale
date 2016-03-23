@@ -1,0 +1,19 @@
+A gralloc extra HAL to retrive buffer detail information.
+
+WHAT IT DOES?
+=============
+libgralloc_extra.so provide a convenience API for retriving the buffer_t
+information, such as width, height, real format, raw buffer handle and more
+extra share space for MTK's HWC, Video, and Camera.
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+1.  libhardware
+2.  libcutils
+3.  libutils
+
+HOW TO USE IT?
+==============
+See the usage of gralloc_extra_* at ./tests/
+gralloc_test.cpp

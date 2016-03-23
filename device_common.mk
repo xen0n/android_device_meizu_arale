@@ -39,6 +39,7 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
+    libgralloc_extra \
     librrc
 
 # Lights
