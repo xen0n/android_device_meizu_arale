@@ -1,0 +1,27 @@
+This directory contains WIFI wpa_supplicant third party library lib_driver_cmd_mt66xx.a
+
+
+WHAT IT DOES?
+=============
+It provide WIFI third party library for WIFI wpa_supplicant usage.
+
+
+HOW IT WAS BUILT?
+==================
+It needs the following libs from AOSP:
+
+
+and the following libs from MediaTek:
+
+
+All source/dependency modules of this module are already put in
+'hardware/mediatek/wlan/wpa_supplicant_8' folder.
+
+
+HOW TO USE IT?
+==============
+Files in this directory is used for wpa_supplicant_8
+
+
+All the source code of this directory were written by MediaTek co..
+
