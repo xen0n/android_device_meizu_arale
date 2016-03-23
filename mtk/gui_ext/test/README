@@ -1,0 +1,28 @@
+The UT of GuiExtService
+
+WHAT IT DOES?
+=============
+
+To testing the functionalities of GuiExtSerivce
+
+HOW IT WAS BUILT?
+==================
+
+It needs the following libs from AOSP:
+1.  libutils.so
+2.  libbinder.so
+2.  liblog.so
+
+and the following libs from MediaTek:
+1.  libgui_ext.so
+
+All source/dependency modules of this module are already put in
+'vendor/mediatek/proprietary/hardware/gui_ext/' folder.
+
+
+HOW TO USE IT?
+==============
+
+just run it
+
+All the source code of this library were written by MediaTek co..

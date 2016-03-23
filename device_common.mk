@@ -42,6 +42,8 @@ PRODUCT_PACKAGES += \
     libgralloc_extra \
     libion_mtk \
     libui_ext \
+    libgui_ext \
+    guiext-server \
     librrc
 
 # Lights

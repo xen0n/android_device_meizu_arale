@@ -1,0 +1,37 @@
+GuiExtService support the conversion pool to preallocate buffer for video playback
+
+WHAT IT DOES?
+=============
+
+Some processes notifies GuiExtService whether video is playing or not
+If yes, GuiExtService is going to preallocate buffer for the follow-up stages
+instead of allocating when needing buffers
+
+HOW IT WAS BUILT?
+==================
+
+It needs the following libs from AOSP:
+1.  libutils.so
+2.  libcutils.so
+3.  libbinder.so
+4.  libhardware.so
+5.  libhardware_legacy.so
+5.  libgui.so
+6.  libui.so
+7.  libdl.so
+8.  libion.so
+
+and the following libs from MediaTek:
+1.  libion_mtk.so
+2.  libgralloc_extra.so
+
+All source/dependency modules of this module are already put in
+'vendor/mediatek/proprietary/hardware/gui_ext/' folder.
+
+
+HOW TO USE IT?
+==============
+
+just link the libguiext.so
+
+All the source code of this library were written by MediaTek co..
