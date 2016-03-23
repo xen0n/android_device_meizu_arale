@@ -3780,6 +3780,10 @@ int main(int argc, char *argv[])
             no_daemon = !no_daemon;
             break;
         case 's':
+            // xen0n: wtf this is originally no-op?!
+            strncpy(dev_node, optarg, sizeof(dev_node));
+            dev_node[sizeof(dev_node) - 1] = '\0';
+            serial.devicename = dev_node;
             break;
         case 't':
             use_timeout = atoi(optarg);
