@@ -1,0 +1,12 @@
+#ifndef PRODUCTVERSION_H
+#define PRODUCTVERSION_H
+
+#include "NXP_I2C.h"
+
+#define VER_PRODUCTVERSION          TFA98XX_HAL_REV_MAJOR,TFA98XX_HAL_REV_MINOR,0,0
+#define VER_PRODUCTVERSION_STR      TFA98XX_HAL_REV_STR "\0"
+#define VER_COMPANYNAME_STR         "NXP Semiconductors\0"
+#define VER_LEGALCOPYRIGHT_STR      "Copyright (C) 2011, 2012, 2013, NXP Semiconductors\0"
+#define VER_PRODUCTNAME_STR         "TFA98xx HAL\0"
+
+#endif //PRODUCTVERSION_H

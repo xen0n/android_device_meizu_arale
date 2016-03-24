@@ -71,6 +71,10 @@ COMMON_GLOBAL_CPPFLAGS += -DMTK_HARDWARE
 BOARD_HAVE_OPENSOURCE_IMMVIBE := true
 BOARD_HARDWARE_CLASS := $(DEVICE_FOLDER_COMMON)/cmhw
 
+# Audio
+# source-compiled TFA9890 support
+NXP_SMARTPA_SUPPORT := tfa9890
+
 # RIL
 # moved to forked frameworks_opt_telephony repo
 #BOARD_RIL_CLASS := ../../../$(DEVICE_FOLDER)/ril/

@@ -1,0 +1,22 @@
+The folder of NXP speaker tfa9890.
+
+
+WHAT IT DOES?
+=============
+
+Provide APIs to control NXP speaker tfa9890.
+
+
+HOW IT WAS BUILT?
+==================
+
+It needs the following library from AOSP:
+1.  libcutils.so
+2.  libutils.so
+
+HOW TO USE IT?
+==============
+
+The releated APIs of NXP speaker tfa9890 are used in audio HAL.
+
+

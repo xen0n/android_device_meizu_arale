@@ -1,0 +1,107 @@
+#
+# CLI Maximus commands def for gengetopt
+#
+package "climax"
+version "2.2"
+description "climax, a Maximus/TFA98xx command line utility"
+
+text "\tThe following arguments are available:"
+
+option "device"		d "device name for the interface: i2c, serial, socket, i2c dummy" 
+						string typestr="/dev/i2c-x|/dev/ttyUSBx|host:port|dummy" optional
+option "speaker"		S "speaker side select Left, Right or Both, default is Left only" 
+						string typestr="L|R|B" optional hidden
+option "clock"      c "clock enable=1/disable=0, default is enable" 
+                        int typestr="state" optional
+option "calibrate"  a "do calibration with loaded speaker file, --output returns updated speaker file" optional
+                        string typestr="once|always" default="always" argoptional
+option "calibrateStereo" - "do calibration with loaded speaker file, --output returns updated speaker file for stereo" optional
+                        string typestr="once|always" default="always" argoptional
+option "resetMtpEx" - "reset MtpEx register to do re-calibration" optional
+option "calshow"    A "show calibration impedance value" optional
+option "init"		i "force poweron init" optional
+option "reset"    R "initialize registers and coldboot dsp" optional
+option "params"     p "store input params file depending on type: patch, speaker, preset, config, eq " 
+						string typestr="parameter file" optional multiple
+option "profile"    P "set the profile for current operation"
+                        int typestr="profilenr" optional
+option "currentprof"   - "set the profile from previous operation"
+                        int typestr="profilenr" optional
+option "volume"		v "set volume step"
+						int typestr="step" optional
+option "fs"         f "use specified samplerate in Herz"
+                        optional int typestr="samplerate"  default="48000"
+option "i2s"        - "select i2s input 1 or 2"
+                        optional int typestr="inputnr"  default="1"
+option "pll"        - "select pll clock input BCK or WS"
+                        optional string typestr="pllin"  default="BCK"
+                        						
+# diagnostics
+text "\ndiagnostics and test options:"
+option "versions"	V "print versions and chip rev" optional
+option "register"	r "read tfa register, write if extra arg given" 
+						int typestr="hex" optional multiple
+option "regwrite"	w "write value for register"
+						int typestr="hex" optional multiple
+option "dump"   -   "dump all defined registers" optional		
+option "dumpStereo" -   "dump all defined registers of stereo" optional				
+option "pin"        - "control pin" optional hidden
+                        int typestr="pin" 
+option "diag"	-   "run all diagnostic tests, or single if specified" 
+						optional int typestr="testnr"  default="0" argoptional
+option "dumpmodel"   -   "dump current speakermodel impedance=z or excursion=x" optional
+						optional string typestr="x|z"  default="z" argoptional						
+option "dsp"        D "DSP get speakerboost params, use --count to set bytecount" optional
+                        int typestr="hex"   default="0x80" argoptional                     
+option "tcoef"  -  "show tCoef of loaded speaker, save to --output if new value given"
+                        optional float typestr="tCoef" default="0" argoptional  
+option "xmem"      x "read tfa xmem"
+                        int typestr="hex" optional multiple
+# lifetime test support
+text "live data options:"
+option "record" -  "record speaker state info via I2C and display" 
+						optional int typestr="msInterval" default="55" argoptional
+option "recordStereo" -  "record speaker state info via I2C and display for stereo" 
+						optional int typestr="msInterval" default="55" argoptional
+option"count"  -   "number of read cycles to execute, 0 means forever"
+ 						optional int typestr="cycles" 
+option "output" -  "the output file for binary speaker state info records, default=stdout"
+					    optional string typestr="filename" 
+option "logger" -  "start datalogger, recording <count> state info lines and binary Z/Xmodels" 
+                        optional int typestr="sInterval" default="2" argoptional
+
+# generic stuff
+text "generic options:"
+option "load"       l "read parameter settings from saved file" optional
+                        string typestr="filename"
+option "splitparms" - "save parameters of the loaded parms file to seperate files"      
+                        optional                 
+option "loadDrc"    - "read drc settings from saved file" optional
+                        string typestr="filename" 
+option "loadPatch"  - "rload patch from file" optional
+                        string typestr="filename"
+option "loadPreset" - "read preset settings from saved file" optional
+                        string typestr="filename"
+option "loadSpeaker" - "read speaker settings from saved file" optional
+                        string typestr="filename"
+option "loadConfig" - "read config settings from saved file" optional
+                        string typestr="filename"
+option "save"       s "write parameter settings to file" optional
+                        string typestr="filename"
+option "savePreset" - "write preset settings to file" optional
+                        string typestr="filename"
+option "saveSpeaker" - "write speaker settings to file" optional
+                        string typestr="filename"
+option "saveConfig" - "write config settings to file" optional
+                        string typestr="filename"
+option "server"	    - "run as server" optional
+                        string typestr="port" default="9887" argoptional
+option "client"	    - "run as client" optional
+                        string typestr="port" default="9887" argoptional
+option "slave" - "override hardcoded I2C slave address"  optional int typestr="i2c address"
+option "loop"       L "loop the operation [0=forever]" int  typestr="count"  optional
+option "verbose"    b "Enable verbose (mask=timing|i2cserver|socket|scribo)"   int  typestr="mask" optional argoptional
+option "trace"      t "Enable message tracing"    optional
+option "quiet"      q "Suppress printing to stdout"  optional 
+
+# For detailed gengetopt information see http://www.gnu.org/software/gengetopt/gengetopt.html
