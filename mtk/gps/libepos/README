@@ -1,0 +1,23 @@
+Library of EPO feature, it provides secure URL services.
+
+
+WHAT IT DOES?
+=============
+it provides secure URL services.
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+1.  libcutils
+2.  libcrypto
+3.  libssl
+4.  libz
+
+All source/dependency modules of this module are already put in
+'vendor\mediatek\proprietary\protect\frameworks\base\epos' folder.
+
+HOW TO USE IT?
+==============
+It is proprietary library only for EPO services. And not opened interfaces to other modules.
+
+All the source code of this library were written by MediaTek co..

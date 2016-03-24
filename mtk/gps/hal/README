@@ -1,0 +1,43 @@
+This directory contains GPS HAL layer code.
+
+WHAT IT DOES?
+=============
+It provide GPS interfaces for gps provider on frameworks,which allow init/open/close/cleanup gps 
+when mnld daemon is launched.
+
+HOW IT WAS BUILT?
+==================
+
+It needs the following libs from AOSP:
+1.  libc.so
+2.  libcutils
+3.  libnetutils
+4.  libhardware
+5.  libandroid_runtime
+6.  libnativehelper
+7.  libcrypto
+8.  libssl
+9.  libz
+
+and the following libs from MediaTek:
+1. liblog.so
+2. libepos.a
+3. libcurl
+
+All source/dependency modules of this module are already put in
+'vendor/mediatek/libs' folder.
+
+
+HOW TO USE IT?
+==============
+
+Files in this directory is used to
+generate a library which's name is 'gps.default.so'
+
+
+gps.default
+The lib 'gps.default' is loaded by system_server,
+GPS Location provider will call gps_module_methods API, if system_server is launched.
+
+All the source code of this library were written by MediaTek co..
+

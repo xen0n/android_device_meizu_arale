@@ -118,6 +118,7 @@ PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/configs/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
 
 PRODUCT_PACKAGES += \
+    gps.$(TARGET_BOARD_PLATFORM) \
     mtk_agpsd \
 
 # Vibration
