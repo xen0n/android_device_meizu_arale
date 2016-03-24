@@ -2406,7 +2406,7 @@ nmea_reader_parse(NmeaReader* const r)
         if (r->sv_status_gnss.num_svs != 0 && gps_nmea_end_tag) {
             DBG("r->sv_status_gnss.num_svs = %d, gps_nmea_end_tag = %d", r->sv_status_gnss.num_svs, gps_nmea_end_tag);
             r->sv_status_gnss.size = sizeof(GnssSvStatus);
-            callback_backup_mtk.gnss_sv_status_cb(&r->sv_status_gnss);
+            callback_backup_mtk.base.gnss_sv_status_cb(&r->sv_status_gnss);
             r->sv_count = r->sv_status_gnss.num_svs = 0;
             memset(sv_used_in_fix, 0, 256*sizeof(int));
         }
@@ -4112,12 +4112,15 @@ copy_GpsCallbacks_mtk(GpsCallbacks_mtk* dst, GpsCallbacks_mtk* src)
         DBG("Use GpsCallbacks_mtk\n");
         return 0;
     }
+// xen0n: this is unnecessary as the callback is already in GpsCallbacks
+#if 0
     if (src->base.size == sizeof(GpsCallbacks)) {
         dst->base = src->base;
         dst->gnss_sv_status_cb = NULL;
         DBG("Use GpsCallbacks\n");
         return 0;
     }
+#endif
     ERR("Bad callback, size: %d, expected: %d or %d", src->base.size, sizeof(GpsCallbacks_mtk), sizeof(GpsCallbacks));
     return -1;    //  error
 }
