@@ -1,0 +1,27 @@
+Library of Drm features, including read mac address.
+
+This library is pre-built by MediaTek internal.
+
+WHAT IT DOES?
+=============
+libnvramagentclient will be used by drmutil, it contains get mac address.
+Without them, drm can not get mac address, and drm will be fail.
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+1. libutils.so
+2. libcutils.so
+3. libdl.so
+4. libbinder.so
+5. libnvram.so
+6. libcrypto.so
+
+and the following libs from MediaTek:
+
+All source/dependency modules of this module are already put in
+'system/lib' folder.
+
+HOW TO USE IT?
+==============
+libnvramagentclient provides read mac function of drm, it is used by libdrmmtkutil.so.

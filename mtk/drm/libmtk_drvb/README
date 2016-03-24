@@ -1,0 +1,16 @@
+This module is for multimedia thermal management to avoid system from working improperly.
+
+WHAT IT DOES?
+=============
+drvb is a module for multimedia module to detect system load status and adjust accordingly
+to avoid system from working improperly.
+
+HOW IT WAS BUILT?
+==================
+It is a binary release shared library.
+
+HOW TO USE IT?
+==============
+This is part of Mediatek solution.
+No need to setup or customization.
+
