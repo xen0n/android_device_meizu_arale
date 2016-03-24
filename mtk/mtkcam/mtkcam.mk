@@ -128,3 +128,10 @@ MTKCAM_CFLAGS += -DMTKCAM_HAVE_RR_PRIORITY=$(MTKCAM_HAVE_RR_PRIORITY)
 # L1_CACHE_BYTES for 32-byte cache line
 MTKCAM_CFLAGS += -DL1_CACHE_BYTES=32
 
+# xen0n: MTK defines are not automatically propagated to compiler in non-MTK
+# build systems, so we have to do that ourselves.
+# MTK_ION_SUPPORT
+ifeq "yes" "$(strip $(MTK_ION_SUPPORT))"
+    MTKCAM_CFLAGS += -DMTK_ION_SUPPORT=1
+endif
+
