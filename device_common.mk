@@ -29,6 +29,11 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     proj-dev-setup
 
+# various MTK ABI fixes
+# this is the approach of the cm-13.0 sprout port
+PRODUCT_PACKAGES += \
+    libmtkabi
+
 # hack to fix asec on emulated sdcard
 PRODUCT_PACKAGES += \
     asec_helper

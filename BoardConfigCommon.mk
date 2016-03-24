@@ -7,7 +7,7 @@ DEVICE_FOLDER_COMMON := device/meizu/arale
 TARGET_BOARD_PLATFORM := mt6595
 TARGET_NO_BOOTLOADER := true
 
-TARGET_LDPRELOAD += libxlog.so
+TARGET_LDPRELOAD += libxlog.so:libmtkabi.so
 
 # Architecture
 TARGET_ARCH := arm
