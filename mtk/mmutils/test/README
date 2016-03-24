@@ -1,0 +1,12 @@
+WHAT IT DOES?
+=============
+Test GrallocHelper function.
+
+HOW IT WAS BUILT?
+==================
+The following libs from MediaTek:
+test_mmutils
+
+HOW TO USE IT?
+==============
+Provide executable file to test GrallocHelper function.

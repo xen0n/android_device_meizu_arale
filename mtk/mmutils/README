@@ -1,0 +1,15 @@
+WHAT IT DOES?
+=============
+gralloc/:
+Provide api for camera HAL to query gralloc buffer's static information from buffer_handle_t.
+test/:
+Provide executable file to test GrallocHelper function.
+
+HOW IT WAS BUILT?
+==================
+The following libs from MediaTek:
+libmtk_mmutils.so
+
+HOW TO USE IT?
+==============
+Provide GrallocHelper and executable file to test GrallocHelper function.

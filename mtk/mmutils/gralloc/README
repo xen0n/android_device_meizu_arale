@@ -1,0 +1,12 @@
+WHAT IT DOES?
+=============
+Query gralloc buffer's static information from buffer_handle_t.
+
+HOW IT WAS BUILT?
+==================
+The following libs from MediaTek:
+libmtk_mmutils.gralloc.a
+
+HOW TO USE IT?
+==============
+Provide api for camera HAL to query gralloc buffer's static information from buffer_handle_t.
