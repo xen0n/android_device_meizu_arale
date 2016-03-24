@@ -1,0 +1,13 @@
+WHAT IT DOES?
+=============
+Camera3 common utility.
+
+HOW IT WAS BUILT?
+==================
+The following libs from MediaTek:
+libcam3_utils.so
+
+HOW TO USE IT?
+==============
+Refer to the interfaces defined as below:
+$(TOP)/$(MTK_PATH_SOURCE)/hardware/include/mtkcam/v3/utils/

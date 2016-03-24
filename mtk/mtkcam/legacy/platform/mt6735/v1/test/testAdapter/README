@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera adapter for hal and driver unit test related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following excutable file:
+testAdapter.exe
+
+
+HOW TO USE IT?
+==============
+Provide related unit test for camera adapter for hal and driver.

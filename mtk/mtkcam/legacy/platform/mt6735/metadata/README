@@ -1,0 +1,12 @@
+WHAT IT DOES?
+=============
+Metadata provider and template request metadata.
+
+HOW IT WAS BUILT?
+==================
+The following libs from MediaTek:
+libcam.metadataprovider.so
+
+HOW TO USE IT?
+==============
+Provide api to get static camera metadata from provider and metadata for template request.

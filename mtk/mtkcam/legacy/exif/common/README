@@ -1,0 +1,15 @@
+
+WHAT IT DOES?
+=============
+camera exif related common files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following static library file:
+libcam.exif.common.a
+
+
+HOW TO USE IT?
+==============
+Provide related common file for camera exif module.

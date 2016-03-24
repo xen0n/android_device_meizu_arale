@@ -1,0 +1,16 @@
+ccache version 3.1.9
+
+Copyright (C) 2002-2007 Andrew Tridgell
+Copyright (C) 2009-2011 Joel Rosdahl
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 3 of the License, or (at your option) any later
+version.
+cache directory                     /proj/mtk09263/.ccache
+cache hit (direct)                     0
+cache hit (preprocessed)               0
+cache miss                             0
+files in cache                    103111
+cache size                           9.4 Gbytes
+max cache size                      10.0 Gbytes

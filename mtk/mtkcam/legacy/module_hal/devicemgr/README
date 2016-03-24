@@ -1,0 +1,13 @@
+WHAT IT DOES?
+=============
+A platform-independent module to manage camera devices.
+
+HOW IT WAS BUILT?
+==================
+The following libs from MediaTek:
+camera.default.devicemgrbase.a
+
+HOW TO USE IT?
+==============
+Refer to the interfaces defined as below:
+$(TOP)/$(MTK_PATH_SOURCE)/hardware/include/mtkcam/device/

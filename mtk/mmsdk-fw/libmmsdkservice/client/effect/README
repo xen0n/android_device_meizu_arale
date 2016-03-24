@@ -1,0 +1,15 @@
+
+WHAT IT DOES?
+=============
+camera framework multimedia SDK service client effect related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following static library:
+libmmsdk.client.effect.a
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera framework multimedia SDK service client effect.

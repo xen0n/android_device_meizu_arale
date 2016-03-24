@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+This is a platform-specific entry module in charge of camera device HALv1
+related operations.
+
+HOW IT WAS BUILT?
+==================
+The following libs from MediaTek:
+libcam_platform.cam1device.a
+
+HOW TO USE IT?
+==============
+Refer to the interfaces defined as below:
+$(TOP)/$(MTK_PATH_SOURCE)/hardware/include/mtkcam/IPlatform.h

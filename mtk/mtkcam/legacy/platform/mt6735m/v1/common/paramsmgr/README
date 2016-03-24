@@ -1,0 +1,28 @@
+WHAT IT DOES?
+=============
+libcam.paramsmgr.so contains parameter manager for camera HAL 
+
+HOW IT WAS BUILT?
+==================
+
+It needs following module
+
+1. libcam.paramsmgr.common.a
+2. libcam.paramsmgr.platform.a
+3. libcam.paramsmgr.feature.a
+4. liblog.so
+5. libdl.so
+6. libutils.so
+7. libcutils.so
+8. libcamera_client libcamera_client_mtk.so
+9. libcam_utils.so
+10. libcamdrv.so
+11. libfeatureio.so
+
+
+HOW TO USE IT?
+==============
+
+Provide api for camera HAL to set/get feature parameter of camera features
+
+All the source code of this library were written by MediaTek co..

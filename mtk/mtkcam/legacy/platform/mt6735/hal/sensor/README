@@ -1,0 +1,27 @@
+Library of MTK camera image sensor hal to control camera sensor benavior.
+E.x.:
+1. Query image sensor information
+2. Search image sensor
+3. Camera power on/off
+
+This library is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+libcam.halsensor.so contains MediaTek camera image sensor hal internal driver.
+Without this, MTK Camera will not work, e.x.: Camera power on/off.
+
+HOW IT WAS BUILT?
+==================
+It needs the following library:
+liblog.so
+libcutils.so
+libdl.so
+libutils.so
+libcameracustom.so
+libcamdrv.so
+libstlport.so
+libcam_utils.so
+libcam.metadata.so
+

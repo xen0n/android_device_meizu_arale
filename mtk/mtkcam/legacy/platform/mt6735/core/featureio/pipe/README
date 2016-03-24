@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera feature pipeline module files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following static library file :
+libfeatureiopipe.a
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera feature pipeline module.

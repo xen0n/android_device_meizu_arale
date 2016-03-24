@@ -1,0 +1,19 @@
+WHAT IT DOES?
+=============
+cct related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following:
+libcct.a
+
+It needs the following library from MediaTek:
+liblsctrans.so
+
+
+HOW TO USE IT?
+==============
+Provide related cct api
+
+All the source code of this library were written by MediaTek co..

@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera photo adapter for hal and driver relatedfiles.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following static library file :
+libcam.camadapter.mtkphoto.a
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera photo adapter for hal and driver.

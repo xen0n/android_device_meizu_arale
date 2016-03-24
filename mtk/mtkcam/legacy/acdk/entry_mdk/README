@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera exif common related module files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following shared library file :
+libacdk_entry_mdk.so
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera exif common related module .

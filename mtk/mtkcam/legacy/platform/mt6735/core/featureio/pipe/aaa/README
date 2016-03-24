@@ -1,0 +1,19 @@
+MTK Library of image sensor tuning
+
+This library is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+aaa detection hal which analyzing statistic data to judge the 3A status.
+
+
+
+HOW TO USE IT?
+==============
+
+set parameter files in custom directory.
+During camera run time, flicker detection executes.
+
+
+All the source code of this library were written by MediaTek co..

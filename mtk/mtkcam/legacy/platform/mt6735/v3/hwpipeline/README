@@ -1,0 +1,13 @@
+WHAT IT DOES?
+=============
+Camera3 pipeline model function.
+
+HOW IT WAS BUILT?
+==================
+The following libs from MediaTek:
+libcam3_hwpipeline.so
+
+HOW TO USE IT?
+==============
+Refer to the interfaces defined as below:
+$(TOP)/$(MTK_PATH_PLATFORM)/hardware/include/mtkcam/v3/hwpipeline/

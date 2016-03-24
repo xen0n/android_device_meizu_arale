@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera client record related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following static library file :
+libcam.client.camclient.record.common.a
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera client record.

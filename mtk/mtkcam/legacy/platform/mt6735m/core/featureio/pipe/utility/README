@@ -1,0 +1,31 @@
+Library of MTK camera utilities.
+
+This library is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+This static library provides utilities such as creating JPEG buffer and making Exif header.
+It is required from many different camrera features.
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+1.  liblog.so
+2.  libcutils.so
+
+and the following libs from MediaTek:
+1.  libm4u.so
+2.  libmpo.so
+3.  libcamera_client_mtk.so
+
+All source/dependency modules of this module are already put in
+'vendor/mediatek/libs' folder.
+
+HOW TO USE IT?
+==============
+
+Provide api for camera HAL to control the camera features.
+all api interface are at (vendor/mediatek/proprietary/hardware/mtkcam)
+
+All the source code of this library were written by MediaTek co..

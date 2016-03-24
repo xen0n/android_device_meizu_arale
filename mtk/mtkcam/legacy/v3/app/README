@@ -1,0 +1,18 @@
+WHAT IT DOES?
+=============
+Process streams come from framework layer
+1. configure stream
+2. process request
+3. call back
+
+HOW IT WAS BUILT?
+==================
+The following libs from MediaTek:
+libcam3_app.so
+
+HOW TO USE IT?
+==============
+Provide api for cam3Device to control
+1. configure stream
+2. process request
+3. call back

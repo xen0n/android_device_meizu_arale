@@ -1,0 +1,40 @@
+Library of MTK camera ISP driver, including driver interface and driver flow contorl flow.
+
+This library is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+libcam.iopipe.so contains MediaTek developed camera driver related driver interface and driver flow control.
+Without them, camera functionalties will not work.
+
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+1.  liblog.so
+2.  libcutils.so
+3.  libcutils.so
+
+and the following libs from MediaTek:
+1.  libimageio_plat_drv.so
+2.  libcam.halsensor.so
+3.  libimageio.so
+4.  libcam.metadata.so
+5.  libcamdrv.so
+6.  libdpframework.so
+7.  libJpgEncPipe.so
+8.  libcam_hwutils.so
+9.  libcam_utils.so
+
+All source/dependency modules of this module are already put in
+'vendor\mediatek\proprietary\hardware\mtkcam\legacy\platform\mtxxx\core' folder.
+
+HOW TO USE IT?
+==============
+
+Provide api for camera HAL to control the camera features.
+all api interface are at (vendor\mediatek\proprietary\hardware\mtkcam\legacy\platform\mtxxx\include\mtkcam\iopipe)
+
+All the source code of this library were written by MediaTek co..
+

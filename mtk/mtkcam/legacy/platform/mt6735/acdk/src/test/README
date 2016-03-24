@@ -1,0 +1,36 @@
+Binary of MTK camera image cpaturing tool
+
+This binary is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+acdk_camshottest contains MediaTek developed camera related pre- and post-processing modules.  
+It is used to do "capture" functionality provided by camera
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+1.  libbinder.so
+2.  libcutils.so
+3.  libc.so
+4.  libhardware.so
+5.  libutils.so
+
+and the following libs from MediaTek:
+1.  libstlport.so
+2.  libimageio.so
+3.  libcamdrv.so
+4.  libcam.iopipe.so
+5.  libcam_utils.so
+6.  libcam.halsensor.so
+7.  libcam.metadata.so
+8.  libm4u.so
+9.  libcam.camshot.so
+
+All source/dependency modules of this module are already put in
+'vendor/mediatek/libs' folder.
+
+HOW TO USE IT?
+==============
+

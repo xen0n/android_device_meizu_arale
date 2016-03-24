@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera resource manager related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following staic library:
+libcamdrv_nvram.a
+
+
+HOW TO USE IT?
+==============
+Provide related api for NVRAM control.

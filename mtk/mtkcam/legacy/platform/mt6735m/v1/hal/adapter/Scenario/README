@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera scenario of adapter for hal and driver related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following static library file :
+libcam.camadapter.scenario.a
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera scenario of adapter for hal and driver.

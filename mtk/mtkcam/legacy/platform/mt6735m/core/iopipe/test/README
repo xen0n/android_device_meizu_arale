@@ -1,0 +1,32 @@
+Executable binary for MediaTek camera ISP driver test.
+
+This binary is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+iopipetest is used to test MediaTek camera ISP driver basic function
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+1.  libutils.so
+2.  libcutils.so
+3.  libcam_utils.so
+
+and the following libs from MediaTek:
+1.  libcam.iopipe.so
+2.  libimageio.so.so
+3.  libimageio_plat_drv.so
+4.  libcamdrv.so
+5.  libcam.halsensor.so
+6.  libfeatureio.so
+
+All source/dependency modules of this module are already put in
+'vendor\mediatek\proprietary\hardware\mtkcam\legacy\platform\core' folder.
+
+HOW TO USE IT?
+==============
+Provide test cases to verify camera ISP driver.
+
+All the source code of this library were written by MediaTek co..

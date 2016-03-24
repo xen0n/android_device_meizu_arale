@@ -1,0 +1,31 @@
+Library of MTK camera driver files, including driver interface and driver flow contorl flow.
+
+This library is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+libcam.iopipe.postproc.a contains MediaTek developed camera driver related driver interface and driver flow control.
+Without them, camera functionalties will not work.
+
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+none
+and the following libs from MediaTek:
+none
+
+note that it's a STATIC_LIBRARY
+
+All source/dependency modules of this module are already put in
+'vendor/mediatek/libs' folder.
+
+HOW TO USE IT?
+==============
+
+Provide api for camera HAL to control the camera features.
+all api interface are at (vendor/mediatek/proprietary/hardware/mtkcam)
+
+All the source code of this library were written by MediaTek co..
+

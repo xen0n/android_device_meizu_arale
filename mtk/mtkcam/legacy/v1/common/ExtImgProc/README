@@ -1,0 +1,15 @@
+
+WHAT IT DOES?
+=============
+extrernal image buffer post processing related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following shared library:
+libcam.extimageproc.a
+
+
+HOW TO USE IT?
+==============
+Provide related api for extrernal image buffer post processing.

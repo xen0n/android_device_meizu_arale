@@ -1,0 +1,33 @@
+Library of MTK ISP normal path driver.
+
+This library is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+libcam.iopipe.camio.a contains MediaTek ISP normal path driver.
+Without this, MTK ISP will not work¡¨
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+1.  liblog.so
+2.  libcutils.so
+3.  libstlprot.so
+
+
+and the following libs from MediaTek:
+1.  libcamdrv.so
+2.  libimageio.so
+3.  libimageio_plat_drv.so
+
+All source/dependency modules of this module are already put in
+'vendor\mediatek\proprietary\platform\mtxxx\hardware\mtkcam\core' folder.
+
+HOW TO USE IT?
+==============
+
+Provide api for camera HAL to control ISP driver.
+all api interface are at (vendor\mediatek\proprietary\platform\mtxxx\hardware\include\mtkcam\iopipe\camio)
+
+All the source code of this library were written by MediaTek co..

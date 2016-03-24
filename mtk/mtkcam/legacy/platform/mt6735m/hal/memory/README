@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera platform entry hal memory adapter related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following static library:
+libcam.halmemory.a
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera platform entry hal memory adapter.

@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera related unit test files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following executable file :
+camtest.exe
+
+
+HOW TO USE IT?
+==============
+Provide unit test for camera hal module.

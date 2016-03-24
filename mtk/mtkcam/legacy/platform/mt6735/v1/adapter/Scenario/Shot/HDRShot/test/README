@@ -1,0 +1,27 @@
+Testing program of MTK camera HDR features.
+
+
+
+WHAT IT DOES?
+=============
+Shottest is a testing program for test MTK HDR feature.
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+liblog
+libcutils
+libstlport
+
+and the following libs from MediaTek:
+libcam.camadapter
+libcam.camshot
+libcamdrv
+
+HOW TO USE IT?
+==============
+
+Adb push shottest into device and then executed it.
+
+
+All the source code of this library were written by MediaTek co..

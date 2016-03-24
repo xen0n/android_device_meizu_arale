@@ -1,0 +1,31 @@
+Library of MTK camera features, color effect on matrix display UI.
+
+
+WHAT IT DOES?
+=============
+libcam.jni.lomohaljni.so contains MediaTek developed camera related to color effect on matrix display UI  
+Without them, color effect can't be selected by matrix display UI
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+1.  libcutils 
+2.  liblog 
+3.  libstlport 
+4.  libutils
+
+
+and the following libs from MediaTek:
+1.  libcam.iopipe
+2.  libcam_utils 
+3.  libcameracustom
+4.  libfeatureio
+5.  libdpframework
+
+HOW TO USE IT?
+==============
+
+Provided api for JNINativeMethod in matrixeffect_jni.cpp
+all api interface are at (vendor/mediatek/proprietary/frameworks/base/media/matrixeffect/jni)
+
+All the source code of this library were written by MediaTek co..

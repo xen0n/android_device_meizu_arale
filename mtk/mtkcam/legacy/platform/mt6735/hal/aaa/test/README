@@ -1,0 +1,17 @@
+MTK's test program
+
+This binary is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+to test 3A IRQ
+
+
+HOW TO USE IT?
+==============
+
+execute it to test 3A IRQ
+
+All the source code of this library were written by MediaTek co..
+

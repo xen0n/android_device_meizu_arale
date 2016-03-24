@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera hardware scenario related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following staic library:
+libcam.camadapter.scenario.hwscenario.a
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera hardware scenario.

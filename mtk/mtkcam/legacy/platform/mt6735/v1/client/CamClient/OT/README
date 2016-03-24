@@ -1,0 +1,29 @@
+Library of MTK camera Object Tracking.
+
+This library is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+This contains MediaTek developed camera Object Tracking feature.  
+Without them, camera Object Tracking will not work”
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+1.  liblog.so
+2.  libcutils.so
+
+and the following libs from MediaTek:
+1.  libfeatureio.so
+
+It can build the following static library file :
+libcam.client.camclient.ot.a
+
+HOW TO USE IT?
+==============
+
+Provide api for camera client to control camera object tracking features.
+all api interface are at (vendor/mediatek/proprietary/hardware/mtkcam)
+
+All the source code of this library were written by MediaTek co..

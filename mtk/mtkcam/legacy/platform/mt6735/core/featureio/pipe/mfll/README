@@ -1,0 +1,28 @@
+Library of MTK camera features, MultiFrameLowLight
+
+This library is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+libfeatureiopipe_mfll.a is a glue layer between camera hal and 
+MTK core MFLL algorithm lib
+
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+libc
+libstdc++
+
+and the following libs from MediaTek:
+libeis
+libeisplus
+libmfbll
+
+HOW TO USE IT?
+==============
+
+Provide api for camera HAL to control the camera MFLL features.
+
+All the source code of this library were written by MediaTek co..

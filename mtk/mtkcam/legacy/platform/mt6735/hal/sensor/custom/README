@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera custom hal sensor related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following staic library:
+libcam.halsensor.custom.a
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera custom hal sensor.

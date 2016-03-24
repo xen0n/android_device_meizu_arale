@@ -1,0 +1,32 @@
+Library of MTK ISP internal data path driver, including DMA control flow.
+
+This library is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+libimageio_plat_drv.so contains MediaTek ISP internal data path driver.
+Without this, MTK ISP will not work¡¨
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+1.  liblog.so
+2.  libcutils.so
+3.  libstlprot.so
+3.  libutils.so
+
+and the following libs from MediaTek:
+1.  libcamdrv.so
+2.  libm4u.so
+3.  libdpframework.so
+
+All source/dependency modules of this module are already put in
+'vendor\mediatek\proprietary\platform\mtxxx\hardware\mtkcam\core' folder.
+
+HOW TO USE IT?
+==============
+Provide api for ISP normal path driver to control ISP internal driver.
+all api interface are at (vendor\mediatek\proprietary\platform\mtxxx\hardware\include\mtkcam\imageio)
+
+All the source code of this library were written by MediaTek co..

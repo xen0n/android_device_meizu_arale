@@ -1,0 +1,24 @@
+WHAT IT DOES?
+=============
+HAL3 DNG related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following:
+libcam.hal3a.v3.dng.so
+
+It needs the following library from MediaTek:
+
+liblog.so
+libutils.so
+libcutils.so
+libfeatureiodrv.so
+libcam.metadata.so
+
+
+HOW TO USE IT?
+==============
+Provide related DNG api
+
+All the source code of this library were written by MediaTek co..

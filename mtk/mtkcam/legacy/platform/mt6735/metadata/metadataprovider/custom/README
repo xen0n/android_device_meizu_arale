@@ -1,0 +1,12 @@
+WHAT IT DOES?
+=============
+Auto generate custgen.config_static.h file which include metadata file in custom folder.
+
+HOW IT WAS BUILT?
+==================
+The following libs from MediaTek:
+libcam.metadataprovider.custom.a
+
+HOW TO USE IT?
+==============
+Provide custgen.config_static.h file for custom.cpp.

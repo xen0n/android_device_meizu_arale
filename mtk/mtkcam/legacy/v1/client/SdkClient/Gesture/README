@@ -1,0 +1,15 @@
+
+WHAT IT DOES?
+=============
+mtk camera client SDK related gesture files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following static library:
+libcam.sdkclient.gesture.a
+
+
+HOW TO USE IT?
+==============
+Provide gesture related api for mtk camera client SDK.

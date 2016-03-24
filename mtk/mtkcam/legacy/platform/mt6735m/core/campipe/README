@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera pipeline related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following shared library:
+libcam.campipe.so
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera pipeline .

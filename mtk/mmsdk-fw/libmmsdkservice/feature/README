@@ -1,0 +1,17 @@
+
+WHAT IT DOES?
+=============
+camera effect SDK service related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following shared library:
+libmmsdkservice.feature.so
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera feature SDK service.
+User can use mmsdk service to create FeatureManager.
+Then use FeatureManager to open or control some camera effect.

@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera platform common utility module for hal related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following static library file :
+libcam.utils.platform.a
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera platform common utility module for hal.

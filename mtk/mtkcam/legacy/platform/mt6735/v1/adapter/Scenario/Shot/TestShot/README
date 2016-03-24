@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera shot scenario for test of adapter for hal and driver related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following static library file :
+libcam.camadapter.scenario.shot.testshot.a
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera shot scenario for test of adapter for hal and driver .

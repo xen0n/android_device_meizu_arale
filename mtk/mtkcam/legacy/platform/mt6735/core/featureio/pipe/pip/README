@@ -1,0 +1,29 @@
+Library of MTK camera PIP feature.
+
+This library is pre-built by MediaTek internal.
+
+WHAT IT DOES?
+=============
+libcam.featureio.pipe.pip contains MediaTek developed camera related 
+pre- and post-processing modules.  
+Without them, stereo feature functionalities will not work
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+1.  liblog.so
+2.  libcutils.so
+
+and the following libs from MediaTek:
+1.  libcam.halsensor.so
+2.  libcam.utils.so
+
+All source/dependency modules of this module are already put in
+'vendor/mediatek/libs' folder.
+
+HOW TO USE IT?
+==============
+Provide api for camera HAL to control the camera features.
+all api interface are at (vendor/mediatek/proprietary/hardware/mtkcam)
+
+All the source code of this library were written by MediaTek co..

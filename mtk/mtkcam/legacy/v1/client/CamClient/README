@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera utility related camera client module files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following static library file :
+libcam.client.camclient.common.a
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera utility related module.

@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera related client module files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following shared library file :
+libcam.client.so
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera related client module.

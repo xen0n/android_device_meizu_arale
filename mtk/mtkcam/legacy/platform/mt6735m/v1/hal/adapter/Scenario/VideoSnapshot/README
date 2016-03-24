@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera vedio snap shot scenatio module related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following static library file :
+libcam.camadapter.scenario.videosnapshot.a
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera vedio snap shot scenatio module.

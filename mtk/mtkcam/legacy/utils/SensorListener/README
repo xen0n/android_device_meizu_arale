@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera sensor listener related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following shared library file :
+libcam.utils.sensorlistener.so
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera sensor listener .

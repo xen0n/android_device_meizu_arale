@@ -1,0 +1,15 @@
+
+WHAT IT DOES?
+=============
+camera zero shutter delay of hal module related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following shared library:
+libcam.camadapter.mtkzsd.a
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera  zero shutter delay of hal module.

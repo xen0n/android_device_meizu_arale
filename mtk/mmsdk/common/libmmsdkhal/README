@@ -1,0 +1,15 @@
+
+WHAT IT DOES?
+=============
+camera hal multimedia SDK related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following shared library:
+mmsdk.mt6795.so
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera hal multimedia SDK.

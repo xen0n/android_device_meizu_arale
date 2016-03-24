@@ -1,0 +1,12 @@
+WHAT IT DOES?
+=============
+Test pass 1 node and pass 2 node.
+
+HOW IT WAS BUILT?
+==================
+The following libs from MediaTek:
+test_pipeline
+
+HOW TO USE IT?
+==============
+Provide executable file to test pass 1 node and pass 2 node function.

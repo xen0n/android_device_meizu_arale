@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera engineer mode shot scenario of adapter for hal and driver related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following static library file :
+libcam.camadapter.scenario.shot.engshot.a
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera engineer mode shot scenario of adapter for hal and driver.

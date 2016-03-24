@@ -1,0 +1,34 @@
+Library of MTK camera Preview feature.
+
+This library is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+These are the base templates for specific features to further implement their own hal APIs.
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+1.  liblog.so
+2.  libcutils.so
+
+and the following libs from MediaTek:
+1.  libfeatureio.so
+2.  libmpo.so
+3.  libcam.client.camclient.previewfeature.so
+4.  libcam.client.camclient.featurebase.companorama.so
+5.  libcam.client.camclient.featurebase.commav.so
+6.  libcam.client.camclient.featurebase.commotiontrack.so
+
+
+All source/dependency modules of this module are already put in
+'vendor/mediatek/libs' folder.
+
+HOW TO USE IT?
+==============
+
+Provide api for camera HAL to control the camera features.
+all api interface are at (vendor/mediatek/proprietary/hardware/mtkcam)
+
+All the source code of this library were written by MediaTek co..

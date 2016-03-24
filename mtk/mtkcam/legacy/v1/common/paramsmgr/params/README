@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+libcam.paramsmgr.common.a contains parameter manager of camera features
+
+HOW IT WAS BUILT?
+==================
+
+
+HOW TO USE IT?
+==============
+
+Parameter manager will include this local module.
+
+All the source code of this library were written by MediaTek co..

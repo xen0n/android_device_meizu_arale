@@ -1,0 +1,34 @@
+HDR middleware
+
+
+WHAT IT DOES?
+=============
+
+A platform-dependent HDR middleware that
+interacts with Camera HAL and HDR HAL.
+
+
+HOW IT WAS BUILT?
+==================
+
+It needs the following libs from AOSP:
+1. libutils.so
+2. libcutils.so
+
+and the following libs from MediaTek:
+1. libcamalgo
+2. libfeatureio
+3. libcam_utils
+4. libcam.halsensor
+5. libcameracustom
+
+All source/dependency modules of this module are already put in
+'vendor/mediatek/libs' folder.
+
+
+HOW TO USE IT?
+==============
+
+Provide HDR-related APIs for Camera HAL v1.0
+
+All the source code of this program were written by MediaTek co..

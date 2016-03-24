@@ -1,0 +1,12 @@
+WHAT IT DOES?
+=============
+A platform-specific MediaTek camera device HALv3.
+
+HOW IT WAS BUILT?
+==================
+libcam.device3.so
+
+HOW TO USE IT?
+==============
+Refer to the interfaces defined as below:
+$(TOP)/$(MTK_PATH_SOURCE)/hardware/include/mtkcam/device/

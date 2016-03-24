@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera device manager entry module for hal and driver related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following shared library file :
+camera.[target platform name].so
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera device manager entry module for hal and driver.

@@ -1,0 +1,29 @@
+Library of MTK camera Face Detection/Smile Detection/Gesture Shot.
+
+This library is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+This contains MediaTek developed camera Face Detection related features.  
+Without them, camera Face Detection/Smile Detection/Gesture Shot/Auto Secene Detection will not work”
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+1.  liblog.so
+2.  libcutils.so
+
+and the following libs from MediaTek:
+1.  libfeatureio.so
+
+It can build the following static library file :
+libcam3_pipeline.fdNode.a
+
+HOW TO USE IT?
+==============
+
+Provide api for camera client to control camera face detection related features.
+all api interface are at (vendor/mediatek/proprietary/hardware/mtkcam)
+
+All the source code of this library were written by MediaTek co..

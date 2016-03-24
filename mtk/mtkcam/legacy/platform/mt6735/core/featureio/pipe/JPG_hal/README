@@ -1,0 +1,38 @@
+Library of MTK JPEG Encode by HW.
+
+This library is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+This contains MediaTek developed camera related pre- and post-processing modules.
+Without them, JPEG encode by HW functionalities will not work”
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+1.  libstlport.so
+2.  libcutils.so
+3.  libutils.so
+
+and the following libs from MediaTek:
+1. libcamdrv
+2. libm4u
+3. libcam.camshot
+4. libcameracustom
+5. libfeatureio
+6. libcam.utils
+7. libdl
+8. libcam.exif.v3
+9. libcam.iopipe
+
+All source/dependency modules of this module are already put in
+'vendor/mediatek/libs' folder.
+
+HOW TO USE IT?
+==============
+
+Provide api for camera JPEG EffectHAL to encode image to JPEG.
+all api interface are at (vendor/mediatek/proprietary/hardware/mtkcam)
+
+All the source code of this library were written by MediaTek co..

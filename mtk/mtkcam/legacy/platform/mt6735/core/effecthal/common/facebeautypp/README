@@ -1,0 +1,37 @@
+Library of part of MTK camera facebeauty implementation.
+
+This library is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+libeffect.facebeautypp.so is an entry point from Camera App to Mediatek Facebeauty effect.
+
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+1.  liblog.so
+2.  libutils.so
+3.  libcutils.so
+4.  libbinder.so
+5.  libgui.so
+
+and the following libs from MediaTek:
+1.  libcam.metadata.so
+2.  libcam.metadataprovider.so
+3.  libfeatureio.cfb.so
+4.  libmmsdkservice.feature
+
+All source/dependency modules of this module are already put in
+'vendor\mediatek\proprietary\hardware\mtkcam\legacy\platform\mtxxx\feature\core\effecthal' folder and 
+'vendor\mediatek\proprietary\hardware\mtkcam\legacy\platform\mtxxx\feature\core\featureio\pipe' folder.
+
+HOW TO USE IT?
+==============
+
+Provide api for camera App to use face beauty for post processing.
+all api interface are at (vendor\mediatek\proprietary\framework\av\service\mmsdk\include)
+
+All the source code of this library were written by MediaTek co..
+

@@ -1,0 +1,12 @@
+WHAT IT DOES?
+=============
+Auto generate custgen.config_request.h file which inlcude metadata file in custom folder.
+
+HOW IT WAS BUILT?
+==================
+The following libs from MediaTek:
+libcam.templaterequest.custom.a
+
+HOW TO USE IT?
+==============
+Provide custgen.config_request.h file for custom.cpp.

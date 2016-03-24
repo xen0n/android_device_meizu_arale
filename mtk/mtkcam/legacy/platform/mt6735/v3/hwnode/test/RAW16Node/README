@@ -1,0 +1,12 @@
+WHAT IT DOES?
+=============
+Test pass 1 node.
+
+HOW IT WAS BUILT?
+==================
+The following libs from MediaTek:
+test_raw16node
+
+HOW TO USE IT?
+==============
+Provide executable file to test raw16 node function.

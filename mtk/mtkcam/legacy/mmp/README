@@ -1,0 +1,15 @@
+
+WHAT IT DOES?
+=============
+camera multimedia profile related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following shared library:
+libcam_mmp.so
+
+
+HOW TO USE IT?
+==============
+Provide related file for camera multimedia profile.

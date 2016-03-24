@@ -1,0 +1,26 @@
+Library of MTK ISP HW User Interface driver.
+
+This library is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+libcamdrv_isp.a provides a interface to access Mediatek ISP HW. The interface includes virtual and physical isp interface to access the ISP HW.
+It will interact with kernel driver (camera_isp.c) throught system call. It provides the bridage to access ISP HW when the user who is belong to user space want to access ISP HW.
+Besides, you can wait for sensor signal, includes vsync, sof and eof by using this interface.
+Without this, MTK ISP HW will not work!!
+
+HOW IT WAS BUILT?
+==================
+It doesn't need any librarys from AOSP
+
+All source/dependency modules of this module are already put in
+'vendor\mediatek\proprietary\platform\mtxxxx\hardware\mtkcam\core\drv\isp' folder.
+
+HOW TO USE IT?
+==============
+
+Provide api for user who is belong to user space to control MTK HW ISP.
+all api interface are at (vendor\mediatek\proprietary\platform\mtxxxx\hardware\include\mtkcam\drv)
+
+All the source code of this library were written by MediaTek co..

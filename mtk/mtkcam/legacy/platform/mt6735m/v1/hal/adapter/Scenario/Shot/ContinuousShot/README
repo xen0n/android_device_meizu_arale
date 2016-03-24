@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera continuous shot scenario of adapter for hal and driver related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following static library file :
+libcam.camadapter.scenario.shot.continuousshot.a
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera continuous shot scenario of adapter for hal and driver.

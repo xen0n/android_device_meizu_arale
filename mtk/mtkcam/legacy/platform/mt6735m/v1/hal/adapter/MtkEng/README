@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera engineer mode adapter module for hal and driver files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following static library file :
+libcam.camadapter.mtkeng.a
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera engineer mode adapter module for hal and driver .

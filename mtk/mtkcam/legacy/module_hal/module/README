@@ -1,0 +1,15 @@
+WHAT IT DOES?
+=============
+A part of MediaTek camera module HAL:
+. an entry to interact with camera_module APIs
+. platform-independent
+
+HOW IT WAS BUILT?
+==================
+The following libs from MediaTek:
+camera.default.module.a
+
+HOW TO USE IT?
+==============
+Refer to the interfaces defined as below:
+$(TOP)/$(MTK_PATH_SOURCE)/hardware/include/mtkcam/device/module.h

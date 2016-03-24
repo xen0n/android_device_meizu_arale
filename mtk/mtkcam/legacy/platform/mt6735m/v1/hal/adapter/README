@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera adapter for hal and driver related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following shared library:
+libcam.camadapter.so
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera adapter for hal and driver.

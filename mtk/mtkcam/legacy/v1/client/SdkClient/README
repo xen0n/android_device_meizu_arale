@@ -1,0 +1,15 @@
+
+WHAT IT DOES?
+=============
+mtk camera client SDK related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following shared library:
+libcam.sdkclient.so
+
+
+HOW TO USE IT?
+==============
+Provide related api for mtk camera client SDK.

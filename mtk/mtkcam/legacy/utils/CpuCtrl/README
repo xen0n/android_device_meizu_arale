@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera utility related image buffer module files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following static library file :
+libcam.utils.cpuctrl.so
+
+
+HOW TO USE IT?
+==============
+Provide related api for CPU control

@@ -1,0 +1,11 @@
+WHAT IT DOES?
+=============
+A test program for hwnode/P2Node of Halv3
+
+HOW IT WAS BUILT?
+==================
+test_p2node
+
+HOW TO USE IT?
+==============
+execute test_p2node

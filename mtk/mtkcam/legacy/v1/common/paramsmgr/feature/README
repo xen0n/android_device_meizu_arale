@@ -1,0 +1,15 @@
+WHAT IT DOES?
+=============
+libcam.paramsmgr.feature.a contains parameter manager of camera features
+
+HOW IT WAS BUILT?
+==================
+It needs the following libs from MediaTek:
+1.  libcam.paramsmgr.feature.custom.a
+
+HOW TO USE IT?
+==============
+
+Parameter manager will include this local module.
+
+All the source code of this library were written by MediaTek co..

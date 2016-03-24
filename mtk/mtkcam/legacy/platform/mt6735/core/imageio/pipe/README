@@ -1,0 +1,31 @@
+Library of MTK camera driver files, including driver interface and driver flow contorl flow.
+
+This library is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+libimageio_plat_pipe.a contains MediaTek internal drivers.
+Without this, MTK ISP will not work.
+
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+none
+and the following libs from MediaTek:
+none
+
+note that it's a STATIC_LIBRARY
+
+All source/dependency modules of this module are already put in
+'vendor/mediatek/libs' folder.
+
+HOW TO USE IT?
+==============
+
+Provide api for camera users to do buffer operation.
+all api interface are at (vendor\mediatek\proprietary\platform\mtxxx\hardware\include\mtkcam\imageio)
+
+All the source code of this library were written by MediaTek co..
+

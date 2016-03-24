@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera hardware utilities related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following shared library:
+libcam_hwutils.so
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera hardware utilities.

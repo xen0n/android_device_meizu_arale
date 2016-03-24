@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+libfeatureiopipe_eis.a contains MediaTek developed video stabilization modules.  
+
+HOW IT WAS BUILT?
+==================
+
+
+HOW TO USE IT?
+==============
+
+Provide api for camera HAL to control the camera features - video stabilization.
+
+All the source code of this library were written by MediaTek co..

@@ -1,0 +1,15 @@
+
+WHAT IT DOES?
+=============
+camera hal multimedia SDK related unit test files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following executable file:
+mmsdkhaltest.exe
+
+
+HOW TO USE IT?
+==============
+Provide related unit test for camera hal multimedia SDK unit test .

@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera adapter callback module for hal and driver related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following shared library:
+libcam.camadapter.callback.a
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera adapter callback module for hal and driver.

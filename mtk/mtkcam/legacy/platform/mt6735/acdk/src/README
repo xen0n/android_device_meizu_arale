@@ -1,0 +1,37 @@
+Library of MTK camera functionality verification and quality tuning
+
+This Library is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+libacdk contains MediaTek developed camera related pre- and post-processing modules.  
+It works together with libccap to provide a mechanism for verification of camera functionality and tuning of camera quality.
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+1.  libbinder.so
+2.  libcutils.so
+4.  libhardware.so
+5.  libutils.so
+
+and the following libs from MediaTek:
+1.  libstlport.so
+2.  libimageio.so
+3.  libcamdrv.so
+4.  libcam.iopipe.so
+5.  libcam_utils.so
+6.  libcam.halsensor.so
+7.  libcam.metadata.so
+8.  libm4u.so
+9.  libcam.camshot.so
+10. libcamera_client.so
+11. libcamera_client_mtk.so
+
+All source/dependency modules of this module are already put in
+'vendor/mediatek/libs' folder.
+
+HOW TO USE IT?
+==============
+

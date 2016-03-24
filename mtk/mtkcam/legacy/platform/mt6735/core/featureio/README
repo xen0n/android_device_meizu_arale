@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera paltform feature io module files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following shared library file :
+libfeatureio.so
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera paltform feature io module.

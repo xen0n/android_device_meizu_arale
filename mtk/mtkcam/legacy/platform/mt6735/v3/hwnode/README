@@ -1,0 +1,12 @@
+WHAT IT DOES?
+=============
+A platform-specific MediaTek camera hwnode for HALv3.
+
+HOW IT WAS BUILT?
+==================
+libcam3_hwnode.so
+
+HOW TO USE IT?
+==============
+Refer to the interfaces defined as below:
+$(TOP)/$(MTK_PATH_PLATFORM)/hardware/include/mtkcam/v3/hwnode/

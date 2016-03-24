@@ -1,0 +1,26 @@
+Library of MTK HDR feature pipe.
+
+This library is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+libfeatureiopipe_hdr is a glue layer between MTK HDR HAL and
+core HDR algorithm.
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+libstdc++
+
+
+and the following libs from MediaTek:
+libhdr
+libmav
+
+HOW TO USE IT?
+==============
+
+Provide api for camera HAL to control the camera HDR features.
+
+All the source code of this library were written by MediaTek co..

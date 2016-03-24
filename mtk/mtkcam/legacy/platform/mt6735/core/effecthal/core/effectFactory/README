@@ -1,0 +1,37 @@
+Library of MTK camera feature api instance generater.
+
+This library is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+libfeatureio.featurefactory.so is used to generated MediaTek developed camera feature api for app.
+
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+1.  liblog.so
+2.  libutils.so
+3.  libcutils.so
+4.  libbinder.so
+5.  libgui.so
+
+and the following libs from MediaTek:
+1.  libcam.metadata.so
+2.  libcam.metadataprovider.so
+3.  libeffect.facebeautypp.so
+4.  libeffecthal.JPG
+5.  libmmsdkservice.feature
+
+All source/dependency modules of this module are already put in
+'vendor\mediatek\proprietary\hardware\mtkcam\legacy\platform\mtxxx\feature\effecthal' folder.
+
+HOW TO USE IT?
+==============
+
+Provide api for camera App to generate camera features api to use.
+all api interface are at (vendor\mediatek\proprietary\framework/av/service/mmsdk/include)
+
+All the source code of this library were written by MediaTek co..
+

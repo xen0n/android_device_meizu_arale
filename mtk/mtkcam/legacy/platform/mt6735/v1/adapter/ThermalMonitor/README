@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera thermal monitor related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following staic library:
+libcam.camadapter.thermalmonitor.a
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera thermal monitor.

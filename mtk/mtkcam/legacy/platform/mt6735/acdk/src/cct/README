@@ -1,0 +1,23 @@
+Library of MTK camera functionality verification and quality tuning
+
+This Library is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+libcct contains MediaTek developed camera related pre- and post-processing modules.  
+It works together with libacdk and libccap to provide a mechanism for verification of camera functionality and tuning of camera quality.
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+
+and the following libs from MediaTek:
+
+
+All source/dependency modules of this module are already put in
+'vendor/mediatek/libs' folder.
+
+HOW TO USE IT?
+==============
+

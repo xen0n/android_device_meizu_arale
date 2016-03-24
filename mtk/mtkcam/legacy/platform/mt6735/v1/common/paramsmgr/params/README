@@ -1,0 +1,12 @@
+WHAT IT DOES?
+=============
+libcam.paramsmgr.platform.a provide parameters manager for camera HAL
+
+
+HOW IT WAS BUILT?
+==================
+
+
+HOW TO USE IT?
+==============
+Provide parameters manager for camera HAL

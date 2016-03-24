@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera control node unit test related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following executable file :
+testCtrlNode.exe
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera control node unit test .

@@ -1,0 +1,30 @@
+Execution binary of MTK Face Detection Feature Test
+
+This binary is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+This contains MediaTek Face Detection Feature basic test function
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+1.  liblog.so
+2.  libcutils.so
+3.  libutils.so
+
+and the following libs from MediaTek:
+1.  libcam_utils.so
+2.  libcam3_pipeline.so
+3.  libcam.metadata.so
+4.  libcam3_utils.so
+5.  libcam3_hwnode.so
+
+It can build the following execution file :
+test_fdnode
+
+HOW TO USE IT?
+==============
+
+Execute it on device to test face detection basic function.

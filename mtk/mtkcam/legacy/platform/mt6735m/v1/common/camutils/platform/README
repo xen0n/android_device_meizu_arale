@@ -1,0 +1,15 @@
+
+WHAT IT DOES?
+=============
+camera plateform utility module related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following shared library:
+libcam.utils.platform.a
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera plateform utility module.

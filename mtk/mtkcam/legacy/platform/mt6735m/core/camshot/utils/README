@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera shot image utilities related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following static library file :
+libcam.camshot.utils.a
+
+
+HOW TO USE IT?
+==============
+Provide camera shot image utilities related api.

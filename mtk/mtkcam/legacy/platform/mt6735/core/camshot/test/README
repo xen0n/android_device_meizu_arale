@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera shot unit test related files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following executable file :
+camshottest.exe
+
+
+HOW TO USE IT?
+==============
+Provide camera shot unit test related api.

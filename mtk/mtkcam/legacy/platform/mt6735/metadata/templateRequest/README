@@ -1,0 +1,12 @@
+WHAT IT DOES?
+=============
+Provide template request metadata.
+
+HOW IT WAS BUILT?
+==================
+The following libs from MediaTek:
+libcam.metadataprovider_request.a
+
+HOW TO USE IT?
+==============
+Provide api to get template request metadata.

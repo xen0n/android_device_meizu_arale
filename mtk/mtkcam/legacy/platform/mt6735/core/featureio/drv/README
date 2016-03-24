@@ -1,0 +1,18 @@
+Library of MTK camera feature-related internal driver to controll hardware path.
+E.x.: 
+1. camera calibration data (cam_cal & eeprom)
+2. tuning data flow control (tuning_mgr)
+3. video stabilization (EIS) HW driver
+ 
+This library is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+libfeatureiodrv.so contains MediaTek camera feature-related internal driver.
+Without this, MTK Camera Feature will not work!¡L
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+
