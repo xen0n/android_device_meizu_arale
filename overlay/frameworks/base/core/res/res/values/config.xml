@@ -98,6 +98,21 @@
         <item>"41,1"</item>
     </string-array>
 
+    <!-- Flag indicating emergency calls will always use IMS irrespective of the state of
+    the IMS connection -->
+    <bool name="useImsAlwaysForEmergencyCall">true</bool>
+
+    <!-- Flag indicating whether the IMS service can be turned off. If false then
+        the service will not be turned-off completely (the ImsManager.turnOffIms() will
+        be disabled) but individual Features can be disabled using ImsConfig.setFeatureValue() -->
+    <bool name="imsServiceAllowTurnOff">true</bool>
+
+    <!-- Flag specifying whether VoLTE is available on device -->
+    <bool name="config_device_volte_available">true</bool>
+
+    <!-- Flag specifying whether VT is available on device -->
+    <bool name="config_device_vt_available">true</bool>
+
     <string-array name="config_tether_usb_regexs">
         <item>rndis\\d</item>
     </string-array>
