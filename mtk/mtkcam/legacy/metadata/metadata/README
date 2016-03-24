@@ -1,0 +1,12 @@
+WHAT IT DOES?
+=============
+Metadata container.
+
+HOW IT WAS BUILT?
+==================
+The following libs from MediaTek:
+libcam.common.metadata.a
+
+HOW TO USE IT?
+==============
+Provide api to get metadata from container.

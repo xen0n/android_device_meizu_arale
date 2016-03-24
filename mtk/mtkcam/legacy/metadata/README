@@ -1,0 +1,12 @@
+WHAT IT DOES?
+=============
+Metadata container and metadata converter.
+
+HOW IT WAS BUILT?
+==================
+The following libs from MediaTek:
+libcam.metadata.so
+
+HOW TO USE IT?
+==============
+Provide api to convert between MTK metadata and android metadata and to get metadata from container.

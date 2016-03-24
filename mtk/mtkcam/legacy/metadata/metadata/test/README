@@ -1,0 +1,12 @@
+WHAT IT DOES?
+=============
+Test metadata container.
+
+HOW IT WAS BUILT?
+==================
+The following libs from MediaTek:
+testmetadata
+
+HOW TO USE IT?
+==============
+Provide executable file to test metadata container function.

@@ -1,0 +1,12 @@
+WHAT IT DOES?
+=============
+Test metadata converter.
+
+HOW IT WAS BUILT?
+==================
+The following libs from MediaTek:
+testconverter
+
+HOW TO USE IT?
+==============
+Provide executable file to test metadata converter function.

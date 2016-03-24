@@ -1,0 +1,12 @@
+WHAT IT DOES?
+=============
+Conversion between MTK metadata and android metadata.
+
+HOW IT WAS BUILT?
+==================
+The following libs from MediaTek:
+libcam.metadata.conversion.a
+
+HOW TO USE IT?
+==============
+Provide api to convert between MTK metadata and android metadata.
