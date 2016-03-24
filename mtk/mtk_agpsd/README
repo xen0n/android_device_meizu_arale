@@ -1,0 +1,21 @@
+The binary file 'mtk_agpsd' is a MTK A-GPS Software.
+This binary file is pre-built by MediaTek internal.
+
+WHAT IT DOES?
+=============
+'mtk_agpsd' is the implementation that provides SUPL stack,
+RRLP stack, and A-GPS Control Plane related funcationalities.
+
+HOW IT WAS BUILT?
+==================
+All source/dependency modules of this module are already put in 
+'vend/mediatek/bin'.
+
+HOW TO USE IT?
+==============
+The binary file 'mtk_agpsd' is a native daemon which will be 
+launched when system is booting up.
+
+Source
+==============
+All the source code of this binary file were written by MediaTek co..
