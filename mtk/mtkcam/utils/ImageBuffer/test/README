@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera related image buffer module unit test files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following executable file :
+camtest_imagebuffer.exe
+
+
+HOW TO USE IT?
+==============
+Provide related unit test for camera related image buffer module.

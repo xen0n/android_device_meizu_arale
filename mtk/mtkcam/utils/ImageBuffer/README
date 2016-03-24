@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera utility related image buffer module files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following static library file :
+libcam_utils.common.imagebuffer.a
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera utility related image buffer module.

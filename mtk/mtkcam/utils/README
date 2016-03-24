@@ -1,0 +1,14 @@
+WHAT IT DOES?
+=============
+camera common utility related module files.
+
+
+HOW IT WAS BUILT?
+==================
+It can build the following shared library file :
+libcam_utils.so
+
+
+HOW TO USE IT?
+==============
+Provide related api for camera common utility related module.
