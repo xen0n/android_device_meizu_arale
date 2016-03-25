@@ -1,0 +1,11 @@
+WHAT IT DOES?
+=============
+To build IKEv2 Tunnel with peer (e.g. ePDG).
+
+HOW IT WAS BUILT?
+==================
+None
+
+HOW TO USE IT?
+==============
+See README_from_strongswan

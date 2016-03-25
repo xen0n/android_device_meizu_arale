@@ -1,0 +1,155 @@
+ * Copyright (C) 2010 Tobias Brunner:
+# Copyright (C) 1994-2013 Free Software Foundation, Inc.:
+ * Copyright (C) 2006 Martin Will:
+ * Copyright (C) 2000-2008 Andreas Steffen:
+ * Copyright (C) 2003-2008 Andreas Steffen, Hochschule fuer Technik Rapperswil:
+# Copyright (C) 2003-2008 Andreas Steffen:
+$copyright="Copyright (C) 2003-2008 Andreas Steffen, Hochschule fuer Technik Rapperswil";:
+ * Copyright (C) 2012 Tobias Brunner:
+ * Copyright (C) 2010 Martin Willi:
+ * Copyright (C) 2010 revosec AG:
+ * Copyright (C) 2012-2013 Tobias Brunner:
+ * Copyright (C) 2014 Tobias Brunner:
+ * Copyright (C) 2013 Martin Willi:
+ * Copyright (C) 2013 revosec AG:
+ * Copyright (C) 2012 Giuliano Grassi:
+ * Copyright (C) 2012 Ralf Sager:
+ * Copyright (C) 2008 Tobias Brunner:
+ * Copyright (C) 2007 Martin Willi:
+ * Copyright (C) 2008-2012 Tobias Brunner:
+ * Copyright (C) 2007-2011 Tobias Brunner:
+ * Copyright (C) 2005-2006 Martin Willi:
+ * Copyright (C) 2005 Jan Hutter:
+ * Copyright (C) 2005-2008 Martin Willi:
+ * Copyright (C) 2007-2009 Martin Willi:
+ * Copyright (C) 2008 Martin Willi:
+ * Copyright (C) 2002-2009 Andreas Steffen:
+ * Copyright (C) 2007-2008 Martin Willi:
+ * Copyright (C) 2006 Andreas Steffen:
+ * Copyright (C) 2009 Martin Willi:
+ * Copyright (C) 2009 Andreas Steffen:
+ * Copyright (C) 2012 Martin Willi:
+ * Copyright (C) 2012 revosec AG:
+ * Copyright (C) 2013 Tobias Brunner:
+ * Copyright (C) 2007-2009 Andreas Steffen:
+ * Copyright (C) 2008-2009 Martin Willi:
+ * Copyright (C) 2010-2013 Tobias Brunner:
+ * Copyright (C) 2009-2010 Martin Willi:
+ * Copyright (C) 2005-2010 Martin Willi:
+ * Copyright (C) 2005-2007 Martin Willi:
+ * Copyright (C) 2012 Adrian-Ken Rueegsegger:
+ * Copyright (c) 2012 Nanoteq Pty Ltd:
+ * Copyright (C) 2009-2013 Andreas Steffen:
+ * Copyright (C) 2005-2009 Martin Willi:
+ * Copyright (C) 2006-2009 Martin Willi:
+ * Copyright (C) 2011 Martin Willi:
+ * Copyright (C) 2011 revosec AG:
+ * Copyright (C) 2006 Martin Willi:
+ * Copyright (C) 2008-2011 Martin Willi:
+ * Copyright (C) 2009 Tobias Brunner:
+ * Copyright (C) 2010-2014 Tobias Brunner:
+ * Copyright (C) 2006-2012 Tobias Brunner:
+ * Copyright (C) 2006 Daniel Roethlisberger:
+ * Copyright (C) 2006-2009 Tobias Brunner:
+ * Copyright (C) 2011 Andreas Steffen:
+ * Copyright (C) 2011-2012 Andreas Steffen:
+ * Copyright (C) 2001 Dr B. R. Gladman <brg@gladman.uk.net>:
+/* Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com):
+/* Copyright (C) 1995-1997 Eric Young (eay@cryptsoft.com):
+ * Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com):
+ * Copyright (C) 1998 - 2014, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 2007 Andreas Steffen:
+ * Copyright (C) 1998 - 2013, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 1998 - 2012, Daniel Stenberg, <daniel@haxx.se>, et al.:
+#define LIBCURL_COPYRIGHT "1996 - 2014 Daniel Stenberg, <daniel@haxx.se>.":
+ * Copyright (C) 1998 - 2008, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 1998 - 2010, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 1995-1997 Eric Young (eay@cryptsoft.com):
+ * Copyright (C) 2006-2008 Martin Willi:
+ * Copyright (C) 2013 Andreas Steffen:
+ * Copyright (C) 1998-2002  D. Hugh Redelmeier.:
+ * Copyright (C) 1999, 2000, 2001  Henry Spencer.:
+ * Copyright (C) 2012 Andreas Steffen:
+ * Copyright (C) 1990-1992, RSA Data Security, Inc. Created 1990.:
+ * Copyright (C) 1991-1992, RSA Data Security, Inc. Created 1991.:
+ * Copyright (c) 2009-2013, by Security Innovation, Inc. All rights reserved.:
+ * Copyright (C) 2009-2013  Security Innovation:
+ * Copyright (C) 2014 Andreas Steffen:
+ * Copyright (C) 2010 secunet Security Networks AG:
+ * Copyright (C) 2010 Thomas Egerer:
+ * Copyright (C) 2008-2010 Tobias Brunner:
+ * Copyright (C) 2008-2013 Tobias Brunner:
+ * Copyright (C) 2012 Aleksandr Grinberg:
+ * Copyright (C) 2011 Tobias Brunner:
+ * Copyright (C) 2013 Michael Rossberg:
+ * Copyright (C) 2013 Technische Universität Ilmenau:
+ * Copyright (C) 2008 Thomas Kallenberg:
+ * Copyright (C) 2001-2008 Andreas Steffen:
+ * Copyright (C) 2010 Andreas Steffen:
+   Copyright 2006, 2007 g10 Code GmbH:
+   Copyright 2006 Andreas Jellinghaus:
+ * Copyright (C) 2008 Andreas Steffen:
+ * Copyright (C) 2002-2008 Andreas Steffen:
+ * Copyright (C) 2005 Jan Hutter, Martin Willi:
+ * Copyright (C) 2012-2014 Tobias Brunner:
+ * Copyright (C) 2001 Jari Ruusu.:
+ * Copyright (C) 2011-2012 Reto Guadagnini:
+ * Copyright (C) 2012 Reto Guadagnini:
+ * Copyright (C) 2002 Ueli Galizzi, Ariane Seiler:
+ * Copyright (C) 2003 Martin Berner, Lukas Suter:
+ * Copyright (C) 2000 Andreas Hess, Patric Lichtsteiner, Roger Wegmann:
+ * Copyright (C) 2001 Marco Bertossa, Andreas Schleiss:
+ * Copyright (C) 2002 Mario Strasser:
+ * Copyright (C) 2000-2006 Andreas Steffen:
+ * Copyright (C) 2003 Christoph Gysin, Simon Zwahlen:
+ * Copyright (C) 2009-2012 Tobias Brunner:
+ * Copyright (C) 2007-2011 Martin Willi:
+ * Copyright (C) 2005-2011 Martin Willi:
+ * Copyright (C) 2007-2013 Tobias Brunner:
+ * Copyright (C) 2014 Martin Willi:
+ * Copyright (C) 2014 revosec AG:
+ * Copyright (C) 2013-2014 Andreas Steffen:
+ * Copyright (C) 2008-2009 Tobias Brunner:
+ * Copyright (C) 2006-2013 Martin Willi:
+ * Copyright (C) 2001-2006 Andreas Steffen:
+ * Copyright (C) 2007-2008 Andreas Steffen:
+ * Copyright (C) 2002-2006 H. Peter Anvin:
+ * Copyright (C) 2009-2013 Tobias Brunner:
+ * Copyright (C) 2008-2014 Tobias Brunner:
+
+
+
+/*
+* Copyright (C) 2011-2014 MediaTek Inc.
+*
+* This program is free software: you can redistribute it and/or modify it under the terms of the
+* GNU General Public License version 2 as published by the Free Software Foundation.
+*
+* This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+* without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+* See the GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License along with this program.
+* If not, see <http://www.gnu.org/licenses/>.
+*/
+
+
+ Curl License
+Copyright (c) 1996 - 2003, Daniel Stenberg, <daniel@haxx.se>.
+
+All rights reserved.
+
+Permission to use, copy, modify, and distribute this software for any purposewith or without fee is hereby granted,
+provided that the above copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT
+SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USEOR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to
+promote the sale, use or other dealings in this Software without prior written authorization of the copyright holder.
+
+
+ 

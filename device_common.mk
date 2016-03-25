@@ -110,6 +110,10 @@ PRODUCT_PACKAGES += \
     libmal_rds \
     libmal_rilproxy \
     libmal_simmngr \
+    epdg_wod \
+    mtkmal \
+    charon starter stroke ipsec \
+    libcharon libhydra libstrongswan libsimaka \
 
 # Telecom
 PRODUCT_COPY_FILES += \

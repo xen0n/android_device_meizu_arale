@@ -1,0 +1,21 @@
+WHAT IT DOES?
+=============
+This module is provide interface for ePDG Data Framework to handle WiFi PDN (Wifi offload S2b).
+
+HOW IT WAS BUILT?
+==================
+It needs the following executed files from Mediatek:
+charon starter stroke ipsec
+
+It needs the following library from Mediatek:
+libcharon libhydra libstrongswan libsimaka 
+
+The above exceuted files and library are already built in 'vendor/mediatek/proprietary/external/strongswan' folder.
+
+HOW TO USE IT?
+==============
+ePDG daemon are interface between ePDG Data Framework and strongswan to transfer ATCMD format to strnogsawn config files,
+and to build/break PDN connection over WiFi.
+
+The source code for this module were written by MediaTek and dedicated for Mediatek usage.
+There is no open API for public use.

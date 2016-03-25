@@ -1,0 +1,8 @@
+#!/bin/sh
+
+echo "=================================="
+echo "Current time: $(date)"
+echo "----------------------------------"
+env_var=$(env | grep PLUTO)
+echo "${env_var} \n" 
+echo "==================================\n" 

@@ -1,0 +1,132 @@
+ * Copyright (C) 1998 - 2011, Daniel Stenberg, <daniel@haxx.se>, et al.:
+# Copyright (C) 1998 - 2014, Daniel Stenberg, <daniel@haxx.se>, et al.:
+Copyright (c) 1996 - 2014, Daniel Stenberg, <daniel@haxx.se>.:
+  Curl contains pieces of source code that is Copyright (c) 1998, 1999:
+# Copyright (C) 1998 - 2013, Daniel Stenberg, <daniel@haxx.se>, et al.:
+# Copyright (C) 1998 - 2012, Daniel Stenberg, <daniel@haxx.se>, et al.:
+AC_COPYRIGHT([Copyright (c) 1998 - 2014 Daniel Stenberg, <daniel@haxx.se>:
+# Copyright (C) 2013-2014, Daniel Stenberg, <daniel@haxx.se>, et al.:
+# Copyright (C) 2001 - 2012, Daniel Stenberg, <daniel@haxx.se>, et al.:
+# Copyright (C) 1998 - 2011, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 1998 - 2014, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 1998 - 2013, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 1998 - 2008, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 1998 - 2012, Daniel Stenberg, <daniel@haxx.se>, et al.:
+#define LIBCURL_COPYRIGHT "1996 - 2014 Daniel Stenberg, <daniel@haxx.se>.":
+ * Copyright (C) 1998 - 2010, Daniel Stenberg, <daniel@haxx.se>, et al.:
+# Copyright (C) 1994 X Consortium:
+ * Copyright (C) 2012, Linus Nielsen Feltzing, <linus@haxx.se>:
+ * Copyright (C) 2012, Daniel Stenberg, <daniel@haxx.se>, et al.:
+# Copyright (C) 2011 - 2013, Daniel Stenberg, <daniel@haxx.se>, et al.:
+    my $copyright=0;:
+            $copyright=1;:
+        checkwarn(1, 0, $file, "", "Missing copyright statement", 1);:
+ * Copyright (C) 2012 - 2014, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 2012, 2013, Linus Nielsen Feltzing, <linus@haxx.se>:
+ * Copyright (C) 1998 - 2009, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 2011, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 2010, Howard Chu, <hyc@highlandsun.com>:
+ * Copyright (C) 2014, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 2010-2011, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 2010, Daniel Stenberg, <daniel@haxx.se>, et al.:
+# * Copyright (C) 1998 - 2010, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 1998 - 2007, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 2009 - 2014, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 1996-2001  Internet Software Consortium.:
+/* Copyright (c) 1996 by Internet Software Consortium.:
+ * Copyright (C) 1998 - 2005, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (c) 1995, 1996, 1997, 1998, 1999, 2013 Kungliga Tekniska Högskolan:
+ * Copyright (c) 2004 - 2012 Daniel Stenberg:
+   Copyright (C) 1990-2, RSA Data Security, Inc. All rights reserved.:
+/* Copyright (C) 1991-2, RSA Data Security, Inc. Created 1991. All:
+# * Copyright (C) 1998 - 2014, Daniel Stenberg, <daniel@haxx.se>, et al.:
+'* Copyright (C) 1998 - 2013, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 1999 - 2014, Daniel Stenberg, <daniel@haxx.se>, et al.:
+# * Copyright (C) 2013, Daniel Stenberg, <daniel@haxx.se>, et al.:
+# * Copyright (C) 2012, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 2010, 2013, Howard Chu, <hyc@openldap.org>:
+ * Copyright (C) 2011 - 2014, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 2013, Linus Nielsen Feltzing, <linus@haxx.se>:
+ * Copyright (C) 2013-2014, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 2013 - 2014, Linus Nielsen Feltzing, <linus@haxx.se>:
+ * Copyright (C) 2009 - 2013, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (c) 1998, 1999, 2013 Kungliga Tekniska Högskolan:
+ * Copyright (C) 2001 - 2013, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 2009, 2011, Markus Moeller, <markus_moeller@compuserve.com>:
+ * Copyright (C) 2012 - 2013, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 1997 - 2014, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 1997 - 2011, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (c) 2001-2004 Damien Miller <djm@openbsd.org>:
+ * Copyright (C) 2004 - 2014, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 2010, DirecTV, Contact: Eric Hu, <ehu@directv.com>.:
+ * Copyright (C) 2010 - 2014, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 2010, DirecTV:
+ * Copyright (C) 2012 - 2014, Nick Zitzmann, <nickzman@gmail.com>.:
+ * Copyright (C) 2012 - 2013, Nick Zitzmann, <nickzman@gmail.com>.:
+ * Copyright (C) 2012 - 2014, Marc Hoersken, <info@marc-hoersken.de>:
+ * Copyright (C) 2012, Mark Salisbury, <mark.salisbury@hp.com>:
+ *   Copyright (C) 2010, 2011, Hoi-Ho Chan, <hoiho.chan@gmail.com>:
+ *   Copyright (C) 1998 - 2012, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 2012, Marc Hoersken, <info@marc-hoersken.de>, et al.:
+ * Copyright (C) 2010 - 2011, Hoi-Ho Chan, <hoiho.chan@gmail.com>:
+ * Copyright (C) 2010, Hoi-Ho Chan, <hoiho.chan@gmail.com>:
+ * Copyright (C) 2010, 2011, Hoi-Ho Chan, <hoiho.chan@gmail.com>:
+ * Copyright (C) 2013, Daniel Stenberg, <daniel@haxx.se>, et al.:
+ * Copyright (C) 2010 - 2013, Daniel Stenberg, <daniel@haxx.se>, et al.:
+# Copyright (C) 1998 - 2009, Daniel Stenberg, <daniel@haxx.se>, et al.:
+# Copyright (c) 2013 Daniel Stenberg <daniel@haxx.se>:
+# Copyright (c) 2011 Daniel Stenberg <daniel@haxx.se>:
+# Copyright 1996, 1997, 1999, 2000 Free Software Foundation, Inc.:
+%copyright 1998-2002 by Daniel Stenberg:
+# * Copyright (C) 1998 - 2012, Daniel Stenberg, <daniel@haxx.se>, et al.:
+      copyright_string = substr($0, 28, length($0)-28):
+      * Copyright (C) 1998 - 2013, Daniel Stenberg, <daniel@haxx.se>, et al.:
+echo '#pragma comment(copyright, "Copyright (C) 1998-2013 Daniel Stenberg et al. OS/400 version by P. Monnerat")' >> os400.c:
+$! Copyright 2009, John Malmberg:
+$! Copyright 2013, John Malmberg:
+$! Copyright 2011, John Malmberg:
+ * Copyright 2013, John Malmberg:
+ Copyright 2009, John Malmberg:
+ * Copyright 2009, John Malmberg:
+# Copyright 2009, John Malmberg:
+! Copyright 2009, John Malmberg:
+$! Copyright 2012, John Malmberg:
+ * Copyright 2012, John Malmberg:
+	Copyright (C) 2001 Eric Lavigne:
+
+
+
+Curl License
+Copyright (c) 1996 - 2003, Daniel Stenberg, <daniel@haxx.se>.
+
+All rights reserved.
+
+Permission to use, copy, modify, and distribute this software for any purposewith or without fee is hereby granted,
+provided that the above copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT
+SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USEOR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to
+promote the sale, use or other dealings in this Software without prior written authorization of the copyright holder.
+
+
+ /*
+* Copyright (C) 2011-2014 MediaTek Inc.
+*
+* This program is free software: you can redistribute it and/or modify it under the terms of the
+* GNU General Public License version 2 as published by the Free Software Foundation.
+*
+* This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+* without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+* See the GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License along with this program.
+* If not, see <http://www.gnu.org/licenses/>.
+*/
+
+
+ 
