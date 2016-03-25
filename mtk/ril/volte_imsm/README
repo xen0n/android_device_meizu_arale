@@ -1,0 +1,14 @@
+IMS relay module, handling NAS bearer, P-CSCF address discovery, IMS AKA and relay message among IMCB/IMSA/MAL modules
+
+
+WHAT IT DOES?
+=============
+handle the request from IMCB/IMSA/MAL module
+Send the event to IMCB/IMSA/MAL module, and receive the Response
+
+HOW IT WAS BUILT?
+==================
+This module is binary released.
+
+HOW TO USE IT?
+==============

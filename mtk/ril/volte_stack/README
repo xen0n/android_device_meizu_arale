@@ -1,0 +1,15 @@
+
+This module is part of VoLTE IMS service.
+
+
+WHAT IT DOES?
+=============
+It handles IMS-registration routine, sip-transport and sip-transaction.
+
+HOW IT WAS BUILT?
+==================
+control by MTK_IMS_SUPPORT feature option
+
+
+
+

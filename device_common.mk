@@ -102,6 +102,10 @@ PRODUCT_PACKAGES += \
     mtkrildmd2 \
     mtk-ril \
     mtk-rilmd2 \
+    volte_stack \
+    volte_imcb \
+    volte_ua \
+    volte_imsm \
     libmal \
     libmal_datamngr \
     libmal_epdga \

@@ -1,0 +1,15 @@
+IMS VoLTE module, handling NAS bearer, P-CSCF address discovery, IMS AKA and relay message among UA/IMC/IMSA/VT modules
+
+WHAT IT DOES?
+=============
+volte_imcb binary, needs to use the MD which has VoLTE capability
+
+HOW IT WAS BUILT?
+==================
+control by MTK_IMS_SUPPORT feature option
+
+HOW TO USE IT?
+==============
+Android phone process will fork imcb process when boot-up/enter or leave flight mode
+
+All the source code of this library were written by MediaTek co..
