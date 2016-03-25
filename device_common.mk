@@ -72,7 +72,8 @@ PRODUCT_COPY_FILES += \
 
 # Digital Restrictions Management
 PRODUCT_PACKAGES += \
-    libdrmmtkutil
+    libmtk_drvb \
+    libdrmmtkutil \
 
 # Wifi
 PRODUCT_PACKAGES += \
