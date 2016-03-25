@@ -53,7 +53,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    lights.mt6595
+    lights.$(TARGET_BOARD_PLATFORM)
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -152,11 +152,11 @@ PRODUCT_COPY_FILES += \
 # Ramdisk
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/root/enableswap.sh:root/enableswap.sh \
-    $(LOCAL_PATH)/root/fstab.mt6595:root/fstab.mt6595 \
+    $(LOCAL_PATH)/root/fstab.$(TARGET_BOARD_PLATFORM):root/fstab.$(TARGET_BOARD_PLATFORM) \
     $(LOCAL_PATH)/root/twrp.fstab:recovery/root/etc/twrp.fstab \
-    $(LOCAL_PATH)/root/init.mt6595.rc:root/init.mt6595.rc \
-    $(LOCAL_PATH)/root/init.mt6595.usb.rc:root/init.mt6595.usb.rc \
-    $(LOCAL_PATH)/root/init.recovery.mt6595.rc:root/init.recovery.mt6595.rc \
+    $(LOCAL_PATH)/root/init.$(TARGET_BOARD_PLATFORM).rc:root/init.$(TARGET_BOARD_PLATFORM).rc \
+    $(LOCAL_PATH)/root/init.$(TARGET_BOARD_PLATFORM).usb.rc:root/init.$(TARGET_BOARD_PLATFORM).usb.rc \
+    $(LOCAL_PATH)/root/init.recovery.$(TARGET_BOARD_PLATFORM).rc:root/init.recovery.$(TARGET_BOARD_PLATFORM).rc \
     $(LOCAL_PATH)/root/init.aee.rc:root/init.aee.rc \
     $(LOCAL_PATH)/root/init.modem.rc:root/init.modem.rc \
     $(LOCAL_PATH)/root/init.volte.rc:root/init.volte.rc \
@@ -166,7 +166,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/root/init.project.rc:root/init.project.rc \
     $(LOCAL_PATH)/root/init.ssd.rc:root/init.ssd.rc \
     $(LOCAL_PATH)/root/init.xlog.rc:root/init.xlog.rc \
-    $(LOCAL_PATH)/root/ueventd.mt6595.rc:root/ueventd.mt6595.rc \
+    $(LOCAL_PATH)/root/ueventd.$(TARGET_BOARD_PLATFORM).rc:root/ueventd.$(TARGET_BOARD_PLATFORM).rc \
     $(LOCAL_PATH)/root/sbin/busybox:root/sbin/busybox \
     $(LOCAL_KERNEL):kernel
 
@@ -196,7 +196,7 @@ PRODUCT_COPY_FILES += \
 # USB
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp \
-    ro.hardware=mt6595
+    ro.hardware=$(TARGET_BOARD_PLATFORM)
 
 # NFC
 #PRODUCT_PACKAGES += \
