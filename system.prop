@@ -95,8 +95,15 @@ bgw.current3gband=0
 
 # VoLTE
 ro.mtk_ims_support=1
+ro.mtk.volte.enable=1
 ro.mtk_volte_support=1
 persist.dbg.volte_avail_ovr=1
+ro.mtk_wfc_support=1
+persist.dbg.wfc_avail_ovr=1
+ro.mtk_vilte_support=1
+#ro.mtk_vilte_ut_support=1
+persist.dbg.vt_avail_ovr=1
+ro.mtk_epdg_support=1
 
 
 # USB
