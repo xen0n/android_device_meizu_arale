@@ -1,0 +1,20 @@
+#
+## WFCA related services (Begin)
+#
+
+on property:ril.wfca=1
+    start wfca
+
+on property:ril.wfca=0
+    stop wfca
+
+service wfca /system/bin/wfca
+    class core
+    socket wfca stream 660 root system
+    user root
+    group system log inet radio net_admin root
+
+#
+## WFCA related services (End)
+#
+

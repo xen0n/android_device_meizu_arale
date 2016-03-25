@@ -155,6 +155,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/root/init.aee.rc:root/init.aee.rc \
     $(LOCAL_PATH)/root/init.modem.rc:root/init.modem.rc \
     $(LOCAL_PATH)/root/init.volte.rc:root/init.volte.rc \
+    $(LOCAL_PATH)/root/init.epdg.rc:root/init.epdg.rc \
+    $(LOCAL_PATH)/root/init.mal.rc:root/init.mal.rc \
+    $(LOCAL_PATH)/root/init.wfca.rc:root/init.wfca.rc \
     $(LOCAL_PATH)/root/init.project.rc:root/init.project.rc \
     $(LOCAL_PATH)/root/init.ssd.rc:root/init.ssd.rc \
     $(LOCAL_PATH)/root/init.xlog.rc:root/init.xlog.rc \

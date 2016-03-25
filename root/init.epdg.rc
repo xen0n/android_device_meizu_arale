@@ -1,0 +1,25 @@
+on post-fs-data
+
+# ePDG directory
+    mkdir /data/ipsec 0700 root root
+    mkdir /data/ipsec/wo 0600 root root
+    mkdir /dev/net/ 0700 root root
+
+#
+# ePDG related services (Begin)
+#
+service epdg_wod /system/bin/epdg_wod
+	class main
+    socket wod_action stream 660 root system
+    socket wod_sim stream 660 root system
+    socket wod_ipsec stream 660 root system
+    user root
+    group root system log inet radio net_admin
+
+
+#	socket <name> <type> <perm> [ <user> [ <group> ] ]
+
+#
+# ePDG related services (End)
+#
+

@@ -1,0 +1,20 @@
+#
+# MAL related services (Begin)
+#
+
+on property:ril.mal=1
+    start mal-daemon
+
+on property:ril.mal=0
+    stop mal-daemon
+
+service mal-daemon /system/bin/mtkmal
+    class core
+    socket mal-mfi stream 660 root radio
+    socket volte_imsm stream 660 root radio
+    user radio
+    group radio cache inet misc log system wifi
+
+#
+# MAL related services (End)
+#
