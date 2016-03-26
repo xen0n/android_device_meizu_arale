@@ -69,7 +69,7 @@ ril.flightmode.poweroffMD=0
 ril.telephony.mode=0
 ril.radiooff.poweroffMD=0
 
-ro.telephony.sim.count=2
+ro.telephony.sim.count=1
 ro.telephony.ril_class=MediaTekRIL
 ro.telephony.ril.config=fakeiccid
 
