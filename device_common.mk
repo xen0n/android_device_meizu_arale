@@ -224,7 +224,7 @@ PRODUCT_COPY_FILES += \
 # USB
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp \
-    ro.hardware=$(TARGET_BOARD_PLATFORM)
+    ro.hardware=mt6595 \
 
 # NFC
 #PRODUCT_PACKAGES += \
