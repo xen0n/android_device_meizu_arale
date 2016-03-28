@@ -204,3 +204,6 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/virtual/android_usb/android0/f_
 # SELinux
 BOARD_SEPOLICY_DIRS += \
     $(DEVICE_FOLDER_COMMON)/sepolicy
+
+# NOTE: remove this once Marshmallow kernel is available
+POLICYVERS := 29
