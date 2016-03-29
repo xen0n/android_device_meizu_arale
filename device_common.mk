@@ -121,28 +121,28 @@ PRODUCT_PACKAGES += \
     libcharon libhydra libstrongswan libsimaka \
 
 # wifi offload service common library
-#PRODUCT_PACKAGES += wfo-common
-#ifeq ($(strip $(MTK_EPDG_SUPPORT)), yes)
-#PRODUCT_PACKAGES += WfoService libwfo_jni
-#endif
+#PRODUCT_PACKAGES += wfo-common  # this is pulled in by ImsService
+ifeq ($(strip $(MTK_EPDG_SUPPORT)), yes)
+PRODUCT_PACKAGES += WfoService libwfo_jni
+endif
 
 # IMS and VoLTE feature
-#ifeq ($(strip $(MTK_IMS_SUPPORT)), yes)
-#    PRODUCT_PACKAGES += ImsService
-#endif
+ifeq ($(strip $(MTK_IMS_SUPPORT)), yes)
+    PRODUCT_PACKAGES += ImsService
+endif
 
 # IKEv2
-#ifeq ($(strip $(MTK_EPDG_SUPPORT)), yes)
+ifeq ($(strip $(MTK_EPDG_SUPPORT)), yes)
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/mtk/strongswan/epdg_conf/ipsec.conf:system/etc/ipsec/ipsec.conf
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/mtk/strongswan/epdg_conf/strongswan.conf:system/etc/ipsec/strongswan.conf
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/mtk/strongswan/epdg_conf/updown_script:system/etc/ipsec/updown_script
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/mtk/strongswan/epdg_conf/openssl.cnf:system/etc/ipsec/ssl/openssl.cnf
 
-#ifeq ($(strip $(MTK_CIP_SUPPORT)), no)
+ifeq ($(strip $(MTK_CIP_SUPPORT)), no)
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/mtk/strongswan/epdg_conf/Entrust.net_Certification_Authority_2048.cer:system/etc/ipsec/ipsec.d/cacerts/CA1.cer
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/mtk/strongswan/epdg_conf/test2_ca.crt:system/etc/ipsec/ipsec.d/cacerts/CA1L1.crt
-#endif
-#endif
+endif
+endif
 
 # Telecom
 PRODUCT_COPY_FILES += \
