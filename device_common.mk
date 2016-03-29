@@ -60,6 +60,7 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     audio_policy.default \
     libtinycompress \
+    libtinyxml \
 
 # this can't be compiled right now due to ABI mismatches (MTK_Tfa98xx_SetEQ),
 # and I don't feel like compiling the whole audio HAL from the source...
