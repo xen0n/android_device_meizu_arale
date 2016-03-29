@@ -53,7 +53,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    lights.$(TARGET_BOARD_PLATFORM)
+    lights.mt6595 \
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -155,7 +155,7 @@ PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/configs/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
 
 PRODUCT_PACKAGES += \
-    gps.$(TARGET_BOARD_PLATFORM) \
+    gps.mt6595 \
     mtk_agpsd \
 
 # Vibration
