@@ -6,6 +6,8 @@ LOCAL_MODULE_TAGS             := optional
 LOCAL_SRC_FILES               := client.c api.c
 LOCAL_EXPORT_C_INCLUDE_DIRS   := $(LOCAL_PATH)/include
 LOCAL_C_INCLUDES              := $(LOCAL_PATH)/include
+LOCAL_SHARED_LIBRARIES        := \
+	libcutils
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
