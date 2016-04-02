@@ -5,7 +5,7 @@
 
 
 #define FORCE_STORE_PATH "/data/.libimmvibeclient_force"
-#define DEFAULT_FORCE    96  /* 75% of 127 */
+#define DEFAULT_FORCE    32  /* 25% of 127 */
 
 
 uint8_t immvibe_api_get_force_userspace(void)
