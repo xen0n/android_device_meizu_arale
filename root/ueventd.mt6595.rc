@@ -31,6 +31,14 @@ subsystem adf
 /dev/block/mmcblk0boot0	   0660	 root	    system
 /dev/block/mmcblk0boot1	   0660	 root	    system
 /dev/misc-sd              0660   root       system
+# xen0n: really fix permissions
+/dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/boot 0660 root system
+/dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/recovery 0660 root system
+/dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/nvram 0660 root system
+/dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/para 0660 root system
+/dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/proinfo 0660 root system
+/dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/seccfg 0660 root system
+/dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/secro 0660 root system
 
 
 #connectivity
