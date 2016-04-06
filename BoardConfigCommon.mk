@@ -210,3 +210,6 @@ BOARD_SEPOLICY_DIRS += \
 
 # NOTE: remove this once Marshmallow kernel is available
 POLICYVERS := 29
+
+# Hack for building without kernel sources
+$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
