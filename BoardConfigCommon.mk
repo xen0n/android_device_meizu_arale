@@ -212,4 +212,9 @@ BOARD_SEPOLICY_DIRS += \
 POLICYVERS := 29
 
 # Hack for building without kernel sources
+ifeq ($(TARGET_DEVICE),arale)
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
+endif
+ifeq ($(TARGET_DEVICE),mx4)
+$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
+endif
