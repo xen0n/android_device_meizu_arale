@@ -55,6 +55,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lights.mt6595 \
 
+# Camera
+PRODUCT_PACKAGES += \
+    Snap \
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.r_submix.default \
