@@ -18,6 +18,7 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := \
     mtk_parcel.cpp \
     mtk_string.cpp \
+    mtkcam_cpuctrl.cpp \
 
 LOCAL_SHARED_LIBRARIES := libbinder libutils
 LOCAL_MODULE := libmtkabi
