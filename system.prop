@@ -104,6 +104,7 @@ ro.mtk_vilte_support=1
 #ro.mtk_vilte_ut_support=1
 persist.dbg.vt_avail_ovr=1
 ro.mtk_epdg_support=1
+ro.mtk_md_sbp_custom_value=1
 
 
 # USB
