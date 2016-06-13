@@ -12,10 +12,13 @@
 #include <cutils/log.h>
 #include <private/android_filesystem_config.h>
 
+#include <selinux/android.h>
+
 
 static void s_mknod(const char *pathname, mode_t type, unsigned int maj, unsigned int min)
 {
 	mknod(pathname, type, makedev(maj, min));
+	selinux_android_restorecon(pathname, 0);
 }
 
 
