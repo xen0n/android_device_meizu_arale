@@ -526,3 +526,4 @@
 
 # xen0n files
 # TODO
+/system/bin/proj-dev-setup u:object_r:proj_dev_setup_exec:s0

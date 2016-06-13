@@ -1,4 +1,5 @@
 # xen0n fixes
+# proj-dev-setup
 # /data/BT_Addr
 type xen0n_mtk_bt_addr_file, file_type;
 allow nvram_daemon xen0n_mtk_bt_addr_file:file { open getattr setattr read write };
@@ -10,13 +11,35 @@ allow init xen0n_mtk_bt_int_adp_socket:sock_file { create unlink setattr write }
 
 # xen0n-specific policies
 
+# proj-dev-setup
 type proj_dev_setup_exec, exec_type, file_type;
 type proj_dev_setup, domain;
+type xen0n_vold_post_fs_data_done_prop, property_type;
+init_daemon_domain(proj_dev_setup)
+
+allow proj_dev_setup self:capability { chown mknod dac_override fowner fsetid };
+allow proj_dev_setup device:dir { add_name write };
+allow proj_dev_setup device:chr_file { create relabelfrom getattr setattr };
+allow proj_dev_setup sysfs:dir { setattr };
+allow proj_dev_setup sysfs:file { setattr };
+allow proj_dev_setup ampc0_device:chr_file { relabelto setattr };
+allow proj_dev_setup stpbt_device:chr_file { relabelto setattr };
+allow proj_dev_setup mnld_device:chr_file { relabelto setattr };
+allow proj_dev_setup stpwmt_device:chr_file { relabelto getattr setattr };
+allow proj_dev_setup wmtWifi_device:chr_file { relabelto setattr };
+allow proj_dev_setup iio_device:chr_file { setattr };
+allow proj_dev_setup ttyMT_device:chr_file { setattr };
+allow proj_dev_setup wpa_socket:dir { getattr setattr };
+allow proj_dev_setup wifi_data_file:dir { getattr setattr };
+allow proj_dev_setup wpa_supplicant_data_file:dir { getattr setattr };
+allow proj_dev_setup wmtdetect_device:chr_file { setattr };
+
+allow proj_dev_setup init:unix_stream_socket { connectto };
+allow proj_dev_setup property_socket:sock_file { write };
+allow proj_dev_setup xen0n_vold_post_fs_data_done_prop:property_service { set };
+
+# openimmvibed
 type openimmvibed_exec, exec_type, file_type;
 type openimmvibed, domain;
-
-
-permissive proj_dev_setup;
 permissive openimmvibed;
-init_daemon_domain(proj_dev_setup)
 init_daemon_domain(openimmvibed)
