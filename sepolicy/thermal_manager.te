@@ -23,7 +23,7 @@ type thermal_manager ,domain;
 #permissive thermal_manager;
 
 init_daemon_domain(thermal_manager)
-#file_type_auto_trans(thermal_manager, system_data_file, thermal_manager_data_file)
+file_type_auto_trans(thermal_manager, system_data_file, thermal_manager_data_file)
 
 
 
