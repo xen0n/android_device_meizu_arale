@@ -9,6 +9,9 @@ type mtkbt_exec, exec_type, file_type;
 type mtkbt, domain;
 init_daemon_domain(mtkbt)
 
+allow mtkbt self:capability { net_admin };
+allow mtkbt mtkbt:netlink_socket { bind create read setopt write };
+
 # /dev/socket/bt.int.adp write
 type xen0n_mtk_bt_int_adp_socket, file_type;
 allow mtkbt xen0n_mtk_bt_int_adp_socket:sock_file { create unlink setattr write };
