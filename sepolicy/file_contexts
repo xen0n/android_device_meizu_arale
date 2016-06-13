@@ -525,6 +525,7 @@
 
 
 # Meizu additions
+/dev/tspdrv u:object_r:tspdrv_device:s0
 /system/bin/immvibed u:object_r:immvibed_exec:s0
 
 
@@ -533,3 +534,6 @@
 /system/bin/proj-dev-setup u:object_r:proj_dev_setup_exec:s0
 /system/bin/openimmvibed   u:object_r:openimmvibed_exec:s0
 /system/bin/meizupshelper  u:object_r:meizupshelper_exec:s0
+
+/dev/pipes/immvibecontrol  u:object_r:openimmvibed_control_socket:s0
+/data/\.libimmvibeclient_force u:object_r:openimmvibed_data_file:s0

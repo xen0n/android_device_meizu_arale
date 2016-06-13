@@ -192,3 +192,4 @@ hotknot.    u:object_r:hotknot_prop:s0
 
 # xen0n
 vold.post_fs_data_done u:object_r:xen0n_vold_post_fs_data_done_prop:s0
+persist.openimmvibe.vibe_force u:object_r:openimmvibed_force_prop:s0

@@ -10,6 +10,10 @@ allow init xen0n_mtk_bt_int_adp_socket:sock_file { create unlink setattr write }
 
 
 # Meizu additions
+# common vibration types
+type tspdrv_device, dev_type;
+type immvibe_pipes_dir, file_type;
+
 # immvibed
 type immvibed_exec, exec_type, file_type;
 type immvibed, domain;
@@ -46,10 +50,31 @@ allow proj_dev_setup property_socket:sock_file { write };
 allow proj_dev_setup xen0n_vold_post_fs_data_done_prop:property_service { set };
 
 # openimmvibed
+type openimmvibed_data_file, file_type, data_file_type;
+type openimmvibed_force_prop, property_type;
+type openimmvibed_control_socket, file_type;
+
 type openimmvibed_exec, exec_type, file_type;
 type openimmvibed, domain;
-permissive openimmvibed;
 init_daemon_domain(openimmvibed)
+file_type_auto_trans(openimmvibed, system_data_file, openimmvibed_data_file)
+
+allow openimmvibed tspdrv_device:chr_file { open ioctl write };
+
+allow openimmvibed device:dir { add_name write };
+allow openimmvibed device:sock_file { create relabelfrom getattr };
+allow openimmvibed openimmvibed_control_socket:sock_file { relabelto write };
+
+# for legacy setting migration
+allow openimmvibed openimmvibed_data_file:file { open unlink };
+allow openimmvibed openimmvibed_data_file:dir { remove_name write };
+
+allow openimmvibed init:unix_stream_socket { connectto };
+allow openimmvibed property_socket:sock_file  { write };
+allow openimmvibed openimmvibed_force_prop:property_service { set };
+
+# consumer of control socket
+unix_socket_connect(system_server, openimmvibed_control, openimmvibed);
 
 # meizupshelper
 type meizupshelper_exec, exec_type, file_type;

@@ -580,6 +580,9 @@ on post-fs-data
     # init some more device nodes
     start proj-dev-setup
 
+    # relabel legacy vibration force setting file for fearless migration
+    restorecon /data/.libimmvibeclient_force
+
 on boot
 
     #chown root /remount.sh
