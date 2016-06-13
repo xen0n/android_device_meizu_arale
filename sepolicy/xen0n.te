@@ -4,9 +4,14 @@
 type xen0n_mtk_bt_addr_file, file_type;
 allow nvram_daemon xen0n_mtk_bt_addr_file:file { open getattr setattr read write };
 
+# mtkbt
+type mtkbt_exec, exec_type, file_type;
+type mtkbt, domain;
+init_daemon_domain(mtkbt)
+
 # /dev/socket/bt.int.adp write
 type xen0n_mtk_bt_int_adp_socket, file_type;
-allow init xen0n_mtk_bt_int_adp_socket:sock_file { create unlink setattr write };
+allow mtkbt xen0n_mtk_bt_int_adp_socket:sock_file { create unlink setattr write };
 
 
 # Meizu additions

@@ -521,7 +521,8 @@
 # missing from bluetooth rules
 /data/BT_Addr u:object_r:xen0n_mtk_bt_addr_file:s0
 
-# write from init, not sure where does it originate from
+# mtkbt
+/system/bin/mtkbt u:object_r:mtkbt_exec:s0
 /dev/socket/bt.int.adp(/.*)? u:object_r:xen0n_mtk_bt_int_adp_socket:s0
 
 
