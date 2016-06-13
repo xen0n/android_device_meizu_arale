@@ -66,7 +66,7 @@ file_type_auto_trans(openimmvibed, system_data_file, openimmvibed_data_file)
 
 allow openimmvibed tspdrv_device:chr_file { open ioctl write };
 
-allow openimmvibed device:dir { add_name write };
+allow openimmvibed immvibe_pipes_dir:dir { add_name write };
 allow openimmvibed device:sock_file { create relabelfrom getattr };
 allow openimmvibed openimmvibed_control_socket:sock_file { relabelto write };
 

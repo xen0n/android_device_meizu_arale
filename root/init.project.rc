@@ -80,6 +80,8 @@ on init
     chmod 0660 /dev/tspdrv
 
     mkdir /dev/pipes 0771 system system
+    # xen0n: selinux
+    restorecon /dev/pipes
     export VIBE_PIPE_PATH /dev/pipes
 
 # TouchSense Player Service -- now minimally working without blob!
