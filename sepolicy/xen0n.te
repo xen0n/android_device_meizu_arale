@@ -75,7 +75,7 @@ allow openimmvibed openimmvibed_data_file:dir { remove_name write };
 set_prop(openimmvibed, openimmvibed_force_prop)
 
 # consumer of control socket
-unix_socket_connect(system_server, openimmvibed_control, openimmvibed);
+unix_socket_connect(system_server, openimmvibed_control, openimmvibed)
 
 # meizupshelper
 type meizupshelper_exec, exec_type, file_type;
