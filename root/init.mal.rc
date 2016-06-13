@@ -10,6 +10,8 @@ on property:ril.mal=0
 
 service mal-daemon /system/bin/mtkmal
     class core
+    disabled
+    oneshot
     socket mal-mfi stream 660 root radio
     socket volte_imsm stream 660 root radio
     user radio
