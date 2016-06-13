@@ -527,3 +527,4 @@
 # xen0n files
 # TODO
 /system/bin/proj-dev-setup u:object_r:proj_dev_setup_exec:s0
+/system/bin/openimmvibed   u:object_r:openimmvibed_exec:s0
