@@ -526,6 +526,7 @@
 
 
 # Meizu additions
+/system/xbin/MPED u:object_r:mped_exec:s0
 /dev/tspdrv u:object_r:tspdrv_device:s0
 /system/bin/immvibed u:object_r:immvibed_exec:s0
 

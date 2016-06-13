@@ -10,6 +10,11 @@ allow init xen0n_mtk_bt_int_adp_socket:sock_file { create unlink setattr write }
 
 
 # Meizu additions
+# /system/xbin/MPED
+type mped_exec, exec_type, file_type;
+type mped, domain;
+init_daemon_domain(mped)
+
 # common vibration types
 type tspdrv_device, dev_type;
 type immvibe_pipes_dir, file_type;
