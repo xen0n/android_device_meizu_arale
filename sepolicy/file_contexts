@@ -524,6 +524,10 @@
 /dev/socket/bt.int.adp(/.*)? u:object_r:xen0n_mtk_bt_int_adp_socket:s0
 
 
+# Meizu additions
+/system/bin/immvibed u:object_r:immvibed_exec:s0
+
+
 # xen0n files
 # TODO
 /system/bin/proj-dev-setup u:object_r:proj_dev_setup_exec:s0

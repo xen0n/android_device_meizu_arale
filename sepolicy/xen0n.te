@@ -9,6 +9,13 @@ type xen0n_mtk_bt_int_adp_socket, file_type;
 allow init xen0n_mtk_bt_int_adp_socket:sock_file { create unlink setattr write };
 
 
+# Meizu additions
+# immvibed
+type immvibed_exec, exec_type, file_type;
+type immvibed, domain;
+init_daemon_domain(immvibed)
+
+
 # xen0n-specific policies
 
 # proj-dev-setup
