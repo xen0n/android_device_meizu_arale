@@ -1,0 +1,28 @@
+Library of Drm features, including oma plugin.
+
+This library is pre-built by MediaTek internal.
+
+WHAT IT DOES?
+=============
+libdrmmtkplugin will be used by drm, it contains oma interface called by drm manager.
+Without them, oma feature will not work.
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+1. libicui18n.so
+2. libicuuc.so
+3. libutils.so
+4. libcutils.so
+5. libdl.so
+
+and the following libs from MediaTek:
+1. libdrmmtkutil.so
+2. libmtk_drvb.so
+
+All source/dependency modules of this module are already put in
+'system/lib' folder.
+
+HOW TO USE IT?
+==============
+libdrmmtkplugin provides interface of oma plugin, it is built library.

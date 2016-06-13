@@ -1,0 +1,23 @@
+library of Drm features, Feature file for clients to look up widevine drm plug-in.
+
+This library is pre-built by MediaTek internal.
+
+WHAT IT DOES?
+=============
+Feature file for clients to look up widevine drm plug-in.
+Without them, widevine plugin will not be found.
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+
+
+and the following libs from MediaTek:
+
+
+All source/dependency modules of this module are already put in
+'system/lib' folder.
+
+HOW TO USE IT?
+==============
+Library of widevine pluin.

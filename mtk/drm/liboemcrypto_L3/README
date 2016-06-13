@@ -1,0 +1,23 @@
+Library of Drm features, including api to implement functions.
+
+This library is pre-built by MediaTek internal.
+
+WHAT IT DOES?
+=============
+liboemcrypto_L3 will be used by liboemcrypto, it implement crypto functions.
+Without them, classic drm will not work.
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+1. libutils.so
+
+and the following libs from MediaTek:
+1. libdrmmtkutil.so
+
+All source/dependency modules of this module are already put in
+'system/lib' folder.
+
+HOW TO USE IT?
+==============
+liboemcrypto_L3 provides interface of crypto method, it is built library.

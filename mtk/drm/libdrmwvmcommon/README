@@ -1,0 +1,20 @@
+library of Drm features, including widevine drm plugin api.
+
+This library is pre-built by MediaTek internal.
+
+WHAT IT DOES?
+=============
+libdrmwvmcommon is used by widevine plugin, it contains method in DrmEngine.
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+
+and the following libs from MediaTek:
+
+All source/dependency modules of this module are already put in
+'system/lib' folder.
+
+HOW TO USE IT?
+==============
+libdrmwvmcommon is used by widevine plugin, it implements DrmEngine method.

@@ -1,0 +1,44 @@
+library of Drm features, including libdrmwvmplugin,libwvm,libdrmdecrypt.
+
+This library is pre-built by MediaTek internal.
+
+WHAT IT DOES?
+=============
+libdrmwvmplugin.so, libwvm.so and libdrmdecrypt.so will be used by drm.
+Without them, classic drm, modular drm feature will not work.
+
+HOW IT WAS BUILT?
+==================
+It needs the following library from AOSP:
+1. libstlport.so
+2. libstagefright.so
+3. libWVStreamControlAPI_L1.so
+4. libWVStreamControlAPI_L3.so
+5. libdrmframework.so
+6. libcutils.so
+7. liblog.so
+8. libutils.so
+9. libz.so
+10. lib_uree_mtk_crypto.so
+11. libtlcWidevine.so
+12. libMcClient.so
+13. libsec_mem.so
+14. libcutils.so
+15. libnetutils.so
+16. libc.so
+17. libft.so
+18. libbinder.so
+19. libwvdrm_L1.so
+20. libwvdrm_L3.so
+21. libdl.so
+22. libstagefright_foundation.so
+
+and the following libs from MediaTek:
+1. libdrmmtkutil.so
+
+All source/dependency modules of this module are already put in
+'system/lib' folder.
+
+HOW TO USE IT?
+==============
+libdrmwvmplugin.so, libwvm.so, libdrmdecrypt.so provide function of classic drm and modular drm.

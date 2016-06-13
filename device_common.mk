@@ -77,8 +77,15 @@ PRODUCT_COPY_FILES += \
 
 # Digital Restrictions Management
 PRODUCT_PACKAGES += \
+    com.google.widevine.software.drm.xml \
     libmtk_drvb \
-    libdrmmtkutil \
+    libdrmctaplugin \
+    libdrmmtkplugin \
+    libdrmwvmplugin \
+    libwvm \
+    # libdrmmtkutil -- pulled in by libwvm
+    # libwvdrm_L3 libWVStreamControlAPI_L3 -- pulled in by libdrmwvmplugin
+    # libdrmmtkwhitelist -- pulled in by libdrmmtkutil
 
 # Wifi
 PRODUCT_PACKAGES += \
