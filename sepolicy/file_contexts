@@ -271,8 +271,8 @@
 /dev/socket/tunman(/.*)? u:object_r:tunman_socket:s0
 /dev/stpant(/.*)? u:object_r:stpant_device:s0
 /dev/stpbt(/.*)? u:object_r:stpbt_device:s0
-/dev/stpgps        u:object_r:mnld_device:s0
-/dev/stpgps(/.*)? u:object_r:stpgps_device:s0
+#/dev/stpgps        u:object_r:mnld_device:s0
+#/dev/stpgps(/.*)? u:object_r:stpgps_device:s0
 /dev/stpwmt(/.*)? u:object_r:stpwmt_device:s0
 /dev/sw_sync(/.*)? u:object_r:sw_sync_device:s0
 /dev/tgt(/.*)? u:object_r:tgt_device:s0
@@ -508,6 +508,20 @@
 /dev/block/mmcblk0p16 u:object_r:userdata_block_device:s0
 /dev/block/mmcblk0p15 u:object_r:cache_block_device:s0
 /dev/block/mmcblk0p8 u:object_r:recovery_block_device:s0
+/dev/block/mmcblk0p3 u:object_r:protect1_block_device:s0
+/dev/block/mmcblk0p4 u:object_r:protect2_block_device:s0
+
+# mysterious misses from regex matching
+/dev/stpbt  u:object_r:stpbt_device:s0
+/dev/stpgps u:object_r:mnld_device:s0
+/dev/stpwmt u:object_r:stpwmt_device:s0
+/dev/wmtWifi u:object_r:wmtWifi_device:s0
+
+# missing from bluetooth rules
+/data/BT_Addr u:object_r:xen0n_mtk_bt_addr_file:s0
+
+# write from init, not sure where does it originate from
+/dev/socket/bt.int.adp(/.*)? u:object_r:xen0n_mtk_bt_int_adp_socket:s0
 
 
 # xen0n files

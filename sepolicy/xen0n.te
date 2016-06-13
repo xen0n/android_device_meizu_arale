@@ -1,3 +1,13 @@
+# xen0n fixes
+# /data/BT_Addr
+type xen0n_mtk_bt_addr_file, file_type;
+allow nvram_daemon xen0n_mtk_bt_addr_file:file { open getattr setattr read write };
+
+# /dev/socket/bt.int.adp write
+type xen0n_mtk_bt_int_adp_socket, file_type;
+allow init xen0n_mtk_bt_int_adp_socket:sock_file { create unlink setattr write };
+
+
 # xen0n-specific policies
 
 type proj_dev_setup_exec, exec_type, file_type;
