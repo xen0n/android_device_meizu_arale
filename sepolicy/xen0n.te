@@ -1,4 +1,8 @@
 # xen0n fixes
+# init
+# /dev/wmtWifi writes
+allow init wmtWifi_device:chr_file { write };
+
 # proj-dev-setup
 # /data/BT_Addr
 type xen0n_mtk_bt_addr_file, file_type;
