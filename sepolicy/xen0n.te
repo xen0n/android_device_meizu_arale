@@ -50,9 +50,7 @@ allow proj_dev_setup wifi_data_file:dir { getattr setattr };
 allow proj_dev_setup wpa_supplicant_data_file:dir { getattr setattr };
 allow proj_dev_setup wmtdetect_device:chr_file { setattr };
 
-allow proj_dev_setup init:unix_stream_socket { connectto };
-allow proj_dev_setup property_socket:sock_file { write };
-allow proj_dev_setup xen0n_vold_post_fs_data_done_prop:property_service { set };
+set_prop(proj_dev_setup, xen0n_vold_post_fs_data_done_prop)
 
 # openimmvibed
 type openimmvibed_data_file, file_type, data_file_type;
@@ -74,9 +72,7 @@ allow openimmvibed openimmvibed_control_socket:sock_file { relabelto write };
 allow openimmvibed openimmvibed_data_file:file { open unlink };
 allow openimmvibed openimmvibed_data_file:dir { remove_name write };
 
-allow openimmvibed init:unix_stream_socket { connectto };
-allow openimmvibed property_socket:sock_file  { write };
-allow openimmvibed openimmvibed_force_prop:property_service { set };
+set_prop(openimmvibed, openimmvibed_force_prop)
 
 # consumer of control socket
 unix_socket_connect(system_server, openimmvibed_control, openimmvibed);
