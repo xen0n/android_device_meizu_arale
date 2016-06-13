@@ -50,3 +50,8 @@ type openimmvibed_exec, exec_type, file_type;
 type openimmvibed, domain;
 permissive openimmvibed;
 init_daemon_domain(openimmvibed)
+
+# meizupshelper
+type meizupshelper_exec, exec_type, file_type;
+type meizupshelper, domain;
+init_daemon_domain(meizupshelper)
