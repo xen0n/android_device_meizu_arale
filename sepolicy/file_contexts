@@ -489,3 +489,26 @@
 
 #fat on nand image
 /fat(/.*)?  u:object_r:fon_image_data_file:s0
+
+
+# xen0n fixes
+# it seems the block devices can only be labeled by absolute path
+/dev/block/mmcblk0p1  u:object_r:nvram_device:s0
+/dev/block/mmcblk0p2  u:object_r:nvram_device:s0
+# /dev/block/platform/mtk-msdc\.0/by-name/nvdata u:object_r:nvdata_device:s0
+# /dev/block/platform/mtk-msdc\.0/by-name/frp  u:object_r:frp_block_device:s0
+/dev/block/mmcblk0p13 u:object_r:expdb_block_device:s0
+# /dev/block/platform/mtk-msdc\.0/by-name/misc2 u:object_r:misc2_block_device:s0
+/dev/block/mmcblk0p11 u:object_r:logo_block_device:s0
+/dev/block/mmcblk0p10 u:object_r:para_block_device:s0
+# /dev/block/platform/mtk-msdc\.0/by-name/tee1 u:object_r:tee_block_device:s0
+# /dev/block/platform/mtk-msdc\.0/by-name/tee2 u:object_r:tee_block_device:s0
+/dev/block/mmcblk0p5 u:object_r:seccfg_block_device:s0
+/dev/block/mmcblk0p9 u:object_r:secro_block_device:s0
+/dev/block/mmcblk0p16 u:object_r:userdata_block_device:s0
+/dev/block/mmcblk0p15 u:object_r:cache_block_device:s0
+/dev/block/mmcblk0p8 u:object_r:recovery_block_device:s0
+
+
+# xen0n files
+# TODO
