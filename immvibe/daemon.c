@@ -1,6 +1,7 @@
 #define LOG_TAG "OpenImmVibed"
 
 #include <cutils/log.h>
+#include <selinux/android.h>
 
 #include <stdio.h>
 #include <stdint.h>
@@ -153,6 +154,8 @@ static int init_socket(void)
 		ret = errno;
 		goto bail;
 	}
+
+	selinux_android_restorecon(IMMVIBED_SOCK_PATH, 0);
 
 	ret = set_nonblock(fd);
 	if (ret) {

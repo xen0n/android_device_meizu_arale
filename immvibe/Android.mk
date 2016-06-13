@@ -27,7 +27,9 @@ LOCAL_SRC_FILES               := daemon.c threadqueue.c
 LOCAL_C_INCLUDES              := $(LOCAL_PATH)
 LOCAL_SHARED_LIBRARIES        := \
 	libimmvibeclient \
-	liblog
+	liblog \
+	libselinux \
+
 include $(BUILD_EXECUTABLE)
 
 include $(CLEAR_VARS)
