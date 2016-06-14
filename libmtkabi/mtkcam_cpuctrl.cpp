@@ -21,3 +21,7 @@ extern "C" int _ZN10CpuCtrlImp6enableERN7CpuCtrl13CPU_CTRL_INFOE() {
 extern "C" int _ZN10CpuCtrlImp7disableEv() {
 	return 0;
 }
+
+extern "C" int _ZN10CpuCtrlImp6uninitEv() {
+	return 0;
+}
