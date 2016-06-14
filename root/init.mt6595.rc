@@ -20,6 +20,8 @@ on early-boot
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
 
+    restorecon /sys/class/meizu/ps/ps_calibration
+
 
 on init
 
