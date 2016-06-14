@@ -93,6 +93,10 @@ set_prop(openimmvibed, openimmvibed_force_prop)
 unix_socket_connect(system_server, openimmvibed_control, openimmvibed)
 
 # meizupshelper
+type meizu_ps_calibration_trigger, file_type;
 type meizupshelper_exec, exec_type, file_type;
 type meizupshelper, domain;
 init_daemon_domain(meizupshelper)
+
+allow meizupshelper self:capability { dac_override };
+allow meizupshelper meizu_ps_calibration_trigger:file { write };

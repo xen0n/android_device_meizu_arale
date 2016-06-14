@@ -533,6 +533,7 @@
 /dev/tspdrv u:object_r:tspdrv_device:s0
 /system/bin/immvibed u:object_r:immvibed_exec:s0
 /dev/pipes u:object_r:immvibe_pipes:s0
+/sys/class/meizu/ps/ps_calibration u:object_r:meizu_ps_calibration_trigger:s0
 
 
 # xen0n files
