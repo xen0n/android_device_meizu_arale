@@ -4,6 +4,8 @@ on post-fs-data
     mkdir /data/ipsec 0700 root root
     mkdir /data/ipsec/wo 0600 root root
     mkdir /dev/net/ 0700 root root
+    # xen0n
+    restorecon_recursive /data/ipsec
 
 #
 # ePDG related services (Begin)
