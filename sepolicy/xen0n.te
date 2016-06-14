@@ -1,5 +1,8 @@
 # xen0n fixes
 # init
+# debugfs mount
+allow init debugfs:dir { mounton };
+
 # /dev/wmtWifi writes
 allow init wmtWifi_device:chr_file { write };
 
