@@ -39,6 +39,11 @@ type immvibed_exec, exec_type, file_type;
 type immvibed, domain;
 init_daemon_domain(immvibed)
 
+allow immvibed self:capability { dac_override setuid setgid sys_nice };
+allow immvibed tspdrv_device:chr_file { open ioctl write };
+allow immvibed immvibe_pipe:dir { add_name write };
+allow immvibed immvibe_pipe:fifo_file { create_file_perms };
+
 
 # xen0n-specific policies
 
