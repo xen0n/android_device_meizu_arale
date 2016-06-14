@@ -32,7 +32,7 @@ init_daemon_domain(mped)
 
 # common vibration types
 type tspdrv_device, dev_type;
-type immvibe_pipes, file_type;
+type immvibe_pipe, file_type;
 
 # immvibed
 type immvibed_exec, exec_type, file_type;
@@ -79,8 +79,8 @@ file_type_auto_trans(openimmvibed, system_data_file, openimmvibed_data_file)
 
 allow openimmvibed tspdrv_device:chr_file { open ioctl write };
 
-allow openimmvibed immvibe_pipes:dir { add_name create getattr write };
-allow openimmvibed immvibe_pipes:sock_file { create relabelfrom getattr };
+allow openimmvibed immvibe_pipe:dir { add_name create getattr write };
+allow openimmvibed immvibe_pipe:sock_file { create relabelfrom getattr };
 allow openimmvibed openimmvibed_control_socket:sock_file { relabelto write };
 
 # for legacy setting migration
