@@ -25,6 +25,11 @@ allow mtkbt xen0n_mtk_bt_int_adp_socket:sock_file { create unlink setattr write 
 
 
 # Meizu additions
+# tfa9890
+type tfa9890_i2c_device, dev_type;
+
+allow mediaserver tfa9890_i2c_device:chr_file { open ioctl read write };
+
 # /system/xbin/MPED
 type mped_exec, exec_type, file_type;
 type mped, domain;

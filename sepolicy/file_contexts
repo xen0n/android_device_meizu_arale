@@ -534,6 +534,7 @@
 /system/bin/immvibed u:object_r:immvibed_exec:s0
 /dev/pipes u:object_r:immvibe_pipe:s0
 /sys/class/meizu/ps/ps_calibration u:object_r:meizu_ps_calibration_trigger:s0
+/dev/i2c-3 u:object_r:tfa9890_i2c_device:s0
 
 
 # xen0n files
