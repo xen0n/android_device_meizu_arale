@@ -49,9 +49,9 @@
 /data/nvram(/.*)? u:object_r:nvram_data_file:s0
 /data/md3(/.*)? u:object_r:c2k_file:s0
 /nvdata(/.*)? u:object_r:nvdata_file:s0
-/data/SF_dump(./*)? u:object_r:sf_bqdump_data_file:s0
-/data/ipsec(./*)? u:object_r:wod_ipsec_conf_file:s0
-/data/ipsec/wo(./*)? u:object_r:wod_apn_conf_file:s0
+/data/SF_dump(/.*)? u:object_r:sf_bqdump_data_file:s0
+/data/ipsec(/.*)? u:object_r:wod_ipsec_conf_file:s0
+/data/ipsec/wo(/.*)? u:object_r:wod_apn_conf_file:s0
 /data/data_tmpfs_log(/.*)? u:object_r:data_tmpfs_log_file:s0
 /data/tmp_mnt/data_tmpfs_log(/.*)? u:object_r:data_tmpfs_log_file:s0
 /data/setkey.conf        u:object_r:ims_ipsec_data_file:s0
