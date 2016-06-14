@@ -525,6 +525,8 @@
 /system/bin/mtkbt u:object_r:mtkbt_exec:s0
 /dev/socket/bt.int.adp(/.*)? u:object_r:xen0n_mtk_bt_int_adp_socket:s0
 
+# missing from thermal_manager rules
+/data/\.tp\.settings u:object_r:thermal_manager_data_file:s0
 
 # Meizu additions
 /system/xbin/MPED u:object_r:mped_exec:s0
