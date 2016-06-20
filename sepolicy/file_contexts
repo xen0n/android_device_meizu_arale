@@ -558,6 +558,10 @@
 # missing from thermal_manager rules
 /data/\.tp\.settings u:object_r:thermal_manager_data_file:s0
 
+# for transition from selinux-disabled builds where things are not properly
+# labeled
+/data/autok_[0-9]*_.* u:object_r:autokd_data_file:s0
+
 # Meizu additions
 /system/xbin/MPED u:object_r:mped_exec:s0
 /dev/tspdrv u:object_r:tspdrv_device:s0

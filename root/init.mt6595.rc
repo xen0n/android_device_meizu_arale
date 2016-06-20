@@ -586,6 +586,9 @@ on post-fs-data
     restorecon /data/.libimmvibeclient_force
 	# fix thermal_manager violations
 	restorecon /data/.tp.settings
+    # fix autokd
+    restorecon /data/autok_3_1125000
+    restorecon /data/autok_3_log
 
 on boot
 
