@@ -234,9 +234,9 @@
 /dev/socket/rild-atci(/.*)? u:object_r:rild_atci_socket:s0
 /dev/socket/rild-vsim(/.*)? u:object_r:rild_vsim_socket:s0
 /dev/socket/rild-vsim-md2(/.*)? u:object_r:rild_vsim_md2_socket:s0
-/dev/socket/rild-ctclient u:object_r:rild_ctclient_socket:s0
+#/dev/socket/rild-ctclient u:object_r:rild_ctclient_socket:s0
 /dev/socket/rild-debug-md2(/.*)? u:object_r:rild_debug_md2_socket:s0
-/dev/socket/rild-debug(/.*)? u:object_r:rild_debug_socket:s0
+#/dev/socket/rild-debug(/.*)? u:object_r:rild_debug_socket:s0
 /dev/socket/rild-dongle(/.*)? u:object_r:rild-dongle_socket:s0
 /dev/socket/rild-md2(/.*)? u:object_r:rild_md2_socket:s0
 /dev/socket/rild-mtk-modem-md2(/.*)? u:object_r:rild_mtk_modem_md2_socket:s0
@@ -247,8 +247,8 @@
 /dev/socket/rild-mtk-ut(/.*)? u:object_r:rild_mtk_ut_socket:s0
 /dev/socket/rild-oem-md2(/.*)? u:object_r:rild_oem_md2_socket:s0
 /dev/socket/rild-oem(/.*)? u:object_r:rild_oem_socket:s0
-/dev/socket/rild(/.*)? u:object_r:rild_socket:s0
-/dev/socket/rild-via u:object_r:rild_via_socket:s0
+#/dev/socket/rild(/.*)? u:object_r:rild_socket:s0
+#/dev/socket/rild-via u:object_r:rild_via_socket:s0
 /dev/socket/rild-atci-c2k(/.*)? u:object_r:rild_atci_c2k_socket:s0
 /dev/socket/mal-mfi(/.*)? u:object_r:mal_mfi_socket:s0
 /dev/socket/rpc u:object_r:rpc_socket:s0
@@ -517,6 +517,36 @@
 /dev/stpgps u:object_r:mnld_device:s0
 /dev/stpwmt u:object_r:stpwmt_device:s0
 /dev/wmtWifi u:object_r:wmtWifi_device:s0
+/dev/socket/rild2-md2 u:object_r:rild2_md2_socket:s0
+/dev/socket/rild2 u:object_r:rild2_socket:s0
+/dev/socket/rild3 u:object_r:rild3_socket:s0
+/dev/socket/rild4 u:object_r:rild4_socket:s0
+/dev/socket/rild-mal u:object_r:rild_mal_socket:s0
+/dev/socket/rild-mal-at u:object_r:rild_mal_at_socket:s0
+/dev/socket/rild-mal-md2 u:object_r:rild_mal_md2_socket:s0
+/dev/socket/rild-mal-at-md2 u:object_r:rild_mal_at_md2_socket:s0
+/dev/socket/rild-ims u:object_r:rild_ims_socket:s0
+/dev/socket/volte_imsm u:object_r:rild_imsm_socket:s0
+/dev/socket/rild-atci-md2 u:object_r:rild_atci_md2_socket:s0
+/dev/socket/rild-atci u:object_r:rild_atci_socket:s0
+/dev/socket/rild-vsim u:object_r:rild_vsim_socket:s0
+/dev/socket/rild-vsim-md2 u:object_r:rild_vsim_md2_socket:s0
+/dev/socket/rild-ctclient u:object_r:rild_ctclient_socket:s0
+/dev/socket/rild-debug-md2 u:object_r:rild_debug_md2_socket:s0
+#/dev/socket/rild-debug u:object_r:rild_debug_socket:s0  -- defined in AOSP
+/dev/socket/rild-dongle u:object_r:rild-dongle_socket:s0
+/dev/socket/rild-md2 u:object_r:rild_md2_socket:s0
+/dev/socket/rild-mtk-modem-md2 u:object_r:rild_mtk_modem_md2_socket:s0
+/dev/socket/rild-mtk-modem u:object_r:rild_mtk_modem_socket:s0
+/dev/socket/rild-mtk-ut-2-md2 u:object_r:rild_mtk_ut_2_md2_socket:s0
+/dev/socket/rild-mtk-ut-2 u:object_r:rild_mtk_ut_2_socket:s0
+/dev/socket/rild-mtk-ut-md2 u:object_r:rild_mtk_ut_md2_socket:s0
+/dev/socket/rild-mtk-ut u:object_r:rild_mtk_ut_socket:s0
+/dev/socket/rild-oem-md2 u:object_r:rild_oem_md2_socket:s0
+/dev/socket/rild-oem u:object_r:rild_oem_socket:s0
+#/dev/socket/rild u:object_r:rild_socket:s0  -- defined in AOSP
+/dev/socket/rild-via u:object_r:rild_via_socket:s0
+/dev/socket/rild-atci-c2k u:object_r:rild_atci_c2k_socket:s0
 
 # missing from bluetooth rules
 /data/BT_Addr u:object_r:xen0n_mtk_bt_addr_file:s0
