@@ -30,6 +30,11 @@ type tfa9890_i2c_device, dev_type;
 
 allow mediaserver tfa9890_i2c_device:chr_file { open ioctl read write };
 
+# camera
+type LC898212XD_device, dev_type;
+
+allow mediaserver LC898212XD_device:chr_file { open ioctl read write };
+
 # /system/xbin/MPED
 type mped_exec, exec_type, file_type;
 type mped_data_file, file_type;

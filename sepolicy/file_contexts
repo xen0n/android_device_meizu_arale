@@ -569,6 +569,7 @@
 /dev/pipes u:object_r:immvibe_pipe:s0
 /sys/devices/bus\.1/11010000\.I2C3/i2c-3/3-001e/ps_calibration u:object_r:meizu_ps_calibration_trigger:s0
 /dev/i2c-3 u:object_r:tfa9890_i2c_device:s0
+/dev/LC898212XD u:object_r:LC898212XD_device:s0
 
 /data/mpe_mnl(/.*)? u:object_r:mped_data_file:s0
 # no filetrans_pattern
