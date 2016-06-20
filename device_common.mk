@@ -49,7 +49,8 @@ PRODUCT_PACKAGES += \
     libui_ext \
     libgui_ext \
     guiext-server \
-    librrc
+    librrc \
+    libmtk_drvb \
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -76,16 +77,16 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 # Digital Restrictions Management
-PRODUCT_PACKAGES += \
-    com.google.widevine.software.drm.xml \
-    libmtk_drvb \
-    libdrmctaplugin \
-    libdrmmtkplugin \
-    libdrmwvmplugin \
-    libwvm \
-    # libdrmmtkutil -- pulled in by libwvm
-    # libwvdrm_L3 libWVStreamControlAPI_L3 -- pulled in by libdrmwvmplugin
-    # libdrmmtkwhitelist -- pulled in by libdrmmtkutil
+# many many many segfaults, disable for now
+#PRODUCT_PACKAGES += \
+#    com.google.widevine.software.drm.xml \
+#    libdrmctaplugin \
+#    libdrmmtkplugin \
+#    libdrmwvmplugin \
+#    libwvm \
+#    # libdrmmtkutil -- pulled in by libwvm
+#    # libwvdrm_L3 libWVStreamControlAPI_L3 -- pulled in by libdrmwvmplugin
+#    # libdrmmtkwhitelist -- pulled in by libdrmmtkutil
 
 # Wifi
 PRODUCT_PACKAGES += \
