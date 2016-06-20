@@ -114,41 +114,41 @@ PRODUCT_PACKAGES += \
     mtkrildmd2 \
     mtk-ril \
     mtk-rilmd2 \
-    volte_stack \
-    volte_imcb \
-    volte_ua \
-    volte_imsm \
-    libmal \
-    libmal_datamngr \
-    libmal_epdga \
-    libmal_imsmngr \
-    libmal_mdmngr \
-    libmal_nwmngr \
-    libmal_rds \
-    libmal_rilproxy \
-    libmal_simmngr \
-    epdg_wod \
-    mtkmal \
-    charon starter stroke ipsec \
-    libcharon libhydra libstrongswan libsimaka \
+#    volte_stack \
+#    volte_imcb \
+#    volte_ua \
+#    volte_imsm \
+#    libmal \
+#    libmal_datamngr \
+#    libmal_epdga \
+#    libmal_imsmngr \
+#    libmal_mdmngr \
+#    libmal_nwmngr \
+#    libmal_rds \
+#    libmal_rilproxy \
+#    libmal_simmngr \
+#    epdg_wod \
+#    mtkmal \
+#    charon starter stroke ipsec \
+#    libcharon libhydra libstrongswan libsimaka \
 
 # wifi offload service common library
 #PRODUCT_PACKAGES += wfo-common  # this is pulled in by ImsService
 #ifeq ($(strip $(MTK_EPDG_SUPPORT)),yes)
-PRODUCT_PACKAGES += WfoService libwfo_jni
+#PRODUCT_PACKAGES += WfoService libwfo_jni
 #endif
 
 # IMS and VoLTE feature
 #ifeq ($(strip $(MTK_IMS_SUPPORT)),yes)
-    PRODUCT_PACKAGES += ImsService
+#    PRODUCT_PACKAGES += ImsService
 #endif
 
 # IKEv2
 #ifeq ($(strip $(MTK_EPDG_SUPPORT)),yes)
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/mtk/strongswan/epdg_conf/ipsec.conf:system/etc/ipsec/ipsec.conf
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/mtk/strongswan/epdg_conf/strongswan.conf:system/etc/ipsec/strongswan.conf
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/mtk/strongswan/epdg_conf/updown_script:system/etc/ipsec/updown_script
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/mtk/strongswan/epdg_conf/openssl.cnf:system/etc/ipsec/ssl/openssl.cnf
+#PRODUCT_COPY_FILES += $(LOCAL_PATH)/mtk/strongswan/epdg_conf/ipsec.conf:system/etc/ipsec/ipsec.conf
+#PRODUCT_COPY_FILES += $(LOCAL_PATH)/mtk/strongswan/epdg_conf/strongswan.conf:system/etc/ipsec/strongswan.conf
+#PRODUCT_COPY_FILES += $(LOCAL_PATH)/mtk/strongswan/epdg_conf/updown_script:system/etc/ipsec/updown_script
+#PRODUCT_COPY_FILES += $(LOCAL_PATH)/mtk/strongswan/epdg_conf/openssl.cnf:system/etc/ipsec/ssl/openssl.cnf
 
 #ifeq ($(strip $(MTK_CIP_SUPPORT)),no)
 #PRODUCT_COPY_FILES += $(LOCAL_PATH)/mtk/strongswan/epdg_conf/Entrust.net_Certification_Authority_2048.cer:system/etc/ipsec/ipsec.d/cacerts/CA1.cer
@@ -199,16 +199,19 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/root/init.recovery.mt6595.rc:root/init.recovery.mt6595.rc \
     $(LOCAL_PATH)/root/init.aee.rc:root/init.aee.rc \
     $(LOCAL_PATH)/root/init.modem.rc:root/init.modem.rc \
-    $(LOCAL_PATH)/root/init.volte.rc:root/init.volte.rc \
-    $(LOCAL_PATH)/root/init.epdg.rc:root/init.epdg.rc \
-    $(LOCAL_PATH)/root/init.mal.rc:root/init.mal.rc \
-    $(LOCAL_PATH)/root/init.wfca.rc:root/init.wfca.rc \
     $(LOCAL_PATH)/root/init.project.rc:root/init.project.rc \
     $(LOCAL_PATH)/root/init.ssd.rc:root/init.ssd.rc \
     $(LOCAL_PATH)/root/init.xlog.rc:root/init.xlog.rc \
     $(LOCAL_PATH)/root/ueventd.mt6595.rc:root/ueventd.mt6595.rc \
     $(LOCAL_PATH)/root/sbin/busybox:root/sbin/busybox \
     $(LOCAL_KERNEL):kernel
+
+# PRODUCT_COPY_FILES += \
+#     $(LOCAL_PATH)/root/init.volte.rc:root/init.volte.rc \
+#     $(LOCAL_PATH)/root/init.epdg.rc:root/init.epdg.rc \
+#     $(LOCAL_PATH)/root/init.mal.rc:root/init.mal.rc \
+#     $(LOCAL_PATH)/root/init.wfca.rc:root/init.wfca.rc \
+
 
 # Permissions
 PRODUCT_COPY_FILES += \
