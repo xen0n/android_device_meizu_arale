@@ -122,5 +122,7 @@ type meizupshelper_exec, exec_type, file_type;
 type meizupshelper, domain;
 init_daemon_domain(meizupshelper)
 
+allow meizu_ps_calibration_trigger sysfs:filesystem { associate };
+allow ueventd meizu_ps_calibration_trigger:file { getattr };
 allow meizupshelper self:capability { dac_override };
-allow meizupshelper meizu_ps_calibration_trigger:file { write };
+allow meizupshelper meizu_ps_calibration_trigger:file { rw_file_perms };
