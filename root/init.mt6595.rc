@@ -16,10 +16,12 @@ import init.modem.rc
 
 
 on early-boot
+    # NOTE: early-boot is AFTER even post-fs-data!
     # damn this is so easily overlooked
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
 
+on early-init
     restorecon /sys/class/meizu/ps/ps_calibration
 
 
