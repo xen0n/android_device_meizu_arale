@@ -570,6 +570,11 @@
 /sys/class/meizu/ps/ps_calibration u:object_r:meizu_ps_calibration_trigger:s0
 /dev/i2c-3 u:object_r:tfa9890_i2c_device:s0
 
+/data/mpe_mnl(/.*)? u:object_r:mped_data_file:s0
+# no filetrans_pattern
+#/data/mpe_mnl/mnl2mpe u:object_r:mped_mpe2mnl_socket:s0
+#/data/mpe_mnl/mpe2mnl u:object_r:mped_mnl2mpe_socket:s0
+/data/mtk_mpe_server u:object_r:mped_server_socket:s0
 
 # xen0n files
 # TODO

@@ -189,6 +189,9 @@ on post-fs-data
     mkdir /data/mpe_mnl 0771 gps system
     chown gps system /data/mpe_mnl
     chmod 0775 /system/xbin/MPED
+    restorecon_recursive /data/gps_mnl
+    restorecon_recursive /data/mpe_mnl
+    restorecon /data/mtk_mpe_server
 
 # NFC
     mkdir /data/nfc_socket 0771 nfc radio

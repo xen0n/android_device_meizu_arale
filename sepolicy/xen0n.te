@@ -32,8 +32,22 @@ allow mediaserver tfa9890_i2c_device:chr_file { open ioctl read write };
 
 # /system/xbin/MPED
 type mped_exec, exec_type, file_type;
+type mped_data_file, file_type;
+# no filetrans_pattern
+#type mped_mnl2mpe_socket, file_type;
+#type mped_mpe2mnl_socket, file_type;
+type mped_server_socket, file_type;
 type mped, domain;
 init_daemon_domain(mped)
+file_type_auto_trans(mped, system_data_file, mped_data_file)
+#filetrans_pattern(mped, mped_data_file, mped_mnl2mpe_socket, "mnl2mpe")
+
+allow mnld mped_data_file:dir { write remove_name add_name };
+allow mnld mped_data_file:sock_file { create unlink setattr };
+
+allow mped system_data_file:dir { remove_name };
+allow mped mped_data_file:sock_file { unlink };
+allow mped mped_server_socket:sock_file { unlink };
 
 # common vibration types
 type tspdrv_device, dev_type;
