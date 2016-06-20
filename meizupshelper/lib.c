@@ -8,10 +8,17 @@
 #include <fcntl.h>
 
 #include <cutils/log.h>
+#include <selinux/android.h>
 
 #include "meizupshelper.h"
 
 #define MEIZU_PS_CALIBRATION_TRIGGER_PATH "/sys/class/meizu/ps/ps_calibration"
+
+
+static void fix_trigger_file_context(void)
+{
+	selinux_android_restorecon(MEIZU_PS_CALIBRATION_TRIGGER_PATH, 0);
+}
 
 
 int32_t meizu_psh_run_calibration(void)
@@ -19,6 +26,7 @@ int32_t meizu_psh_run_calibration(void)
 	int fd;
 	int ret;
 
+	fix_trigger_file_context();
 	fd = open(MEIZU_PS_CALIBRATION_TRIGGER_PATH, O_WRONLY);
 	if (fd < 0) {
 		ALOGE("%s: failed to open trigger: %s", __func__, strerror(errno));
