@@ -21,13 +21,6 @@ LOCAL_SRC_FILES := \
     mtkcam_cpuctrl.cpp \
 
 LOCAL_SHARED_LIBRARIES := libbinder libutils
-
-# debug libblisrc32.so crash at fastBliConvert_32bit+2440 (0x3288)
-LOCAL_SRC_FILES += \
-    blisrc32.cpp \
-
-LOCAL_SHARED_LIBRARIES += libdl libcutils
-
 LOCAL_MODULE := libmtkabi
 LOCAL_MODULE_TAGS := optional
 
