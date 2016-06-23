@@ -67,6 +67,8 @@ PRODUCT_PACKAGES += \
     audio_policy.default \
     libtinycompress \
     libtinyxml \
+    libblisrc \
+    libblisrc32 \
 
 # this can't be compiled right now due to ABI mismatches (MTK_Tfa98xx_SetEQ),
 # and I don't feel like compiling the whole audio HAL from the source...

@@ -1,0 +1,31 @@
+The library 'libblisrc.so' is an audio resampler implementation.
+This library is pre-built by MediaTek internal.
+
+
+WHAT IT DOES?
+=============
+
+libblisrc.so is an audio resampler, used to transform audio data sampling rate. 
+libblisrc.so only supports 16bit audio data format.
+
+
+HOW IT WAS BUILT?
+==================
+
+It needs the following libs from AOSP:
+1.  libnativehelper.so
+2.  libcutils.so
+3.  libutils.so
+
+and the following libs from MediaTek:
+1.  libmtk_drvb.so
+
+
+HOW TO USE IT?
+==============
+
+The library 'libblisrc.so' is be used by
+audio hal  to generate an appropriate sampling rate data.
+
+
+All the source code of this library were written by MediaTek co..
