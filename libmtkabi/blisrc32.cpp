@@ -26,6 +26,9 @@ typedef int (*P_BLISRC_PROCESS)(void *, char *, void *, unsigned int *, void *, 
 static void *blisrc32_lib;
 static P_BLISRC_PROCESS real_blisrc_process;
 
+// in case p_temp_buf == NULL (it actually is during the crash!)
+static char my_temp_buf[4096];
+
 
 extern "C" int Blisrc_Process(
 		void *p_handle,
@@ -62,7 +65,7 @@ extern "C" int Blisrc_Process(
 
 	int ret = real_blisrc_process(
 			p_handle,
-			p_temp_buf,
+			p_temp_buf ? p_temp_buf : my_temp_buf,
 			p_in_buf, p_in_byte_cnt,
 			p_ou_buf, p_ou_byte_cnt
 			);
