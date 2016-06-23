@@ -17,10 +17,14 @@
 #define LOG_TAG "BlisrcDebug"
 
 #include <dlfcn.h>
+#include <errno.h>
 
 #include <cutils/log.h>
 
 typedef int (*P_BLISRC_PROCESS)(void *, char *, void *, unsigned int *, void *, unsigned int *);
+
+static void *blisrc32_lib;
+static P_BLISRC_PROCESS real_blisrc_process;
 
 
 extern "C" int Blisrc_Process(
@@ -31,14 +35,44 @@ extern "C" int Blisrc_Process(
 		void *p_ou_buf,
 		unsigned int *p_ou_byte_cnt
 		) {
-	ALOGD("Blisrc_Process(%p, %p, %p, %p [=%u], %p, %p [=%u])", p_handle, p_temp_buf, p_in_buf, p_in_byte_cnt, *p_in_byte_cnt, p_ou_buf, p_ou_byte_cnt, *p_ou_byte_cnt);
+	ALOGD(
+			"Blisrc_Process(%p, %p, %p, %p [=%u], %p, %p [=%u])",
+			p_handle,
+			p_temp_buf,
+			p_in_buf, p_in_byte_cnt, *p_in_byte_cnt,
+			p_ou_buf, p_ou_byte_cnt, *p_ou_byte_cnt
+			);
 
-	void *real_blisrc32_handle = dlopen("libblisrc32.so", RTLD_LAZY | RTLD_LOCAL);
-	P_BLISRC_PROCESS real_fn = (P_BLISRC_PROCESS) dlsym(real_blisrc32_handle, "Blisrc_Process");
-	int ret = real_fn(p_handle, p_temp_buf, p_in_buf, p_in_byte_cnt, p_ou_buf, p_ou_byte_cnt);
-	dlclose(real_blisrc32_handle);
+	if (!real_blisrc_process) {
+		if (!blisrc32_lib) {
+			blisrc32_lib = dlopen("libblisrc32.so", RTLD_LAZY | RTLD_LOCAL);
+			if (!blisrc32_lib) {
+				ALOGE("libblisrc32.so open failed: %s", dlerror());
+				return -EINVAL;
+			}
+		}
+		real_blisrc_process = (P_BLISRC_PROCESS) dlsym(blisrc32_lib, "Blisrc_Process");
+		// this is a function symbol, thus never should be null
+		// warning in dlsym's manpage regarding error condition doesn't apply here
+		if (!real_blisrc_process) {
+			ALOGE("dlsym failed: %s", dlerror());
+			return -EINVAL;
+		}
+	}
 
-	ALOGD("Blisrc_Process ret=%d (consumed %u, produced %u)", ret, *p_in_byte_cnt, *p_ou_byte_cnt);
+	int ret = real_blisrc_process(
+			p_handle,
+			p_temp_buf,
+			p_in_buf, p_in_byte_cnt,
+			p_ou_buf, p_ou_byte_cnt
+			);
+
+	ALOGD(
+			"Blisrc_Process ret=%d (consumed %u, produced %u)",
+			ret,
+			*p_in_byte_cnt,
+			*p_ou_byte_cnt
+			);
 
 	return ret;
 }
