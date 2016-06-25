@@ -48,6 +48,10 @@ PRODUCT_PACKAGES += \
     librrc \
     libmtk_drvb \
 
+# Power
+PRODUCT_PACKAGES += \
+    power.mt6595 \
+
 # Lights
 PRODUCT_PACKAGES += \
     lights.mt6595 \
