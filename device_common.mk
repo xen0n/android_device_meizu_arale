@@ -34,10 +34,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libmtkabi
 
-# hack to fix asec on emulated sdcard
-PRODUCT_PACKAGES += \
-    asec_helper
-
 # workaround proximity sensor sometimes losing calibration after making a call
 PRODUCT_PACKAGES += \
     meizupshelper
