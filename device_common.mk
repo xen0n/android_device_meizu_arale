@@ -61,6 +61,10 @@ PRODUCT_PACKAGES += \
     Snap \
     libnvramagentclient \
 
+# Use CM Gello browser
+PRODUCT_PACKAGES += \
+    Gello \
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.r_submix.default \
