@@ -174,6 +174,7 @@ MTK_WVDRM_L1_SUPPORT := no
 
 # Power and native tap-to-wake
 TARGET_POWERHAL_VARIANT := mtk-xen0n
+TARGET_POWER_SET_FEATURE_LIB := power-feature-arale
 
 # system.prop
 TARGET_SYSTEM_PROP := $(DEVICE_FOLDER_COMMON)/system.prop

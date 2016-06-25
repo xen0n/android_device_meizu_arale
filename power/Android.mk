@@ -54,3 +54,15 @@ LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
 
 endif # TARGET_POWERHAL_VARIANT == mtk-xen0n
+
+
+# power feature impl for arale
+include $(CLEAR_VARS)
+
+LOCAL_SRC_FILES := \
+    power-feature-arale.c \
+
+LOCAL_MODULE := power-feature-arale
+LOCAL_MODULE_TAGS := optional
+
+include $(BUILD_STATIC_LIBRARY)
