@@ -58,8 +58,11 @@ BOARD_EGL_CFG := $(DEVICE_FOLDER_COMMON)/configs/egl.cfg
 USE_OPENGL_RENDERER := true
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
 
+# Boot animation
+# Select the 1080-width one; despite the variables' names, they seem to be
+# used by bootanimation only.
 TARGET_SCREEN_HEIGHT := 1920
-TARGET_SCREEN_WIDTH := 1152
+TARGET_SCREEN_WIDTH := 1080  # 1152
 
 # MTK Hardware
 BOARD_HAS_MTK_HARDWARE := true
