@@ -15,6 +15,12 @@ else
 	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
 endif
 
+# Boot animation
+# Select the 1080-width one; despite the variables' names, they seem to be
+# used by bootanimation only.
+TARGET_SCREEN_HEIGHT := 1920
+TARGET_SCREEN_WIDTH := 1080  # 1152
+
 PRODUCT_PACKAGES += \
     libxlog
 
