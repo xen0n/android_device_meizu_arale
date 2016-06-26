@@ -28,7 +28,7 @@
  * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#define LOG_NIDEBUG 0
+/* #define LOG_NDEBUG 0 */
 
 #include <errno.h>
 #include <string.h>
@@ -57,17 +57,17 @@ static pthread_mutex_t hint_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 static void power_init(struct power_module *module)
 {
-    ALOGD("power_init(%p): stub!", module);
+    ALOGV("power_init(%p): stub!", module);
 }
 
 static void process_video_decode_hint(void *metadata)
 {
-    ALOGD("process_video_decode_hint(%p): stub!", metadata);
+    ALOGV("process_video_decode_hint(%p): stub!", metadata);
 }
 
 static void process_video_encode_hint(void *metadata)
 {
-    ALOGD("process_video_encode_hint(%p): stub!", metadata);
+    ALOGV("process_video_encode_hint(%p): stub!", metadata);
 }
 
 int __attribute__ ((weak)) power_hint_override(
@@ -99,7 +99,7 @@ static void power_hint(struct power_module *module, power_hint_t hint,
         case POWER_HINT_AUDIO:
         case POWER_HINT_SET_PROFILE:
         case POWER_HINT_LOW_POWER:
-            ALOGD("power_hint(%p, %d, %p): stub!", module, hint, data);
+            ALOGV("power_hint(%p, %d, %p): stub!", module, hint, data);
         break;
         case POWER_HINT_VIDEO_ENCODE:
             process_video_encode_hint(data);
@@ -149,7 +149,7 @@ void set_interactive(struct power_module *module, int on)
     }
 
     /* ALOGI("Got set_interactive hint"); */
-    ALOGD("set_interactive(%p, %d): stub!", module, on);
+    ALOGV("set_interactive(%p, %d): stub!", module, on);
 
 out:
     pthread_mutex_unlock(&hint_mutex);
