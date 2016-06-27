@@ -63,7 +63,7 @@ on init
 #    chown system system /sys/class/meizu/accdet_calibration/state
 
 on charger
-    mount ext4 /dev/block/platform/mtk-msdc.0/by-name/system /system ro wait
+    mount ext4 /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/system /system ro wait
     # simplest way to fix libshowlogo.so reading from legacy path
     symlink /dev/block/platform/mtk-msdc.0/11230000.MSDC0/by-name/logo /dev/logo
     start kpoc_charger
