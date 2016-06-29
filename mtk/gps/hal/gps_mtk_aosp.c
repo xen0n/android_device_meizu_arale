@@ -115,6 +115,9 @@
 #define DBG(f, ...) ALOGD("%s: line = %d" f, __func__, __LINE__, ##__VA_ARGS__)
 #define VER(f, ...) ((void)0)    // ((void)0)   //
 #else
+#  define TRC(...)    ((void)0)
+#  define ERR(...)    ((void)0)
+#  define WAN(...)    ((void)0)
 #  define DBG(...)    ((void)0)
 #  define VER(...)    ((void)0)
 #endif
