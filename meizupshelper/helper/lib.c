@@ -10,6 +10,8 @@
 
 #include <cutils/log.h>
 
+#include <xen0n/SensorAdjustment.h>
+
 #include "meizupshelper.h"
 
 #define MEIZU_PS_CALIBRATION_TRIGGER_PATH "/sys/class/meizu/ps/ps_calibration"
@@ -37,4 +39,16 @@ int32_t meizu_psh_run_calibration(void)
 	ALOGI("%s: done", __func__);
 	close(fd);
 	return ret;
+}
+
+
+int32_t meizu_psh_run_calibration_stock(void)
+{
+	return calibrate_proximity_sensor();
+}
+
+
+int32_t meizu_psh_read_calibration_value_stock(void)
+{
+	return read_proximity_sensor_calibration_value();
 }
