@@ -7,12 +7,12 @@ for building instructions.
 
 ## Acknowledgements
 
-(in no particular order)
+(in alphabetical order)
 
-* fire855
-* DerTeufel
 * ccfxny
+* DerTeufel
 * ferhung
+* fire855
 * hyperion70
 * varunchitre15
 * others I might have forgotten to include
