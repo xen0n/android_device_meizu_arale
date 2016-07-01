@@ -11,7 +11,10 @@ extern "C" {
 
 int calibrate_proximity_sensor(void);
 int read_proximity_sensor_calibration_value(void);
-int write_proximity_sensor_calibration_value(int magic, int value);
+
+// value should be < 1000 or fail
+int write_proximity_sensor_calibration_value(int value);
+int write_proximity_sensor_calib_value(int value);
 
 /* TODO: other functions */
 

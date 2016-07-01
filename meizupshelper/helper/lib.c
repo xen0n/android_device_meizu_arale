@@ -52,3 +52,9 @@ int32_t meizu_psh_read_calibration_value_stock(void)
 {
 	return read_proximity_sensor_calibration_value();
 }
+
+
+int32_t meizu_psh_write_calibration_value_stock(int32_t value)
+{
+	return write_proximity_sensor_calibration_value(value);
+}

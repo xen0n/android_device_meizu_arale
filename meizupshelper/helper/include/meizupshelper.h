@@ -7,5 +7,6 @@
 int32_t meizu_psh_run_calibration(void);
 int32_t meizu_psh_run_calibration_stock(void);
 int32_t meizu_psh_read_calibration_value_stock(void);
+int32_t meizu_psh_write_calibration_value_stock(int32_t value);
 
 #endif  /* _MEIZUPSHELPER_H_ */
