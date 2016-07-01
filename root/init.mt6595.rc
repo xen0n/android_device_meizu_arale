@@ -194,6 +194,9 @@ on post-fs-data
     restorecon_recursive /data/gps_mnl
     restorecon_recursive /data/mpe_mnl
     restorecon /data/mtk_mpe_server
+    # xen0n: fix GPS HAL downloading EPO data to non-existent directory
+    mkdir /data/misc/gps 0771 gps system
+    restorecon_recursive /data/misc/gps
 
 # NFC
     mkdir /data/nfc_socket 0771 nfc radio
