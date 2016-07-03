@@ -26,7 +26,7 @@ ro.hwui.text_large_cache_height=1024
 ro.hwui.disable_asset_atlas=true
 
 # show software keys
-qemu.hw.mainkeys=0
+#qemu.hw.mainkeys=0
 
 # WiFi
 wifi.interface=wlan0
