@@ -162,6 +162,10 @@
                         LOGMUX(LOG_ERR,"system-error: '%s' (code: %d)", strerror(errno), errno);\
                         return -1;}\
                     }while(0)
+#define SYSCHECK_NORET(c) do{if((c)<0){ \
+                        LOGMUX(LOG_ERR,"system-error: '%s' (code: %d)", strerror(errno), errno);\
+                        return;}\
+                    }while(0)
 #ifndef min
 #define min(a,b) ((a < b) ? a :b)
 #endif

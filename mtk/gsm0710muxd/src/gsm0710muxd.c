@@ -2821,7 +2821,7 @@ void signal_treatment(int param)
         if(stop_muxd != 1){
             stop_muxd = 1;
             LOGMUX(LOG_ERR, "Close CCCI port,fd=%d",serial.fd);
-            SYSCHECK(shutdown_devices(SHUTDOWN_DEV_W_ACTIVE_FINALIZED));
+            SYSCHECK_NORET(shutdown_devices(SHUTDOWN_DEV_W_ACTIVE_FINALIZED));
         }
         exit(0);
         break;
