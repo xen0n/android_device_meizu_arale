@@ -239,7 +239,7 @@ agps_context g_agps_ctx;
 
 #if EPO_SUPPORT
 #define  GPS_EPO_FILE_LEN  20
-#define C_INVALID_TIMER -1  /*invalid timer */
+#define C_INVALID_TIMER ((timer_t)(-1))  /*invalid timer */
 static int gps_epo_period = 3;
 static int wifi_epo_period = 1;
 static int gps_epo_download_days = 30;
@@ -1451,7 +1451,7 @@ typedef struct {
     int     cb_status_changed;
     int     sv_count;           /*used to count the number of received SV information*/
     GpsSvStatus   sv_status_gps;
-    GnssSvStatus  sv_status_gnss;
+    MTKLegacyGnssSvStatus  sv_status_gnss;
     GpsCallbacks  callbacks;
 #ifdef GPS_AT_COMMAND
    //     GpsTestResult test_result;
@@ -2408,8 +2408,10 @@ nmea_reader_parse(NmeaReader* const r)
     if (callback_backup_mtk.base.size == sizeof(GpsCallbacks_mtk)) {
         if (r->sv_status_gnss.num_svs != 0 && gps_nmea_end_tag) {
             DBG("r->sv_status_gnss.num_svs = %d, gps_nmea_end_tag = %d", r->sv_status_gnss.num_svs, gps_nmea_end_tag);
-            r->sv_status_gnss.size = sizeof(GnssSvStatus);
+            r->sv_status_gnss.size = sizeof(MTKLegacyGnssSvStatus);
+#if 0  // TODO
             callback_backup_mtk.base.gnss_sv_status_cb(&r->sv_status_gnss);
+#endif
             r->sv_count = r->sv_status_gnss.num_svs = 0;
             memset(sv_used_in_fix, 0, 256*sizeof(int));
         }
@@ -4860,7 +4862,6 @@ void mtk_gps_navigation_close() {
 
     gpsnavigation_init_flag = 0;
     DBG("mtk_gps_navigation_close done\n");
-    return NULL;
 }
 
 static const GpsNavigationMessageInterface mtkGpsNavigationMessageInterface = {

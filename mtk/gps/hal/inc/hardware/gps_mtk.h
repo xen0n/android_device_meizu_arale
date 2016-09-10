@@ -18,6 +18,7 @@
 #define ANDROID_INCLUDE_HARDWARE_GPS_MTK_H
 
 #include <hardware/gps.h>
+#include <hardware/gps_internal.h>
 
 __BEGIN_DECLS
 
