@@ -540,7 +540,7 @@ void GuiExtPoolItem::createBufferQueue(uint32_t w, uint32_t h, uint32_t num, Str
 
     consumer->setDefaultBufferSize(w, h);
     consumer->setConsumerName(name);
-	producer->setBufferCount(num);
+	producer->setMaxDequeuedBufferCount(num);  // TODO(xen0n): not sure if this is semantically identical to the now gone setBufferCount()
 	consumer->setMaxAcquiredBufferCount(2);
 
     // consumer connect
@@ -596,7 +596,7 @@ status_t GuiExtPoolItem::prepareBuffer(sp<IGraphicBufferProducer> producer, uint
         int buf = -1;
         sp<Fence> fence;
 
-        producer->dequeueBuffer(&buf, &fence, false, 0, 0, fmt, usg);
+        producer->dequeueBuffer(&buf, &fence, 0, 0, fmt, usg);
 
         uint32_t combine_id = POOL_COMBINED_ID(usage, type, i);
         sp<ConsumerSlot> consumerSlot = mConsumerList.valueFor(combine_id);
@@ -667,7 +667,7 @@ status_t GuiExtPoolItem::acquire(const sp<IBinder>& token, uint32_t usage, uint3
     }
     sp<Fence> fence;
     uint32_t fmt = gAcquiredFormat[usage];
-    status_t ret = producer->dequeueBuffer(buf, &fence, false, 0, 0, fmt, LOCK_FOR_USAGE);
+    status_t ret = producer->dequeueBuffer(buf, &fence, 0, 0, fmt, LOCK_FOR_USAGE);
     if (ret == WOULD_BLOCK || *buf < 0) {
         GUIEXT_LOGW("    acquire a pool=%d has no free slot", mId);
         return WOULD_BLOCK;
