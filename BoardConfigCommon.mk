@@ -72,7 +72,8 @@ BOARD_HARDWARE_CLASS := $(DEVICE_FOLDER_COMMON)/cmhw
 
 # Audio
 # source-compiled TFA9890 support
-NXP_SMARTPA_SUPPORT := tfa9890
+# not usable even in CM13.0, disabled
+#NXP_SMARTPA_SUPPORT := tfa9890
 
 # RIL
 # moved to forked frameworks_opt_telephony repo
