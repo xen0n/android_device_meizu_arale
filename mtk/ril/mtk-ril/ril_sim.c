@@ -164,7 +164,7 @@ int isSimInserted(RIL_SOCKET_ID rid) {
         //[ALPS01631073]-START : "sim_inserted_status" is 0 when MTK_GEMINI=false
         char iccid[PROPERTY_VALUE_MAX] = {0};
         property_get(PROPERTY_ICCID_SIM[getMappingSIMByCurrentMode(rid)], iccid, "");
-        if ((iccid != NULL) && (strlen(iccid) > 0) && (strcmp(iccid, "N/A") != 0)){
+        if ((strlen(iccid) > 0) && (strcmp(iccid, "N/A") != 0)){
             simInserted = 1;
         }
         LOGD("isSimInserted(): rid: %d, sim_inserted_status: %d", rid, sim_inserted_status);

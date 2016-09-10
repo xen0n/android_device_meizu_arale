@@ -985,7 +985,7 @@ static int at_send_command_full(const char *command, ATCommandType type,
                     aee_system_exception("mtkrild", NULL, DB_OPT_DEFAULT, pErrMsg);
                     exit(0);
                     #else
-                    LOG_ALWAYS_FATAL(pErrMsg);
+                    LOG_ALWAYS_FATAL("%s", pErrMsg);
                     #endif
                 } else {
                     snprintf(pErrMsg, 200, "Modem already exception, assert!!!  AT cmd: %s, timer: %dms\nCRDISPATCH_KEY:ATTO=%s", key, timeoutMsec, key);
@@ -1515,7 +1515,7 @@ const char *channelIdToString(RILChannelId id)
     }
 }
 
-inline int isATCmdRspErr(int err, const ATResponse *p_response)
+int isATCmdRspErr(int err, const ATResponse *p_response)
 {
     //assert(p_response); //checking null here ???
     return (err < 0 || 0 == p_response->success) ? 1: 0;

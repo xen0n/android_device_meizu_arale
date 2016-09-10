@@ -55,6 +55,7 @@
 #include <cutils/properties.h>
 #include <cutils/sockets.h>
 #include <termios.h>
+#include <arpa/inet.h>
 
 #include <utils/Log.h>
 #include <rilc.h>

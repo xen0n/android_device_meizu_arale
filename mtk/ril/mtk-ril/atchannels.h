@@ -287,7 +287,7 @@ typedef enum {
 AT_CME_Error at_get_cme_error(const ATResponse *p_response);
 void sleepMsec(long long msec);
 
-inline int isATCmdRspErr(int err, const ATResponse *p_response);
+int isATCmdRspErr(int err, const ATResponse *p_response);
 int isSMSUnsolicited(const char *line);
 int getSupportChannels();
 #ifdef __cplusplus

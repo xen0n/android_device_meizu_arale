@@ -1727,7 +1727,7 @@ int at_send_command_to_ppp_data_channel(const char *command, ATResponse **pp_out
     return err;
 }
 
-inline int isATCmdRspErr(int err, const ATResponse *p_response)
+int isATCmdRspErr(int err, const ATResponse *p_response)
 {
     //assert(p_response); //checking null here ???
     return (err < 0 || 0 == p_response->success) ? 1: 0;
