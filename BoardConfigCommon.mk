@@ -76,6 +76,7 @@ BOARD_HARDWARE_CLASS := $(DEVICE_FOLDER_COMMON)/cmhw
 #NXP_SMARTPA_SUPPORT := tfa9890
 
 # RIL
+BOARD_PROVIDES_RILD := true
 # moved to forked frameworks_opt_telephony repo
 #BOARD_RIL_CLASS := ../../../$(DEVICE_FOLDER)/ril/
 MTK_CIP_SUPPORT := yes
@@ -218,7 +219,7 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/virtual/android_usb/android0/f_
 #    $(DEVICE_FOLDER_COMMON)/sepolicy
 
 # NOTE: remove this once Marshmallow kernel is available
-#POLICYVERS := 29
+POLICYVERS := 29
 
 # Hack for building without kernel sources
 ifeq ($(TARGET_DEVICE),arale)
