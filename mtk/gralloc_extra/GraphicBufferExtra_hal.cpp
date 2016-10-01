@@ -107,11 +107,6 @@ int android::GraphicBufferExtra::query(
         ALOGW("gralloc extra device query(...) is not supported");
         return -GRALLOC_EXTRA_NOT_SUPPORTED;
     }
-	// ALOGD("android::GraphicBufferExtra::query(%p, %d, %p)", handle, attribute, out_pointer);
-	if (handle < (buffer_handle_t) 0x80000000) {
-		ALOGE("android::GraphicBufferExtra::query(%p, %d, %p): handle possibly invalid!", handle, attribute, out_pointer);
-		return -GRALLOC_EXTRA_NOT_SUPPORTED;
-	}
     err = mExtraDev->query(mExtraDev, handle, attribute, out_pointer);
     if (err < 0) 
         ALOGW("query(0x%x) failed %d", attribute, err);
@@ -128,11 +123,6 @@ int android::GraphicBufferExtra::perform(
         ALOGW("gralloc extra device perform(...) is not supported");
         return -GRALLOC_EXTRA_NOT_SUPPORTED;
     }
-	// ALOGD("android::GraphicBufferExtra::perform(%p, %d, %p)", handle, attribute, in_pointer);
-	if (handle < (buffer_handle_t) 0x80000000) {
-		ALOGE("android::GraphicBufferExtra::perform(%p, %d, %p): handle possibly invalid!", handle, attribute, in_pointer);
-		return -GRALLOC_EXTRA_NOT_SUPPORTED;
-	}
     err = mExtraDev->perform(mExtraDev, handle, attribute, in_pointer); 
     if (err < 0)
         ALOGW("perform(0x%x) failed %d", attribute, err); 
